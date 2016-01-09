@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2016 21:01:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.POJOs.Bookmark" table="bookmark" catalog="naka_database" optimistic-lock="version">
+        <id name="cod" type="java.lang.Integer">
+            <column name="cod" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="crew" class="Hibernate.POJOs.Crew" fetch="select">
+            <column name="crew" length="100" not-null="true" />
+        </many-to-one>
+        <property name="description" type="string">
+            <column name="description" length="200" not-null="true" />
+        </property>
+        <property name="date" type="string">
+            <column name="date" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

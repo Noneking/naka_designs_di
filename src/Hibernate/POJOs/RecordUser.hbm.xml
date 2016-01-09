@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2016 21:01:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.POJOs.RecordUser" table="record_user" catalog="naka_database" optimistic-lock="version">
+        <id name="cod" type="java.lang.Integer">
+            <column name="cod" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="record" class="Hibernate.POJOs.Record" fetch="select">
+            <column name="record" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="Hibernate.POJOs.User" fetch="select">
+            <column name="user" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

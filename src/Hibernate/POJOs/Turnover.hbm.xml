@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2016 21:01:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.POJOs.Turnover" table="turnover" catalog="naka_database" optimistic-lock="version">
+        <id name="cod" type="java.lang.Integer">
+            <column name="cod" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="productRecord" class="Hibernate.POJOs.ProductRecord" fetch="select">
+            <column name="product_record" not-null="true" />
+        </many-to-one>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+        <property name="price" type="double">
+            <column name="price" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

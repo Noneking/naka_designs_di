@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/naka_database?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="Hibernate/POJOs/User.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Category.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Basket.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Material.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Bookmark.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/ProductRecord.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/ProductMaterial.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Crew.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Product.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Record.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/RecordUser.hbm.xml"/>
+    <mapping resource="Hibernate/POJOs/Turnover.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

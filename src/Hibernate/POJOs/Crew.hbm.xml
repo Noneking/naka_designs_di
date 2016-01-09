@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-ene-2016 21:01:19 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.POJOs.Crew" table="crew" catalog="naka_database" optimistic-lock="version">
+        <id name="email" type="string">
+            <column name="email" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="nickname" type="string">
+            <column name="nickname" length="20" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="30" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="50" not-null="true" />
+        </property>
+        <property name="surname" type="string">
+            <column name="surname" length="50" not-null="true" />
+        </property>
+        <property name="phoneNumber" type="string">
+            <column name="phone_number" length="12" not-null="true" />
+        </property>
+        <property name="role" type="string">
+            <column name="role" length="2" not-null="true" />
+        </property>
+        <set name="bookmarks" table="bookmark" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="crew" length="100" not-null="true" />
+            </key>
+            <one-to-many class="Hibernate.POJOs.Bookmark" />
+        </set>
+    </class>
+</hibernate-mapping>
