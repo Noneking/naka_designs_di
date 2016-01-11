@@ -12,11 +12,7 @@ import View.Main;
  * @author nonek
  */
 public class RUN {
-    
-    public static Controller c;
-    
     public static void main(String args[]) {
-         new Controller(new Main()).initViews();
+         new Controller_Login(new Main()).initViews();
     }
-    
 }
