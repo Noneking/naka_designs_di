@@ -33,26 +33,28 @@ public class Controller_Main implements ActionListener {
     
     Main v;
     
-    public Controller_Main(Main v)
-    {
+    public Controller_Main(Main v){
         this.v=v;
     }
+    
     public enum Actions{
         btn_categorias;
-        
     }
-    public void initViews()
-    {
+    
+    public void initViews(){
         this.v.jSplitPane2.setDividerLocation(0);
         this.v.jSplitPane2.setDividerSize(0);
         this.v.setVisible(true);
         this.v.setLocationRelativeTo(null);
         
+        //JTableMain
+        
+    }
+    
+    public void initListeners(){
         this.v.jButtonCategorias.setActionCommand("btn_categorias");
         this.v.jButtonCategorias.addActionListener(this);
     }
-    
-   
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -60,12 +62,12 @@ public class Controller_Main implements ActionListener {
         switch(Actions.valueOf(e.getActionCommand())){
             case btn_categorias:
                 this.v.jSplitPane2.setDividerLocation(300);
-        this.v.jSplitPane2.setDividerSize(5);
-        
-        this.v.jPanelOptions.setLayout(new BorderLayout());
-        this.v.jPanelOptions.add(this.v.jPanelCategorias, BorderLayout.CENTER);
-        this.v.jPanelOptions.setVisible(false);
-        this.v.jPanelOptions.setVisible(true);
+                this.v.jSplitPane2.setDividerSize(5);
+
+                this.v.jPanelOptions.setLayout(new BorderLayout());
+                this.v.jPanelOptions.add(this.v.jPanelCategorias, BorderLayout.CENTER);
+                this.v.jPanelOptions.setVisible(false);
+                this.v.jPanelOptions.setVisible(true);
                 break;
             
         }
@@ -84,11 +86,11 @@ public class Controller_Main implements ActionListener {
 //        this.v.jPanelMain.add(label);
 //    }
 //    
-//    public void panelSetSizeBy(JPanel panelPadre, JPanel panelHijo)
-//    {
-//        Dimension d=panelPadre.getSize();
-//        panelHijo.setSize(d);
-//    }
+    public void panelSetSizeBy(JPanel panelPadre, JPanel panelHijo)
+    {
+        Dimension d=panelPadre.getSize();
+        panelHijo.setSize(d);
+    }
 
     
 }
