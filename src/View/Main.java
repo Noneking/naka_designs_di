@@ -131,11 +131,12 @@ public class Main extends javax.swing.JFrame {
         jSplitPane2 = new javax.swing.JSplitPane();
         jPanelOptions = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
-        jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
+        jToolBar2 = new javax.swing.JToolBar();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -262,7 +263,7 @@ public class Main extends javax.swing.JFrame {
         jPanelTableMain.setLayout(jPanelTableMainLayout);
         jPanelTableMainLayout.setHorizontalGroup(
             jPanelTableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
         );
         jPanelTableMainLayout.setVerticalGroup(
             jPanelTableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -827,6 +828,7 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 255));
 
+        jSplitPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jSplitPane1.setDividerLocation(150);
 
         jPanelCategory.setBackground(new java.awt.Color(255, 51, 204));
@@ -874,7 +876,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jButtonCarritos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonHistorialVentas)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(299, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanelCategory);
@@ -891,7 +893,7 @@ public class Main extends javax.swing.JFrame {
         );
         jPanelOptionsLayout.setVerticalGroup(
             jPanelOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
 
         jSplitPane2.setLeftComponent(jPanelOptions);
@@ -902,11 +904,11 @@ public class Main extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 563, Short.MAX_VALUE)
+            .addGap(0, 507, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 498, Short.MAX_VALUE)
+            .addGap(0, 576, Short.MAX_VALUE)
         );
 
         jSplitPane2.setRightComponent(jPanel4);
@@ -924,39 +926,59 @@ public class Main extends javax.swing.JFrame {
 
         jSplitPane1.setRightComponent(jPanel2);
 
-        jToolBar1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
+        jToolBar1.setBorderPainted(false);
 
-        jButton3.setText("Modifi");
-        jToolBar1.add(jButton3);
+        jButton1.setText("jButton1");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton1);
 
-        jToggleButton1.setText("Delete");
+        jToggleButton1.setText("jToggleButton1");
         jToggleButton1.setFocusable(false);
         jToggleButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToggleButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jToggleButton1);
 
-        jLabel11.setText("                                                                                                                                 Iniciado sesion como:  ");
-        jToolBar1.add(jLabel11);
+        jToolBar2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
+        jToolBar2.setBorderPainted(false);
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel12.setText("                   UsuarioPrueba");
-        jToolBar1.add(jLabel12);
+        jLabel11.setText("jLabel11");
+        jToolBar2.add(jLabel11);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToolBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jToolBar2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
         jPanelMain.setLayout(jPanelMainLayout);
         jPanelMainLayout.setHorizontalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSplitPane1)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanelMainLayout.setVerticalGroup(
             jPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelMainLayout.createSequentialGroup()
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addComponent(jSplitPane1))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Archivo");
@@ -1061,6 +1083,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField Ptxt_login_password;
     public javax.swing.JButton btn_Login;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1069,7 +1092,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -1091,7 +1113,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1157,6 +1178,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     public javax.swing.JPanel jPanelCarritos;
     public javax.swing.JPanel jPanelCategorias;
     public javax.swing.JPanel jPanelCategory;
@@ -1203,6 +1225,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     public javax.swing.JTextField txt_login_user;
     // End of variables declaration//GEN-END:variables
 }
