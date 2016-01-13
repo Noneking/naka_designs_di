@@ -6,6 +6,7 @@
 package Controller;
 
 import View.Main;
+import javax.swing.UIManager;
 
 /**
  *
@@ -13,6 +14,14 @@ import View.Main;
  */
 public class RUN {
     public static void main(String args[]) {
+        try {
+            UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
+            
+            UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel");
+//            SwingUtilities.updateComponentTreeUI(v);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
          new Controller_Login(new Main()).initViews();
     }
 }

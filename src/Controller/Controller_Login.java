@@ -9,6 +9,7 @@ import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Icon;
@@ -43,8 +44,10 @@ public class Controller_Login implements ActionListener {
         
         this.v.btn_Login.setActionCommand("btn_Login");
         this.v.btn_Login.addActionListener(this);
-        this.v.btn_X.setActionCommand("btn_X");
-        this.v.btn_X.addActionListener(this);
+//        this.v.btn_X.setActionCommand("btn_X");
+//        this.v.btn_X.addActionListener(this);
+        
+        this.v.jFrameLoggin.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         
     }
     

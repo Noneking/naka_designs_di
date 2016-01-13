@@ -7,6 +7,7 @@ package Controller;
 
 import View.Main;
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,8 @@ public class Controller_Main implements ActionListener {
         btn_clientes,
         btn_empleados,
         btn_carritos,
-        esconder
+        esconderRosa,
+        esconderAzul
         
     }
     
@@ -41,11 +43,12 @@ public class Controller_Main implements ActionListener {
         this.v.SplitPane2.setDividerLocation(0);
         this.v.SplitPane2.setDividerSize(0);
         this.v.pnl_split2_izquierda.setLayout(new BorderLayout());
+        this.v.pnl_split2_derecha.setLayout(new BorderLayout());
         
         this.v.setVisible(true);
         this.v.setLocationRelativeTo(null);
         initListeners();
-        
+        this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         //JTableMain
         
     }
@@ -65,8 +68,10 @@ public class Controller_Main implements ActionListener {
         this.v.btn_Carritos.setActionCommand("btn_carritos");
         this.v.btn_Carritos.addActionListener(this);
         
-        this.v.btn_esconder.setActionCommand("esconder");
-        this.v.btn_esconder.addActionListener(this);
+        this.v.btn_esconderRosa.setActionCommand("esconderRosa");
+        this.v.btn_esconderRosa.addActionListener(this);
+        this.v.btn_esconderAzul.setActionCommand("esconderAzul");
+        this.v.btn_esconderAzul.addActionListener(this);
         
     }
     
@@ -76,6 +81,7 @@ public class Controller_Main implements ActionListener {
         switch(Actions.valueOf(e.getActionCommand())){
             
             case btn_categorias:
+                ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Categorias,BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
@@ -83,9 +89,11 @@ public class Controller_Main implements ActionListener {
                 
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
+                this.v.btn_esconderAzul.setText(">");
                 break;
                 
             case btn_materiales:
+                ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Materiales, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
@@ -93,10 +101,12 @@ public class Controller_Main implements ActionListener {
                 
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
+                this.v.btn_esconderAzul.setText(">");
                 
                 break;
                 
             case btn_productos:
+                ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
@@ -104,9 +114,11 @@ public class Controller_Main implements ActionListener {
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Productos, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
+                this.v.btn_esconderAzul.setText(">");
                 break;
                 
             case btn_clientes:
+                ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
@@ -114,9 +126,11 @@ public class Controller_Main implements ActionListener {
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Clientes, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
+                this.v.btn_esconderAzul.setText(">");
                 break;
                 
             case btn_empleados:
+                ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
@@ -124,9 +138,11 @@ public class Controller_Main implements ActionListener {
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Empleado, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
+                this.v.btn_esconderAzul.setText(">");
                 break;
                 
             case btn_carritos:
+                ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
@@ -134,10 +150,25 @@ public class Controller_Main implements ActionListener {
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Carrito, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
+                this.v.btn_esconderAzul.setText(">");
                 break;
                 
-            case esconder:
+            case esconderRosa:
+                if(this.v.btn_esconderRosa.getText().equals(">")){
+                   esconderSplit(this.v.SplitPane1);
+                   this.v.btn_esconderRosa.setText("<");
+                }else if(this.v.btn_esconderRosa.getText().equals("<")){
+                    this.v.SplitPane1.setDividerLocation(150);
+                    this.v.SplitPane1.setDividerSize(5);
+                    this.v.btn_esconderRosa.setText(">");
+                }
+                break;
+                
+            case esconderAzul:
+                
                 esconderSplit(this.v.SplitPane2);
+                this.v.btn_esconderAzul.setText("<");
+                this.v.pnl_split2_izquierda.removeAll();
                 break;
             
         }
@@ -145,7 +176,9 @@ public class Controller_Main implements ActionListener {
         
         
     }
-    
+    public void ponerEsaTablaToGuapaYReshulona(){
+        this.v.pnl_split2_derecha.add(this.v.pnl_TableMain,BorderLayout.CENTER);
+    }
     public void esconderSplit(JSplitPane sp){
         
         sp.setDividerLocation(0);

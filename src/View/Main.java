@@ -30,7 +30,6 @@ public class Main extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btn_Login = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        btn_X = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         pnl_TableMain = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -77,7 +76,6 @@ public class Main extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jTextField13 = new javax.swing.JTextField();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
@@ -121,7 +119,6 @@ public class Main extends javax.swing.JFrame {
         btn_Carritos = new javax.swing.JButton();
         btn_Empleados = new javax.swing.JButton();
         btn_Materiales = new javax.swing.JButton();
-        btn_esconder = new javax.swing.JButton();
         pnl_split1_derecha = new javax.swing.JPanel();
         SplitPane2 = new javax.swing.JSplitPane();
         pnl_split2_izquierda = new javax.swing.JPanel();
@@ -133,6 +130,9 @@ public class Main extends javax.swing.JFrame {
         tb_secundario = new javax.swing.JToolBar();
         eti_tool_usuario = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        btn_esconderAzul = new javax.swing.JButton();
+        btn_esconderRosa = new javax.swing.JButton();
         manu_bar = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
         menu_archivo_crear = new javax.swing.JMenu();
@@ -206,13 +206,6 @@ public class Main extends javax.swing.JFrame {
         jPanelLogin.add(jLabel5);
         jLabel5.setBounds(10, 272, 341, 60);
 
-        btn_X.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/x-botton.jpg"))); // NOI18N
-        btn_X.setBorder(null);
-        btn_X.setBorderPainted(false);
-        btn_X.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/x-botton_press.jpg"))); // NOI18N
-        jPanelLogin.add(btn_X);
-        btn_X.setBounds(340, 0, 15, 14);
-
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/naka_designs_sevilla_logo.png"))); // NOI18N
         jPanelLogin.add(jLabel18);
         jLabel18.setBounds(0, 0, 360, 360);
@@ -228,6 +221,11 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jPanelLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        pnl_TableMain.setBackground(new java.awt.Color(255, 255, 51));
+
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setOpaque(false);
+
         jTableMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -239,17 +237,18 @@ public class Main extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTableMain.setOpaque(false);
         jScrollPane1.setViewportView(jTableMain);
 
         javax.swing.GroupLayout pnl_TableMainLayout = new javax.swing.GroupLayout(pnl_TableMain);
         pnl_TableMain.setLayout(pnl_TableMainLayout);
         pnl_TableMainLayout.setHorizontalGroup(
             pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
         pnl_TableMainLayout.setVerticalGroup(
             pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
         );
 
         pnl_Categorias.setBackground(new java.awt.Color(0, 204, 255));
@@ -456,8 +455,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel25.setText("Re-password:");
 
-        jButton9.setText("<");
-
         jButton10.setText("Introducir");
 
         jLabel27.setText("Tlf - movil:");
@@ -495,9 +492,6 @@ public class Main extends javax.swing.JFrame {
                         .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField12)
                             .addComponent(jTextField13)))
-                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pnl_ClientesLayout.createSequentialGroup()
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -539,9 +533,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
-                .addComponent(jButton9)
-                .addContainerGap())
+                .addContainerGap(233, Short.MAX_VALUE))
         );
 
         pnl_Empleado.setBackground(new java.awt.Color(0, 204, 255));
@@ -766,8 +758,6 @@ public class Main extends javax.swing.JFrame {
 
         btn_Materiales.setText("Materiales");
 
-        btn_esconder.setText("<");
-
         javax.swing.GroupLayout pnl_split1_izquierdaLayout = new javax.swing.GroupLayout(pnl_split1_izquierda);
         pnl_split1_izquierda.setLayout(pnl_split1_izquierdaLayout);
         pnl_split1_izquierdaLayout.setHorizontalGroup(
@@ -778,10 +768,6 @@ public class Main extends javax.swing.JFrame {
             .addComponent(btn_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_Carritos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(btn_Empleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_esconder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         pnl_split1_izquierdaLayout.setVerticalGroup(
             pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -798,9 +784,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btn_Empleados)
                 .addGap(39, 39, 39)
                 .addComponent(btn_Carritos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
-                .addComponent(btn_esconder)
-                .addContainerGap())
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
@@ -817,7 +801,7 @@ public class Main extends javax.swing.JFrame {
         );
         pnl_split2_izquierdaLayout.setVerticalGroup(
             pnl_split2_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         SplitPane2.setLeftComponent(pnl_split2_izquierda);
@@ -832,7 +816,7 @@ public class Main extends javax.swing.JFrame {
         );
         pnl_split2_derechaLayout.setVerticalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         SplitPane2.setRightComponent(pnl_split2_derecha);
@@ -875,12 +859,43 @@ public class Main extends javax.swing.JFrame {
         eti_tool_usuario.setText("Usuario");
         tb_secundario.add(eti_tool_usuario);
 
+        btn_esconderAzul.setBackground(new java.awt.Color(0, 204, 255));
+        btn_esconderAzul.setForeground(new java.awt.Color(255, 255, 255));
+        btn_esconderAzul.setText("<");
+        btn_esconderAzul.setContentAreaFilled(false);
+        btn_esconderAzul.setOpaque(true);
+
+        btn_esconderRosa.setBackground(new java.awt.Color(255, 51, 204));
+        btn_esconderRosa.setForeground(new java.awt.Color(255, 255, 255));
+        btn_esconderRosa.setText(">");
+        btn_esconderRosa.setContentAreaFilled(false);
+        btn_esconderRosa.setOpaque(true);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_esconderAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(btn_esconderRosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_esconderAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout pnl_ToolBarsLayout = new javax.swing.GroupLayout(pnl_ToolBars);
         pnl_ToolBars.setLayout(pnl_ToolBarsLayout);
         pnl_ToolBarsLayout.setHorizontalGroup(
             pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_ToolBarsLayout.createSequentialGroup()
-                .addComponent(tb_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 543, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tb_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -889,8 +904,9 @@ public class Main extends javax.swing.JFrame {
         pnl_ToolBarsLayout.setVerticalGroup(
             pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tb_secundario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+            .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
             .addComponent(jTextField7)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout pnl_MainLayout = new javax.swing.GroupLayout(pnl_Main);
@@ -1045,8 +1061,8 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_Login;
     public javax.swing.JButton btn_Materiales;
     public javax.swing.JButton btn_Productos;
-    public javax.swing.JButton btn_X;
-    public javax.swing.JButton btn_esconder;
+    public javax.swing.JButton btn_esconderAzul;
+    public javax.swing.JButton btn_esconderRosa;
     private javax.swing.JButton btn_tool_modificar;
     private javax.swing.JLabel eti_tool_usuario;
     private javax.swing.JButton jButton10;
@@ -1057,7 +1073,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonBuscarCliente;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox3;
@@ -1103,6 +1118,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JScrollPane jScrollPane1;
