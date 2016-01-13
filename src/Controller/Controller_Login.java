@@ -29,19 +29,22 @@ public class Controller_Login implements ActionListener {
         this.v=v;
     }
     public enum Actions{
-        btn_Login;
+        btn_Login,
+        btn_X;
         
     }
     public void initViews()
     {
 
-        this.v.jFrameLoggin.setSize(500, 500);
+        this.v.jFrameLoggin.setSize(361, 360);
         this.v.jFrameLoggin.setLocationRelativeTo(null);
         this.v.jFrameLoggin.setVisible(true);
         
         
         this.v.btn_Login.setActionCommand("btn_Login");
         this.v.btn_Login.addActionListener(this);
+        this.v.btn_X.setActionCommand("btn_X");
+        this.v.btn_X.addActionListener(this);
         
     }
     
@@ -52,12 +55,19 @@ public class Controller_Login implements ActionListener {
         
         switch(Actions.valueOf(e.getActionCommand())){
             case btn_Login:
-                    String user = ""+this.v.txt_login_user.getText();
-                    if(user.equals("admin")){
-                            this.v.jFrameLoggin.setVisible(false);
-                                new Controller_Main(new Main()).initViews();
-                    }
+                
+//                    String user = ""+this.v.txt_login_user.getText();
+//                    if(user.equals("admin")){
+//                            this.v.jFrameLoggin.setVisible(false);
+//                                new Controller_Main(new Main()).initViews();
+//                    }
+                this.v.jFrameLoggin.setVisible(false);
+                new Controller_Main(new Main()).initViews();
                 break;
+            case btn_X:
+                    System.exit(0);
+                break;
+                
         }
         
     }
