@@ -125,7 +125,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split2_derecha = new javax.swing.JPanel();
         pnl_ToolBars = new javax.swing.JPanel();
         tb_principal = new javax.swing.JToolBar();
-        jButton1 = new javax.swing.JButton();
+        btn_tool_insertar = new javax.swing.JButton();
         btn_tool_modificar = new javax.swing.JButton();
         tgb_tool_eliminar = new javax.swing.JToggleButton();
         tb_secundario = new javax.swing.JToolBar();
@@ -840,11 +840,11 @@ public class Main extends javax.swing.JFrame {
         tb_principal.setRollover(true);
         tb_principal.setBorderPainted(false);
 
-        jButton1.setText("Insertar");
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tb_principal.add(jButton1);
+        btn_tool_insertar.setText("Insertar");
+        btn_tool_insertar.setFocusable(false);
+        btn_tool_insertar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_tool_insertar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        tb_principal.add(btn_tool_insertar);
 
         btn_tool_modificar.setText("Modificar");
         btn_tool_modificar.setFocusable(false);
@@ -1069,9 +1069,9 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_Productos;
     public javax.swing.JButton btn_esconderAzul;
     public javax.swing.JButton btn_esconderRosa;
-    private javax.swing.JButton btn_tool_modificar;
+    public javax.swing.JButton btn_tool_insertar;
+    public javax.swing.JButton btn_tool_modificar;
     private javax.swing.JLabel eti_tool_usuario;
-    private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton7;
@@ -1199,7 +1199,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_split2_izquierda;
     private javax.swing.JToolBar tb_principal;
     private javax.swing.JToolBar tb_secundario;
-    private javax.swing.JToggleButton tgb_tool_eliminar;
+    public javax.swing.JToggleButton tgb_tool_eliminar;
     public javax.swing.JTextField txt_login_user;
     // End of variables declaration//GEN-END:variables
 }

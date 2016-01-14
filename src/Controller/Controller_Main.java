@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
 
@@ -109,6 +110,13 @@ public class Controller_Main implements ActionListener {
         this.v.btn_esconderAzul.setActionCommand("esconderAzul");
         this.v.btn_esconderAzul.addActionListener(this);
         
+        this.v.btn_tool_insertar.addActionListener(this);
+        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
+        this.v.btn_tool_modificar.addActionListener(this);
+        this.v.btn_tool_modificar.setActionCommand("btn_modificar");
+        this.v.tgb_tool_eliminar.addActionListener(this);
+        this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
+        
     }
     
     @Override
@@ -150,6 +158,7 @@ public class Controller_Main implements ActionListener {
             case btn_productos:
                 position=POSITION.PRODUCTO.toString();
                 refreshTable();
+                refreshComboBox();
                 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
@@ -228,18 +237,27 @@ public class Controller_Main implements ActionListener {
                 switch(position){
                     case "CATEGORIA":
                         model.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                        refreshTable();
                         break;
                     case "MATERIAL":
-                        
+                        model.insertMaterial(this.v.jTextFieldMaterialNombre.getText());
+                        refreshTable();
                         break;
                     case "PRODUCTO":
-                        
+                        model.insertProduct(this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), model.getCategoryByName(this.v.jComboBoxProductoCategoria.getSelectedItem().toString()).getName());
+                        refreshTable();
                         break;
                     case "CLIENTE":
-                        
+                        if(this.v.jTextFieldClientePassword.getText().equals(this.v.jTextFieldClienteRePassword.getText())){
+                            model.insertUser(this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jTextFieldClientePassword.getText());
+                            refreshTable();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Contraseña no concuerda. Intentelo de nuevo.");
+                        }
                         break;
                     case "EMPLEADO":
-                        
+                        model.insertCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jTextFieldEmpleadoPassword.getText(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
+                        refreshTable();
                         break;
                     case "CARRITO":
                         
@@ -359,7 +377,7 @@ public class Controller_Main implements ActionListener {
                 this.v.jTableMain.setModel(model.getTableModel("PRODUCT"));
                 break;
             case "CLIENTE":
-                this.v.jTableMain.setModel(model.getTableModel("CLIENT"));
+                this.v.jTableMain.setModel(model.getTableModel("USER"));
                 break;
             case "EMPLEADO":
                 this.v.jTableMain.setModel(model.getTableModel("CREW"));
@@ -369,7 +387,30 @@ public class Controller_Main implements ActionListener {
                 break;
         }
     }
-
+    
+    public void refreshComboBox(){
+        switch(position){
+            case "CATEGORIA":
+                
+                break;
+            case "MATERIAL":
+                
+                break;
+            case "PRODUCTO":
+                this.v.jComboBoxProductoCategoria.setModel(model.getComboBoxModel("CATEGORIA"));
+                break;
+            case "CLIENTE":
+                
+                break;
+            case "EMPLEADO":
+                
+                break;
+            case "CARRITO":
+                
+                break;
+        }
+    }
+    
     public void ponerEsaTablaToGuapaYReshulona(){
         this.v.pnl_split2_derecha.add(this.v.pnl_TableMain,BorderLayout.CENTER);
     }

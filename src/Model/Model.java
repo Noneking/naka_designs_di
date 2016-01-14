@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -1008,6 +1009,19 @@ public class Model extends Connection {
         }
         
         return dtm;
+    }
+    
+    public DefaultComboBoxModel getComboBoxModel(String field){
+        DefaultComboBoxModel dcbm=new DefaultComboBoxModel();
+        switch(field){
+            case "CATEGORIA":
+                Iterator it=getCategories().iterator();
+                while(it.hasNext()){
+                    dcbm.addElement(dcbm);
+                }
+                break;
+        }
+        return dcbm;
     }
     
 }

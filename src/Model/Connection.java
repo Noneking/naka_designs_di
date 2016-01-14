@@ -34,7 +34,8 @@ public class Connection {
     int contSessionError=0;
     public Session getSession() {
         try {
-            this.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
+            this.s=NewHibernateUtil.getSessionFactory().openSession();
+//            this.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
             System.err.println("Obtained current session.");
         } catch(SessionException e) {
             System.err.println("Error obtaining current session..");
@@ -80,7 +81,10 @@ public class Connection {
     }
     
     public Transaction getTransaction(){
-        if(!this.tx.isActive()){this.tx=getSession().beginTransaction();}
+//        if(!this.tx.isActive()){this.tx=getSession().beginTransaction();}
+//        return this.tx;
+//        return this.tx=getSession().beginTransaction();
+        this.tx=this.s.beginTransaction();
         return this.tx;
     }
     
