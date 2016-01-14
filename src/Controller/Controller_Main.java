@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Model;
 import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
@@ -22,9 +23,13 @@ public class Controller_Main implements ActionListener {
     
     Main v;
     View.Model.Methods mv;
+    Model model;
+    
+    private String position="";
     
     public Controller_Main(Main v){
         this.v=v;
+        model=new Model();
     }
     
     public enum Actions{
@@ -35,8 +40,39 @@ public class Controller_Main implements ActionListener {
         btn_empleados,
         btn_carritos,
         esconderRosa,
-        esconderAzul
+        esconderAzul,
         
+        btn_insertar,
+        btn_modificar,
+        btn_eliminar,
+        
+        btn_categoria_insertar,
+        btn_categoria_modificar,
+        btn_categoria_eliminar,
+        btn_material_insertar,
+        btn_material_modificar,
+        btn_material_eliminar,
+        btn_producto_insertar,
+        btn_producto_modificar,
+        btn_producto_eliminar,
+        btn_cliente_insertar,
+        btn_cliente_modificar,
+        btn_cliente_eliminar,
+        btn_empleado_insertar,
+        btn_empleado_modificar,
+        btn_empleado_eliminar,
+        btn_carrito_insertar,
+        btn_carrito_modificar,
+        btn_carrito_eliminar
+    }
+    
+    public enum POSITION{
+        CATEGORIA,
+        MATERIAL,
+        PRODUCTO,
+        CLIENTE,
+        EMPLEADO,
+        CARRITO
     }
     
     public void initViews(){
@@ -81,6 +117,9 @@ public class Controller_Main implements ActionListener {
         switch(Actions.valueOf(e.getActionCommand())){
             
             case btn_categorias:
+                position=POSITION.CATEGORIA.toString();
+                refreshTable();
+                
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Categorias,BorderLayout.CENTER);
@@ -93,6 +132,9 @@ public class Controller_Main implements ActionListener {
                 break;
                 
             case btn_materiales:
+                position=POSITION.MATERIAL.toString();
+                refreshTable();
+                
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Materiales, BorderLayout.CENTER);
@@ -106,6 +148,9 @@ public class Controller_Main implements ActionListener {
                 break;
                 
             case btn_productos:
+                position=POSITION.PRODUCTO.toString();
+                refreshTable();
+                
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
@@ -118,6 +163,9 @@ public class Controller_Main implements ActionListener {
                 break;
                 
             case btn_clientes:
+                position=POSITION.CLIENTE.toString();
+                refreshTable();
+                
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
@@ -130,6 +178,9 @@ public class Controller_Main implements ActionListener {
                 break;
                 
             case btn_empleados:
+                position=POSITION.EMPLEADO.toString();
+                refreshTable();
+                
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
@@ -142,6 +193,9 @@ public class Controller_Main implements ActionListener {
                 break;
                 
             case btn_carritos:
+                position=POSITION.CARRITO.toString();
+                refreshTable();
+                
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
@@ -170,12 +224,152 @@ public class Controller_Main implements ActionListener {
                 this.v.btn_esconderAzul.setText("<");
                 this.v.pnl_split2_izquierda.removeAll();
                 break;
-            
+            case btn_insertar:
+                switch(position){
+                    case "CATEGORIA":
+                        model.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                        break;
+                    case "MATERIAL":
+                        
+                        break;
+                    case "PRODUCTO":
+                        
+                        break;
+                    case "CLIENTE":
+                        
+                        break;
+                    case "EMPLEADO":
+                        
+                        break;
+                    case "CARRITO":
+                        
+                        break;
+                }
+                break;
+            case btn_modificar:
+                switch(position){
+                    case "CATEGORIA":
+                        
+                        break;
+                    case "MATERIAL":
+                        
+                        break;
+                    case "PRODUCTO":
+                        
+                        break;
+                    case "CLIENTE":
+                        
+                        break;
+                    case "EMPLEADO":
+                        
+                        break;
+                    case "CARRITO":
+                        
+                        break;
+                }
+                break;
+            case btn_eliminar:
+                switch(position){
+                    case "CATEGORIA":
+                        
+                        break;
+                    case "MATERIAL":
+                        
+                        break;
+                    case "PRODUCTO":
+                        
+                        break;
+                    case "CLIENTE":
+                        
+                        break;
+                    case "EMPLEADO":
+                        
+                        break;
+                    case "CARRITO":
+                        
+                        break;
+                }
+                break;
+            case btn_categoria_insertar:
+                
+                break;
+            case btn_categoria_modificar:
+                
+                break;
+            case btn_categoria_eliminar:
+                
+                break;
+            case btn_material_insertar:
+                
+                break;
+            case btn_material_modificar:
+                
+                break;
+            case btn_material_eliminar:
+                
+                break;
+            case btn_producto_insertar:
+                
+                break;
+            case btn_producto_modificar:
+                
+                break;
+            case btn_producto_eliminar:
+                
+                break;
+            case btn_cliente_insertar:
+                
+                break;
+            case btn_cliente_modificar:
+                
+                break;
+            case btn_cliente_eliminar:
+                
+                break;
+            case btn_empleado_insertar:
+                
+                break;
+            case btn_empleado_modificar:
+                
+                break;
+            case btn_empleado_eliminar:
+                
+                break;
+            case btn_carrito_insertar:
+                
+                break;
+            case btn_carrito_modificar:
+                
+                break;
+            case btn_carrito_eliminar:
+                
+                break;
         }
-        
-        
-        
     }
+    
+    public void refreshTable(){
+        switch(position){
+            case "CATEGORIA":
+                this.v.jTableMain.setModel(model.getTableModel("CATEGORY"));
+                break;
+            case "MATERIAL":
+                this.v.jTableMain.setModel(model.getTableModel("MATERIAL"));
+                break;
+            case "PRODUCTO":
+                this.v.jTableMain.setModel(model.getTableModel("PRODUCT"));
+                break;
+            case "CLIENTE":
+                this.v.jTableMain.setModel(model.getTableModel("CLIENT"));
+                break;
+            case "EMPLEADO":
+                this.v.jTableMain.setModel(model.getTableModel("CREW"));
+                break;
+            case "CARRITO":
+                this.v.jTableMain.setModel(model.getTableModel("BASKET"));
+                break;
+        }
+    }
+
     public void ponerEsaTablaToGuapaYReshulona(){
         this.v.pnl_split2_derecha.add(this.v.pnl_TableMain,BorderLayout.CENTER);
     }
