@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 09-ene-2016 21:01:19 by Hibernate Tools 4.3.1 -->
+<!-- Generated 14-ene-2016 18:37:10 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.POJOs.User" table="user" catalog="naka_database" optimistic-lock="version">
         <id name="cod" type="java.lang.Integer">
@@ -23,13 +23,13 @@
         <property name="password" type="string">
             <column name="password" length="30" not-null="true" />
         </property>
-        <set name="recordUsers" table="record_user" inverse="true" lazy="true" fetch="select">
+        <set name="recordUsers" table="record_user" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="user" not-null="true" />
             </key>
             <one-to-many class="Hibernate.POJOs.RecordUser" />
         </set>
-        <set name="baskets" table="basket" inverse="true" lazy="true" fetch="select">
+        <set name="baskets" table="basket" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="user" not-null="true" unique="true" />
             </key>

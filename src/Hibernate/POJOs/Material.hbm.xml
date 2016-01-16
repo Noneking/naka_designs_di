@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 09-ene-2016 21:01:19 by Hibernate Tools 4.3.1 -->
+<!-- Generated 14-ene-2016 18:37:10 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.POJOs.Material" table="material" catalog="naka_database" optimistic-lock="version">
         <id name="cod" type="java.lang.Integer">
@@ -11,7 +11,7 @@
         <property name="name" type="string">
             <column name="name" length="100" not-null="true" unique="true" />
         </property>
-        <set name="productMaterials" table="product_material" inverse="true" lazy="true" fetch="select">
+        <set name="productMaterials" table="product_material" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="material" not-null="true" />
             </key>

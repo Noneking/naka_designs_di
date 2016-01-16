@@ -158,7 +158,7 @@ public class Controller_Main implements ActionListener {
             case btn_productos:
                 position=POSITION.PRODUCTO.toString();
                 refreshTable();
-                refreshComboBox();
+//                refreshComboBox();
                 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();

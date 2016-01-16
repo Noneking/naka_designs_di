@@ -33,18 +33,21 @@ public class Connection {
     
     int contSessionError=0;
     public Session getSession() {
-        try {
+        if(!this.s.isOpen()){
             this.s=NewHibernateUtil.getSessionFactory().openSession();
-//            this.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
-            System.err.println("Obtained current session.");
-        } catch(SessionException e) {
-            System.err.println("Error obtaining current session..");
-            while(contSessionError<3){
-                contSessionError++;
-                openSession();
-                getSession();
-            }
         }
+//        try {
+//            this.s=NewHibernateUtil.getSessionFactory().openSession();
+////            this.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
+//            System.err.println("Obtained current session.");
+//        } catch(SessionException e) {
+//            System.err.println("Error obtaining current session..");
+//            while(contSessionError<3){
+//                contSessionError++;
+//                openSession();
+//                getSession();
+//            }
+//        }
         return this.s;
     }
     
@@ -84,6 +87,12 @@ public class Connection {
 //        if(!this.tx.isActive()){this.tx=getSession().beginTransaction();}
 //        return this.tx;
 //        return this.tx=getSession().beginTransaction();
+//        if(!this.tx.isActive()){
+//            this.tx=this.s.beginTransaction();
+//        }
+//        if(this.tx==null){
+//            this.tx=this.s.beginTransaction();
+//        }
         this.tx=this.s.beginTransaction();
         return this.tx;
     }

@@ -241,28 +241,38 @@ public class Model extends Connection {
     */
     
     public Category getCategoryByCod(int cod){
-        return (Category) getSession().get(Category.class, cod);
+        Category c=(Category) getSession().get(Category.class, cod);
+        closeSession();
+        return c;
     }
     
     public Category getCategoryByName(String name){
-        Criteria c=getSession().createCriteria(Category.class);
-        return (Category) c.add(Restrictions.like("name", name)).uniqueResult();
+        Criteria cr=getSession().createCriteria(Category.class);
+        Category c=(Category) cr.add(Restrictions.like("name", name)).uniqueResult();
+        closeSession();
+        return c;
     }
     
     public ArrayList<Category> getCategoriesByQuery(String question){
         Query query=getSession().createQuery("from Category c where c.name like :query OR c.description like :query");
         ArrayList<Category> list=(ArrayList<Category>) query.setParameter("query", "%"+question+"%").list();
+        closeSession();
         return list;
     }
     
     public ArrayList<Category> getCategories(){
-        return (ArrayList<Category>) getSession().createQuery("from Category").list();
+        ArrayList<Category> arrayList=(ArrayList<Category>) getSession().createQuery("from Category").list();
+        closeSession();
+        return arrayList;
     }
     
     public void insertCategory(String name, String description){
-        Category c=new Category(name, description);
+//        Category c=new Category(name, description);
+        Category c=new Category(name);
+        c.setDescription(description);
         getSession().save(c);
         getTransaction().commit();
+        closeSession();
         System.err.println("Category inserted succesfully.");
     }
     
@@ -272,6 +282,7 @@ public class Model extends Connection {
         c.setDescription(description);
         getSession().update(c);
         getTransaction().commit();
+        closeSession();
         System.err.println("Category modified succesfully.");
     }
     
@@ -279,6 +290,7 @@ public class Model extends Connection {
         Category c=getCategoryByCod(cod);
         getSession().delete(c);
         getTransaction().commit();
+        closeSession();
         System.err.println("Category deleted succesfully.");
     }
     
@@ -287,8 +299,10 @@ public class Model extends Connection {
         while(it.hasNext()){
             Category c=(Category) it.next();
             getSession().delete(c);
+            closeSession();
         }
         getTransaction().commit();
+        closeSession();
         System.err.println("Categories deleted succesfully.");
     }
     
@@ -297,8 +311,10 @@ public class Model extends Connection {
         while(it.hasNext()){
             Category c=(Category) it.next();
             getSession().delete(c);
+            closeSession();
         }
         getTransaction().commit();
+        closeSession();
         System.err.println("Categories deleted succesfully.");
     }
     
@@ -855,9 +871,9 @@ public class Model extends Connection {
         switch(table){
             case "USER":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(user)));
-                row=new Vector();
                 it=getUsers().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     User u=(User) it.next();
                     row.add(u.getCod());
                     row.add(u.getNickname());
@@ -869,9 +885,9 @@ public class Model extends Connection {
                 break;
             case "CREW":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(crew)));
-                row=new Vector();
                 it=getCrews().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Crew c=(Crew) it.next();
                     row.add(c.getEmail());
                     row.add(c.getNickname());
@@ -884,9 +900,9 @@ public class Model extends Connection {
                 break;
             case "PRODUCT":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(product)));
-                row=new Vector();
                 it=getProducts().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Product p=(Product) it.next();
                     row.add(p.getCod());
                     row.add(p.getName());
@@ -897,10 +913,11 @@ public class Model extends Connection {
                 break;
             case "CATEGORY":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(category)));
-                row=new Vector();
                 it=getCategories().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Category c=(Category) it.next();
+                    System.out.println("Codigo: "+c.getCod()+", Nombre: "+c.getName()+", Descripcion: "+c.getDescription());
                     row.add(c.getCod());
                     row.add(c.getName());
                     row.add(c.getDescription());
@@ -909,9 +926,9 @@ public class Model extends Connection {
                 break;
             case "RECORD":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(record)));
-                row=new Vector();
                 it=getRecords().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Record r=(Record) it.next();
                     row.add(r.getCod());
                     row.add(r.getDate());
@@ -920,9 +937,9 @@ public class Model extends Connection {
                 break;
             case "MATERIAL":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(material)));
-                row=new Vector();
                 it=getMaterials().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Material m=(Material) it.next();
                     row.add(m.getCod());
                     row.add(m.getName());
@@ -931,9 +948,9 @@ public class Model extends Connection {
                 break;
             case "BASKET":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(basket)));
-                row=new Vector();
                 it=getBaskets().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Basket b=(Basket) it.next();
                     row.add(b.getCod());
                     row.add(b.getAmount());
@@ -944,9 +961,9 @@ public class Model extends Connection {
                 break;
             case "BOOKMARK":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(bookmark)));
-                row=new Vector();
                 it=getBookmarks().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Bookmark b=(Bookmark) it.next();
                     row.add(b.getCod());
                     row.add(b.getDescription());
@@ -957,9 +974,9 @@ public class Model extends Connection {
                 break;
             case "TURNOVER":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(turnover)));
-                row=new Vector();
                 it=getTurnovers().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     Turnover t=(Turnover) it.next();
                     row.add(t.getCod());
                     row.add(t.getAmount());
@@ -970,9 +987,9 @@ public class Model extends Connection {
                 break;
             case "RECORD_USER":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(record_user)));
-                row=new Vector();
                 it=getRecordsUsers().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     RecordUser ru=(RecordUser) it.next();
                     row.add(ru.getCod());
                     row.add(ru.getUser().getNickname());
@@ -982,9 +999,9 @@ public class Model extends Connection {
                 break;
             case "PRODUCT_RECORD":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(product_record)));
-                row=new Vector();
                 it=getProductsRecords().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     ProductRecord pr=(ProductRecord) it.next();
                     row.add(pr.getCod());
                     row.add(pr.getAmount());
@@ -995,9 +1012,9 @@ public class Model extends Connection {
                 break;
             case "PRODUCT_MATERIAL":
                 dtm.setColumnIdentifiers(columns=new Vector(Arrays.asList(product_material)));
-                row=new Vector();
                 it=getProductsMaterials().iterator();
                 while(it.hasNext()){
+                    row=new Vector();
                     ProductMaterial pm=(ProductMaterial) it.next();
                     row.add(pm.getCod());
                     row.add(pm.getAmount());
