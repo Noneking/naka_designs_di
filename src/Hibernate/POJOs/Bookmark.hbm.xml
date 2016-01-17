@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 14-ene-2016 18:37:10 by Hibernate Tools 4.3.1 -->
+<!-- Generated 17-ene-2016 11:10:53 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="Hibernate.POJOs.Bookmark" table="bookmark" catalog="naka_database" optimistic-lock="version">
         <id name="cod" type="java.lang.Integer">

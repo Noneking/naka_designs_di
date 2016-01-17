@@ -742,8 +742,8 @@ public class Model extends Connection {
         return (ArrayList<Material>) getSession().createQuery("from Material").list();
     }
     
-    public void insertMaterial(String name){
-        Material m=new Material(name);
+    public void insertMaterial(String name, int amount){
+        Material m=new Material(name, amount);
         getSession().save(m);
         getTransaction().commit();
         System.err.println("Material inserted succesfully.");
@@ -917,7 +917,6 @@ public class Model extends Connection {
                 while(it.hasNext()){
                     row=new Vector();
                     Category c=(Category) it.next();
-                    System.out.println("Codigo: "+c.getCod()+", Nombre: "+c.getName()+", Descripcion: "+c.getDescription());
                     row.add(c.getCod());
                     row.add(c.getName());
                     row.add(c.getDescription());

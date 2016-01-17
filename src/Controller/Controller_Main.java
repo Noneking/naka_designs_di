@@ -239,7 +239,7 @@ public class Controller_Main implements ActionListener {
                         refreshTable();
                         break;
                     case "MATERIAL":
-                        model.insertMaterial(this.v.jTextFieldMaterialNombre.getText());
+                        model.insertMaterial(this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
                         refreshTable();
                         break;
                     case "PRODUCTO":

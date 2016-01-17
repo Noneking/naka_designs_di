@@ -3,15 +3,15 @@
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="naka_database"/>
   <table-filter match-name="bookmark"/>
-  <table-filter match-name="record"/>
-  <table-filter match-name="product"/>
-  <table-filter match-name="product_material"/>
-  <table-filter match-name="material"/>
-  <table-filter match-name="category"/>
   <table-filter match-name="crew"/>
-  <table-filter match-name="user"/>
+  <table-filter match-name="product"/>
   <table-filter match-name="basket"/>
-  <table-filter match-name="product_record"/>
+  <table-filter match-name="material"/>
+  <table-filter match-name="product_material"/>
   <table-filter match-name="turnover"/>
+  <table-filter match-name="user"/>
   <table-filter match-name="record_user"/>
+  <table-filter match-name="product_record"/>
+  <table-filter match-name="record"/>
+  <table-filter match-name="category"/>
 </hibernate-reverse-engineering>

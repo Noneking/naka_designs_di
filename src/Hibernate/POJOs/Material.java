@@ -1,5 +1,5 @@
 package Hibernate.POJOs;
-// Generated 14-ene-2016 18:37:10 by Hibernate Tools 4.3.1
+// Generated 17-ene-2016 11:10:52 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,17 +13,20 @@ public class Material  implements java.io.Serializable {
 
      private Integer cod;
      private String name;
+     private int amount;
      private Set productMaterials = new HashSet(0);
 
     public Material() {
     }
 
 	
-    public Material(String name) {
+    public Material(String name, int amount) {
         this.name = name;
+        this.amount = amount;
     }
-    public Material(String name, Set productMaterials) {
+    public Material(String name, int amount, Set productMaterials) {
        this.name = name;
+       this.amount = amount;
        this.productMaterials = productMaterials;
     }
    
@@ -40,6 +43,13 @@ public class Material  implements java.io.Serializable {
     
     public void setName(String name) {
         this.name = name;
+    }
+    public int getAmount() {
+        return this.amount;
+    }
+    
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
     public Set getProductMaterials() {
         return this.productMaterials;
