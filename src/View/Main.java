@@ -41,14 +41,12 @@ public class Main extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaCategoriaDescripcion = new javax.swing.JTextArea();
-        jButtonCategoriaInsertar = new javax.swing.JButton();
         pnl_Materiales = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldMaterialNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldMaterialCantidad = new javax.swing.JTextField();
-        jButtonMaterialInsertar = new javax.swing.JButton();
         pnl_Productos = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -59,7 +57,6 @@ public class Main extends javax.swing.JFrame {
         jComboBoxProductoCategoria = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jButtonProductoInsertar = new javax.swing.JButton();
         jTextFieldProductoCantidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         pnl_Clientes = new javax.swing.JPanel();
@@ -76,7 +73,6 @@ public class Main extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jTextFieldClienteRePassword = new javax.swing.JTextField();
         jTextFieldClientePassword = new javax.swing.JTextField();
-        jButtonClienteInsertar = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jTextFieldClienteTelefono = new javax.swing.JTextField();
         pnl_Empleado = new javax.swing.JPanel();
@@ -97,7 +93,6 @@ public class Main extends javax.swing.JFrame {
         jTextFieldEmpleadoPassword = new javax.swing.JTextField();
         jTextFieldEmpleadoRePassword = new javax.swing.JTextField();
         jComboBoxEmpleadoRol = new javax.swing.JComboBox();
-        jButtonEmpleadoInsertar = new javax.swing.JButton();
         pnl_Carrito = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
@@ -109,7 +104,6 @@ public class Main extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jButton15 = new javax.swing.JButton();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new javax.swing.JPanel();
@@ -135,39 +129,11 @@ public class Main extends javax.swing.JFrame {
         btn_esconderAzul = new javax.swing.JButton();
         btn_esconderRosa = new javax.swing.JButton();
         manu_bar = new javax.swing.JMenuBar();
-        menu_archivo = new javax.swing.JMenu();
-        menu_archivo_crear = new javax.swing.JMenu();
-        menu_archivo_crear_categoria = new javax.swing.JMenuItem();
-        menu_archivo_crear_material = new javax.swing.JMenuItem();
-        menu_archivo_crear_producto = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        menu_archivo_crear_cliente = new javax.swing.JMenuItem();
-        menu_archivo_crear_empleado = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        menu_archivo_crear_carrito = new javax.swing.JMenuItem();
-        menu_archivo_modificar = new javax.swing.JMenu();
-        menu_archivo_modificar_categoria = new javax.swing.JMenuItem();
-        menu_archivo_modificar_material = new javax.swing.JMenuItem();
-        menu_archivo_modificar_producto = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        menu_archivo_modificar_cliente = new javax.swing.JMenuItem();
-        menu_archivo_modificar_empleado = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        menu_archivo_modificar_carrito = new javax.swing.JMenuItem();
-        menu_archivo_eliminar = new javax.swing.JMenu();
-        menu_archivo_eliminar_categoria = new javax.swing.JMenuItem();
-        menu_archivo_eliminar_material = new javax.swing.JMenuItem();
-        menu_archivo_eliminar_producto = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        menu_archivo_eliminar_cliente = new javax.swing.JMenuItem();
-        menu_archivo_eliminar_empleado = new javax.swing.JMenuItem();
-        jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        menu_archivo_eliminar_carrito = new javax.swing.JMenuItem();
         menu_movimientos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
         jFrameLoggin.setBounds(new java.awt.Rectangle(300, 300, 300, 300));
-        jFrameLoggin.setUndecorated(true);
+        jFrameLoggin.setResizable(false);
         jFrameLoggin.setSize(new java.awt.Dimension(361, 303));
 
         jPanelLogin.setBackground(new java.awt.Color(255, 255, 255));
@@ -267,8 +233,6 @@ public class Main extends javax.swing.JFrame {
         jTextAreaCategoriaDescripcion.setRows(5);
         jScrollPane2.setViewportView(jTextAreaCategoriaDescripcion);
 
-        jButtonCategoriaInsertar.setText("INsertar");
-
         javax.swing.GroupLayout pnl_CategoriasLayout = new javax.swing.GroupLayout(pnl_Categorias);
         pnl_Categorias.setLayout(pnl_CategoriasLayout);
         pnl_CategoriasLayout.setHorizontalGroup(
@@ -282,8 +246,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldCategoriaNombre))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(jButtonCategoriaInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnl_CategoriasLayout.setVerticalGroup(
@@ -299,9 +262,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonCategoriaInsertar)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         pnl_Materiales.setBackground(new java.awt.Color(0, 204, 255));
@@ -314,8 +275,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel7.setText("Cantidad:");
 
-        jButtonMaterialInsertar.setText("Insertar");
-
         javax.swing.GroupLayout pnl_MaterialesLayout = new javax.swing.GroupLayout(pnl_Materiales);
         pnl_Materiales.setLayout(pnl_MaterialesLayout);
         pnl_MaterialesLayout.setHorizontalGroup(
@@ -323,7 +282,6 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_MaterialesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonMaterialInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnl_MaterialesLayout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -332,7 +290,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(pnl_MaterialesLayout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldMaterialCantidad)))
+                        .addComponent(jTextFieldMaterialCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnl_MaterialesLayout.setVerticalGroup(
@@ -348,9 +306,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldMaterialCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonMaterialInsertar)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
 
         pnl_Productos.setBackground(new java.awt.Color(0, 204, 255));
@@ -372,8 +328,6 @@ public class Main extends javax.swing.JFrame {
 
         jButton7.setText("Más");
 
-        jButtonProductoInsertar.setText("Insertar");
-
         jLabel11.setText("Cantidad:");
 
         javax.swing.GroupLayout pnl_ProductosLayout = new javax.swing.GroupLayout(pnl_Productos);
@@ -392,7 +346,6 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextFieldProductoPrecio))
-                    .addComponent(jButtonProductoInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnl_ProductosLayout.createSequentialGroup()
                         .addGap(62, 62, 62)
@@ -433,9 +386,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
-                .addGap(33, 33, 33)
-                .addComponent(jButtonProductoInsertar)
-                .addContainerGap(230, Short.MAX_VALUE))
+                .addContainerGap(286, Short.MAX_VALUE))
         );
 
         pnl_Clientes.setBackground(new java.awt.Color(0, 204, 255));
@@ -456,8 +407,6 @@ public class Main extends javax.swing.JFrame {
 
         jLabel25.setText("Re-password:");
 
-        jButtonClienteInsertar.setText("Insertar");
-
         jLabel27.setText("Tlf - movil:");
 
         javax.swing.GroupLayout pnl_ClientesLayout = new javax.swing.GroupLayout(pnl_Clientes);
@@ -467,36 +416,25 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_ClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonClienteInsertar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldClienteNickname))
-                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldClienteNombre))
-                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldClienteApellidos))
-                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldClienteEmail))
                     .addGroup(pnl_ClientesLayout.createSequentialGroup()
                         .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel25)
-                            .addComponent(jLabel24))
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel23)
+                            .addComponent(jLabel20)
+                            .addComponent(jLabel22)
+                            .addComponent(jLabel21))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldClienteRePassword)
-                            .addComponent(jTextFieldClientePassword)))
-                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldClienteTelefono)))
+                            .addComponent(jTextFieldClienteNombre)
+                            .addComponent(jTextFieldClienteApellidos)
+                            .addComponent(jTextFieldClienteNickname)
+                            .addComponent(jTextFieldClienteEmail)
+                            .addComponent(jTextFieldClienteTelefono)
+                            .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(jTextFieldClientePassword))))
                 .addContainerGap())
         );
         pnl_ClientesLayout.setVerticalGroup(
@@ -512,7 +450,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(jTextFieldClienteApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -532,9 +470,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonClienteInsertar)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(279, Short.MAX_VALUE))
         );
 
         pnl_Empleado.setBackground(new java.awt.Color(0, 204, 255));
@@ -561,8 +497,6 @@ public class Main extends javax.swing.JFrame {
 
         jComboBoxEmpleadoRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButtonEmpleadoInsertar.setText("Insertar");
-
         javax.swing.GroupLayout pnl_EmpleadoLayout = new javax.swing.GroupLayout(pnl_Empleado);
         pnl_Empleado.setLayout(pnl_EmpleadoLayout);
         pnl_EmpleadoLayout.setHorizontalGroup(
@@ -570,28 +504,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonEmpleadoInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldEmpleadoNombre))
-                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
-                        .addComponent(jLabel29)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldEmpleadoApellidos))
-                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldEmpleadoNickname))
-                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldEmpleadoTelefono))
-                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldEmpleadoEmail))
                     .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
                         .addComponent(jLabel35)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -599,9 +512,19 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
                         .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel34)
-                            .addComponent(jLabel33))
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel31)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel28))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldEmpleadoNombre)
+                            .addComponent(jTextFieldEmpleadoApellidos)
+                            .addComponent(jTextFieldEmpleadoNickname)
+                            .addComponent(jTextFieldEmpleadoTelefono)
+                            .addComponent(jTextFieldEmpleadoEmail)
                             .addComponent(jTextFieldEmpleadoPassword)
                             .addComponent(jTextFieldEmpleadoRePassword))))
                 .addContainerGap())
@@ -643,9 +566,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
                     .addComponent(jComboBoxEmpleadoRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonEmpleadoInsertar)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addContainerGap(253, Short.MAX_VALUE))
         );
 
         pnl_Carrito.setBackground(new java.awt.Color(0, 204, 255));
@@ -693,8 +614,6 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton15.setText("Insertar");
-
         javax.swing.GroupLayout pnl_CarritoLayout = new javax.swing.GroupLayout(pnl_Carrito);
         pnl_Carrito.setLayout(pnl_CarritoLayout);
         pnl_CarritoLayout.setHorizontalGroup(
@@ -708,7 +627,6 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel38)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnl_CarritoLayout.createSequentialGroup()
                         .addComponent(jLabel37)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -734,9 +652,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton15)
-                .addContainerGap(332, Short.MAX_VALUE))
+                .addContainerGap(373, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -748,16 +664,21 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_izquierda.setBackground(new java.awt.Color(255, 51, 204));
 
         btn_Clientes.setText("Clientes");
+        btn_Clientes.setPreferredSize(new java.awt.Dimension(83, 55));
 
         btn_Categorias.setText("Categorias");
+        btn_Categorias.setPreferredSize(new java.awt.Dimension(83, 55));
 
         btn_Productos.setText("Productos");
+        btn_Productos.setPreferredSize(new java.awt.Dimension(83, 55));
 
         btn_Carritos.setText("Carritos");
 
         btn_Empleados.setText("Empleados");
+        btn_Empleados.setPreferredSize(new java.awt.Dimension(83, 55));
 
         btn_Materiales.setText("Materiales");
+        btn_Materiales.setPreferredSize(new java.awt.Dimension(83, 55));
 
         javax.swing.GroupLayout pnl_split1_izquierdaLayout = new javax.swing.GroupLayout(pnl_split1_izquierda);
         pnl_split1_izquierda.setLayout(pnl_split1_izquierdaLayout);
@@ -774,18 +695,18 @@ public class Main extends javax.swing.JFrame {
             pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_Categorias)
+                .addComponent(btn_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Materiales)
+                .addComponent(btn_Materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Productos)
+                .addComponent(btn_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
-                .addComponent(btn_Clientes)
+                .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Empleados)
+                .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addComponent(btn_Carritos)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
@@ -930,97 +851,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(SplitPane1))
         );
 
-        menu_archivo.setText("Archivo");
-
-        menu_archivo_crear.setText("Crear ...");
-
-        menu_archivo_crear_categoria.setText("Nueva Categoria");
-        menu_archivo_crear_categoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_archivo_crear_categoriaActionPerformed(evt);
-            }
-        });
-        menu_archivo_crear.add(menu_archivo_crear_categoria);
-
-        menu_archivo_crear_material.setText("Nuevo Material");
-        menu_archivo_crear.add(menu_archivo_crear_material);
-
-        menu_archivo_crear_producto.setText("Nuevo Producto");
-        menu_archivo_crear.add(menu_archivo_crear_producto);
-        menu_archivo_crear.add(jSeparator1);
-
-        menu_archivo_crear_cliente.setText("Nuevo Cliente");
-        menu_archivo_crear.add(menu_archivo_crear_cliente);
-
-        menu_archivo_crear_empleado.setText("Nuevo Empleado");
-        menu_archivo_crear.add(menu_archivo_crear_empleado);
-        menu_archivo_crear.add(jSeparator2);
-
-        menu_archivo_crear_carrito.setText("Nuevo Carrito");
-        menu_archivo_crear.add(menu_archivo_crear_carrito);
-
-        menu_archivo.add(menu_archivo_crear);
-
-        menu_archivo_modificar.setText("Modificar ...");
-
-        menu_archivo_modificar_categoria.setText("Modificar Categoria");
-        menu_archivo_modificar_categoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_archivo_modificar_categoriaActionPerformed(evt);
-            }
-        });
-        menu_archivo_modificar.add(menu_archivo_modificar_categoria);
-
-        menu_archivo_modificar_material.setText("Modificar Material");
-        menu_archivo_modificar.add(menu_archivo_modificar_material);
-
-        menu_archivo_modificar_producto.setText("Modificar Producto");
-        menu_archivo_modificar.add(menu_archivo_modificar_producto);
-        menu_archivo_modificar.add(jSeparator3);
-
-        menu_archivo_modificar_cliente.setText("Modificar Cliente");
-        menu_archivo_modificar.add(menu_archivo_modificar_cliente);
-
-        menu_archivo_modificar_empleado.setText("Modificar Empleado");
-        menu_archivo_modificar.add(menu_archivo_modificar_empleado);
-        menu_archivo_modificar.add(jSeparator4);
-
-        menu_archivo_modificar_carrito.setText("Modificar Carrito");
-        menu_archivo_modificar.add(menu_archivo_modificar_carrito);
-
-        menu_archivo.add(menu_archivo_modificar);
-
-        menu_archivo_eliminar.setText("Eliminar ...");
-
-        menu_archivo_eliminar_categoria.setText("Eliminar Categoria");
-        menu_archivo_eliminar.add(menu_archivo_eliminar_categoria);
-
-        menu_archivo_eliminar_material.setText("Eliminar Material");
-        menu_archivo_eliminar.add(menu_archivo_eliminar_material);
-
-        menu_archivo_eliminar_producto.setText("Eliminar Producto");
-        menu_archivo_eliminar.add(menu_archivo_eliminar_producto);
-        menu_archivo_eliminar.add(jSeparator5);
-
-        menu_archivo_eliminar_cliente.setText("Eliminar Cliente");
-        menu_archivo_eliminar_cliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_archivo_eliminar_clienteActionPerformed(evt);
-            }
-        });
-        menu_archivo_eliminar.add(menu_archivo_eliminar_cliente);
-
-        menu_archivo_eliminar_empleado.setText("Eliminar Empleados");
-        menu_archivo_eliminar.add(menu_archivo_eliminar_empleado);
-        menu_archivo_eliminar.add(jSeparator6);
-
-        menu_archivo_eliminar_carrito.setText("Eliminar Carrito");
-        menu_archivo_eliminar.add(menu_archivo_eliminar_carrito);
-
-        menu_archivo.add(menu_archivo_eliminar);
-
-        manu_bar.add(menu_archivo);
-
         menu_movimientos.setText("Movimientos");
 
         jMenuItem1.setText("Historial Ventas");
@@ -1044,18 +874,6 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menu_archivo_crear_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_archivo_crear_categoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_archivo_crear_categoriaActionPerformed
-
-    private void menu_archivo_modificar_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_archivo_modificar_categoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_archivo_modificar_categoriaActionPerformed
-
-    private void menu_archivo_eliminar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_archivo_eliminar_clienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_menu_archivo_eliminar_clienteActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField Ptxt_login_password;
     public javax.swing.JSplitPane SplitPane1;
@@ -1073,14 +891,8 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_tool_modificar;
     private javax.swing.JLabel eti_tool_usuario;
     public javax.swing.JButton jButton14;
-    public javax.swing.JButton jButton15;
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButtonBuscarCliente;
-    public javax.swing.JButton jButtonCategoriaInsertar;
-    public javax.swing.JButton jButtonClienteInsertar;
-    public javax.swing.JButton jButtonEmpleadoInsertar;
-    public javax.swing.JButton jButtonMaterialInsertar;
-    public javax.swing.JButton jButtonProductoInsertar;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
     public javax.swing.JComboBox jComboBoxProductoCategoria;
     public javax.swing.JFrame jFrameLoggin;
@@ -1130,12 +942,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
-    public javax.swing.JPopupMenu.Separator jSeparator1;
-    public javax.swing.JPopupMenu.Separator jSeparator2;
-    public javax.swing.JPopupMenu.Separator jSeparator3;
-    public javax.swing.JPopupMenu.Separator jSeparator4;
-    public javax.swing.JPopupMenu.Separator jSeparator5;
-    public javax.swing.JPopupMenu.Separator jSeparator6;
     public javax.swing.JTable jTableMain;
     public javax.swing.JTextArea jTextAreaCategoriaDescripcion;
     public javax.swing.JTextField jTextField22;
@@ -1161,28 +967,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldProductoNombre;
     public javax.swing.JTextField jTextFieldProductoPrecio;
     public javax.swing.JMenuBar manu_bar;
-    public javax.swing.JMenu menu_archivo;
-    public javax.swing.JMenu menu_archivo_crear;
-    public javax.swing.JMenuItem menu_archivo_crear_carrito;
-    public javax.swing.JMenuItem menu_archivo_crear_categoria;
-    public javax.swing.JMenuItem menu_archivo_crear_cliente;
-    public javax.swing.JMenuItem menu_archivo_crear_empleado;
-    public javax.swing.JMenuItem menu_archivo_crear_material;
-    public javax.swing.JMenuItem menu_archivo_crear_producto;
-    public javax.swing.JMenu menu_archivo_eliminar;
-    public javax.swing.JMenuItem menu_archivo_eliminar_carrito;
-    public javax.swing.JMenuItem menu_archivo_eliminar_categoria;
-    public javax.swing.JMenuItem menu_archivo_eliminar_cliente;
-    public javax.swing.JMenuItem menu_archivo_eliminar_empleado;
-    public javax.swing.JMenuItem menu_archivo_eliminar_material;
-    public javax.swing.JMenuItem menu_archivo_eliminar_producto;
-    public javax.swing.JMenu menu_archivo_modificar;
-    public javax.swing.JMenuItem menu_archivo_modificar_carrito;
-    public javax.swing.JMenuItem menu_archivo_modificar_categoria;
-    public javax.swing.JMenuItem menu_archivo_modificar_cliente;
-    public javax.swing.JMenuItem menu_archivo_modificar_empleado;
-    public javax.swing.JMenuItem menu_archivo_modificar_material;
-    public javax.swing.JMenuItem menu_archivo_modificar_producto;
     public javax.swing.JMenu menu_movimientos;
     public javax.swing.JPanel pnl_Carrito;
     public javax.swing.JPanel pnl_Categorias;

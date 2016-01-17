@@ -23,9 +23,8 @@ import javax.swing.JSplitPane;
 public class Controller_Main implements ActionListener {
     
     Main v;
-    View.Model.Methods mv;
     Model model;
-    
+
     private String position="";
     
     public Controller_Main(Main v){
