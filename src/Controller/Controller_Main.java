@@ -12,6 +12,8 @@ import java.awt.Toolkit;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
@@ -20,7 +22,7 @@ import javax.swing.JSplitPane;
  *
  * @author nonek
  */
-public class Controller_Main implements ActionListener {
+public class Controller_Main implements ActionListener, MouseListener {
     
     Main v;
     Model model;
@@ -116,6 +118,7 @@ public class Controller_Main implements ActionListener {
         this.v.tgb_tool_eliminar.addActionListener(this);
         this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
         
+        this.v.jTableMain.addMouseListener(this);
     }
     
     @Override
@@ -157,7 +160,7 @@ public class Controller_Main implements ActionListener {
             case btn_productos:
                 position=POSITION.PRODUCTO.toString();
                 refreshTable();
-//                refreshComboBox();
+                refreshComboBox();
                 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
@@ -188,6 +191,7 @@ public class Controller_Main implements ActionListener {
             case btn_empleados:
                 position=POSITION.EMPLEADO.toString();
                 refreshTable();
+                refreshComboBox();
                 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
@@ -364,6 +368,63 @@ public class Controller_Main implements ActionListener {
         }
     }
     
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        switch(position){
+            case "CATEGORIA":
+                this.v.jTextFieldCategoriaNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+                this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+                break;
+            case "MATERIAL":
+                this.v.jTextFieldMaterialNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+                this.v.jTextFieldMaterialCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+                break;
+            case "PRODUCTO":
+                this.v.jTextFieldProductoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+                this.v.jTextFieldProductoPrecio.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+//                this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
+                for(int i=0;i<this.v.jComboBoxProductoCategoria.getItemCount();i++){
+                    if(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString().equals(this.v.jComboBoxProductoCategoria.getItemAt(i))){
+                    this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
+                    break;
+                    }
+                }
+                break;
+            case "CLIENTE":
+                this.v.jTextFieldClienteNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+                this.v.jTextFieldClienteApellidos.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString());
+                this.v.jTextFieldClienteNickname.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+                this.v.jTextFieldClienteEmail.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
+                break;
+            case "EMPLEADO":
+                
+                break;
+            case "CARRITO":
+                
+                break;
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        
+    }
+    
     public void refreshTable(){
         switch(position){
             case "CATEGORIA":
@@ -402,7 +463,7 @@ public class Controller_Main implements ActionListener {
                 
                 break;
             case "EMPLEADO":
-                
+                this.v.jComboBoxEmpleadoRol.setModel(model.getComboBoxModel("EMPLEADO"));
                 break;
             case "CARRITO":
                 

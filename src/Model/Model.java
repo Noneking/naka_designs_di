@@ -942,6 +942,7 @@ public class Model extends Connection {
                     Material m=(Material) it.next();
                     row.add(m.getCod());
                     row.add(m.getName());
+                    row.add(m.getAmount());
                     dtm.addRow(row);
                 }
                 break;
@@ -1033,8 +1034,14 @@ public class Model extends Connection {
             case "CATEGORIA":
                 Iterator it=getCategories().iterator();
                 while(it.hasNext()){
-                    dcbm.addElement(dcbm);
+                    Category c=(Category) it.next();
+                    dcbm.addElement(c.getName());
                 }
+                break;
+            case "EMPLEADO":
+                dcbm.addElement("Administrador");
+                dcbm.addElement("Supervisor");
+                dcbm.addElement("Trabajador");
                 break;
         }
         return dcbm;

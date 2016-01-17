@@ -93,7 +93,7 @@ public class Connection {
 //        if(this.tx==null){
 //            this.tx=this.s.beginTransaction();
 //        }
-        this.tx=this.s.beginTransaction();
+        this.tx=getSession().beginTransaction();
         return this.tx;
     }
     
