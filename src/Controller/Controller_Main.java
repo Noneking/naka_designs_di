@@ -225,8 +225,7 @@ public class Controller_Main implements ActionListener, MouseListener {
                    esconderSplit(this.v.SplitPane1);
                    this.v.btn_esconderRosa.setText("<");
                 }else if(this.v.btn_esconderRosa.getText().equals("<")){
-                    this.v.SplitPane1.setDividerLocation(150);
-                    this.v.SplitPane1.setDividerSize(5);
+                    this.v.SplitPane1.setDividerLocation(200);
                     this.v.btn_esconderRosa.setText(">");
                 }
                 break;

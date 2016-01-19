@@ -108,11 +108,11 @@ public class Main extends javax.swing.JFrame {
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new javax.swing.JPanel();
         btn_Clientes = new javax.swing.JButton();
-        btn_Categorias = new javax.swing.JButton();
         btn_Productos = new javax.swing.JButton();
         btn_Carritos = new javax.swing.JButton();
         btn_Empleados = new javax.swing.JButton();
         btn_Materiales = new javax.swing.JButton();
+        btn_Categorias = new javax.swing.JButton();
         pnl_split1_derecha = new javax.swing.JPanel();
         SplitPane2 = new javax.swing.JSplitPane();
         pnl_split2_izquierda = new javax.swing.JPanel();
@@ -658,72 +658,78 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 255));
 
-        SplitPane1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        SplitPane1.setDividerLocation(150);
+        SplitPane1.setBorder(null);
+        SplitPane1.setDividerLocation(200);
+        SplitPane1.setDividerSize(0);
+        SplitPane1.setEnabled(false);
+        SplitPane1.setFocusable(false);
+        SplitPane1.setLastDividerLocation(200);
+        SplitPane1.setMinimumSize(new java.awt.Dimension(200, 450));
 
         pnl_split1_izquierda.setBackground(new java.awt.Color(255, 51, 204));
+        pnl_split1_izquierda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        pnl_split1_izquierda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_Clientes.setText("Clientes");
+        btn_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Clientes.png"))); // NOI18N
+        btn_Clientes.setBorderPainted(false);
+        btn_Clientes.setContentAreaFilled(false);
         btn_Clientes.setPreferredSize(new java.awt.Dimension(83, 55));
+        btn_Clientes.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Clientes_selected.png"))); // NOI18N
+        pnl_split1_izquierda.add(btn_Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 177, -1));
 
-        btn_Categorias.setText("Categorias");
-        btn_Categorias.setPreferredSize(new java.awt.Dimension(83, 55));
-
-        btn_Productos.setText("Productos");
+        btn_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Productos.png"))); // NOI18N
+        btn_Productos.setBorderPainted(false);
+        btn_Productos.setContentAreaFilled(false);
         btn_Productos.setPreferredSize(new java.awt.Dimension(83, 55));
+        btn_Productos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Productos_selected.png"))); // NOI18N
+        pnl_split1_izquierda.add(btn_Productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 177, -1));
 
-        btn_Carritos.setText("Carritos");
+        btn_Carritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Carritos.png"))); // NOI18N
+        btn_Carritos.setBorderPainted(false);
+        btn_Carritos.setContentAreaFilled(false);
+        btn_Carritos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Carritos_selected.png"))); // NOI18N
+        pnl_split1_izquierda.add(btn_Carritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 177, 55));
 
-        btn_Empleados.setText("Empleados");
+        btn_Empleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Empleados.png"))); // NOI18N
+        btn_Empleados.setBorderPainted(false);
+        btn_Empleados.setContentAreaFilled(false);
         btn_Empleados.setPreferredSize(new java.awt.Dimension(83, 55));
+        btn_Empleados.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Empleados_selected.png"))); // NOI18N
+        pnl_split1_izquierda.add(btn_Empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 177, -1));
 
-        btn_Materiales.setText("Materiales");
+        btn_Materiales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Materiales.png"))); // NOI18N
+        btn_Materiales.setBorderPainted(false);
+        btn_Materiales.setContentAreaFilled(false);
         btn_Materiales.setPreferredSize(new java.awt.Dimension(83, 55));
+        btn_Materiales.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Materiales_selected.png"))); // NOI18N
+        pnl_split1_izquierda.add(btn_Materiales, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 177, -1));
 
-        javax.swing.GroupLayout pnl_split1_izquierdaLayout = new javax.swing.GroupLayout(pnl_split1_izquierda);
-        pnl_split1_izquierda.setLayout(pnl_split1_izquierdaLayout);
-        pnl_split1_izquierdaLayout.setHorizontalGroup(
-            pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_Categorias, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-            .addComponent(btn_Materiales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_Productos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_Carritos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btn_Empleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        pnl_split1_izquierdaLayout.setVerticalGroup(
-            pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_Materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
-        );
+        btn_Categorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Categorias.png"))); // NOI18N
+        btn_Categorias.setBorderPainted(false);
+        btn_Categorias.setContentAreaFilled(false);
+        btn_Categorias.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Categorias_selected.png"))); // NOI18N
+        pnl_split1_izquierda.add(btn_Categorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 177, 50));
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
 
         SplitPane2.setDividerLocation(300);
+        SplitPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SplitPane2.setLastDividerLocation(300);
+        SplitPane2.setMaximumSize(new java.awt.Dimension(300, 100));
+        SplitPane2.setMinimumSize(new java.awt.Dimension(300, 3));
 
         pnl_split2_izquierda.setBackground(new java.awt.Color(0, 0, 0));
+        pnl_split2_izquierda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
         javax.swing.GroupLayout pnl_split2_izquierdaLayout = new javax.swing.GroupLayout(pnl_split2_izquierda);
         pnl_split2_izquierda.setLayout(pnl_split2_izquierdaLayout);
         pnl_split2_izquierdaLayout.setHorizontalGroup(
             pnl_split2_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 299, Short.MAX_VALUE)
+            .addGap(0, 295, Short.MAX_VALUE)
         );
         pnl_split2_izquierdaLayout.setVerticalGroup(
             pnl_split2_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGap(0, 474, Short.MAX_VALUE)
         );
 
         SplitPane2.setLeftComponent(pnl_split2_izquierda);
@@ -734,11 +740,11 @@ public class Main extends javax.swing.JFrame {
         pnl_split2_derecha.setLayout(pnl_split2_derechaLayout);
         pnl_split2_derechaLayout.setHorizontalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGap(0, 465, Short.MAX_VALUE)
         );
         pnl_split2_derechaLayout.setVerticalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 472, Short.MAX_VALUE)
+            .addGap(0, 478, Short.MAX_VALUE)
         );
 
         SplitPane2.setRightComponent(pnl_split2_derecha);
@@ -747,11 +753,11 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha.setLayout(pnl_split1_derechaLayout);
         pnl_split1_derechaLayout.setHorizontalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane2)
+            .addComponent(SplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_split1_derechaLayout.setVerticalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane2)
+            .addComponent(SplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         SplitPane1.setRightComponent(pnl_split1_derecha);
@@ -787,6 +793,8 @@ public class Main extends javax.swing.JFrame {
         eti_tool_usuario.setText("Usuario");
         tb_secundario.add(eti_tool_usuario);
 
+        jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         btn_esconderAzul.setBackground(new java.awt.Color(0, 204, 255));
         btn_esconderAzul.setForeground(new java.awt.Color(255, 255, 255));
         btn_esconderAzul.setText("<");
@@ -804,14 +812,13 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_esconderAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btn_esconderRosa, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_esconderAzul, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btn_esconderRosa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(btn_esconderAzul, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -820,18 +827,18 @@ public class Main extends javax.swing.JFrame {
         pnl_ToolBarsLayout.setHorizontalGroup(
             pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_ToolBarsLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tb_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tb_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7)
+                .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tb_secundario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnl_ToolBarsLayout.setVerticalGroup(
             pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(tb_secundario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+            .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jTextField7)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -840,7 +847,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Main.setLayout(pnl_MainLayout);
         pnl_MainLayout.setHorizontalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane1)
+            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(pnl_ToolBars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_MainLayout.setVerticalGroup(
@@ -848,7 +855,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_MainLayout.createSequentialGroup()
                 .addComponent(pnl_ToolBars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SplitPane1))
+                .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menu_movimientos.setText("Movimientos");
