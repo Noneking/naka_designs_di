@@ -32,6 +32,7 @@ public class Controller_Main implements ActionListener, MouseListener {
     public Controller_Main(Main v){
         this.v=v;
         model=new Model();
+        System.out.println("");
     }
     
     public enum Actions{
