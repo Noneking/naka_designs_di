@@ -17,25 +17,27 @@ import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
 
-
 /**
  *
  * @author nonek
  */
 public class Controller_Main implements ActionListener, MouseListener {
-    
+
     Main v;
     Model model;
 
-    private String position="";
-    
-    public Controller_Main(Main v){
-        this.v=v;
-        model=new Model();
+    private String position = "";
+
+    int rosa = 1;
+
+    public Controller_Main(Main v) {
+        this.v = v;
+        model = new Model();
         System.out.println("");
     }
-    
-    public enum Actions{
+
+    public enum Actions {
+
         btn_categorias,
         btn_materiales,
         btn_productos,
@@ -44,11 +46,9 @@ public class Controller_Main implements ActionListener, MouseListener {
         btn_carritos,
         esconderRosa,
         esconderAzul,
-        
         btn_insertar,
         btn_modificar,
         btn_eliminar,
-        
         btn_categoria_insertar,
         btn_categoria_modificar,
         btn_categoria_eliminar,
@@ -68,8 +68,9 @@ public class Controller_Main implements ActionListener, MouseListener {
         btn_carrito_modificar,
         btn_carrito_eliminar
     }
-    
-    public enum POSITION{
+
+    public enum POSITION {
+
         CATEGORIA,
         MATERIAL,
         PRODUCTO,
@@ -77,25 +78,27 @@ public class Controller_Main implements ActionListener, MouseListener {
         EMPLEADO,
         CARRITO
     }
-    
-    public void initViews(){
+
+    public void initViews() {
         this.v.SplitPane2.setDividerLocation(0);
         this.v.SplitPane2.setDividerSize(0);
         this.v.pnl_split2_izquierda.setLayout(new BorderLayout());
         this.v.pnl_split2_derecha.setLayout(new BorderLayout());
-        
+
+        this.v.SplitPane2.setOneTouchExpandable(false);
+
         this.v.setVisible(true);
         this.v.setLocationRelativeTo(null);
         initListeners();
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         //JTableMain
-        
+
     }
-    
-    public void initListeners(){
+
+    public void initListeners() {
         this.v.btn_Categorias.setActionCommand("btn_categorias");
         this.v.btn_Categorias.addActionListener(this);
-        
+
         this.v.btn_Materiales.setActionCommand("btn_materiales");
         this.v.btn_Materiales.addActionListener(this);
         this.v.btn_Productos.setActionCommand("btn_productos");
@@ -106,78 +109,75 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.btn_Empleados.addActionListener(this);
         this.v.btn_Carritos.setActionCommand("btn_carritos");
         this.v.btn_Carritos.addActionListener(this);
-        
+
         this.v.btn_esconderRosa.setActionCommand("esconderRosa");
         this.v.btn_esconderRosa.addActionListener(this);
         this.v.btn_esconderAzul.setActionCommand("esconderAzul");
         this.v.btn_esconderAzul.addActionListener(this);
-        
+
         this.v.btn_tool_insertar.addActionListener(this);
         this.v.btn_tool_insertar.setActionCommand("btn_insertar");
         this.v.btn_tool_modificar.addActionListener(this);
         this.v.btn_tool_modificar.setActionCommand("btn_modificar");
         this.v.tgb_tool_eliminar.addActionListener(this);
         this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
-        
+
         this.v.jTableMain.addMouseListener(this);
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        switch(Actions.valueOf(e.getActionCommand())){
-            
+
+        switch (Actions.valueOf(e.getActionCommand())) {
+
             case btn_categorias:
-                position=POSITION.CATEGORIA.toString();
+                position = POSITION.CATEGORIA.toString();
                 refreshTable();
-                
+
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
-                this.v.pnl_split2_izquierda.add(this.v.pnl_Categorias,BorderLayout.CENTER);
+                this.v.pnl_split2_izquierda.add(this.v.pnl_Categorias, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
-                
+
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
-                this.v.btn_esconderAzul.setText(">");
                 break;
-                
+
             case btn_materiales:
-                position=POSITION.MATERIAL.toString();
+                position = POSITION.MATERIAL.toString();
                 refreshTable();
-                
+
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Materiales, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
-                this.v.pnl_split2_izquierda.setVisible(true);     
-                
+                this.v.pnl_split2_izquierda.setVisible(true);
+
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
-                this.v.btn_esconderAzul.setText(">");
-                
+
                 break;
-                
+
             case btn_productos:
-                position=POSITION.PRODUCTO.toString();
+                position = POSITION.PRODUCTO.toString();
                 refreshTable();
                 refreshComboBox();
-                
+
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
-                
+
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Productos, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
-                this.v.btn_esconderAzul.setText(">");
                 break;
-                
+
             case btn_clientes:
-                position=POSITION.CLIENTE.toString();
+                position = POSITION.CLIENTE.toString();
                 refreshTable();
-                
+
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
@@ -186,58 +186,50 @@ public class Controller_Main implements ActionListener, MouseListener {
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Clientes, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
-                this.v.btn_esconderAzul.setText(">");
                 break;
-                
+
             case btn_empleados:
-                position=POSITION.EMPLEADO.toString();
+                position = POSITION.EMPLEADO.toString();
                 refreshTable();
                 refreshComboBox();
-                
+
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
-                
+
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Empleado, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
-                this.v.btn_esconderAzul.setText(">");
                 break;
-                
+
             case btn_carritos:
-                position=POSITION.CARRITO.toString();
+                position = POSITION.CARRITO.toString();
                 refreshTable();
-                
+
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.SplitPane2.setDividerLocation(300);
                 this.v.SplitPane2.setDividerSize(5);
-                
+
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Carrito, BorderLayout.CENTER);
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
-                this.v.btn_esconderAzul.setText(">");
                 break;
-                
+
             case esconderRosa:
-                if(this.v.btn_esconderRosa.getText().equals(">")){
-                   esconderSplit(this.v.SplitPane1);
-                   this.v.btn_esconderRosa.setText("<");
-                }else if(this.v.btn_esconderRosa.getText().equals("<")){
-                    this.v.SplitPane1.setDividerLocation(200);
-                    this.v.btn_esconderRosa.setText(">");
-                }
+                    this.v.SplitPane1.setDividerLocation(0);
+                    this.v.SplitPane1.setOneTouchExpandable(true);
+                    
                 break;
-                
+
             case esconderAzul:
-                
                 esconderSplit(this.v.SplitPane2);
-                this.v.btn_esconderAzul.setText("<");
                 this.v.pnl_split2_izquierda.removeAll();
                 break;
+                
             case btn_insertar:
-                switch(position){
+                switch (position) {
                     case "CATEGORIA":
                         model.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
                         refreshTable();
@@ -251,10 +243,10 @@ public class Controller_Main implements ActionListener, MouseListener {
                         refreshTable();
                         break;
                     case "CLIENTE":
-                        if(this.v.jTextFieldClientePassword.getText().equals(this.v.jTextFieldClienteRePassword.getText())){
+                        if (this.v.jTextFieldClientePassword.getText().equals(this.v.jTextFieldClienteRePassword.getText())) {
                             model.insertUser(this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jTextFieldClientePassword.getText());
                             refreshTable();
-                        }else{
+                        } else {
                             JOptionPane.showMessageDialog(null, "Contraseña no concuerda. Intentelo de nuevo.");
                         }
                         break;
@@ -263,12 +255,12 @@ public class Controller_Main implements ActionListener, MouseListener {
                         refreshTable();
                         break;
                     case "CARRITO":
-                        
+
                         break;
                 }
                 break;
             case btn_modificar:
-                switch(position){
+                switch (position) {
                     case "CATEGORIA":
                         model.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
                         refreshTable();
@@ -290,17 +282,17 @@ public class Controller_Main implements ActionListener, MouseListener {
                         refreshTable();
                         break;
                     case "CARRITO":
-                        
+
                         break;
                 }
                 break;
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
-        if(this.v.tgb_tool_eliminar.isSelected()){
-            switch(position){
+        if (this.v.tgb_tool_eliminar.isSelected()) {
+            switch (position) {
                 case "CATEGORIA":
                     model.deleteCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
                     refreshTable();
@@ -322,11 +314,11 @@ public class Controller_Main implements ActionListener, MouseListener {
                     refreshTable();
                     break;
                 case "CARRITO":
-                    
+
                     break;
             }
-        }else{
-            switch(position){
+        } else {
+            switch (position) {
                 case "CATEGORIA":
                     this.v.jTextFieldCategoriaNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
                     this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
@@ -338,11 +330,11 @@ public class Controller_Main implements ActionListener, MouseListener {
                 case "PRODUCTO":
                     this.v.jTextFieldProductoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
                     this.v.jTextFieldProductoPrecio.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-    //                this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
-                    for(int i=0;i<this.v.jComboBoxProductoCategoria.getItemCount();i++){
-                        if(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString().equals(this.v.jComboBoxProductoCategoria.getItemAt(i))){
-                        this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
-                        break;
+                    //                this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
+                    for (int i = 0; i < this.v.jComboBoxProductoCategoria.getItemCount(); i++) {
+                        if (this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString().equals(this.v.jComboBoxProductoCategoria.getItemAt(i))) {
+                            this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
+                            break;
                         }
                     }
                     break;
@@ -357,10 +349,10 @@ public class Controller_Main implements ActionListener, MouseListener {
                     this.v.jTextFieldEmpleadoApellidos.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString());
                     this.v.jTextFieldEmpleadoNickname.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
                     this.v.jTextFieldEmpleadoTelefono.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
-                    for(int i=0;i<this.v.jComboBoxEmpleadoRol.getItemCount();i++){
-                        if(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 5).toString().equals(this.v.jComboBoxEmpleadoRol.getItemAt(i))){
-                        this.v.jComboBoxEmpleadoRol.setSelectedIndex(i);
-                        break;
+                    for (int i = 0; i < this.v.jComboBoxEmpleadoRol.getItemCount(); i++) {
+                        if (this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 5).toString().equals(this.v.jComboBoxEmpleadoRol.getItemAt(i))) {
+                            this.v.jComboBoxEmpleadoRol.setSelectedIndex(i);
+                            break;
                         }
                     }
                     break;
@@ -370,29 +362,13 @@ public class Controller_Main implements ActionListener, MouseListener {
             }
         }
     }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        
-    }
+    public void mousePressed(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
     
-    public void refreshTable(){
-        switch(position){
+    public void refreshTable() {
+        switch (position) {
             case "CATEGORIA":
                 this.v.jTableMain.setModel(model.getTableModel("CATEGORY"));
                 break;
@@ -413,56 +389,38 @@ public class Controller_Main implements ActionListener, MouseListener {
                 break;
         }
     }
-    
-    public void refreshComboBox(){
-        switch(position){
+
+    public void refreshComboBox() {
+        switch (position) {
             case "CATEGORIA":
-                
+
                 break;
             case "MATERIAL":
-                
+
                 break;
             case "PRODUCTO":
                 this.v.jComboBoxProductoCategoria.setModel(model.getComboBoxModel("CATEGORIA"));
                 break;
             case "CLIENTE":
-                
+
                 break;
             case "EMPLEADO":
                 this.v.jComboBoxEmpleadoRol.setModel(model.getComboBoxModel("EMPLEADO"));
                 break;
             case "CARRITO":
-                
+
                 break;
         }
     }
-    
-    public void ponerEsaTablaToGuapaYReshulona(){
-        this.v.pnl_split2_derecha.add(this.v.pnl_TableMain,BorderLayout.CENTER);
+
+    public void ponerEsaTablaToGuapaYReshulona() {
+        this.v.pnl_split2_derecha.add(this.v.pnl_TableMain, BorderLayout.CENTER);
     }
-    public void esconderSplit(JSplitPane sp){
-        
+
+    public void esconderSplit(JSplitPane sp) {
+
         sp.setDividerLocation(0);
         sp.setDividerSize(0);
     }
-    
-//    public void last()
-//    {
-//        JLabel label=new JLabel();
-//        label.setSize(this.v.jPanelMain.getHeight(), this.v.jPanelMain.getWidth());
-//        ImageIcon fot = new ImageIcon("src/IMG/naka_art_background.png");
-//        Icon icon=new ImageIcon(fot.getImage().getScaledInstance(this.v.jPanelMain.getWidth(), this.v.jPanelMain.getHeight(), Image.SCALE_DEFAULT));
-//        label.setIcon(icon);
-//        label.setVisible(true);
-//        
-//        this.v.jPanelMain.add(label);
-//    }
-//    
-//    public void panelSetSizeBy(JPanel panelPadre, JPanel panelHijo)
-//    {
-//        Dimension d=panelPadre.getSize();
-//        panelHijo.setSize(d);
-//    }
 
-    
 }

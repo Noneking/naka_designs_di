@@ -6,16 +6,9 @@
 package Controller;
 
 import View.Main;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 /**
  *
@@ -36,8 +29,8 @@ public class Controller_Login implements ActionListener {
     }
     public void initViews()
     {
-
-        this.v.jFrameLoggin.setSize(361, 360);
+        
+        this.v.jFrameLoggin.setSize(361, 356);
         this.v.jFrameLoggin.setLocationRelativeTo(null);
         this.v.jFrameLoggin.setVisible(true);
         

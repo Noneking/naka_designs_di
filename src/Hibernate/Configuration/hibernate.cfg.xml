@@ -4,8 +4,8 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/naka_database?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/naka_database?zeroDateTimeBehavior=convertToNull</property>
     <mapping resource="Hibernate/POJOs/ProductMaterial.hbm.xml"/>
     <mapping resource="Hibernate/POJOs/Product.hbm.xml"/>
     <mapping resource="Hibernate/POJOs/Material.hbm.xml"/>
