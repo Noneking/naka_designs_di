@@ -29,7 +29,7 @@ public class Controller_Main implements ActionListener, MouseListener {
     private String position = "";
 
     int rosa = 1;
-
+    String imagepath = "./bin/IMG/1.png";
     public Controller_Main(Main v) {
         this.v = v;
         model = new Model();

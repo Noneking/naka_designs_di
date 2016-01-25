@@ -1324,6 +1324,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="componentResized" listener="java.awt.event.ComponentListener" parameters="java.awt.event.ComponentEvent" handler="formComponentResized"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -1570,7 +1573,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel44">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/IMG/Fondo_Rosa_CSS.png"/>
+                      <Image iconType="3" name="/IMG/1.jpg"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1594,7 +1597,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="SplitPane2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="SplitPane2" alignment="0" pref="914" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1606,7 +1609,7 @@
               <SubComponents>
                 <Container class="javax.swing.JSplitPane" name="SplitPane2">
                   <Properties>
-                    <Property name="dividerLocation" type="int" value="300"/>
+                    <Property name="dividerLocation" type="int" value="0"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Cursor Por defecto"/>
                     </Property>
@@ -1649,7 +1652,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1662,13 +1665,14 @@
                     <Container class="javax.swing.JPanel" name="pnl_split2_derecha">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="ff" red="ff" type="rgb"/>
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                           <Color id="Cursor Por defecto"/>
                         </Property>
                       </Properties>
                       <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new JPanelBackground();"/>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>
                       <Constraints>
@@ -1680,7 +1684,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="486" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="907" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -1697,13 +1701,16 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnl_ToolBars">
+          <Properties>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="tb_principal" min="-2" pref="555" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="tb_principal" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="tb_secundario" min="-2" pref="156" max="-2" attributes="0"/>
                   </Group>
               </Group>

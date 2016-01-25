@@ -5,6 +5,7 @@
  */
 package View;
 
+import View.Methods.JPanelBackground;
 import java.awt.BorderLayout;
 
 /**
@@ -120,7 +121,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha = new javax.swing.JPanel();
         SplitPane2 = new javax.swing.JSplitPane();
         pnl_split2_izquierda = new javax.swing.JPanel();
-        pnl_split2_derecha = new javax.swing.JPanel();
+        pnl_split2_derecha = new JPanelBackground();
         pnl_ToolBars = new javax.swing.JPanel();
         tb_principal = new javax.swing.JToolBar();
         btn_tool_insertar = new javax.swing.JButton();
@@ -640,6 +641,11 @@ public class Main extends javax.swing.JFrame {
         setTitle("Naka Designs Sevilla v0.1");
         setBackground(new java.awt.Color(51, 255, 255));
         setUndecorated(true);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                formComponentResized(evt);
+            }
+        });
 
         SplitPane1.setBorder(null);
         SplitPane1.setDividerLocation(200);
@@ -698,12 +704,12 @@ public class Main extends javax.swing.JFrame {
         btn_esconderRosa.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow1_izquierda.png"))); // NOI18N
         pnl_split1_izquierda.add(btn_esconderRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 20, 20));
 
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/Fondo_Rosa_CSS.png"))); // NOI18N
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1.jpg"))); // NOI18N
         pnl_split1_izquierda.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 900));
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
 
-        SplitPane2.setDividerLocation(300);
+        SplitPane2.setDividerLocation(0);
         SplitPane2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         SplitPane2.setLastDividerLocation(300);
         SplitPane2.setMaximumSize(new java.awt.Dimension(300, 100));
@@ -716,7 +722,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split2_izquierda.setLayout(pnl_split2_izquierdaLayout);
         pnl_split2_izquierdaLayout.setHorizontalGroup(
             pnl_split2_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         pnl_split2_izquierdaLayout.setVerticalGroup(
             pnl_split2_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,14 +731,14 @@ public class Main extends javax.swing.JFrame {
 
         SplitPane2.setLeftComponent(pnl_split2_izquierda);
 
-        pnl_split2_derecha.setBackground(new java.awt.Color(255, 255, 51));
+        pnl_split2_derecha.setBackground(new java.awt.Color(255, 255, 255));
         pnl_split2_derecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout pnl_split2_derechaLayout = new javax.swing.GroupLayout(pnl_split2_derecha);
         pnl_split2_derecha.setLayout(pnl_split2_derechaLayout);
         pnl_split2_derechaLayout.setHorizontalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGap(0, 907, Short.MAX_VALUE)
         );
         pnl_split2_derechaLayout.setVerticalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -745,7 +751,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha.setLayout(pnl_split1_derechaLayout);
         pnl_split1_derechaLayout.setHorizontalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE)
         );
         pnl_split1_derechaLayout.setVerticalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -753,6 +759,8 @@ public class Main extends javax.swing.JFrame {
         );
 
         SplitPane1.setRightComponent(pnl_split1_derecha);
+
+        pnl_ToolBars.setOpaque(false);
 
         tb_principal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tb_principal.setFloatable(false);
@@ -790,8 +798,8 @@ public class Main extends javax.swing.JFrame {
         pnl_ToolBarsLayout.setHorizontalGroup(
             pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_ToolBarsLayout.createSequentialGroup()
-                .addComponent(tb_principal, javax.swing.GroupLayout.PREFERRED_SIZE, 555, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tb_secundario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnl_ToolBarsLayout.setVerticalGroup(
@@ -837,6 +845,10 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+     
+    }//GEN-LAST:event_formComponentResized
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField Ptxt_login_password;
