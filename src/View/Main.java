@@ -34,6 +34,8 @@ public class Main extends javax.swing.JFrame {
         pnl_TableMain = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableMain = new javax.swing.JTable();
+        jTextFieldTableQuery = new javax.swing.JTextField();
+        jButtonQueryClean = new javax.swing.JButton();
         pnl_Categorias = new javax.swing.JPanel();
         btn_esconderAzul = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -210,15 +212,31 @@ public class Main extends javax.swing.JFrame {
         jTableMain.setOpaque(false);
         jScrollPane1.setViewportView(jTableMain);
 
+        jTextFieldTableQuery.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+
+        jButtonQueryClean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/clean_brush.png"))); // NOI18N
+        jButtonQueryClean.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jButtonQueryClean.setBorderPainted(false);
+        jButtonQueryClean.setContentAreaFilled(false);
+
         javax.swing.GroupLayout pnl_TableMainLayout = new javax.swing.GroupLayout(pnl_TableMain);
         pnl_TableMain.setLayout(pnl_TableMainLayout);
         pnl_TableMainLayout.setHorizontalGroup(
             pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+            .addGroup(pnl_TableMainLayout.createSequentialGroup()
+                .addComponent(jTextFieldTableQuery)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonQueryClean))
         );
         pnl_TableMainLayout.setVerticalGroup(
             pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addGroup(pnl_TableMainLayout.createSequentialGroup()
+                .addGroup(pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldTableQuery)
+                    .addComponent(jButtonQueryClean, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
         );
 
         pnl_Categorias.setBackground(new java.awt.Color(0, 204, 255));
@@ -871,6 +889,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton7;
     public javax.swing.JButton jButtonBuscarCliente;
+    public javax.swing.JButton jButtonQueryClean;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
     public javax.swing.JComboBox jComboBoxProductoCategoria;
     public javax.swing.JFrame jFrameLoggin;
@@ -942,6 +961,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldProductoCantidad;
     public javax.swing.JTextField jTextFieldProductoNombre;
     public javax.swing.JTextField jTextFieldProductoPrecio;
+    public javax.swing.JTextField jTextFieldTableQuery;
     public javax.swing.JMenuBar manu_bar;
     public javax.swing.JMenu menu_movimientos;
     public javax.swing.JPanel pnl_Carrito;
