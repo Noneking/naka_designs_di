@@ -40,7 +40,7 @@ public class pnl_izquierda extends JPanel{
 		
 		// Construimos la imagen y se la asignamos al atributo background.
 		this.setOpaque(false);
-		this.background = new ImageIcon(getClass().getResource("/IMG/azul.png")).getImage();
+		this.background = new ImageIcon(getClass().getResource("/IMG/negro1.png")).getImage();
                 System.out.println("Se mete imagen --*--*--");
 	}
 }

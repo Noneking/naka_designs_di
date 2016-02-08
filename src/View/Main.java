@@ -220,7 +220,7 @@ public class Main extends javax.swing.JFrame {
         btn_esconder_pnlPrincipal.setContentAreaFilled(false);
         btn_esconder_pnlPrincipal.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow1_derecha.png"))); // NOI18N
 
-        jButtonQueryClean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/clean_brush.png"))); // NOI18N
+        jButtonQueryClean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/clean.png"))); // NOI18N
         jButtonQueryClean.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButtonQueryClean.setBorderPainted(false);
         jButtonQueryClean.setContentAreaFilled(false);
@@ -258,7 +258,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_TableMainLayout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE))
         );
 
         pnl_Categorias.setBackground(new java.awt.Color(0, 204, 255));
@@ -846,6 +846,11 @@ public class Main extends javax.swing.JFrame {
         menu_movimientos.setText("Movimientos");
 
         jMenuItem1.setText("Historial Ventas");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         menu_movimientos.add(jMenuItem1);
 
         manu_bar.add(menu_movimientos);
@@ -873,6 +878,10 @@ public class Main extends javax.swing.JFrame {
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
        jLabel4.setForeground(Color.MAGENTA);
     }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        SplitPane1.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField Ptxt_login_password;
