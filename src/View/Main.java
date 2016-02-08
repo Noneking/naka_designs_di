@@ -5,8 +5,9 @@
  */
 package View;
 
-import View.Methods.JPanelBackground;
+import View.Methods.pnl_Split_Derecha;
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 /**
  *
@@ -34,9 +35,11 @@ public class Main extends javax.swing.JFrame {
         pnl_TableMain = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableMain = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btn_esconder_pnlPrincipal = new javax.swing.JButton();
         jTextFieldTableQuery = new javax.swing.JTextField();
         jButtonQueryClean = new javax.swing.JButton();
-        pnl_Categorias = new javax.swing.JPanel();
+        pnl_Categorias = new View.Methods.pnl_azul();
         btn_esconderAzul = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -45,14 +48,14 @@ public class Main extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaCategoriaDescripcion = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
-        pnl_Materiales = new javax.swing.JPanel();
+        pnl_Materiales = new View.Methods.pnl_azul();
         btn_esconderAzul1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldMaterialNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldMaterialCantidad = new javax.swing.JTextField();
-        pnl_Productos = new javax.swing.JPanel();
+        pnl_Productos = new View.Methods.pnl_azul();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextFieldProductoNombre = new javax.swing.JTextField();
@@ -64,7 +67,7 @@ public class Main extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jTextFieldProductoCantidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        pnl_Clientes = new javax.swing.JPanel();
+        pnl_Clientes = new View.Methods.pnl_azul();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jTextFieldClienteNickname = new javax.swing.JTextField();
@@ -80,7 +83,7 @@ public class Main extends javax.swing.JFrame {
         jTextFieldClientePassword = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jTextFieldClienteTelefono = new javax.swing.JTextField();
-        pnl_Empleado = new javax.swing.JPanel();
+        pnl_Empleado = new View.Methods.pnl_azul();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -98,7 +101,7 @@ public class Main extends javax.swing.JFrame {
         jTextFieldEmpleadoPassword = new javax.swing.JTextField();
         jTextFieldEmpleadoRePassword = new javax.swing.JTextField();
         jComboBoxEmpleadoRol = new javax.swing.JComboBox();
-        pnl_Carrito = new javax.swing.JPanel();
+        pnl_Carrito = new View.Methods.pnl_azul();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
@@ -111,7 +114,7 @@ public class Main extends javax.swing.JFrame {
         jLabel41 = new javax.swing.JLabel();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
-        pnl_split1_izquierda = new javax.swing.JPanel();
+        pnl_split1_izquierda = new View.Methods.pnl_izquierda();
         btn_Clientes = new javax.swing.JButton();
         btn_Productos = new javax.swing.JButton();
         btn_Carritos = new javax.swing.JButton();
@@ -119,18 +122,10 @@ public class Main extends javax.swing.JFrame {
         btn_Materiales = new javax.swing.JButton();
         btn_Categorias = new javax.swing.JButton();
         btn_esconderRosa = new javax.swing.JButton();
-        jLabel44 = new javax.swing.JLabel();
         pnl_split1_derecha = new javax.swing.JPanel();
         SplitPane2 = new javax.swing.JSplitPane();
         pnl_split2_izquierda = new javax.swing.JPanel();
-        pnl_split2_derecha = new JPanelBackground();
-        pnl_ToolBars = new javax.swing.JPanel();
-        tb_principal = new javax.swing.JToolBar();
-        btn_tool_insertar = new javax.swing.JButton();
-        btn_tool_modificar = new javax.swing.JButton();
-        tgb_tool_eliminar = new javax.swing.JToggleButton();
-        tb_secundario = new javax.swing.JToolBar();
-        eti_tool_usuario = new javax.swing.JLabel();
+        pnl_split2_derecha = new View.Methods.pnl_Split_Derecha();
         manu_bar = new javax.swing.JMenuBar();
         menu_movimientos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -169,6 +164,14 @@ public class Main extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 51, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("¿Ha olvidado su contraseña?");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel4MouseExited(evt);
+            }
+        });
         jPanelLogin.add(jLabel4);
         jLabel4.setBounds(200, 290, 150, 20);
 
@@ -212,31 +215,50 @@ public class Main extends javax.swing.JFrame {
         jTableMain.setOpaque(false);
         jScrollPane1.setViewportView(jTableMain);
 
-        jTextFieldTableQuery.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        btn_esconder_pnlPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow2_derecha.png"))); // NOI18N
+        btn_esconder_pnlPrincipal.setBorderPainted(false);
+        btn_esconder_pnlPrincipal.setContentAreaFilled(false);
+        btn_esconder_pnlPrincipal.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow1_derecha.png"))); // NOI18N
 
         jButtonQueryClean.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/clean_brush.png"))); // NOI18N
         jButtonQueryClean.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         jButtonQueryClean.setBorderPainted(false);
         jButtonQueryClean.setContentAreaFilled(false);
 
-        javax.swing.GroupLayout pnl_TableMainLayout = new javax.swing.GroupLayout(pnl_TableMain);
-        pnl_TableMain.setLayout(pnl_TableMainLayout);
-        pnl_TableMainLayout.setHorizontalGroup(
-            pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
-            .addGroup(pnl_TableMainLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(btn_esconder_pnlPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldTableQuery)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonQueryClean))
         );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonQueryClean, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldTableQuery, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_esconder_pnlPrincipal))
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout pnl_TableMainLayout = new javax.swing.GroupLayout(pnl_TableMain);
+        pnl_TableMain.setLayout(pnl_TableMainLayout);
+        pnl_TableMainLayout.setHorizontalGroup(
+            pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 653, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         pnl_TableMainLayout.setVerticalGroup(
             pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_TableMainLayout.createSequentialGroup()
-                .addGroup(pnl_TableMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldTableQuery)
-                    .addComponent(jButtonQueryClean, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE))
         );
 
         pnl_Categorias.setBackground(new java.awt.Color(0, 204, 255));
@@ -659,11 +681,6 @@ public class Main extends javax.swing.JFrame {
         setTitle("Naka Designs Sevilla v0.1");
         setBackground(new java.awt.Color(51, 255, 255));
         setUndecorated(true);
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                formComponentResized(evt);
-            }
-        });
 
         SplitPane1.setBorder(null);
         SplitPane1.setDividerLocation(200);
@@ -674,44 +691,47 @@ public class Main extends javax.swing.JFrame {
 
         pnl_split1_izquierda.setBackground(new java.awt.Color(204, 102, 255));
         pnl_split1_izquierda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
-        pnl_split1_izquierda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btn_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/normal/Clientes.png"))); // NOI18N
         btn_Clientes.setBorderPainted(false);
         btn_Clientes.setContentAreaFilled(false);
         btn_Clientes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_Clientes.setPreferredSize(new java.awt.Dimension(83, 55));
-        pnl_split1_izquierda.add(btn_Clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 130, -1));
+        btn_Clientes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/Clientes_selected.png"))); // NOI18N
+        btn_Clientes.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/Clientes_presed.png"))); // NOI18N
 
-        btn_Productos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/Productos.png"))); // NOI18N
-        btn_Productos.setBorderPainted(false);
-        btn_Productos.setContentAreaFilled(false);
         btn_Productos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_Productos.setPreferredSize(new java.awt.Dimension(83, 55));
-        pnl_split1_izquierda.add(btn_Productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 130, -1));
 
+        btn_Carritos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/normal/Carrito.png"))); // NOI18N
         btn_Carritos.setBorderPainted(false);
         btn_Carritos.setContentAreaFilled(false);
         btn_Carritos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pnl_split1_izquierda.add(btn_Carritos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 130, 55));
+        btn_Carritos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/Carrito_selected.png"))); // NOI18N
+        btn_Carritos.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/Carrito_presed.png"))); // NOI18N
 
+        btn_Empleados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/normal/Empleados.png"))); // NOI18N
         btn_Empleados.setBorderPainted(false);
         btn_Empleados.setContentAreaFilled(false);
         btn_Empleados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_Empleados.setPreferredSize(new java.awt.Dimension(83, 55));
-        pnl_split1_izquierda.add(btn_Empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 130, -1));
+        btn_Empleados.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/Empleados_selected.png"))); // NOI18N
+        btn_Empleados.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/Empleados_presed.png"))); // NOI18N
 
-        btn_Materiales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/Materiales.png"))); // NOI18N
+        btn_Materiales.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/normal/Materiales.png"))); // NOI18N
         btn_Materiales.setBorderPainted(false);
         btn_Materiales.setContentAreaFilled(false);
         btn_Materiales.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btn_Materiales.setPreferredSize(new java.awt.Dimension(83, 55));
-        pnl_split1_izquierda.add(btn_Materiales, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 130, -1));
+        btn_Materiales.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/Materiales_selected.png"))); // NOI18N
+        btn_Materiales.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/Materiales_presed.png"))); // NOI18N
 
-        btn_Categorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/Categorias.png"))); // NOI18N
+        btn_Categorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/normal/Categorias.png"))); // NOI18N
         btn_Categorias.setBorderPainted(false);
         btn_Categorias.setContentAreaFilled(false);
         btn_Categorias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pnl_split1_izquierda.add(btn_Categorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 130, 50));
+        btn_Categorias.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/Categorias_select.png"))); // NOI18N
+        btn_Categorias.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/Categorias_presed.png"))); // NOI18N
 
         btn_esconderRosa.setBackground(new java.awt.Color(255, 255, 255));
         btn_esconderRosa.setForeground(new java.awt.Color(255, 255, 255));
@@ -720,10 +740,44 @@ public class Main extends javax.swing.JFrame {
         btn_esconderRosa.setContentAreaFilled(false);
         btn_esconderRosa.setFocusPainted(false);
         btn_esconderRosa.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow1_izquierda.png"))); // NOI18N
-        pnl_split1_izquierda.add(btn_esconderRosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 20, 20));
 
-        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/1.jpg"))); // NOI18N
-        pnl_split1_izquierda.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 900));
+        javax.swing.GroupLayout pnl_split1_izquierdaLayout = new javax.swing.GroupLayout(pnl_split1_izquierda);
+        pnl_split1_izquierda.setLayout(pnl_split1_izquierdaLayout);
+        pnl_split1_izquierdaLayout.setHorizontalGroup(
+            pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
+                .addGroup(pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btn_Carritos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Empleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Categorias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Productos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Clientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Materiales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        pnl_split1_izquierdaLayout.setVerticalGroup(
+            pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_Materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Productos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
 
@@ -744,23 +798,23 @@ public class Main extends javax.swing.JFrame {
         );
         pnl_split2_izquierdaLayout.setVerticalGroup(
             pnl_split2_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGap(0, 535, Short.MAX_VALUE)
         );
 
         SplitPane2.setLeftComponent(pnl_split2_izquierda);
 
-        pnl_split2_derecha.setBackground(new java.awt.Color(255, 255, 255));
         pnl_split2_derecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnl_split2_derecha.setOpaque(false);
 
         javax.swing.GroupLayout pnl_split2_derechaLayout = new javax.swing.GroupLayout(pnl_split2_derecha);
         pnl_split2_derecha.setLayout(pnl_split2_derechaLayout);
         pnl_split2_derechaLayout.setHorizontalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 907, Short.MAX_VALUE)
+            .addGap(0, 915, Short.MAX_VALUE)
         );
         pnl_split2_derechaLayout.setVerticalGroup(
             pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 539, Short.MAX_VALUE)
         );
 
         SplitPane2.setRightComponent(pnl_split2_derecha);
@@ -769,7 +823,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha.setLayout(pnl_split1_derechaLayout);
         pnl_split1_derechaLayout.setHorizontalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 914, Short.MAX_VALUE)
+            .addComponent(SplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_split1_derechaLayout.setVerticalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -778,67 +832,15 @@ public class Main extends javax.swing.JFrame {
 
         SplitPane1.setRightComponent(pnl_split1_derecha);
 
-        pnl_ToolBars.setOpaque(false);
-
-        tb_principal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tb_principal.setFloatable(false);
-        tb_principal.setRollover(true);
-        tb_principal.setBorderPainted(false);
-
-        btn_tool_insertar.setText("Insertar");
-        btn_tool_insertar.setFocusable(false);
-        btn_tool_insertar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_tool_insertar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tb_principal.add(btn_tool_insertar);
-
-        btn_tool_modificar.setText("Modificar");
-        btn_tool_modificar.setFocusable(false);
-        btn_tool_modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_tool_modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tb_principal.add(btn_tool_modificar);
-
-        tgb_tool_eliminar.setText("Eliminar");
-        tgb_tool_eliminar.setFocusable(false);
-        tgb_tool_eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tgb_tool_eliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tb_principal.add(tgb_tool_eliminar);
-
-        tb_secundario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tb_secundario.setFloatable(false);
-        tb_secundario.setRollover(true);
-        tb_secundario.setBorderPainted(false);
-
-        eti_tool_usuario.setText("Usuario");
-        tb_secundario.add(eti_tool_usuario);
-
-        javax.swing.GroupLayout pnl_ToolBarsLayout = new javax.swing.GroupLayout(pnl_ToolBars);
-        pnl_ToolBars.setLayout(pnl_ToolBarsLayout);
-        pnl_ToolBarsLayout.setHorizontalGroup(
-            pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_ToolBarsLayout.createSequentialGroup()
-                .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tb_secundario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        pnl_ToolBarsLayout.setVerticalGroup(
-            pnl_ToolBarsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tb_secundario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tb_principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout pnl_MainLayout = new javax.swing.GroupLayout(pnl_Main);
         pnl_Main.setLayout(pnl_MainLayout);
         pnl_MainLayout.setHorizontalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(pnl_ToolBars, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1131, Short.MAX_VALUE)
         );
         pnl_MainLayout.setVerticalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_MainLayout.createSequentialGroup()
-                .addComponent(pnl_ToolBars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE))
+            .addComponent(SplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         menu_movimientos.setText("Movimientos");
@@ -864,9 +866,13 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
-     
-    }//GEN-LAST:event_formComponentResized
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+       jLabel4.setForeground(Color.blue);
+    }//GEN-LAST:event_jLabel4MouseExited
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+       jLabel4.setForeground(Color.MAGENTA);
+    }//GEN-LAST:event_jLabel4MouseEntered
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField Ptxt_login_password;
@@ -882,9 +888,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_esconderAzul;
     public javax.swing.JButton btn_esconderAzul1;
     public javax.swing.JButton btn_esconderRosa;
-    public javax.swing.JButton btn_tool_insertar;
-    public javax.swing.JButton btn_tool_modificar;
-    private javax.swing.JLabel eti_tool_usuario;
+    public javax.swing.JButton btn_esconder_pnlPrincipal;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton14;
     public javax.swing.JButton jButton7;
@@ -928,12 +932,12 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel40;
     public javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel44;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     public javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JScrollPane jScrollPane1;
@@ -972,14 +976,10 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_Materiales;
     public javax.swing.JPanel pnl_Productos;
     public javax.swing.JPanel pnl_TableMain;
-    private javax.swing.JPanel pnl_ToolBars;
     public javax.swing.JPanel pnl_split1_derecha;
     public javax.swing.JPanel pnl_split1_izquierda;
     public javax.swing.JPanel pnl_split2_derecha;
     public javax.swing.JPanel pnl_split2_izquierda;
-    private javax.swing.JToolBar tb_principal;
-    private javax.swing.JToolBar tb_secundario;
-    public javax.swing.JToggleButton tgb_tool_eliminar;
     public javax.swing.JTextField txt_login_user;
     // End of variables declaration//GEN-END:variables
 }

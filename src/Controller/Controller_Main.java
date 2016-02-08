@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.Model;
@@ -19,7 +14,7 @@ import javax.swing.JSplitPane;
 
 /**
  *
- * @author nonek
+ * @author nonek,mrdrulix
  */
 public class Controller_Main implements ActionListener, MouseListener {
 
@@ -29,7 +24,6 @@ public class Controller_Main implements ActionListener, MouseListener {
     private String position = "";
 
     int rosa = 1;
-    String imagepath = "./bin/IMG/1.png";
     public Controller_Main(Main v) {
         this.v = v;
         model = new Model();
@@ -66,7 +60,8 @@ public class Controller_Main implements ActionListener, MouseListener {
         btn_empleado_eliminar,
         btn_carrito_insertar,
         btn_carrito_modificar,
-        btn_carrito_eliminar
+        btn_carrito_eliminar,
+        btn_esconder_pnlPrincipal;
     }
 
     public enum POSITION {
@@ -84,14 +79,18 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.SplitPane2.setDividerSize(0);
         this.v.pnl_split2_izquierda.setLayout(new BorderLayout());
         this.v.pnl_split2_derecha.setLayout(new BorderLayout());
+        
+        this.v.btn_esconder_pnlPrincipal.setVisible(false);
 
         this.v.SplitPane2.setOneTouchExpandable(false);
-
+        this.v.SplitPane1.setOneTouchExpandable(false);
+        
         this.v.setVisible(true);
         this.v.setLocationRelativeTo(null);
         initListeners();
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         //JTableMain
+        
 
     }
 
@@ -114,13 +113,15 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.btn_esconderRosa.addActionListener(this);
         this.v.btn_esconderAzul.setActionCommand("esconderAzul");
         this.v.btn_esconderAzul.addActionListener(this);
+        this.v.btn_esconder_pnlPrincipal.setActionCommand("btn_esconder_pnlPrincipal");
+        this.v.btn_esconder_pnlPrincipal.addActionListener(this);
 
-        this.v.btn_tool_insertar.addActionListener(this);
-        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
-        this.v.btn_tool_modificar.addActionListener(this);
-        this.v.btn_tool_modificar.setActionCommand("btn_modificar");
-        this.v.tgb_tool_eliminar.addActionListener(this);
-        this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
+//        this.v.btn_tool_insertar.addActionListener(this);
+//        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
+//        this.v.btn_tool_modificar.addActionListener(this);
+//        this.v.btn_tool_modificar.setActionCommand("btn_modificar");
+//        this.v.tgb_tool_eliminar.addActionListener(this);
+//        this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
 
         this.v.jTableMain.addMouseListener(this);
     }
@@ -219,8 +220,11 @@ public class Controller_Main implements ActionListener, MouseListener {
 
             case esconderRosa:
                     this.v.SplitPane1.setDividerLocation(0);
-                    this.v.SplitPane1.setOneTouchExpandable(true);
-                    
+                    this.v.btn_esconder_pnlPrincipal.setVisible(true);
+                break;
+            case btn_esconder_pnlPrincipal:
+                this.v.SplitPane1.setDividerLocation(200);
+                    this.v.btn_esconder_pnlPrincipal.setVisible(false);
                 break;
 
             case esconderAzul:
@@ -291,76 +295,76 @@ public class Controller_Main implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (this.v.tgb_tool_eliminar.isSelected()) {
-            switch (position) {
-                case "CATEGORIA":
-                    model.deleteCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                    refreshTable();
-                    break;
-                case "MATERIAL":
-                    model.deleteMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                    refreshTable();
-                    break;
-                case "PRODUCTO":
-                    model.deleteProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                    refreshTable();
-                    break;
-                case "CLIENTE":
-                    model.deleteUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                    refreshTable();
-                    break;
-                case "EMPLEADO":
-                    model.deleteCrew(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
-                    refreshTable();
-                    break;
-                case "CARRITO":
-
-                    break;
-            }
-        } else {
-            switch (position) {
-                case "CATEGORIA":
-                    this.v.jTextFieldCategoriaNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
-                    this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-                    break;
-                case "MATERIAL":
-                    this.v.jTextFieldMaterialNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
-                    this.v.jTextFieldMaterialCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-                    break;
-                case "PRODUCTO":
-                    this.v.jTextFieldProductoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
-                    this.v.jTextFieldProductoPrecio.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-                    //                this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
-                    for (int i = 0; i < this.v.jComboBoxProductoCategoria.getItemCount(); i++) {
-                        if (this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString().equals(this.v.jComboBoxProductoCategoria.getItemAt(i))) {
-                            this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
-                            break;
-                        }
-                    }
-                    break;
-                case "CLIENTE":
-                    this.v.jTextFieldClienteNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-                    this.v.jTextFieldClienteApellidos.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString());
-                    this.v.jTextFieldClienteNickname.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
-                    this.v.jTextFieldClienteEmail.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
-                    break;
-                case "EMPLEADO":
-                    this.v.jTextFieldEmpleadoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-                    this.v.jTextFieldEmpleadoApellidos.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString());
-                    this.v.jTextFieldEmpleadoNickname.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
-                    this.v.jTextFieldEmpleadoTelefono.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
-                    for (int i = 0; i < this.v.jComboBoxEmpleadoRol.getItemCount(); i++) {
-                        if (this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 5).toString().equals(this.v.jComboBoxEmpleadoRol.getItemAt(i))) {
-                            this.v.jComboBoxEmpleadoRol.setSelectedIndex(i);
-                            break;
-                        }
-                    }
-                    break;
-                case "CARRITO":
-
-                    break;
-            }
-        }
+//        if (this.v.tgb_tool_eliminar.isSelected()) {
+//            switch (position) {
+//                case "CATEGORIA":
+//                    model.deleteCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+//                    refreshTable();
+//                    break;
+//                case "MATERIAL":
+//                    model.deleteMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+//                    refreshTable();
+//                    break;
+//                case "PRODUCTO":
+//                    model.deleteProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+//                    refreshTable();
+//                    break;
+//                case "CLIENTE":
+//                    model.deleteUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+//                    refreshTable();
+//                    break;
+//                case "EMPLEADO":
+//                    model.deleteCrew(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
+//                    refreshTable();
+//                    break;
+//                case "CARRITO":
+//
+//                    break;
+//            }
+//        } else {
+//            switch (position) {
+//                case "CATEGORIA":
+//                    this.v.jTextFieldCategoriaNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+//                    this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+//                    break;
+//                case "MATERIAL":
+//                    this.v.jTextFieldMaterialNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+//                    this.v.jTextFieldMaterialCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+//                    break;
+//                case "PRODUCTO":
+//                    this.v.jTextFieldProductoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+//                    this.v.jTextFieldProductoPrecio.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+//                    //                this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
+//                    for (int i = 0; i < this.v.jComboBoxProductoCategoria.getItemCount(); i++) {
+//                        if (this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString().equals(this.v.jComboBoxProductoCategoria.getItemAt(i))) {
+//                            this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
+//                            break;
+//                        }
+//                    }
+//                    break;
+//                case "CLIENTE":
+//                    this.v.jTextFieldClienteNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+//                    this.v.jTextFieldClienteApellidos.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString());
+//                    this.v.jTextFieldClienteNickname.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+//                    this.v.jTextFieldClienteEmail.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
+//                    break;
+//                case "EMPLEADO":
+//                    this.v.jTextFieldEmpleadoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+//                    this.v.jTextFieldEmpleadoApellidos.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString());
+//                    this.v.jTextFieldEmpleadoNickname.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+//                    this.v.jTextFieldEmpleadoTelefono.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 4).toString());
+//                    for (int i = 0; i < this.v.jComboBoxEmpleadoRol.getItemCount(); i++) {
+//                        if (this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 5).toString().equals(this.v.jComboBoxEmpleadoRol.getItemAt(i))) {
+//                            this.v.jComboBoxEmpleadoRol.setSelectedIndex(i);
+//                            break;
+//                        }
+//                    }
+//                    break;
+//                case "CARRITO":
+//
+//                    break;
+//            }
+//        }
     }
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}
