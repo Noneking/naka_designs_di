@@ -40,7 +40,7 @@ public class pnl_azul extends JPanel {
 		
 		// Construimos la imagen y se la asignamos al atributo background.
 		this.setOpaque(false);
-		this.background = new ImageIcon(getClass().getResource("/IMG/azulRuidoso.png")).getImage();
+		this.background = new ImageIcon(getClass().getResource("/IMG/back.jpg")).getImage();
                 System.out.println("Se mete imagen --*--*--");
 	}
 }

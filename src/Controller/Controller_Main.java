@@ -138,6 +138,7 @@ public class Controller_Main implements ActionListener, MouseListener {
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_split2_izquierda.add(this.v.pnl_Categorias, BorderLayout.CENTER);
+                this.v.repaint();
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
 
