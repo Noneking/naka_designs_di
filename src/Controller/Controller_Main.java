@@ -78,7 +78,7 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.SplitPane2.setDividerLocation(0);
         this.v.SplitPane2.setDividerSize(0);
         this.v.pnl_split2_izquierda.setLayout(new BorderLayout());
-        this.v.pnl_split2_derecha.setLayout(new BorderLayout());
+        this.v.pnl_split3_derecha.setLayout(new BorderLayout());
         
         this.v.btn_esconder_pnlPrincipal.setVisible(false);
 
@@ -419,7 +419,7 @@ public class Controller_Main implements ActionListener, MouseListener {
     }
 
     public void ponerEsaTablaToGuapaYReshulona() {
-        this.v.pnl_split2_derecha.add(this.v.pnl_TableMain, BorderLayout.CENTER);
+        this.v.pnl_split3_derecha.add(this.v.pnl_TableMain, BorderLayout.CENTER);
     }
 
     public void esconderSplit(JSplitPane sp) {

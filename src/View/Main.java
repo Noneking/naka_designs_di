@@ -125,7 +125,9 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha = new javax.swing.JPanel();
         SplitPane2 = new javax.swing.JSplitPane();
         pnl_split2_izquierda = new javax.swing.JPanel();
-        pnl_split2_derecha = new View.Methods.pnl_Split_Derecha();
+        SplitPane3 = new javax.swing.JSplitPane();
+        pnl_split3_derecha = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         manu_bar = new javax.swing.JMenuBar();
         menu_movimientos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -195,11 +197,12 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jPanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        pnl_TableMain.setBackground(new java.awt.Color(255, 255, 51));
+        pnl_TableMain.setBackground(new java.awt.Color(204, 204, 204));
 
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setOpaque(false);
 
+        jTableMain.setBackground(new java.awt.Color(153, 153, 153));
         jTableMain.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
         jTableMain.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -279,6 +282,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Categorias.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 280, -1));
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(182, 182, 182));
         jLabel9.setText("Nombre:");
         pnl_Categorias.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 126, -1, -1));
 
@@ -286,6 +290,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Categorias.add(jTextFieldCategoriaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 123, 180, -1));
 
         jLabel10.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(182, 182, 182));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Descripcion de la categoria :");
         pnl_Categorias.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 177, -1, -1));
@@ -318,6 +323,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Materiales.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 280, -1));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 23)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(182, 182, 182));
         jLabel6.setText("Nombre: ");
         pnl_Materiales.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 137, -1, -1));
 
@@ -325,6 +331,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Materiales.add(jTextFieldMaterialNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 134, 187, -1));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 23)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(182, 182, 182));
         jLabel7.setText("Cantidad:");
         pnl_Materiales.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
@@ -334,22 +341,40 @@ public class Main extends javax.swing.JFrame {
         pnl_Productos.setBackground(new java.awt.Color(0, 204, 255));
         pnl_Productos.setPreferredSize(new java.awt.Dimension(199, 498));
 
+        jLabel13.setBackground(new java.awt.Color(182, 182, 182));
+        jLabel13.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(182, 182, 182));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Producto");
 
+        jLabel14.setBackground(new java.awt.Color(182, 182, 182));
+        jLabel14.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(182, 182, 182));
         jLabel14.setText("Nombre:");
 
+        jLabel15.setBackground(new java.awt.Color(182, 182, 182));
+        jLabel15.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(182, 182, 182));
         jLabel15.setText("Precio: ");
 
+        jLabel16.setBackground(new java.awt.Color(182, 182, 182));
+        jLabel16.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(182, 182, 182));
         jLabel16.setText("Categoria:");
 
         jComboBoxProductoCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel17.setBackground(new java.awt.Color(182, 182, 182));
+        jLabel17.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(182, 182, 182));
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Materiales");
 
         jButton7.setText("Más");
 
+        jLabel11.setBackground(new java.awt.Color(182, 182, 182));
+        jLabel11.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(182, 182, 182));
         jLabel11.setText("Cantidad:");
 
         javax.swing.GroupLayout pnl_ProductosLayout = new javax.swing.GroupLayout(pnl_Productos);
@@ -408,27 +433,43 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
-                .addContainerGap(286, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         pnl_Clientes.setBackground(new java.awt.Color(0, 204, 255));
         pnl_Clientes.setPreferredSize(new java.awt.Dimension(199, 498));
 
+        jLabel19.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(182, 182, 182));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Cliente");
 
+        jLabel20.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(182, 182, 182));
         jLabel20.setText("Nick:");
 
+        jLabel21.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(182, 182, 182));
         jLabel21.setText("Nombre:");
 
+        jLabel22.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(182, 182, 182));
         jLabel22.setText("Apellidos:");
 
+        jLabel23.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(182, 182, 182));
         jLabel23.setText("Email:");
 
+        jLabel24.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(182, 182, 182));
         jLabel24.setText("Password:");
 
+        jLabel25.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(182, 182, 182));
         jLabel25.setText("Re-password:");
 
+        jLabel27.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(182, 182, 182));
         jLabel27.setText("Tlf - movil:");
 
         javax.swing.GroupLayout pnl_ClientesLayout = new javax.swing.GroupLayout(pnl_Clientes);
@@ -455,7 +496,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jTextFieldClienteNickname)
                             .addComponent(jTextFieldClienteEmail)
                             .addComponent(jTextFieldClienteTelefono)
-                            .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                             .addComponent(jTextFieldClientePassword))))
                 .addContainerGap())
         );
@@ -492,31 +533,50 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
                     .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(279, Short.MAX_VALUE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
 
         pnl_Empleado.setBackground(new java.awt.Color(0, 204, 255));
         pnl_Empleado.setPreferredSize(new java.awt.Dimension(199, 498));
 
+        jLabel26.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(182, 182, 182));
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel26.setText("Empleados");
 
+        jLabel28.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel28.setForeground(new java.awt.Color(182, 182, 182));
         jLabel28.setText("Nombre:");
 
+        jLabel29.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(182, 182, 182));
         jLabel29.setText("Apellidos:");
 
+        jLabel30.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(182, 182, 182));
         jLabel30.setText("Nick:");
 
+        jLabel31.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(182, 182, 182));
         jLabel31.setText("Tlf - movil:");
 
+        jLabel32.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(182, 182, 182));
         jLabel32.setText("Email:");
 
+        jLabel33.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(182, 182, 182));
         jLabel33.setText("Password:");
 
+        jLabel34.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(182, 182, 182));
         jLabel34.setText("Re-password:");
 
+        jLabel35.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(182, 182, 182));
         jLabel35.setText("Rol:");
 
+        jComboBoxEmpleadoRol.setFont(new java.awt.Font("Calibri", 1, 11)); // NOI18N
         jComboBoxEmpleadoRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout pnl_EmpleadoLayout = new javax.swing.GroupLayout(pnl_Empleado);
@@ -588,25 +648,37 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
                     .addComponent(jComboBoxEmpleadoRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(251, Short.MAX_VALUE))
         );
 
         pnl_Carrito.setBackground(new java.awt.Color(0, 204, 255));
         pnl_Carrito.setPreferredSize(new java.awt.Dimension(199, 498));
 
+        jLabel36.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(182, 182, 182));
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel36.setText("Carrito");
 
+        jLabel37.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(182, 182, 182));
         jLabel37.setText("Cliente:");
 
+        jButtonBuscarCliente.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButtonBuscarCliente.setText("B");
 
+        jLabel38.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(182, 182, 182));
         jLabel38.setText("Producto:");
 
+        jButton14.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         jButton14.setText("Buscar");
 
+        jLabel39.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(182, 182, 182));
         jLabel39.setText("Nombre Producto");
 
+        jLabel40.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(182, 182, 182));
         jLabel40.setText("Precio");
 
         jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -674,7 +746,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(373, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -735,7 +807,7 @@ public class Main extends javax.swing.JFrame {
 
         btn_esconderRosa.setBackground(new java.awt.Color(255, 255, 255));
         btn_esconderRosa.setForeground(new java.awt.Color(255, 255, 255));
-        btn_esconderRosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow2_izquierda.png"))); // NOI18N
+        btn_esconderRosa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow1_izquierda.png"))); // NOI18N
         btn_esconderRosa.setBorderPainted(false);
         btn_esconderRosa.setContentAreaFilled(false);
         btn_esconderRosa.setFocusPainted(false);
@@ -764,7 +836,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
                 .addComponent(btn_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_Materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -776,7 +848,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
@@ -803,21 +875,36 @@ public class Main extends javax.swing.JFrame {
 
         SplitPane2.setLeftComponent(pnl_split2_izquierda);
 
-        pnl_split2_derecha.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pnl_split2_derecha.setOpaque(false);
+        SplitPane3.setDividerLocation(400);
+        SplitPane3.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        javax.swing.GroupLayout pnl_split2_derechaLayout = new javax.swing.GroupLayout(pnl_split2_derecha);
-        pnl_split2_derecha.setLayout(pnl_split2_derechaLayout);
-        pnl_split2_derechaLayout.setHorizontalGroup(
-            pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 915, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnl_split3_derechaLayout = new javax.swing.GroupLayout(pnl_split3_derecha);
+        pnl_split3_derecha.setLayout(pnl_split3_derechaLayout);
+        pnl_split3_derechaLayout.setHorizontalGroup(
+            pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 913, Short.MAX_VALUE)
         );
-        pnl_split2_derechaLayout.setVerticalGroup(
-            pnl_split2_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+        pnl_split3_derechaLayout.setVerticalGroup(
+            pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 399, Short.MAX_VALUE)
         );
 
-        SplitPane2.setRightComponent(pnl_split2_derecha);
+        SplitPane3.setTopComponent(pnl_split3_derecha);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 913, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 133, Short.MAX_VALUE)
+        );
+
+        SplitPane3.setRightComponent(jPanel2);
+
+        SplitPane2.setRightComponent(SplitPane3);
 
         javax.swing.GroupLayout pnl_split1_derechaLayout = new javax.swing.GroupLayout(pnl_split1_derecha);
         pnl_split1_derecha.setLayout(pnl_split1_derechaLayout);
@@ -887,6 +974,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPasswordField Ptxt_login_password;
     public javax.swing.JSplitPane SplitPane1;
     public javax.swing.JSplitPane SplitPane2;
+    private javax.swing.JSplitPane SplitPane3;
     public javax.swing.JButton btn_Carritos;
     public javax.swing.JButton btn_Categorias;
     public javax.swing.JButton btn_Clientes;
@@ -947,6 +1035,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JScrollPane jScrollPane1;
@@ -987,8 +1076,8 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_TableMain;
     public javax.swing.JPanel pnl_split1_derecha;
     public javax.swing.JPanel pnl_split1_izquierda;
-    public javax.swing.JPanel pnl_split2_derecha;
     public javax.swing.JPanel pnl_split2_izquierda;
+    public javax.swing.JPanel pnl_split3_derecha;
     public javax.swing.JTextField txt_login_user;
     // End of variables declaration//GEN-END:variables
 }
