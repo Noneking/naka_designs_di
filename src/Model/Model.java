@@ -17,6 +17,10 @@ import Hibernate.POJOs.Record;
 import Hibernate.POJOs.RecordUser;
 import Hibernate.POJOs.Turnover;
 import Hibernate.POJOs.User;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -1045,6 +1049,15 @@ public class Model extends Connection {
                 break;
         }
         return dcbm;
+    }
+    
+    public void enlace (String enlaceAAceder) throws URISyntaxException{
+        Desktop enlace=Desktop.getDesktop();
+        try {
+                enlace.browse(new URI(enlaceAAceder));
+        } catch (IOException | URISyntaxException e) {
+            e.getMessage();
+        }
     }
     
 }
