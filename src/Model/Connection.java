@@ -6,6 +6,7 @@
 package Model;
 
 import Hibernate.Configuration.NewHibernateUtil;
+import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionException;
@@ -23,11 +24,12 @@ public class Connection {
     public Connection() {
         try {
             this.s=NewHibernateUtil.getSessionFactory().openSession();
-            System.err.println("Session opened.");
-        } catch(SessionException e) {
-            System.err.println("Error opening session..");
+        } catch(Exception ex) {
+            JOptionPane.showMessageDialog(null, "No ha sido posible la sesion con la base de datos, comprue que esta el servidor operativo");
+            
+            System.out.println("Error opening session..");
             this.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
-            System.err.println("Obtained current session.");
+            System.out.println("Obtained current session.");
         }
     }
     

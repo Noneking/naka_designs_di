@@ -5,6 +5,11 @@
  */
 package Hibernate.Configuration;
 
+import Controller.Controller_Login;
+import Model.Model;
+import View.Main;
+import javax.swing.JOptionPane;
+import javax.swing.text.View;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
@@ -17,16 +22,21 @@ import org.hibernate.SessionFactory;
 public class NewHibernateUtil {
 
     private static final SessionFactory sessionFactory;
-    
+
     static {
+        
         try {
+            
             // Create the SessionFactory from standard (hibernate.cfg.xml) 
             // config file.
             sessionFactory = new AnnotationConfiguration().configure(Controller.RUN.class.getResource("/Hibernate/Configuration/hibernate.cfg.xml")).buildSessionFactory();
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);
+            JOptionPane.showMessageDialog(null, "No ha sido posible la sesion con la base de datos, comprue que esta el servidor operativo");
+            
             throw new ExceptionInInitializerError(ex);
+            
         }
     }
     

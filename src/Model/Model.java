@@ -17,6 +17,7 @@ import Hibernate.POJOs.Record;
 import Hibernate.POJOs.RecordUser;
 import Hibernate.POJOs.Turnover;
 import Hibernate.POJOs.User;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
@@ -39,7 +40,7 @@ import org.hibernate.criterion.Restrictions;
 public class Model extends Connection {
     
     public Model(){
-        super();
+            super();
     }
     
     /*
@@ -1059,5 +1060,6 @@ public class Model extends Connection {
             e.getMessage();
         }
     }
+    
     
 }
