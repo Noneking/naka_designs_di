@@ -39,6 +39,10 @@ import org.hibernate.criterion.Restrictions;
  */
 public class Model extends Connection {
     
+    /**
+     * Constructor--
+     * Inicializa la clase de la extiende (Connection).
+     */
     public Model(){
             super();
     }
@@ -47,25 +51,30 @@ public class Model extends Connection {
     ---User Operations---
     */
     
+    /**Obtiene un objeto de tipo User según su campo cod(CLAVE PRIMARIA)*/
     public User getUserByCod(int cod){
         return (User) getSession().get(User.class, cod);
     }
     
+    /**Obtiene un objeto de tipo User según su campo name(CLAVE ÚNICA)*/
     public User getUserByNickname(String nickname){
         Criteria c=getSession().createCriteria(User.class);
         return (User) c.add(Restrictions.like("nickname", nickname)).uniqueResult();
     }
     
+    /**Obtiene una colección de objetos de tipo User según una variable que referencia varios campos(String)*/
     public ArrayList<User> getUsersByQuery(String question){
         Query query=getSession().createQuery("from User u where u.nickname like :query OR u.email like :query OR u.role like :query");
         ArrayList<User> list=(ArrayList<User>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }
     
+    /**Obtiene una colección de objetos de tipo User(todos los existentes)*/
     public ArrayList<User> getUsers(){
         return (ArrayList<User>) getSession().createQuery("from User").list();
     }
     
+    /**Inserta un objeto de tipo User en la BD*/
     public void insertUser(String nickname, String name, String surname, String email, String password){
         User u=new User(nickname, name, surname, email, password);
         getSession().save(u);
@@ -73,6 +82,7 @@ public class Model extends Connection {
         System.err.println("User inserted succesfully.");
     }
     
+    /**Modifica un objeto de tipo User en la BD*/
     public void modifyUser(int cod, String nickname, String name, String surname, String email, String password){
         User u=getUserByCod(cod);
         u.setNickname(nickname);
@@ -85,6 +95,7 @@ public class Model extends Connection {
         System.err.println("User modified succesfully.");
     }
     
+    /**Borra un objeto de tipo User de la BD según su cod(int)*/
     public void deleteUser(int cod){
         User u=getUserByCod(cod);
         getSession().delete(u);
@@ -92,6 +103,7 @@ public class Model extends Connection {
         System.err.println("User deleted succesfully.");
     }
     
+    /**Borra una colección de registros de tipo User de la BD según una colección de tipos del mismo*/
     public void deleteUsers(ArrayList<User> users){
         Iterator it=users.iterator();
         while(it.hasNext()){
@@ -102,6 +114,7 @@ public class Model extends Connection {
         System.err.println("Users delete succesfully.");
     }
     
+    /**Borra todos los registros User*/
     public void deleteUsers(){
         Iterator it=getUsers().iterator();
         while(it.hasNext()){
@@ -116,25 +129,30 @@ public class Model extends Connection {
     ---Product Operations---
     */
     
+    /**Obtiene un objeto de tipo Product según su campo cod(CLAVE PRIMARIA)*/
     public Product getProductByCod(int cod){
         return (Product) getSession().get(Product.class, cod);
     }
     
+    /**Obtiene un objeto de tipo Product según su campo name(CLAVE ÚNICA)*/
     public Product getProductByName(String name){
         Criteria c=getSession().createCriteria(Product.class);
         return (Product) c.add(Restrictions.like("name", name)).uniqueResult();
     }
     
+    /**Obtiene una colección de objetos de tipo Product según una variable que referencia varios campos(String)*/
     public ArrayList<Product> getProductsByQuery(String question){
         Query query=getSession().createQuery("from Product p where p.name like :query OR p.price like :query OR p.category like :query");
         ArrayList<Product> list=(ArrayList<Product>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }
     
+    /**Obtiene una colección de objetos de tipo Product(todos los existentes)*/
     public ArrayList<Product> getProducts(){
         return (ArrayList<Product>) getSession().createQuery("from Product").list();
     }
     
+    /**Inserta un objeto de tipo Product en la BD*/
     public void insertProduct(String name, double price, String category){
         Product p=new Product(getCategoryByName(category), name, price);
         getSession().save(p);
@@ -142,6 +160,7 @@ public class Model extends Connection {
         System.err.println("Product inserted succesfully.");
     }
     
+    /**Modifica un objeto de tipo Product en la BD*/
     public void modifyProduct(int cod, String name, double price, String category){
         Product p=getProductByCod(cod);
         p.setName(name);
@@ -152,6 +171,7 @@ public class Model extends Connection {
         System.err.println("Product modified succesfully.");
     }
     
+    /**Borra un objeto de tipo Product de la BD según su cod(int)*/
     public void deleteProduct(int cod){
         Product p=getProductByCod(cod);
         getSession().delete(p);
@@ -159,6 +179,7 @@ public class Model extends Connection {
         System.err.println("Product deleted succesfully.");
     }
     
+    /**Borra una colección de registros de tipo Product de la BD según una colección de tipos del mismo*/
     public void deleteProducts(ArrayList<Product> products){
         Iterator it=products.iterator();
         while(it.hasNext()){
@@ -169,6 +190,7 @@ public class Model extends Connection {
         System.err.println("Products deleted succesfully.");
     }
     
+    /**Borra todos los registros de Product*/
     public void deleteProducts(){
         Iterator it=getProducts().iterator();
         while(it.hasNext()){
@@ -180,23 +202,27 @@ public class Model extends Connection {
     }
     
     /*
-    ---Products Operations---
+    ---ProductRecord Operations---
     */
     
+    /**Obtiene un objeto de tipo ProductRecord según su campo cod(CLAVE PRIMARIA)*/
     public ProductRecord getProductRecordByCod(int cod){
         return (ProductRecord) getSession().get(ProductRecord.class, cod);
     }
     
+    /**Obtiene una colección de objetos de tipo ProductRecord según una variable que referencia varios campos(int)*/
     public ArrayList<ProductRecord> getProductsRecordsByQuery(int question){
         Query query=getSession().createQuery("from ProductRecord p where p.cod like :query OR p.amount like :query OR p.record like :query OR p.product like :query");
         ArrayList<ProductRecord> list=(ArrayList<ProductRecord>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }
     
+    /**Obtiene una colección de objetos de tipo ProductRecord(todos los existentes)*/
     public ArrayList<ProductRecord> getProductsRecords(){
         return (ArrayList<ProductRecord>) getSession().createQuery("from ProductRecord").list();
     }
     
+    /**Inserta un objeto de tipo ProductRecord en la BD*/
     public void insertProductRecord(int amount, int record, int product){
         ProductRecord pr=new ProductRecord(getProductByCod(product), getRecordByCod(record), amount);
         getSession().save(pr);
@@ -204,6 +230,7 @@ public class Model extends Connection {
         System.err.println("Products inserted succesfully.");
     }
     
+    /**Modifica un objeto de tipo ProductRecord en la BD*/
     public void modifyProductRecord(int cod, int amount, Record record, Product product){
         ProductRecord pr=getProductRecordByCod(cod);
         pr.setAmount(amount);
@@ -214,6 +241,7 @@ public class Model extends Connection {
         System.err.println("Products modified succesfully.");
     }
     
+    /**Borra un objeto de tipo ProductRecord de la BD según su cod(int)*/
     public void deleteProductRecord(int cod){
         ProductRecord pr=getProductRecordByCod(cod);
         getSession().delete(pr);
@@ -221,6 +249,7 @@ public class Model extends Connection {
         System.err.println("Products deleted succesfully.");
     }
     
+    /**Borra una colección de registros de tipo ProductRecord de la BD según una colección de tipos del mismo*/
     public void deleteProductRecord(ArrayList<ProductRecord> product_record){
         Iterator it=product_record.iterator();
         while(it.hasNext()){
@@ -231,6 +260,7 @@ public class Model extends Connection {
         System.err.println("Productss deleted succesfully.");
     }
     
+    /**Borra todos los registros de ProductRecord*/
     public void deleteProductsRecords(){
         Iterator it=getProductsRecords().iterator();
         while(it.hasNext()){
@@ -245,12 +275,14 @@ public class Model extends Connection {
     ---Category Operations---
     */
     
+    /**Obtiene un objeto de tipo Category según su campo cod(CLAVE PRIMARIA)*/
     public Category getCategoryByCod(int cod){
         Category c=(Category) getSession().get(Category.class, cod);
         closeSession();
         return c;
     }
     
+    /**Obtiene un objeto de tipo Category según su campo name(CLAVE ÚNICA)*/
     public Category getCategoryByName(String name){
         Criteria cr=getSession().createCriteria(Category.class);
         Category c=(Category) cr.add(Restrictions.like("name", name)).uniqueResult();
@@ -258,6 +290,7 @@ public class Model extends Connection {
         return c;
     }
     
+    /**Obtiene una colección de objetos de tipo Category según una variable que referencia varios campos(String)*/
     public ArrayList<Category> getCategoriesByQuery(String question){
         Query query=getSession().createQuery("from Category c where c.name like :query OR c.description like :query");
         ArrayList<Category> list=(ArrayList<Category>) query.setParameter("query", "%"+question+"%").list();
@@ -265,12 +298,14 @@ public class Model extends Connection {
         return list;
     }
     
+    /**Obtiene una colección de objetos de tipo Catogory(todos los existentes)*/
     public ArrayList<Category> getCategories(){
         ArrayList<Category> arrayList=(ArrayList<Category>) getSession().createQuery("from Category").list();
         closeSession();
         return arrayList;
     }
     
+    /**Inserta un objeto de tipo Category en la BD*/
     public void insertCategory(String name, String description){
 //        Category c=new Category(name, description);
         Category c=new Category(name);
@@ -281,6 +316,7 @@ public class Model extends Connection {
         System.err.println("Category inserted succesfully.");
     }
     
+    /**Modifica un objeto de tipo Category en la BD*/
     public void modifyCategory(int cod, String name, String description){
         Category c=getCategoryByCod(cod);
         c.setName(name);
@@ -291,6 +327,7 @@ public class Model extends Connection {
         System.err.println("Category modified succesfully.");
     }
     
+    /**Borra un objeto de tipo ProductRecord de la BD según su cod(int)*/
     public void deleteCategory(int cod){
         Category c=getCategoryByCod(cod);
         getSession().delete(c);
@@ -299,6 +336,7 @@ public class Model extends Connection {
         System.err.println("Category deleted succesfully.");
     }
     
+    /**Borra una colección de registros de tipo Category de la BD según una colección de tipos del mismo*/
     public void deleteCategories(ArrayList<Category> categories){
         Iterator it=categories.iterator();
         while(it.hasNext()){
@@ -311,6 +349,7 @@ public class Model extends Connection {
         System.err.println("Categories deleted succesfully.");
     }
     
+    /**Borra todos los registros de Catogory*/
     public void deleteCategories(){
         Iterator it=getCategories().iterator();
         while(it.hasNext()){
@@ -327,20 +366,24 @@ public class Model extends Connection {
     ---Record Operations---
     */
     
+    /**Obtiene un objeto de tipo Record según su campo cod(CLAVE PRIMARIA)*/
     public Record getRecordByCod(int cod){
         return (Record) getSession().get(Record.class, cod);
     }
     
+    /**Obtiene una colección de objetos de tipo Record según una variable que referencia varios campos(String)*/
     public ArrayList<Record> getRecordsByQuery(String question){
         Query query=getSession().createQuery("from Record r where r.date like :query");
         ArrayList<Record> list=(ArrayList<Record>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }
     
+    /**Obtiene una colección de objetos de tipo Record(todos los existentes)*/
     public ArrayList<Record> getRecords(){
         return (ArrayList<Record>) getSession().createQuery("from Record").list();
     }
     
+    /**Inserta un objeto de tipo Record en la BD*/
     public void insertRecord(String date){
         Record r=new Record(date);
         getSession().save(r);
@@ -348,6 +391,7 @@ public class Model extends Connection {
         System.err.println("Record inserted succesfully.");
     }
     
+    /**Modifica un objeto de tipo Record en la BD*/
     public void modifyRecord(int cod, String date){
         Record r=getRecordByCod(cod);
         r.setDate(date);
@@ -356,6 +400,7 @@ public class Model extends Connection {
         System.err.println("Record modified succesfully.");
     }
     
+    /**Borra un objeto de tipo Record de la BD según su cod(int)*/
     public void deleteRecord(int cod){
         Record r=getRecordByCod(cod);
         getSession().delete(r);
@@ -363,6 +408,7 @@ public class Model extends Connection {
         System.err.println("Record deleted succesfully.");
     }
     
+    /**Borra una colección de registros de tipo Record de la BD según una colección de tipos del mismo*/
     public void deleteRecords(ArrayList<Record> records){
         Iterator it=records.iterator();
         while(it.hasNext()){
@@ -373,6 +419,7 @@ public class Model extends Connection {
         System.err.println("Records deleted succesfully.");
     }
     
+    /**Borra todos los registros de Record*/
     public void deleteRecords(){
         Iterator it=getRecords().iterator();
         while(it.hasNext()){
@@ -384,13 +431,15 @@ public class Model extends Connection {
     }
     
     /*
-    ---Records Operations---
+    ---RecordUser Operations---
     */
     
+    /**Obtiene un objeto de tipo RecordUser según su campo cod(CLAVE PRIMARIA)*/
     public RecordUser getRecordUserByCod(int cod){
         return (RecordUser) getSession().get(RecordUser.class, cod);
     }
     
+    /**Obtiene un objeto de tipo RecordUser según su campo user(CLAVE AJENA)*/
     public ArrayList<RecordUser> getRecordUserByUser(int user){
         Criteria c=getSession().createCriteria(RecordUser.class);
         return (ArrayList<RecordUser>) c.add(Restrictions.like("user", user)).list();
@@ -401,6 +450,7 @@ public class Model extends Connection {
         return (ArrayList<RecordUser>) c.add(Restrictions.like("record", record)).list();
     }
     
+    /**Obtiene una colección de objetos de tipo RecordUser según una variable que referencia varios campos(int)*/
     public ArrayList<RecordUser> getRecordsUsersByQuery(int question){
         Query query=getSession().createQuery("from RecordUser r where r.cod like :query OR r.user like :query OR r.record like :query");
         ArrayList<RecordUser> list=(ArrayList<RecordUser>) query.setParameter("query", "%"+question+"%").list();

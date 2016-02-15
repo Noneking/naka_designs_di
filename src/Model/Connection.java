@@ -13,14 +13,23 @@ import org.hibernate.SessionException;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author nonek
+ * @author Alejandro Noriega Vega
  */
+
+/**
+ * Esta clase realiza todas las operaciones relacionadas con la conexión con la base de datos (MySQL + Hibernate)
+ */
+
 public class Connection {
     
     Session s;
     Transaction tx;
     
+    
+    /**
+     * Abre una nueva conexión.
+     * En caso de dar error conecta usando la conexión ya existente.
+     */
     public Connection() {
         try {
             this.s=NewHibernateUtil.getSessionFactory().openSession();
@@ -33,6 +42,10 @@ public class Connection {
         }
     }
     
+    /**
+     * Optiene una sesión.
+     * Si hay una abierta devuelve esa misma, sino crea una nueva y la devuelve.
+     */
     int contSessionError=0;
     public Session getSession() {
         if(!this.s.isOpen()){
@@ -53,6 +66,10 @@ public class Connection {
         return this.s;
     }
     
+    /**
+     * Abre una nueva sesión.
+     * En caso de error obtiene la sesión ya existente.
+     */
     public void openSession(){
         try {
             this.s=NewHibernateUtil.getSessionFactory().openSession();
@@ -64,6 +81,9 @@ public class Connection {
         }
     }
     
+    /**
+     * Limpia la sesión
+     */
     public void clearAndFlushSession()
     {
         try {
@@ -76,6 +96,9 @@ public class Connection {
         }
     }
     
+    /**
+     * Cierra la sesión
+     */
     public void closeSession(){
         try {
             this.s.close();
@@ -85,6 +108,9 @@ public class Connection {
         }
     }
     
+    /**
+     * Inicializa el objeto Transaction y lo devuelve
+     */
     public Transaction getTransaction(){
 //        if(!this.tx.isActive()){this.tx=getSession().beginTransaction();}
 //        return this.tx;
