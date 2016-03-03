@@ -7,6 +7,7 @@ package DAOs;
 
 import Hibernate.POJOs.Category;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,5 +24,6 @@ public interface Category_IDAO {
     public void deleteCategory(int cod);
     public void deleteCategories(ArrayList<Category> categories);
     public void deleteCategories();
+    public DefaultTableModel getTableModelCategory();
     
 }

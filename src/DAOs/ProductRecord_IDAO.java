@@ -9,6 +9,7 @@ import Hibernate.POJOs.Product;
 import Hibernate.POJOs.ProductRecord;
 import Hibernate.POJOs.Record;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,5 +25,6 @@ public interface ProductRecord_IDAO {
     public void deleteProductRecord(int cod);
     public void deleteProductRecord(ArrayList<ProductRecord> product_record);
     public void deleteProductsRecords();
+    public DefaultTableModel getTableModelProductRecord();
     
 }

@@ -8,6 +8,7 @@ package DAOs;
 import Hibernate.POJOs.User;
 import Model.Connection;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,5 +25,6 @@ public interface User_IDAO {
     public void deleteUser(int cod);
     public void deleteUsers(ArrayList<User> users);
     public void deleteUsers();
+    public DefaultTableModel getTableModelUser();
     
 }

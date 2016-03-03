@@ -8,6 +8,7 @@ package DAOs;
 import Hibernate.POJOs.ProductRecord;
 import Hibernate.POJOs.Turnover;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,5 +25,6 @@ public interface Turnover_IDAO {
     public void deleteTurnover(int cod);
     public void deleteTurnovers(ArrayList<Turnover> turnover);
     public void deleteTurnovers();
+    public DefaultTableModel getTableModelTurnover();
     
 }

@@ -8,6 +8,7 @@ package DAOs;
 import Hibernate.POJOs.Bookmark;
 import Hibernate.POJOs.Crew;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,5 +25,6 @@ public interface Bookmark_IDAO {
     public void deleteBookmark(int cod);
     public void deleteBookmarks(ArrayList<Bookmark> bookmarks);
     public void deleteBookmarks();
+    public DefaultTableModel getTableModelBookmark();
     
 }

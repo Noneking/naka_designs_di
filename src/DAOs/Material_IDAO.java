@@ -7,6 +7,7 @@ package DAOs;
 
 import Hibernate.POJOs.Material;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,5 +24,6 @@ public interface Material_IDAO {
     public void deleteMaterial(int cod);
     public void deleteMaterials(ArrayList<Material> materials);
     public void deleteMaterials();
+    public DefaultTableModel getTableModelMaterial();
     
 }

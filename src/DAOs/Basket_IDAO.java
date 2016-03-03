@@ -9,6 +9,7 @@ import Hibernate.POJOs.Basket;
 import Hibernate.POJOs.Product;
 import Hibernate.POJOs.User;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,5 +26,6 @@ public interface Basket_IDAO {
     public void deleteBasket(int cod);
     public void deleteBaskets(ArrayList<Basket> baskets);
     public void deleteBaskets();
+    public DefaultTableModel getTableModelBasket();
     
 }

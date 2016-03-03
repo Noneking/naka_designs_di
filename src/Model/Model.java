@@ -327,7 +327,7 @@ public class Model extends Connection {
         System.err.println("Category modified succesfully.");
     }
     
-    /**Borra un objeto de tipo ProductRecord de la BD según su cod(int)*/
+    /**Borra un objeto de tipo Category de la BD según su cod(int)*/
     public void deleteCategory(int cod){
         Category c=getCategoryByCod(cod);
         getSession().delete(c);
@@ -445,6 +445,7 @@ public class Model extends Connection {
         return (ArrayList<RecordUser>) c.add(Restrictions.like("user", user)).list();
     }
     
+    /**Obtiene un objeto de tipo RecordUser según su campo user(CLAVE AJENA)*/
     public ArrayList<RecordUser> getRecordUserByRecord(int record){
         Criteria c=getSession().createCriteria(RecordUser.class);
         return (ArrayList<RecordUser>) c.add(Restrictions.like("record", record)).list();

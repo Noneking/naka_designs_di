@@ -9,6 +9,7 @@ import Hibernate.POJOs.Material;
 import Hibernate.POJOs.Product;
 import Hibernate.POJOs.ProductMaterial;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -24,5 +25,6 @@ public interface ProductMaterial_IDAO {
     public void deleteProductMaterial(int cod);
     public void deleteProductsMaterials(ArrayList<ProductMaterial> products_materials);
     public void deleteProductsMaterials();
+    public DefaultTableModel getTableModelProductMaterial();
     
 }

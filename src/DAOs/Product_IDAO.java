@@ -7,6 +7,7 @@ package DAOs;
 
 import Hibernate.POJOs.Product;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,5 +24,6 @@ public interface Product_IDAO {
     public void deleteProduct(int cod);
     public void deleteProducts(ArrayList<Product> products);
     public void deleteProducts();
+    public DefaultTableModel getTableModelProduct();
     
 }

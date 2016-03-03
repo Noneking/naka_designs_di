@@ -7,6 +7,7 @@ package DAOs;
 
 import Hibernate.POJOs.Record;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,5 +23,6 @@ public interface Record_IDAO {
     public void deleteRecord(int cod);
     public void deleteRecords(ArrayList<Record> records);
     public void deleteRecords();
+    public DefaultTableModel getTableModelRecord();
     
 }

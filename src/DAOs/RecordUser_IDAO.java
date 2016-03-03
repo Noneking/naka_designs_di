@@ -9,6 +9,7 @@ import Hibernate.POJOs.Record;
 import Hibernate.POJOs.RecordUser;
 import Hibernate.POJOs.User;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,5 +27,6 @@ public interface RecordUser_IDAO {
     public void deleteRecordUser(int cod);
     public void deleteRecordsUsers(ArrayList<RecordUser> records_users);
     public void deleteRecordsUsers();
+    public DefaultTableModel getTableModelRecordUser();
     
 }

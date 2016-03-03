@@ -7,6 +7,7 @@ package DAOs;
 
 import Hibernate.POJOs.Crew;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,5 +24,6 @@ public interface Crew_IDAO {
     public void deleteCrew(String email);
     public void deleteCrews(ArrayList<Crew> crews);
     public void deleteCrews();
+    public DefaultTableModel getTableModelCrew();
     
 }
