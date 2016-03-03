@@ -63,58 +63,73 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     Material_DAO material;
     ProductMaterial_DAO productMaterial;
     
+    public Facade(){
+        this.user=new User_DAO();
+        this.product=new Product_DAO();
+        this.productRecord=new ProductRecord_DAO();
+        this.category=new Category_DAO();
+        this.record=new Record_DAO();
+        this.recordUser=new RecordUser_DAO();
+        this.basket=new Basket_DAO();
+        this.crew=new Crew_DAO();
+        this.bookmark=new Bookmark_DAO();
+        this.turnover=new Turnover_DAO();
+        this.material=new Material_DAO();
+        this.productMaterial=new ProductMaterial_DAO();
+    }
+    
     /*
     ---User Operations---
     */
     
     @Override
     public User getUserByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.user.getUserByCod(cod);
     }
 
     @Override
     public User getUserByNickname(String nickname) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.user.getUserByNickname(nickname);
     }
 
     @Override
     public ArrayList<User> getUsersByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.user.getUsersByQuery(question);
     }
 
     @Override
     public ArrayList<User> getUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.user.getUsers();
     }
 
     @Override
     public void insertUser(String nickname, String name, String surname, String email, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.user.insertUser(nickname, name, surname, email, password);
     }
 
     @Override
     public void modifyUser(int cod, String nickname, String name, String surname, String email, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.user.modifyUser(cod, nickname, name, surname, email, password);
     }
 
     @Override
     public void deleteUser(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.user.deleteUser(cod);
     }
 
     @Override
     public void deleteUsers(ArrayList<User> users) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.user.deleteUsers(users);
     }
 
     @Override
     public void deleteUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.user.deleteUsers();
     }
 
     @Override
     public DefaultTableModel getTableModelUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.user.getTableModelUser();
     }
 
     /*
@@ -123,52 +138,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
 
     @Override
     public Product getProductByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.product.getProductByCod(cod);
     }
 
     @Override
     public Product getProductByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.product.getProductByName(name);
     }
 
     @Override
     public ArrayList<Product> getProductsByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.product.getProductsByQuery(question);
     }
 
     @Override
     public ArrayList<Product> getProducts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.product.getProducts();
     }
 
     @Override
     public void insertProduct(String name, double price, String category) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.product.insertProduct(name, price, category);
     }
 
     @Override
     public void modifyProduct(int cod, String name, double price, String category) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.product.modifyProduct(cod, name, price, category);
     }
 
     @Override
     public void deleteProduct(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.product.deleteProduct(cod);
     }
 
     @Override
     public void deleteProducts(ArrayList<Product> products) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.product.deleteProducts(products);
     }
 
     @Override
     public void deleteProducts() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.product.deleteProducts();
     }
 
     @Override
     public DefaultTableModel getTableModelProduct() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.product.getTableModelProduct();
     }
 
     /*
@@ -177,47 +192,47 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public ProductRecord getProductRecordByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productRecord.getProductRecordByCod(cod);
     }
 
     @Override
     public ArrayList<ProductRecord> getProductsRecordsByQuery(int question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productRecord.getProductsRecordsByQuery(question);
     }
 
     @Override
     public ArrayList<ProductRecord> getProductsRecords() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productRecord.getProductsRecords();
     }
 
     @Override
     public void insertProductRecord(int amount, int record, int product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productRecord.insertProductRecord(amount, record, product);
     }
 
     @Override
     public void modifyProductRecord(int cod, int amount, Record record, Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productRecord.modifyProductRecord(cod, amount, record, product);
     }
 
     @Override
     public void deleteProductRecord(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productRecord.deleteProductRecord(cod);
     }
 
     @Override
     public void deleteProductRecord(ArrayList<ProductRecord> product_record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productRecord.deleteProductRecord(product_record);
     }
 
     @Override
     public void deleteProductsRecords() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productRecord.deleteProductsRecords();
     }
 
     @Override
     public DefaultTableModel getTableModelProductRecord() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productRecord.getTableModelProductRecord();
     }
 
     /*
@@ -226,52 +241,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public Category getCategoryByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.category.getCategoryByCod(cod);
     }
 
     @Override
     public Category getCategoryByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.category.getCategoryByName(name);
     }
 
     @Override
     public ArrayList<Category> getCategoriesByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.category.getCategoriesByQuery(question);
     }
 
     @Override
     public ArrayList<Category> getCategories() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.category.getCategories();
     }
 
     @Override
     public void insertCategory(String name, String description) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.category.insertCategory(name, description);
     }
 
     @Override
     public void modifyCategory(int cod, String name, String description) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.category.modifyCategory(cod, name, description);
     }
 
     @Override
     public void deleteCategory(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.category.deleteCategory(cod);
     }
 
     @Override
     public void deleteCategories(ArrayList<Category> categories) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.category.deleteCategories(categories);
     }
 
     @Override
     public void deleteCategories() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.category.deleteCategories();
     }
 
     @Override
     public DefaultTableModel getTableModelCategory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.category.getTableModelCategory();
     }
 
     /*
@@ -280,47 +295,47 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public Record getRecordByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.record.getRecordByCod(cod);
     }
 
     @Override
     public ArrayList<Record> getRecordsByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.record.getRecordsByQuery(question);
     }
 
     @Override
     public ArrayList<Record> getRecords() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.record.getRecords();
     }
 
     @Override
     public void insertRecord(String date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.record.insertRecord(date);
     }
 
     @Override
     public void modifyRecord(int cod, String date) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.record.modifyRecord(cod, date);
     }
 
     @Override
     public void deleteRecord(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.record.deleteRecord(cod);
     }
 
     @Override
     public void deleteRecords(ArrayList<Record> records) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.record.deleteRecords(records);
     }
 
     @Override
     public void deleteRecords() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.record.deleteRecords();
     }
 
     @Override
     public DefaultTableModel getTableModelRecord() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.record.getTableModelRecord();
     }
 
     /*
@@ -329,57 +344,57 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public RecordUser getRecordUserByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.recordUser.getRecordUserByCod(cod);
     }
 
     @Override
     public ArrayList<RecordUser> getRecordUserByUser(int user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.recordUser.getRecordUserByUser(user);
     }
 
     @Override
     public ArrayList<RecordUser> getRecordUserByRecord(int record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.recordUser.getRecordUserByRecord(record);
     }
 
     @Override
     public ArrayList<RecordUser> getRecordsUsersByQuery(int question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.recordUser.getRecordsUsersByQuery(question);
     }
 
     @Override
     public ArrayList<RecordUser> getRecordsUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.recordUser.getRecordsUsers();
     }
 
     @Override
     public void insertRecordUser(int user, int record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.recordUser.insertRecordUser(user, record);
     }
 
     @Override
     public void modifyRecordUser(int cod, User user, Record record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.recordUser.modifyRecordUser(cod, user, record);
     }
 
     @Override
     public void deleteRecordUser(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.recordUser.deleteRecordUser(cod);
     }
 
     @Override
     public void deleteRecordsUsers(ArrayList<RecordUser> records_users) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.recordUser.deleteRecordsUsers(records_users);
     }
 
     @Override
     public void deleteRecordsUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.recordUser.deleteRecordsUsers();
     }
 
     @Override
     public DefaultTableModel getTableModelRecordUser() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.recordUser.getTableModelRecordUser();
     }
 
     /*
@@ -388,52 +403,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public Basket getBasketByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.basket.getBasketByCod(cod);
     }
 
     @Override
     public Basket getBasketByUser(int user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.basket.getBasketByUser(user);
     }
 
     @Override
     public ArrayList<Basket> getBasketByQuery(int question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.basket.getBasketByQuery(question);
     }
 
     @Override
     public ArrayList<Basket> getBaskets() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.basket.getBaskets();
     }
 
     @Override
     public void insertBasket(int user, int product, int amount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.basket.insertBasket(user, product, amount);
     }
 
     @Override
     public void modifyBasket(int cod, User user, Product product) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.basket.modifyBasket(cod, user, product);
     }
 
     @Override
     public void deleteBasket(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.basket.deleteBasket(cod);
     }
 
     @Override
     public void deleteBaskets(ArrayList<Basket> baskets) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.basket.deleteBaskets(baskets);
     }
 
     @Override
     public void deleteBaskets() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.basket.deleteBaskets();
     }
 
     @Override
     public DefaultTableModel getTableModelBasket() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.basket.getTableModelBasket();
     }
     
     /*
@@ -442,52 +457,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
 
     @Override
     public Crew getCrewByEmail(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.crew.getCrewByEmail(email);
     }
 
     @Override
     public Crew getCrewByNickname(String nickname) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.crew.getCrewByNickname(nickname);
     }
 
     @Override
     public ArrayList<Crew> getCrewsByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.crew.getCrewsByQuery(question);
     }
 
     @Override
     public ArrayList<Crew> getCrews() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.crew.getCrews();
     }
 
     @Override
     public void insertCrew(String email, String nickname, String password, String name, String surname, String phone_number, String role) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.crew.insertCrew(email, nickname, password, name, surname, phone_number, role);
     }
 
     @Override
     public void modifyCrew(String email, String nickname, String password, String name, String surname, String phone_number, String role) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.crew.modifyCrew(email, nickname, password, name, surname, phone_number, role);
     }
 
     @Override
     public void deleteCrew(String email) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.crew.deleteCrew(email);
     }
 
     @Override
     public void deleteCrews(ArrayList<Crew> crews) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.crew.deleteCrews(crews);
     }
 
     @Override
     public void deleteCrews() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.crew.deleteCrews();
     }
 
     @Override
     public DefaultTableModel getTableModelCrew() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.crew.getTableModelCrew();
     }
 
     /*
@@ -496,52 +511,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public Bookmark getBookmarkByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.bookmark.getBookmarkByCod(cod);
     }
 
     @Override
     public Bookmark getBookmarkByDescription(String description) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.bookmark.getBookmarkByDescription(description);
     }
 
     @Override
     public ArrayList<Bookmark> getBookmarksByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.bookmark.getBookmarksByQuery(question);
     }
 
     @Override
     public ArrayList<Bookmark> getBookmarks() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.bookmark.getBookmarks();
     }
 
     @Override
     public void insertBookmark(String description, String date, String crew) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.bookmark.insertBookmark(description, date, crew);
     }
 
     @Override
     public void modifyBookmark(int cod, String description, String date, Crew crew) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.bookmark.modifyBookmark(cod, description, date, crew);
     }
 
     @Override
     public void deleteBookmark(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.bookmark.deleteBookmark(cod);
     }
 
     @Override
     public void deleteBookmarks(ArrayList<Bookmark> bookmarks) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.bookmark.deleteBookmarks(bookmarks);
     }
 
     @Override
     public void deleteBookmarks() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.bookmark.deleteBookmarks();
     }
 
     @Override
     public DefaultTableModel getTableModelBookmark() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.bookmark.getTableModelBookmark();
     }
 
     /*
@@ -550,52 +565,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public Turnover getTurnoverByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.turnover.getTurnoverByCod(cod);
     }
 
     @Override
     public Turnover getTurnoverByNickname(int product_record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.turnover.getTurnoverByNickname(product_record);
     }
 
     @Override
     public ArrayList<Turnover> getTurnoversByQuery(int question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.turnover.getTurnoversByQuery(question);
     }
 
     @Override
     public ArrayList<Turnover> getTurnovers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.turnover.getTurnovers();
     }
 
     @Override
     public void insertTurnover(int amount, double price, int product_record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.turnover.insertTurnover(amount, price, product_record);
     }
 
     @Override
     public void modifyTurnover(int cod, int amount, double price, ProductRecord product_record) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.turnover.modifyTurnover(cod, amount, price, product_record);
     }
 
     @Override
     public void deleteTurnover(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.turnover.deleteTurnover(cod);
     }
 
     @Override
     public void deleteTurnovers(ArrayList<Turnover> turnover) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.turnover.deleteTurnovers(turnover);
     }
 
     @Override
     public void deleteTurnovers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.turnover.deleteTurnovers();
     }
 
     @Override
     public DefaultTableModel getTableModelTurnover() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.turnover.getTableModelTurnover();
     }
 
     /*
@@ -604,52 +619,52 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public Material getMaterialByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.material.getMaterialByCod(cod);
     }
 
     @Override
     public Material getMaterialByName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.material.getMaterialByName(name);
     }
 
     @Override
     public ArrayList<Material> getMaterialsByQuery(String question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.material.getMaterialsByQuery(question);
     }
 
     @Override
     public ArrayList<Material> getMaterials() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.material.getMaterials();
     }
 
     @Override
     public void insertMaterial(String name, int amount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.material.insertMaterial(name, amount);
     }
 
     @Override
     public void modifyMaterial(int cod, String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.material.modifyMaterial(cod, name);
     }
 
     @Override
     public void deleteMaterial(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.material.deleteMaterial(cod);
     }
 
     @Override
     public void deleteMaterials(ArrayList<Material> materials) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.material.deleteMaterials(materials);
     }
 
     @Override
     public void deleteMaterials() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.material.deleteMaterials();
     }
 
     @Override
     public DefaultTableModel getTableModelMaterial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.material.getTableModelMaterial();
     }
 
     /*
@@ -658,47 +673,47 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     
     @Override
     public ProductMaterial getProductMaterialByCod(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productMaterial.getProductMaterialByCod(cod);
     }
 
     @Override
     public ArrayList<ProductMaterial> getProductsMaterialsByQuery(int question) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productMaterial.getProductsMaterialsByQuery(question);
     }
 
     @Override
     public ArrayList<ProductMaterial> getProductsMaterials() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productMaterial.getProductsMaterials();
     }
 
     @Override
     public void insertProductMaterial(int amount, int product, int material) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productMaterial.insertProductMaterial(amount, product, material);
     }
 
     @Override
     public void modifyProductMaterial(int cod, int amount, Product product, Material material) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productMaterial.modifyProductMaterial(cod, amount, product, material);
     }
 
     @Override
     public void deleteProductMaterial(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productMaterial.deleteProductMaterial(cod);
     }
 
     @Override
     public void deleteProductsMaterials(ArrayList<ProductMaterial> products_materials) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productMaterial.deleteProductsMaterials(products_materials);
     }
 
     @Override
     public void deleteProductsMaterials() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productMaterial.deleteProductsMaterials();
     }
 
     @Override
     public DefaultTableModel getTableModelProductMaterial() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productMaterial.getTableModelProductMaterial();
     }
     
 }

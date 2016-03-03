@@ -46,7 +46,7 @@ public class Connection {
      * Optiene una sesión.
      * Si hay una abierta devuelve esa misma, sino crea una nueva y la devuelve.
      */
-    int contSessionError=0;
+//    int contSessionError=0;
     public Session getSession() {
         if(!this.s.isOpen()){
             this.s=NewHibernateUtil.getSessionFactory().openSession();

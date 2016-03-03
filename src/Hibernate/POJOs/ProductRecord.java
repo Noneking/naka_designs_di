@@ -26,6 +26,7 @@ public class ProductRecord  implements java.io.Serializable {
         this.record = record;
         this.amount = amount;
     }
+    
     public ProductRecord(Product product, Record record, int amount, Set turnovers) {
        this.product = product;
        this.record = record;
