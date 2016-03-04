@@ -911,18 +911,18 @@ public class Model extends Connection {
         Iterator it;
         Vector columns,row;
         
-        String user[]={"COD","NICKNAME","NAME","SURNAME","EMAIL"};
-        String crew[]={"EMAIL","NICKNAME","NAME","SURNAME","PHONE","ROLE"};
-        String product[]={"COD","NAME","PRICE","CATEGORY"};
-        String category[]={"COD","NAME","DESCRIPTION"};
-        String record[]={"COD","DATE"};
-        String material[]={"COD","NAME"};
-        String basket[]={"COD","AMOUNT","USER","PRODUCT"};
-        String bookmark[]={"COD","DESCRIPTION","DATE","CREW"};
-        String turnover[]={"COD","AMOUNT","PRICE","PRODUCT_RECORD"};
-        String record_user[]={"COD","USER","RECORD"};
-        String product_record[]={"COD","AMOUNT","RECORD","PRODUCT"};
-        String product_material[]={"COD","AMOUNT","PRODUCT","MATERIAL"};
+        String user[]={"Código","Nick","Nombre","Apellidos","Email"};
+        String crew[]={"Email","Nick","Nombre","Apellidos","Teléfono","Rol"};
+        String product[]={"Código","Nombre","Precio","Categoría"};
+        String category[]={"Código","Nombre","Descripción"};
+        String record[]={"Código","Fecha"};
+        String material[]={"Código","Nombre"};
+        String basket[]={"Código","Cantidad","Cliente","Producto"};
+        String bookmark[]={"Código","Descripción","Fecha","Empleado"};
+        String turnover[]={"Código","Cantidad","Precio","Registro_producto"};
+        String record_user[]={"Código","Usuario","Registro"};
+        String product_record[]={"Código","Cantidad","Registro","Producto"};
+        String product_material[]={"Código","Cantidad","Producto","Material"};
         
         switch(table){
             case "USER":

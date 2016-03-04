@@ -170,7 +170,7 @@ public class Controller_Main implements ActionListener, MouseListener {
 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
-                this.v.pnl_split2_izquierda.add(this.v.scrll_listaCategorias, BorderLayout.CENTER);
+                this.v.pnl_split2_izquierda.add(this.v.pnl_listaCategorias, BorderLayout.CENTER);
                 
                 this.v.pnl_split2_izquierda.setVisible(false);
                 this.v.pnl_split2_izquierda.setVisible(true);
@@ -185,7 +185,7 @@ public class Controller_Main implements ActionListener, MouseListener {
 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
-                this.v.pnl_split3_inserts.add(this.v.scrll_materiales, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.add(this.v.pnl_Materiales, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
 
@@ -205,7 +205,7 @@ public class Controller_Main implements ActionListener, MouseListener {
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
 
-                this.v.pnl_split3_inserts.add(this.v.scrll_clientes, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane2.setDividerLocation(0);
@@ -222,7 +222,7 @@ public class Controller_Main implements ActionListener, MouseListener {
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
 
-                this.v.pnl_split3_inserts.add(this.v.scrll_empleados, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane2.setDividerLocation(0);
@@ -238,7 +238,7 @@ public class Controller_Main implements ActionListener, MouseListener {
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
 
-                this.v.pnl_split3_inserts.add(this.v.scrll_carrito, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.add(this.v.pnl_Carrito, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane2.setDividerLocation(0);
@@ -247,23 +247,30 @@ public class Controller_Main implements ActionListener, MouseListener {
                         
             case btn_añadirCategorias:
                 this.v.pnl_split3_inserts.removeAll();
-                this.v.pnl_split3_inserts.add(this.v.scrll_categorias, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.add(this.v.pnl_Categorias, BorderLayout.CENTER);
                 
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
 
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
-                esconderSplit(this.v.SplitPane2);
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
                 break;
                 
             case esconderRosa:
-                    esconderSplit(this.v.SplitPane1);
-                    this.v.btn_esconder_pnlPrincipal.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(0);
+                this.v.SplitPane1.setDividerSize(0);
+                this.v.btn_esconder_pnlPrincipal.setVisible(true);
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
                 break;
             case btn_esconder_pnlPrincipal:
                 this.v.SplitPane1.setDividerLocation(200);
-                    this.v.btn_esconder_pnlPrincipal.setVisible(false);
+                this.v.btn_esconder_pnlPrincipal.setVisible(false);
+                this.v.pnl_listaCategorias.setVisible(false);
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
                 break;
 
                 
@@ -368,8 +375,4 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.pnl_split3_derecha.add(this.v.pnl_TableMain, BorderLayout.CENTER);
     }
 
-    public void esconderSplit(JSplitPane sp) {
-        sp.setDividerLocation(0);
-        sp.setDividerSize(0);
-    }
 }
