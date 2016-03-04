@@ -5,7 +5,9 @@
  */
 package Controller;
 
+import Model.LectorTema;
 import View.Main;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 /**
@@ -15,15 +17,12 @@ import javax.swing.UIManager;
 public class RUN {
 
     public static void main(String args[]) {
-        
-
+        Main v = null;
         try {
-             
             UIManager.removeAuxiliaryLookAndFeel(UIManager.getLookAndFeel());
             
-            UIManager.setLookAndFeel("de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel");
-//            SwingUtilities.updateComponentTreeUI(v);
-           
+            UIManager.setLookAndFeel(LectorTema.getPropiedad("NOMBRE"));
+            SwingUtilities.updateComponentTreeUI(v);
         } catch (Exception e) {
             e.printStackTrace();
         }

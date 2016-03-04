@@ -1,5 +1,7 @@
 package Controller;
 
+import Controller.Menu.ControllerMenu;
+import Controller.Movimientos.ControllerMovimientos;
 import Model.HiloProgreso;
 import Model.Model;
 import View.Main;
@@ -25,6 +27,8 @@ public class Controller_Main implements ActionListener, MouseListener {
 
     Main v;
     Model model;
+    ControllerMovimientos cm = new ControllerMovimientos();
+    ControllerMenu cmenu = new ControllerMenu();
 
     private String position = "";
 
@@ -67,12 +71,6 @@ public class Controller_Main implements ActionListener, MouseListener {
         btn_carrito_modificar,
         btn_carrito_eliminar,
         btn_esconder_pnlPrincipal,
-        mn_historial_ventas,
-        btn_home,
-        mitem_masInfo,
-        mitem_guardarBD,
-        mitem_apariencia,
-        btn_comenzarGuardadarBD,
         btn_añadirCategorias;
     }
 
@@ -110,7 +108,10 @@ public class Controller_Main implements ActionListener, MouseListener {
         refreshTable();
         ponerEsaTablaToGuapaYReshulona();
         
-
+        //Controllers
+        cm.initMovimientosListeners(this.v);
+        cmenu.initControllerMenuListeners(this.v);
+        
     }
 
     public void initListeners() {
@@ -134,21 +135,7 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.btn_esconder_pnlPrincipal.setActionCommand("btn_esconder_pnlPrincipal");
         this.v.btn_esconder_pnlPrincipal.addActionListener(this);
         
-        this.v.mn_historial_ventas.setActionCommand("mn_historial_ventas");
-        this.v.mn_historial_ventas.addActionListener(this);
-        this.v.btn_home.setActionCommand("btn_home");
-        this.v.btn_home.addActionListener(this);
-        
-        
-        this.v.mitem_masInfo.setActionCommand("mitem_masInfo");
-        this.v.mitem_masInfo.addActionListener(this);
-        this.v.mitem_apariencia.setActionCommand("mitem_apariencia");
-        this.v.mitem_apariencia.addActionListener(this);
-        
-        this.v.mitem_guardarBD.setActionCommand("mitem_guardarBD");
-        this.v.mitem_guardarBD.addActionListener(this);
-        this.v.btn_comenzarGuardarBD.setActionCommand("btn_comenzarGuardadarBD");
-        this.v.btn_comenzarGuardarBD.addActionListener(this);
+       
 //        this.v.btn_tool_insertar.addActionListener(this);
 //        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
 //        this.v.btn_tool_modificar.addActionListener(this);
@@ -170,6 +157,7 @@ public class Controller_Main implements ActionListener, MouseListener {
 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
+                this.v.pnl_listaCategorias.setVisible(true);
                 this.v.pnl_split2_izquierda.add(this.v.pnl_listaCategorias, BorderLayout.CENTER);
                 
                 this.v.pnl_split2_izquierda.setVisible(false);
@@ -268,50 +256,11 @@ public class Controller_Main implements ActionListener, MouseListener {
             case btn_esconder_pnlPrincipal:
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.btn_esconder_pnlPrincipal.setVisible(false);
+                
                 this.v.pnl_listaCategorias.setVisible(false);
+                
                 this.v.SplitPane2.setDividerLocation(0);
                 this.v.SplitPane2.setDividerSize(0);
-                break;
-
-                
-            case mn_historial_ventas:
-                this.v.pnl_Main.removeAll();
-                this.v.pnl_Main.setLayout(new BorderLayout());
-                this.v.pnl_Main.add(this.v.pnl_Movimientos,BorderLayout.CENTER);
-                this.v.pnl_Main.setVisible(false);
-                this.v.pnl_Main.setVisible(true);
-                break;
-                
-            case btn_home:
-                this.v.pnl_Main.removeAll();
-                this.v.pnl_Main.add(this.v.SplitPane1,BorderLayout.CENTER);
-                this.v.pnl_Main.setVisible(false);
-                this.v.pnl_Main.setVisible(true);                
-                break;
-                
-            case mitem_masInfo: {
-                try {
-                    model.enlace("http://www.nakadesignsevilla.com/");
-                } catch (URISyntaxException ex) {
-                    Logger.getLogger(Controller_Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            break;
-            case mitem_guardarBD:
-                if(JOptionPane.showConfirmDialog(null, "Desea volcar la base de datos en un archivo '.sql'??") == 0){
-                    this.v.Frame_guardandoBD.setVisible(true);
-                    this.v.Frame_guardandoBD.setLocationRelativeTo(null);
-                    this.v.Frame_guardandoBD.setSize(300,300);
-
-                }
-                break;
-            case btn_comenzarGuardadarBD:
-                HiloProgreso hilo = new HiloProgreso(this.v.pbar_guardandoBD);
-                hilo.run();
-                break;
-                
-            case mitem_apariencia:
-                
                 break;
         }
     }
