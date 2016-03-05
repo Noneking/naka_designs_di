@@ -35,7 +35,7 @@ public class Crew_DAO extends Connection implements Crew_IDAO{
 
     @Override /**Obtiene una colección de objetos de tipo Crew según una variable que referencia varios campos(String)*/
     public ArrayList<Crew> getCrewsByQuery(String question) {
-        Query query=getSession().createQuery("from Crew c where c.email like :query OR c.nickname like :query OR c.name like :query OR c.surname like :query OR c.phone_number like :query OR c.role like :query");
+        Query query=getSession().createQuery("from Crew c where c.email like :query OR c.nickname like :query OR c.name like :query OR c.surname like :query OR c.phoneNumber like :query OR c.role like :query");
         ArrayList<Crew> list=(ArrayList<Crew>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }

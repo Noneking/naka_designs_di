@@ -38,7 +38,7 @@ public class Basket_DAO extends Connection implements Basket_IDAO{
     @Override /**Obtiene una colección de objetos de tipo Basket según una variable que referencia varios campos(int)*/
     public ArrayList<Basket> getBasketByQuery(int question) {
         Query query=getSession().createQuery("from Basket b where b.cod like :query OR b.user like :query OR b.product like :query");
-        ArrayList<Basket> list=(ArrayList<Basket>) query.setParameter("query", "%"+question+"%").list();
+        ArrayList<Basket> list=(ArrayList<Basket>) query.setParameter("query", question).list();
         return list;
     }
 

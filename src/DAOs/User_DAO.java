@@ -8,6 +8,8 @@ package DAOs;
 import Controller.Table.ColumnModel;
 import Hibernate.POJOs.User;
 import Model.Connection;
+import static Model.Connection.getSession;
+import static Model.Connection.getTransaction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -22,7 +24,7 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author nonek
  */
-public class User_DAO extends AbstractTableModel implements User_IDAO {
+public class User_DAO extends Connection implements User_IDAO {
 
     @Override /**Obtiene un objeto de tipo User según su campo cod(CLAVE PRIMARIA)*/
     public User getUserByCod(int cod) {
@@ -37,7 +39,7 @@ public class User_DAO extends AbstractTableModel implements User_IDAO {
 
     @Override /**Obtiene una colección de objetos de tipo User según una variable que referencia varios campos(String)*/
     public ArrayList<User> getUsersByQuery(String question) {
-        Query query=Connection.getSession().createQuery("from User u where u.nickname like :query OR u.email like :query OR u.role like :query");
+        Query query=getSession().createQuery("from User u where u.nickname like :query OR u.name like :query OR u.surname like :query OR u.email like :query");
         ArrayList<User> list=(ArrayList<User>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }
@@ -50,8 +52,8 @@ public class User_DAO extends AbstractTableModel implements User_IDAO {
     @Override /**Inserta un objeto de tipo User en la BD*/
     public void insertUser(String nickname, String name, String surname, String email, String password) {
         User u=new User(nickname, name, surname, email, password);
-        Connection.getSession().save(u);
-        Connection.getTransaction().commit();
+        getSession().save(u);
+        getTransaction().commit();
         System.err.println("User inserted succesfully.");
     }
 
@@ -121,33 +123,4 @@ public class User_DAO extends AbstractTableModel implements User_IDAO {
         
         return dtm;
     }
-
-    @Override
-    public int getRowCount() {
-        return getUsers().size();
-    }
-
-    @Override
-    public int getColumnCount() {
-        return ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.USER.toString()).length;
-    }
-
-    @Override
-    public Object getValueAt(int rowIndex, int columnIndex) {
-        switch (columnIndex) {
-            case 0:
-                return getUsers().get(rowIndex).getCod();
-            case 1:
-                return getUsers().get(rowIndex).getNickname();
-            case 2:
-                return getUsers().get(rowIndex).getName();
-            case 3:
-                return getUsers().get(rowIndex).getSurname();
-            case 4:
-                return getUsers().get(rowIndex).getEmail();
-            default:
-                return null;
-        }
-    }
-    
 }

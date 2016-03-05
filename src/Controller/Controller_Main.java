@@ -282,10 +282,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 switch (position) {
                     case "CATEGORIA":
                         if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
-                            System.out.println("EntraAAA");
                             categoryTableModel.updateTableDatas();
                         }else{
-                            System.out.println("ENTRA 2222");
                             categoryTableModel.updateTableDatas(facade.getCategoriesByQuery(this.v.jTextFieldTableQuery.getText()));
                         }
                         position = POSITION.CATEGORIA.toString();
@@ -293,21 +291,58 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "MATERIAL":
-                        
+                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                            materialTableModel.updateTableDatas();
+                        }else{
+                            materialTableModel.updateTableDatas(facade.getMaterialsByQuery(this.v.jTextFieldTableQuery.getText()));
+                        }
+                        position = POSITION.MATERIAL.toString();
+                        refreshTable(position);
+                        ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "PRODUCTO":
-                        
+                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                            productTableModel.updateTableDatas();
+                        }else{
+                            productTableModel.updateTableDatas(facade.getProductsByQuery(this.v.jTextFieldTableQuery.getText()));
+                        }
+                        position = POSITION.PRODUCTO.toString();
+                        refreshTable(position);
+                        ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "CLIENTE":
-                        
+                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                            clientTableModel.updateTableDatas();
+                        }else{
+                            clientTableModel.updateTableDatas(facade.getUsersByQuery(this.v.jTextFieldTableQuery.getText()));
+                        }
+                        position = POSITION.CLIENTE.toString();
+                        refreshTable(position);
+                        ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "EMPLEADO":
-                        
+                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                            crewTableModel.updateTableDatas();
+                        }else{
+                            crewTableModel.updateTableDatas(facade.getCrewsByQuery(this.v.jTextFieldTableQuery.getText()));
+                        }
+                        position = POSITION.EMPLEADO.toString();
+                        refreshTable(position);
+                        ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "CARRITO":
-                        
+                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                            basketTableModel.updateTableDatas();
+                        }else{
+                            try{basketTableModel.updateTableDatas(facade.getBasketByQuery(Integer.parseInt(this.v.jTextFieldTableQuery.getText())));}catch(Exception ex){System.err.println(ex);}
+                        }
+                        position = POSITION.CARRITO.toString();
+                        refreshTable(position);
+                        ponerEsaTablaToGuapaYReshulona();
                         break;
                 }
+                this.v.jTextFieldTableQuery.requestFocusInWindow();
+                this.v.jTextFieldTableQuery.setCaretPosition(this.v.jTextFieldTableQuery.getDocument().getLength());
                 break;
             case btn_categorias:
                 position = POSITION.CATEGORIA.toString();

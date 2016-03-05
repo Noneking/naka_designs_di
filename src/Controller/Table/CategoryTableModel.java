@@ -29,18 +29,11 @@ public class CategoryTableModel extends AbstractTableModel {
     }
     
     public void updateTableDatas(){
-        System.out.println("UPDATE_TABLE_DATAS");
         categories=facade.getCategories();
     }
     
     public void updateTableDatas(List<Category> categories){
-        System.out.println("UPDATE_TABLE_DATAS_CON_LISTA");
         this.categories=categories;
-        Iterator it=this.categories.iterator();
-        while(it.hasNext()){
-            Category c=(Category) it.next();
-            System.out.println("Cod: "+c.getCod()+", Nombre: "+c.getName()+", Descripcion: "+c.getDescription());
-        }
     }
     
     @Override
