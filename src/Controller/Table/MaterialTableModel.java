@@ -31,6 +31,10 @@ public class MaterialTableModel extends AbstractTableModel {
         material=facade.getMaterials();
     }
     
+    public void updateTableDatas(List<Material> material){
+        this.material=material;
+    }
+    
 //    public void agregarCliente(User cliente) {
 ////        clientes.add(cliente);
 //        fireTableDataChanged();

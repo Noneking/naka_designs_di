@@ -31,6 +31,10 @@ public class ProductTableModel extends AbstractTableModel {
         product=facade.getProducts();
     }
     
+    public void updateTableDatas(List<Product> product){
+        this.product=product;
+    }
+    
 //    public void agregarCliente(User cliente) {
 ////        clientes.add(cliente);
 //        fireTableDataChanged();

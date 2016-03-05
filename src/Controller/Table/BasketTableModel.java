@@ -31,6 +31,10 @@ public class BasketTableModel extends AbstractTableModel {
         basket=facade.getBaskets();
     }
     
+    public void updateTableDatas(List<Basket> basket){
+        this.basket=basket;
+    }
+    
 //    public void agregarCliente(User cliente) {
 ////        clientes.add(cliente);
 //        fireTableDataChanged();

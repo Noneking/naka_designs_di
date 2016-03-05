@@ -112,6 +112,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         btn_modificar,
         btn_clicModificar,
         btn_eliminar,
+        action_query,
         btn_categoria_insertar,
         btn_categoria_modificar,
         btn_categoria_eliminar,
@@ -195,6 +196,12 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.v.btn_añadirCategoria.setActionCommand("btn_añadirCategorias");
         this.v.btn_añadirCategoria.addActionListener(this);
         
+        //QUERY
+        this.v.jTextFieldTableQuery.setActionCommand("action_query");
+        this.v.jTextFieldTableQuery.addActionListener(this);
+        this.v.jButtonQuerySearch.setActionCommand("action_query");
+        this.v.jButtonQuerySearch.addActionListener(this);
+        
         //CATEGORIES
         this.v.btn_categorias_insertar.setActionCommand("btn_categoria_insertar");
         this.v.btn_categorias_insertar.addActionListener(this);
@@ -271,7 +278,37 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     public void actionPerformed(ActionEvent e) {
 
         switch (Actions.valueOf(e.getActionCommand())) {
-
+            case action_query:
+                switch (position) {
+                    case "CATEGORIA":
+                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                            System.out.println("EntraAAA");
+                            categoryTableModel.updateTableDatas();
+                        }else{
+                            System.out.println("ENTRA 2222");
+                            categoryTableModel.updateTableDatas(facade.getCategoriesByQuery(this.v.jTextFieldTableQuery.getText()));
+                        }
+                        position = POSITION.CATEGORIA.toString();
+                        refreshTable(position);
+                        ponerEsaTablaToGuapaYReshulona();
+                        break;
+                    case "MATERIAL":
+                        
+                        break;
+                    case "PRODUCTO":
+                        
+                        break;
+                    case "CLIENTE":
+                        
+                        break;
+                    case "EMPLEADO":
+                        
+                        break;
+                    case "CARRITO":
+                        
+                        break;
+                }
+                break;
             case btn_categorias:
                 position = POSITION.CATEGORIA.toString();
                 refreshTable(position);
@@ -356,67 +393,80 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
             case btn_categoria_insertar:
                 facade.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                categoryTableModel.updateTableDatas();
                 position = POSITION.CATEGORIA.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_categoria_modificar:
                 facade.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()),this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                categoryTableModel.updateTableDatas();
                 position = POSITION.CATEGORIA.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_material_insertar:
                 facade.insertMaterial(this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
+                materialTableModel.updateTableDatas();
                 position = POSITION.MATERIAL.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_material_modificar:
                 facade.modifyMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
+                materialTableModel.updateTableDatas();
                 position = POSITION.MATERIAL.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_producto_insertar:
                 facade.insertProduct(this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
+                productTableModel.updateTableDatas();
                 position = POSITION.PRODUCTO.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_producto_modificar:
                 facade.modifyProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
+                productTableModel.updateTableDatas();
                 position = POSITION.PRODUCTO.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_cliente_insertar:
                 facade.insertUser(this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jPasswordFieldClientePassword.getPassword().toString());
+                clientTableModel.updateTableDatas();
                 position = POSITION.CLIENTE.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_cliente_modificar:
                 facade.modifyUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jPasswordFieldClientePassword.getPassword().toString());
+                clientTableModel.updateTableDatas();
                 position = POSITION.CLIENTE.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_empleado_insertar:
-                System.out.println(this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
+                crewTableModel.updateTableDatas();
                 facade.insertCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jPasswordFieldEmpleadoPassword.getPassword().toString(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
                 position = POSITION.EMPLEADO.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_empleado_modificar:
+                crewTableModel.updateTableDatas();
                 facade.modifyCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jPasswordFieldEmpleadoPassword.getPassword().toString(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
                 position = POSITION.EMPLEADO.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_carrito_insertar:
-                
+                basketTableModel.updateTableDatas();
+                String user_cod=this.v.jTextFieldBasket.getText().split("-")[0];
+                String product_name=this.v.eti_productoCarrito.getText().split("-")[0];
+                String product_amount=this.v.eti_productoCarrito.getText().split("-")[1];
+                facade.insertBasket(Integer.parseInt(user_cod), facade.getProductByName(product_name).getCod(), Integer.parseInt(product_amount));
                 break;
             case btn_clicModificar:
                 switch (position) {
@@ -623,37 +673,37 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.position = position;
         switch (this.position) {
             case "CATEGORIA":
-                categoryTableModel.updateTableDatas();
+//                categoryTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(categoryTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, categoryTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "MATERIAL":
-                materialTableModel.updateTableDatas();
+//                materialTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(materialTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, materialTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "PRODUCTO":
-                productTableModel.updateTableDatas();
+//                productTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(productTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, productTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "CLIENTE":
-                clientTableModel.updateTableDatas();
+//                clientTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(clientTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, clientTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "EMPLEADO":
-                crewTableModel.updateTableDatas();
+//                crewTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(crewTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, crewTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "CARRITO":
-                basketTableModel.updateTableDatas();
+//                basketTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(basketTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, basketTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

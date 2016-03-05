@@ -30,6 +30,10 @@ public class ClientTableModel extends AbstractTableModel {
         clientes=facade.getUsers();
     }
     
+    public void updateTableDatas(List<User> clientes){
+        this.clientes=clientes;
+    }
+    
 //    public void agregarCliente(User cliente) {
 ////        clientes.add(cliente);
 //        fireTableDataChanged();

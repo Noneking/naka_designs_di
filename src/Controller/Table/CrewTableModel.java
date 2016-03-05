@@ -31,6 +31,10 @@ public class CrewTableModel extends AbstractTableModel {
         crew=facade.getCrews();
     }
     
+    public void updateTableDatas(List<Crew> crew){
+        this.crew=crew;
+    }
+    
 //    public void agregarCliente(User cliente) {
 ////        clientes.add(cliente);
 //        fireTableDataChanged();

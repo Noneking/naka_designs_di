@@ -39,7 +39,7 @@ public class Main extends javax.swing.JFrame {
         btn_esconder_pnlPrincipal = new javax.swing.JButton();
         jTextFieldTableQuery = new javax.swing.JTextField();
         jButtonQueryClean = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
+        jButtonQuerySearch = new javax.swing.JButton();
         pnl_Movimientos = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         btn_ventasMovi = new javax.swing.JButton();
@@ -298,9 +298,9 @@ public class Main extends javax.swing.JFrame {
         jButtonQueryClean.setBorderPainted(false);
         jButtonQueryClean.setContentAreaFilled(false);
 
-        jButton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/search1.png"))); // NOI18N
-        jButton22.setBorderPainted(false);
-        jButton22.setContentAreaFilled(false);
+        jButtonQuerySearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/search1.png"))); // NOI18N
+        jButtonQuerySearch.setBorderPainted(false);
+        jButtonQuerySearch.setContentAreaFilled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -311,7 +311,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldTableQuery)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton22)
+                .addComponent(jButtonQuerySearch)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonQueryClean, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -326,7 +326,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jTextFieldTableQuery, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButtonQueryClean, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton22)
+                        .addComponent(jButtonQuerySearch)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -880,17 +880,16 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jTextFieldBasket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonBuscarCliente))
                 .addGap(27, 27, 27)
-                .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eti_productoCarrito)
-                    .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel38)
-                        .addComponent(jButton14)))
+                .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(jButton14)
+                    .addComponent(eti_productoCarrito))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(asd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_CarritoLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 34, Short.MAX_VALUE)
                         .addComponent(btn_insertarCarrito))
                     .addComponent(jScrollPane7))
                 .addContainerGap())
@@ -1759,12 +1758,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     public javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     public javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     public javax.swing.JButton jButtonBuscarCliente;
     public javax.swing.JButton jButtonQueryClean;
+    public javax.swing.JButton jButtonQuerySearch;
     private javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
     public javax.swing.JComboBox jComboBoxProductoCategoria;
