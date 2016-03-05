@@ -23,6 +23,7 @@ public class EnumMenu {
             mitem_classy,
         btn_comenzarGuardadarBD,
         mn_nuevo,
+            mitem_nuevoProducto,
             mitem_nuevoMaterial,
             mitem_nuevoCliente,
             mitem_nuevoEmpleado,

@@ -8,6 +8,7 @@ package Model;
 import Facade.Facade;
 import Hibernate.POJOs.Bookmark;
 import Hibernate.POJOs.Crew;
+import Hibernate.POJOs.Product;
 import Hibernate.POJOs.Record;
 import Hibernate.POJOs.User;
 import static Model.Connection.getSession;
@@ -109,17 +110,35 @@ public class Model_Movimientos extends Connection {
         return ((Number) query.uniqueResult()).intValue();
     }
 //FIN de Records---------------------------------------------------------------------------------------------------------    
+//Inicio de Crew---------------------------------------------------------------------------------------------------------    
 
-    public ArrayList<Crew> getCrews(){
+    public ArrayList<Crew> getCrews() {
         openSession();
         return (ArrayList<Crew>) getSession().createQuery("from Crew").list();
     }
-    
-     public ArrayList getConexionesCount(){
+
+    public int getConexionesCount(String question) {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Bookmark group by Crew order by Crew");
-        ArrayList list=(ArrayList) query.list();
-         
-        return list;
+
+        Query query = getSession().createQuery("select count(*) from Bookmark where crew like '" + question + "'");
+
+        return ((Number) query.uniqueResult()).intValue();
     }
+//FIN de Crew---------------------------------------------------------------------------------------------------------    
+//Inicio de Products---------------------------------------------------------------------------------------------------------    
+        
+    public ArrayList<Product> getProducts() {
+        openSession();
+        return (ArrayList<Product>) getSession().createQuery("from Product").list();
+    }
+
+    public int getProductCount(String question) {
+        openSession();
+
+        Query query = getSession().createQuery("select count(*) from ProductRecord where cod =(select cod from Product where name ='"+question+"')");
+
+        return ((Number) query.uniqueResult()).intValue();
+    }
+//FIN de Products---------------------------------------------------------------------------------------------------------            
+    
 }

@@ -66,6 +66,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.btn_comenzarGuardarBD.addActionListener(this);
             
         //Crear Nuevo...
+            this.v.mitem_nuevoProducto.setActionCommand("mitem_nuevoProducto");
+            this.v.mitem_nuevoProducto.addActionListener(this);
             this.v.mitem_nuevoMaterial.setActionCommand("mitem_nuevoMaterial");
             this.v.mitem_nuevoMaterial.addActionListener(this);
             this.v.mitem_nuevoCliente.setActionCommand("mitem_nuevoCliente");
@@ -75,6 +77,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_nuevoCarrito.setActionCommand("mitem_nuevoCarrito");
             this.v.mitem_nuevoCarrito.addActionListener(this);
             cm = new Controller_Main(this.v);
+            
+            this.v.pnl_contenedorDerechoMovimientos.setLayout(new BorderLayout());
     }
 
     @Override
@@ -87,6 +91,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_Main.add(this.v.pnl_Movimientos, BorderLayout.CENTER);
                 this.v.pnl_Main.setVisible(false);
                 this.v.pnl_Main.setVisible(true);
+                this.v.pnl_contenedorDerechoMovimientos.removeAll();
+                this.v.pnl_contenedorDerechoMovimientos.add(this.v.pnl_mensageMovimientos,BorderLayout.CENTER);
                 break;
             //mas infromacion sobre la empresa, la pagina web, por ahora en mantenimiento
             case mitem_masInfo: {
@@ -165,6 +171,25 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             //FIN de las apariencias "LookAndFeel" de Synthetical------------------------------------------------------------
                 
             //Comienzo de Nuevo ...------------------------------------------------------------------------------------------ 
+            case mitem_nuevoProducto:
+                
+                position = Controller_Main.POSITION.PRODUCTO.toString();
+                cm.refreshTable(position);
+
+                cm.ponerEsaTablaToGuapaYReshulona();
+                
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.pnl_split3_inserts.add(this.v.pnl_Productos, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
+
+                this.v.SplitPane3.setDividerLocation(350);
+                this.v.SplitPane3.setDividerSize(5);
+                
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
+                
+                break;
             case mitem_nuevoMaterial:
                 
                 position = Controller_Main.POSITION.MATERIAL.toString();

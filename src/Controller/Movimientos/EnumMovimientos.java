@@ -15,7 +15,8 @@ public class EnumMovimientos {
 
           btn_home,
           btn_ventasMovi,
-          btn_empleMovi;
+          btn_empleMovi,
+          btn_productoMovi;
     }
     
 }

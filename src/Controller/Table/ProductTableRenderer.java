@@ -60,16 +60,23 @@ public class ProductTableRenderer extends JLabel implements TableCellRenderer {
         if(row!=-1){
             etiqueta.setFont(new Font("SansSerif", Font.PLAIN, 15));
             table.getColumnModel().setColumnMargin(10);
-            if(value instanceof Integer || value instanceof Double) {
+            if (value instanceof Integer || value instanceof Double) {
                 if (column == 1) {
                     etiqueta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/table/product.png")));
-                    ((JLabel)etiqueta).setHorizontalAlignment(SwingConstants.RIGHT );
-                    ((JLabel)etiqueta).setSize( 60, etiqueta.getWidth() );
-                    ((JLabel)etiqueta).setPreferredSize( new Dimension(etiqueta.getWidth(), 6) );
+                    ((JLabel) etiqueta).setHorizontalAlignment(SwingConstants.RIGHT);
+                    ((JLabel) etiqueta).setSize(60, etiqueta.getWidth());
+                    ((JLabel) etiqueta).setPreferredSize(new Dimension(etiqueta.getWidth(), 6));
                 }
-                int nombre = (int) value;
-                etiqueta.setHorizontalAlignment(SwingConstants.RIGHT);
-                etiqueta.setText(Integer.toString(nombre));
+                if (value instanceof Double) {
+                    double nombre = (double) value;
+                    etiqueta.setHorizontalAlignment(SwingConstants.RIGHT);
+                    etiqueta.setText(Double.toString(nombre));
+                }
+                if (value instanceof Integer) {
+                    int nombre = (int) value;
+                    etiqueta.setHorizontalAlignment(SwingConstants.RIGHT);
+                    etiqueta.setText(Integer.toString(nombre));
+                }
             }
             else if(value instanceof String){
                 if (column == 1) {
