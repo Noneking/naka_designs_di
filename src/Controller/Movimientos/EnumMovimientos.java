@@ -13,7 +13,9 @@ public class EnumMovimientos {
     
     public enum Actions {
 
-          btn_home;
+          btn_home,
+          btn_ventasMovi,
+          btn_empleMovi;
     }
     
 }

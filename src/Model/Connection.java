@@ -70,13 +70,13 @@ public class Connection {
      * Abre una nueva sesión.
      * En caso de error obtiene la sesión ya existente.
      */
-    public void openSession(){
+    public static void openSession(){
         try {
-            this.s=NewHibernateUtil.getSessionFactory().openSession();
+            Connection.s=NewHibernateUtil.getSessionFactory().openSession();
             System.err.println("Session opened.");
         } catch(SessionException e) {
             System.err.println("Error opening session..");
-            this.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
+            Connection.s=NewHibernateUtil.getSessionFactory().getCurrentSession();
             System.err.println("Obtained current session.");
         }
     }

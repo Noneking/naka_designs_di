@@ -171,6 +171,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         
         //Controllers
         cm.initMovimientosListeners(this.v);
+        
         cmenu.initControllerMenuListeners(this.v);
 
         
