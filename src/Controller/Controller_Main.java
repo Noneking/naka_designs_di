@@ -21,6 +21,7 @@ import Model.Model;
 import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Toolkit;
 
 import java.awt.event.ActionEvent;
@@ -34,13 +35,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import javax.swing.SwingUtilities;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
 import javax.swing.table.AbstractTableModel;
 
 /**
  *
  * @author nonek,mrdrulix
  */
-public class Controller_Main implements ActionListener, MouseListener {
+public class Controller_Main implements ActionListener, MouseListener, PopupMenuListener {
 
     Main v;
     Model model;
@@ -159,7 +163,7 @@ public class Controller_Main implements ActionListener, MouseListener {
         initListeners();
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         //JTableMain
-        position = "CLIENTE";
+        position = POSITION.CATEGORIA.toString();
 //        position = "CATEGORIA";
         
         ponerEsaTablaToGuapaYReshulona();
@@ -201,6 +205,10 @@ public class Controller_Main implements ActionListener, MouseListener {
         this.v.btn_esconder_pnlPrincipal.addActionListener(this);
         
        
+        //DELETE
+        this.v.jMenuItemEliminar.setActionCommand("btn_eliminar");
+        this.v.jMenuItemEliminar.addActionListener(this);
+        
 //        this.v.btn_tool_insertar.addActionListener(this);
 //        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
 //        this.v.btn_tool_modificar.addActionListener(this);
@@ -209,6 +217,13 @@ public class Controller_Main implements ActionListener, MouseListener {
 //        this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
 
         this.v.jTableMain.addMouseListener(this);
+        this.v.jPopupMenu.addPopupMenuListener(this);
+        
+        initOperations();
+    }
+    
+    public void initOperations(){
+        this.v.jTableMain.setComponentPopupMenu(this.v.jPopupMenu);
     }
 
     @Override
@@ -289,6 +304,40 @@ public class Controller_Main implements ActionListener, MouseListener {
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
+            case btn_eliminar:
+                switch (position) {
+                    case "CATEGORIA":
+                        facade.deleteCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+                        position=POSITION.CATEGORIA.toString();
+                        refreshTable(position);
+                        break;
+                    case "MATERIAL":
+                        facade.deleteMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+                        position=POSITION.MATERIAL.toString();
+                        refreshTable(position);
+                        break;
+                    case "PRODUCTO":
+                        facade.deleteProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+                        position=POSITION.PRODUCTO.toString();
+                        refreshTable(position);
+                        break;
+                    case "CLIENTE":
+                        facade.deleteUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+                        position=POSITION.CLIENTE.toString();
+                        refreshTable(position);
+                        break;
+                    case "EMPLEADO":
+                        facade.deleteCrew(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
+                        position=POSITION.EMPLEADO.toString();
+                        refreshTable(position);
+                        break;
+                    case "CARRITO":
+                        facade.deleteBasket(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
+                        position=POSITION.CARRITO.toString();
+                        refreshTable(position);
+                        break;
+                }
+                break;
             case esconderRosa:
                 this.v.SplitPane1.setDividerLocation(0);
                 this.v.SplitPane1.setDividerSize(0);
@@ -337,6 +386,29 @@ public class Controller_Main implements ActionListener, MouseListener {
     public void mouseEntered(MouseEvent e) {}
     public void mouseExited(MouseEvent e) {}
     
+    @Override
+    public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                int rowAtPoint = v.jTableMain.rowAtPoint(SwingUtilities.convertPoint(v.jPopupMenu, new Point(0, 0), v.jTableMain));
+                if (rowAtPoint > -1) {
+                    v.jTableMain.setRowSelectionInterval(rowAtPoint, rowAtPoint);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
+        
+    }
+
+    @Override
+    public void popupMenuCanceled(PopupMenuEvent e) {
+        
+    }
+    
     public void refreshTable(String position) {
         this.position = position;
         switch (this.position) {
@@ -347,26 +419,31 @@ public class Controller_Main implements ActionListener, MouseListener {
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "MATERIAL":
+                materialTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(materialTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, materialTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "PRODUCTO":
+                productTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(productTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, productTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "CLIENTE":
+                clientTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(clientTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, clientTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "EMPLEADO":
+                crewTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(crewTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, crewTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "CARRITO":
+                basketTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(basketTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, basketTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

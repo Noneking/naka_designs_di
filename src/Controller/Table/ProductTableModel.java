@@ -17,10 +17,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ProductTableModel extends AbstractTableModel {
 
+    Facade facade;
+    
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.PRODUCT.toString());
     private List<Product> product;
 
     public ProductTableModel(Facade facade){
+        this.facade=facade;
+        product=facade.getProducts();
+    }
+    
+    public void updateTableDatas(){
         product=facade.getProducts();
     }
     

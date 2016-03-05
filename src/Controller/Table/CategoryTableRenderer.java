@@ -35,7 +35,7 @@ public class CategoryTableRenderer  extends JLabel implements TableCellRenderer 
         etiqueta.setText(value.toString());
         
         JTableHeader jth=table.getTableHeader();
-        jth.setFont(new Font("Times New Roman", Font.BOLD, 35));
+        jth.setFont(new Font("Times New Roman", Font.BOLD, 20));
         jth.setOpaque(false);
         jth.setForeground(new Color(87, 87, 87));//AZUL
         jth.setBackground(new Color(194, 194, 194));//AZUL
@@ -58,7 +58,7 @@ public class CategoryTableRenderer  extends JLabel implements TableCellRenderer 
         table.setTableHeader(jth);
         
         if(row!=-1){
-            etiqueta.setFont(new Font("SansSerif", Font.PLAIN, 20));
+            etiqueta.setFont(new Font("SansSerif", Font.PLAIN, 15));
             table.getColumnModel().setColumnMargin(10);
             if(value instanceof Integer || value instanceof Double) {
                 if (column == 1) {

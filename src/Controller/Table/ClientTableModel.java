@@ -16,10 +16,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class ClientTableModel extends AbstractTableModel {
 
+    Facade facade;
+    
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.USER.toString());
     private List<User> clientes;
 
     public ClientTableModel(Facade facade){
+        this.facade=facade;
+        clientes=facade.getUsers();
+    }
+    
+    public void updateTableDatas(){
         clientes=facade.getUsers();
     }
     

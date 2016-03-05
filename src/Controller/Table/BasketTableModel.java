@@ -17,10 +17,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class BasketTableModel extends AbstractTableModel {
     
+    Facade facade;
+    
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.BASKET.toString());
     private List<Basket> basket;
 
     public BasketTableModel(Facade facade){
+        this.facade=facade;
+        basket=facade.getBaskets();
+    }
+    
+    public void updateTableDatas(){
         basket=facade.getBaskets();
     }
     

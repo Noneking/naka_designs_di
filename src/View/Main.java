@@ -150,6 +150,8 @@ public class Main extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         ta_logGuardandoBD = new javax.swing.JTextArea();
         btn_comenzarGuardarBD = new javax.swing.JButton();
+        jPopupMenu = new javax.swing.JPopupMenu();
+        jMenuItemEliminar = new javax.swing.JMenuItem();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -1296,6 +1298,9 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jMenuItemEliminar.setText("Eliminar");
+        jPopupMenu.add(jMenuItemEliminar);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Naka Designs Sevilla v0.3");
         setBackground(null);
@@ -1716,6 +1721,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
+    public javax.swing.JMenuItem jMenuItemEliminar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanel3;
@@ -1723,6 +1729,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanelLogin;
+    public javax.swing.JPopupMenu jPopupMenu;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

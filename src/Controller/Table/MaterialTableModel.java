@@ -17,10 +17,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class MaterialTableModel extends AbstractTableModel {
     
+    Facade facade;
+    
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.MATERIAL.toString());
     private List<Material> material;
 
     public MaterialTableModel(Facade facade){
+        this.facade=facade;
+        material=facade.getMaterials();
+    }
+    
+    public void updateTableDatas(){
         material=facade.getMaterials();
     }
     

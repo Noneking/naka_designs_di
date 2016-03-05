@@ -17,10 +17,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class CrewTableModel extends AbstractTableModel {
     
+    Facade facade;
+    
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.CREW.toString());
     private List<Crew> crew;
 
     public CrewTableModel(Facade facade){
+        this.facade=facade;
+        crew=facade.getCrews();
+    }
+    
+    public void updateTableDatas(){
         crew=facade.getCrews();
     }
     
