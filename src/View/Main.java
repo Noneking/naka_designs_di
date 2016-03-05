@@ -1229,6 +1229,11 @@ public class Main extends javax.swing.JFrame {
         btn_añadirCategoria.setContentAreaFilled(false);
         btn_añadirCategoria.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/masCategorias_selected.png"))); // NOI18N
         btn_añadirCategoria.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/masCategorias_presed.png"))); // NOI18N
+        btn_añadirCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_añadirCategoriaActionPerformed(evt);
+            }
+        });
 
         pnl_contenedorListaCategorias.setOpaque(false);
 
@@ -1710,6 +1715,10 @@ public class Main extends javax.swing.JFrame {
     private void jTextFieldClienteTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldClienteTelefonoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldClienteTelefonoActionPerformed
+
+    private void btn_añadirCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_añadirCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_añadirCategoriaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JFrame Frame_guardandoBD;

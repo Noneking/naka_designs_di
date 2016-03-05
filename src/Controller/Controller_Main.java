@@ -351,7 +351,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
-                this.v.SplitPane2.setDividerLocation(-1000);
+                this.v.SplitPane2.setDividerLocation(0);
                 this.v.SplitPane2.setDividerSize(0);
                 break;
             case btn_categoria_insertar:
@@ -552,14 +552,13 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane1.setDividerLocation(0);
                 this.v.SplitPane1.setDividerSize(0);
                 this.v.btn_esconder_pnlPrincipal.setVisible(true);
+                
                 this.v.SplitPane2.setDividerLocation(0);
                 this.v.SplitPane2.setDividerSize(0);
                 break;
             case btn_esconder_pnlPrincipal:
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.btn_esconder_pnlPrincipal.setVisible(false);
-                
-                this.v.pnl_listaCategorias.setVisible(false);
                 
                 this.v.SplitPane2.setDividerLocation(0);
                 this.v.SplitPane2.setDividerSize(0);
