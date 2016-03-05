@@ -90,7 +90,7 @@ public class Main extends javax.swing.JFrame {
         jPasswordFieldEmpleadoRePassword = new javax.swing.JPasswordField();
         pnl_Carrito = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
+        jTextFieldBasket = new javax.swing.JTextField();
         jButtonBuscarCliente = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jButton14 = new javax.swing.JButton();
@@ -758,7 +758,7 @@ public class Main extends javax.swing.JFrame {
         jLabel37.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel37.setText("Cliente:");
 
-        jTextField22.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldBasket.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
 
         jButtonBuscarCliente.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jButtonBuscarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/search1.png"))); // NOI18N
@@ -833,7 +833,7 @@ public class Main extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel37)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldBasket, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl_CarritoLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)))
@@ -858,7 +858,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel37)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldBasket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonBuscarCliente))
                 .addGap(27, 27, 27)
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1734,7 +1734,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JSlider jSlider1;
     public javax.swing.JTable jTableMain;
     public javax.swing.JTextArea jTextAreaCategoriaDescripcion;
-    public javax.swing.JTextField jTextField22;
+    public javax.swing.JTextField jTextFieldBasket;
     public javax.swing.JTextField jTextFieldCategoriaNombre;
     public javax.swing.JTextField jTextFieldClienteApellidos;
     public javax.swing.JTextField jTextFieldClienteEmail;
