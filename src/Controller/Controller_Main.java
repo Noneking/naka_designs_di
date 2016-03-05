@@ -187,6 +187,9 @@ public class Controller_Main implements ActionListener, MouseListener {
         
         this.v.btn_categorias_insertar.setActionCommand("btn_categoria_insertar");
         this.v.btn_categorias_insertar.addActionListener(this);
+        
+        this.v.btn_categorias_modificar.setActionCommand("btn_categoria_modificar");
+        this.v.btn_categorias_modificar.addActionListener(this);
 
         this.v.btn_esconderRosa.setActionCommand("esconderRosa");
         this.v.btn_esconderRosa.addActionListener(this);
@@ -309,7 +312,12 @@ public class Controller_Main implements ActionListener, MouseListener {
                 refreshTable();
                 ponerEsaTablaToGuapaYReshulona();
                 break;
-                
+            case btn_categoria_modificar:
+                facade.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()),this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                position = POSITION.CATEGORIA.toString();
+                refreshTable();
+                ponerEsaTablaToGuapaYReshulona();
+                break;
             case esconderRosa:
                 this.v.SplitPane1.setDividerLocation(0);
                 this.v.SplitPane1.setDividerSize(0);
@@ -331,7 +339,27 @@ public class Controller_Main implements ActionListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+        switch (position) {
+            case "CATEGORIA":
+                this.v.jTextFieldCategoriaNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+                this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+                break;
+            case "MATERIAL":
+                
+                break;
+            case "PRODUCTO":
+                
+                break;
+            case "CLIENTE":
+                
+                break;
+            case "EMPLEADO":
+                
+                break;
+            case "CARRITO":
+                
+                break;
+        }
     }
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}
