@@ -21,6 +21,21 @@ public class EnumMenu {
             mitem_blackeye,
             mitem_blackstart,
             mitem_classy,
-        btn_comenzarGuardadarBD;
+        btn_comenzarGuardadarBD,
+        mn_nuevo,
+            mitem_nuevoMaterial,
+            mitem_nuevoCliente,
+            mitem_nuevoEmpleado,
+            mitem_nuevoCarrito;
+    }
+    
+    public enum POSITION {
+
+        CATEGORIA,
+        MATERIAL,
+        PRODUCTO,
+        CLIENTE,
+        EMPLEADO,
+        CARRITO
     }
 }

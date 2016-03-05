@@ -27,6 +27,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -161,13 +163,15 @@ public class Controller_Main implements ActionListener, MouseListener {
 //        position = "CATEGORIA";
         
         ponerEsaTablaToGuapaYReshulona();
-        refreshTable();
+        refreshTable(position);
         
         //Controllers
         cm.initMovimientosListeners(this.v);
         cmenu.initControllerMenuListeners(this.v);
+
         
     }
+    
 
     public void initListeners() {
         this.v.btn_Categorias.setActionCommand("btn_categorias");
@@ -214,7 +218,7 @@ public class Controller_Main implements ActionListener, MouseListener {
 
             case btn_categorias:
                 position = POSITION.CATEGORIA.toString();
-                refreshTable();
+                refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split2_izquierda.removeAll();
@@ -230,68 +234,35 @@ public class Controller_Main implements ActionListener, MouseListener {
 
             case btn_materiales:
                 position = POSITION.MATERIAL.toString();
-                refreshTable();
+                refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                this.v.pnl_split3_inserts.removeAll();
-                this.v.pnl_split3_inserts.add(this.v.pnl_Materiales, BorderLayout.CENTER);
-                this.v.pnl_split3_inserts.setVisible(false);
-                this.v.pnl_split3_inserts.setVisible(true);
-
-                this.v.SplitPane3.setDividerLocation(300);
-                this.v.SplitPane3.setDividerSize(5);
                 
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
                 break;
 
             case btn_clientes:
                 position = POSITION.CLIENTE.toString();
-                refreshTable();
+                refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                this.v.pnl_split3_inserts.removeAll();
-                this.v.SplitPane3.setDividerLocation(300);
-                this.v.SplitPane3.setDividerSize(5);
-
-                this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
-                this.v.pnl_split3_inserts.setVisible(false);
-                this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                
                 break;
 
             case btn_empleados:
                 position = POSITION.EMPLEADO.toString();
-                refreshTable();
+                refreshTable(position);
                 refreshComboBox();
 
                 ponerEsaTablaToGuapaYReshulona();
-                this.v.pnl_split3_inserts.removeAll();
-                this.v.SplitPane3.setDividerLocation(300);
-                this.v.SplitPane3.setDividerSize(5);
-
-                this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
-                this.v.pnl_split3_inserts.setVisible(false);
-                this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                
                 break;
 
             case btn_carritos:
                 position = POSITION.CARRITO.toString();
-                refreshTable();
+                refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                this.v.pnl_split3_inserts.removeAll();
-                this.v.SplitPane3.setDividerLocation(300);
-                this.v.SplitPane3.setDividerSize(5);
-
-                this.v.pnl_split3_inserts.add(this.v.pnl_Carrito, BorderLayout.CENTER);
-                this.v.pnl_split3_inserts.setVisible(false);
-                this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                
                 break;
                         
             case btn_añadirCategorias:
@@ -309,13 +280,13 @@ public class Controller_Main implements ActionListener, MouseListener {
             case btn_categoria_insertar:
                 facade.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
                 position = POSITION.CATEGORIA.toString();
-                refreshTable();
+                refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_categoria_modificar:
                 facade.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()),this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
                 position = POSITION.CATEGORIA.toString();
-                refreshTable();
+                refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case esconderRosa:
@@ -366,8 +337,9 @@ public class Controller_Main implements ActionListener, MouseListener {
     public void mouseEntered(MouseEvent e) {}
     public void mouseExited(MouseEvent e) {}
     
-    public void refreshTable() {
-        switch (position) {
+    public void refreshTable(String position) {
+        this.position = position;
+        switch (this.position) {
             case "CATEGORIA":
                 categoryTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(categoryTableModel);

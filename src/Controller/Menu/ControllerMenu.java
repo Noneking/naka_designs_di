@@ -29,12 +29,13 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
 
     Main v;
     Model model = new Model();
+    Controller_Main cm;
     //cadenas estaticas de las rutas de los lookandfeels
   static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
   static String BLACKEYE ="de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel";
   static String BLACKSTART="de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel";
   static String CLASSY="de.javasoft.plaf.synthetica.SyntheticaClassyLookAndFeel";
-  
+  private String position = "";
 
     public void initControllerMenuListeners(Main v) {
         this.v = v;
@@ -63,6 +64,17 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
         this.v.mitem_guardarBD.addActionListener(this);
             this.v.btn_comenzarGuardarBD.setActionCommand("btn_comenzarGuardadarBD");
             this.v.btn_comenzarGuardarBD.addActionListener(this);
+            
+        //Crear Nuevo...
+            this.v.mitem_nuevoMaterial.setActionCommand("mitem_nuevoMaterial");
+            this.v.mitem_nuevoMaterial.addActionListener(this);
+            this.v.mitem_nuevoCliente.setActionCommand("mitem_nuevoCliente");
+            this.v.mitem_nuevoCliente.addActionListener(this);
+            this.v.mitem_nuevoEmpleado.setActionCommand("mitem_nuevoEmpleado");
+            this.v.mitem_nuevoEmpleado.addActionListener(this);
+            this.v.mitem_nuevoCarrito.setActionCommand("mitem_nuevoCarrito");
+            this.v.mitem_nuevoCarrito.addActionListener(this);
+            cm = new Controller_Main(this.v);
     }
 
     @Override
@@ -151,6 +163,77 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 break;
                     
             //FIN de las apariencias "LookAndFeel" de Synthetical------------------------------------------------------------
+                
+            //Comienzo de Nuevo ...------------------------------------------------------------------------------------------ 
+            case mitem_nuevoMaterial:
+                
+                position = Controller_Main.POSITION.MATERIAL.toString();
+                cm.refreshTable(position);
+
+                cm.ponerEsaTablaToGuapaYReshulona();
+                
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.pnl_split3_inserts.add(this.v.pnl_Materiales, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
+
+                this.v.SplitPane3.setDividerLocation(200);
+                this.v.SplitPane3.setDividerSize(5);
+                
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
+                
+                break;
+            case mitem_nuevoCliente:
+                position = Controller_Main.POSITION.CLIENTE.toString();
+                cm.refreshTable(position);
+
+                cm.ponerEsaTablaToGuapaYReshulona();
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(400);
+                this.v.SplitPane3.setDividerSize(5);
+
+                this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
+                
+                break;
+            case mitem_nuevoEmpleado:
+                position = Controller_Main.POSITION.EMPLEADO.toString();
+                cm.refreshTable(position);
+
+                cm.ponerEsaTablaToGuapaYReshulona();
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(300);
+                this.v.SplitPane3.setDividerSize(5);
+
+                this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
+                
+                break;
+            case mitem_nuevoCarrito:
+                position = Controller_Main.POSITION.CARRITO.toString();
+                cm.refreshTable(position);
+
+                cm.ponerEsaTablaToGuapaYReshulona();
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(300);
+                this.v.SplitPane3.setDividerSize(5);
+
+                this.v.pnl_split3_inserts.add(this.v.pnl_Carrito, BorderLayout.CENTER);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerSize(0);
+                
+                break;
+                
+            //FIN de Nuevo ...-----------------------------------------------------------------------------------------------
         }
     }
  

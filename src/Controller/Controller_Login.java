@@ -10,6 +10,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import org.w3c.dom.events.MouseEvent;
 
@@ -68,6 +70,12 @@ public class Controller_Login implements ActionListener, MouseListener {
         
         this.v.jFrameLoggin.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         
+        this.v.jFrameLoggin.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            System.exit(0);
+                        }
+                    });
     }
     
    
@@ -92,6 +100,13 @@ public class Controller_Login implements ActionListener, MouseListener {
                 }
                 
                 this.v.jFrameLoggin.setVisible(false);
+                this.v.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosing(WindowEvent e) {
+                            Model.Connection.closeSession();
+                        }
+                    });
+                
                 new Controller_Main(new Main()).initViews();
                 break;
     

@@ -69,6 +69,8 @@ public class Main extends javax.swing.JFrame {
         jTextFieldClientePassword = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jTextFieldClienteTelefono = new javax.swing.JTextField();
+        btn_insertarCliente = new javax.swing.JButton();
+        btn_modificarCliente = new javax.swing.JButton();
         pnl_Empleado = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -86,6 +88,8 @@ public class Main extends javax.swing.JFrame {
         jTextFieldEmpleadoPassword = new javax.swing.JTextField();
         jTextFieldEmpleadoRePassword = new javax.swing.JTextField();
         jComboBoxEmpleadoRol = new javax.swing.JComboBox();
+        btn_insertarEmpleado = new javax.swing.JButton();
+        btn_modificarEmpleado = new javax.swing.JButton();
         pnl_Carrito = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
@@ -96,6 +100,8 @@ public class Main extends javax.swing.JFrame {
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
+        pnl_listaCarrito = new javax.swing.JPanel();
+        btn_insertarCarrito = new javax.swing.JButton();
         pnl_Productos = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jTextFieldProductoNombre = new javax.swing.JTextField();
@@ -108,6 +114,8 @@ public class Main extends javax.swing.JFrame {
         jTextFieldProductoCantidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
+        btn_insertarProducto = new javax.swing.JButton();
+        btn_modificarProducto = new javax.swing.JButton();
         pnl_Categorias = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldCategoriaNombre = new javax.swing.JTextField();
@@ -122,6 +130,8 @@ public class Main extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldMaterialCantidad = new javax.swing.JTextField();
         jSlider1 = new javax.swing.JSlider();
+        btn_insertarMaterial = new javax.swing.JButton();
+        btn_modificarMaterial = new javax.swing.JButton();
         jdialog_eliminar = new javax.swing.JDialog();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel2 = new javax.swing.JPanel();
@@ -164,6 +174,11 @@ public class Main extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        mitem_nuevoMaterial = new javax.swing.JMenuItem();
+        mitem_nuevoCliente = new javax.swing.JMenuItem();
+        mitem_nuevoEmpleado = new javax.swing.JMenuItem();
+        mitem_nuevoCarrito = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mn_apariencia = new javax.swing.JMenu();
         mitem_aluoxide = new javax.swing.JMenuItem();
@@ -457,105 +472,158 @@ public class Main extends javax.swing.JFrame {
         );
 
         pnl_Clientes.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
-        pnl_Clientes.setMinimumSize(new java.awt.Dimension(650, 300));
-        pnl_Clientes.setPreferredSize(new java.awt.Dimension(650, 360));
+        pnl_Clientes.setMaximumSize(new java.awt.Dimension(600, 400));
+        pnl_Clientes.setMinimumSize(new java.awt.Dimension(600, 400));
+        pnl_Clientes.setPreferredSize(new java.awt.Dimension(600, 400));
 
         jLabel20.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel20.setText("Nick:");
+        jLabel20.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldClienteNickname.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClienteNickname.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteNickname.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteNickname.setPreferredSize(new java.awt.Dimension(326, 32));
 
         jLabel21.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel21.setText("Nombre:");
+        jLabel21.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldClienteNombre.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClienteNombre.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteNombre.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteNombre.setPreferredSize(new java.awt.Dimension(326, 32));
 
         jLabel22.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel22.setText("Apellidos:");
+        jLabel22.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldClienteApellidos.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClienteApellidos.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteApellidos.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteApellidos.setPreferredSize(new java.awt.Dimension(326, 32));
 
         jLabel23.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel23.setText("Email:");
+        jLabel23.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldClienteEmail.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClienteEmail.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteEmail.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteEmail.setPreferredSize(new java.awt.Dimension(326, 32));
 
         jLabel24.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel24.setText("Password:");
+        jLabel24.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jLabel25.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel25.setText("Re-password:");
+        jLabel25.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldClienteRePassword.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClienteRePassword.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteRePassword.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteRePassword.setPreferredSize(new java.awt.Dimension(326, 32));
 
         jTextFieldClientePassword.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClientePassword.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClientePassword.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClientePassword.setPreferredSize(new java.awt.Dimension(326, 32));
 
         jLabel27.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel27.setText("Tlf - movil:");
+        jLabel27.setPreferredSize(new java.awt.Dimension(60, 30));
 
         jTextFieldClienteTelefono.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jTextFieldClienteTelefono.setMaximumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteTelefono.setMinimumSize(new java.awt.Dimension(326, 32));
+        jTextFieldClienteTelefono.setPreferredSize(new java.awt.Dimension(326, 32));
         jTextFieldClienteTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldClienteTelefonoActionPerformed(evt);
             }
         });
 
+        btn_insertarCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_insertarCliente.setText("Insertar");
+
+        btn_modificarCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_modificarCliente.setText("Modificar");
+
         javax.swing.GroupLayout pnl_ClientesLayout = new javax.swing.GroupLayout(pnl_Clientes);
         pnl_Clientes.setLayout(pnl_ClientesLayout);
         pnl_ClientesLayout.setHorizontalGroup(
             pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_ClientesLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextFieldClientePassword, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldClienteNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel27))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldClienteTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jTextFieldClienteApellidos)
-                    .addComponent(jTextFieldClienteEmail))
-                .addGap(26, 26, 26))
+                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_ClientesLayout.createSequentialGroup()
+                                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldClienteEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldClienteTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(pnl_ClientesLayout.createSequentialGroup()
+                                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldClientePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldClienteApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldClienteNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ClientesLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_modificarCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_insertarCliente)))
+                .addContainerGap())
         );
         pnl_ClientesLayout.setVerticalGroup(
             pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_ClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextFieldClienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldClienteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldClienteApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23)
-                    .addComponent(jTextFieldClienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jTextFieldClienteTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldClientePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldClienteEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldClienteTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_insertarCliente)
+                    .addComponent(btn_modificarCliente))
+                .addContainerGap())
         );
 
         pnl_Empleado.setBorder(javax.swing.BorderFactory.createTitledBorder("Empleado"));
@@ -603,6 +671,12 @@ public class Main extends javax.swing.JFrame {
         jComboBoxEmpleadoRol.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jComboBoxEmpleadoRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado", "Administrador" }));
 
+        btn_insertarEmpleado.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_insertarEmpleado.setText("Insertar");
+
+        btn_modificarEmpleado.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_modificarEmpleado.setText("Modificar");
+
         javax.swing.GroupLayout pnl_EmpleadoLayout = new javax.swing.GroupLayout(pnl_Empleado);
         pnl_Empleado.setLayout(pnl_EmpleadoLayout);
         pnl_EmpleadoLayout.setHorizontalGroup(
@@ -629,6 +703,12 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jTextFieldEmpleadoPassword)
                     .addComponent(jTextFieldEmpleadoRePassword))
                 .addGap(92, 92, 92))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EmpleadoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_modificarEmpleado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_insertarEmpleado)
+                .addContainerGap())
         );
         pnl_EmpleadoLayout.setVerticalGroup(
             pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,7 +745,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
                     .addComponent(jComboBoxEmpleadoRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_insertarEmpleado)
+                    .addComponent(btn_modificarEmpleado))
+                .addContainerGap())
         );
 
         pnl_Carrito.setBorder(javax.swing.BorderFactory.createTitledBorder("Carrito"));
@@ -710,7 +794,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jLabel39)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 456, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 317, Short.MAX_VALUE)
                 .addComponent(jLabel40)
                 .addContainerGap())
         );
@@ -725,14 +809,26 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        pnl_listaCarrito.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout pnl_listaCarritoLayout = new javax.swing.GroupLayout(pnl_listaCarrito);
+        pnl_listaCarrito.setLayout(pnl_listaCarritoLayout);
+        pnl_listaCarritoLayout.setHorizontalGroup(
+            pnl_listaCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnl_listaCarritoLayout.setVerticalGroup(
+            pnl_listaCarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        btn_insertarCarrito.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_insertarCarrito.setText("Insertar");
+
         javax.swing.GroupLayout pnl_CarritoLayout = new javax.swing.GroupLayout(pnl_Carrito);
         pnl_Carrito.setLayout(pnl_CarritoLayout);
         pnl_CarritoLayout.setHorizontalGroup(
             pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_CarritoLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(100, 100, 100))
             .addGroup(pnl_CarritoLayout.createSequentialGroup()
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnl_CarritoLayout.createSequentialGroup()
@@ -742,12 +838,20 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl_CarritoLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton14)
                     .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addGroup(pnl_CarritoLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnl_listaCarrito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(btn_insertarCarrito)
+                .addContainerGap())
         );
         pnl_CarritoLayout.setVerticalGroup(
             pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -764,7 +868,13 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_CarritoLayout.createSequentialGroup()
+                        .addGap(0, 196, Short.MAX_VALUE)
+                        .addComponent(btn_insertarCarrito))
+                    .addComponent(pnl_listaCarrito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pnl_Productos.setBorder(javax.swing.BorderFactory.createTitledBorder("Producto"));
@@ -804,6 +914,12 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel11.setText("Cantidad:");
 
+        btn_insertarProducto.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_insertarProducto.setText("Insertar");
+
+        btn_modificarProducto.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_modificarProducto.setText("Modificar");
+
         javax.swing.GroupLayout pnl_ProductosLayout = new javax.swing.GroupLayout(pnl_Productos);
         pnl_Productos.setLayout(pnl_ProductosLayout);
         pnl_ProductosLayout.setHorizontalGroup(
@@ -811,28 +927,30 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_ProductosLayout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_ProductosLayout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldProductoNombre))
-                    .addGroup(pnl_ProductosLayout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldProductoPrecio))
-                    .addGroup(pnl_ProductosLayout.createSequentialGroup()
-                        .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldProductoCantidad)
-                            .addComponent(jComboBoxProductoCategoria, 0, 398, Short.MAX_VALUE)))
                     .addComponent(jScrollPane3)
                     .addGroup(pnl_ProductosLayout.createSequentialGroup()
                         .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)))
+                        .addComponent(jButton7))
+                    .addGroup(pnl_ProductosLayout.createSequentialGroup()
+                        .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldProductoNombre)
+                            .addComponent(jTextFieldProductoPrecio)
+                            .addComponent(jTextFieldProductoCantidad)
+                            .addComponent(jComboBoxProductoCategoria, 0, 398, Short.MAX_VALUE))))
                 .addGap(98, 98, 98))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ProductosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_modificarProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_insertarProducto)
+                .addContainerGap())
         );
         pnl_ProductosLayout.setVerticalGroup(
             pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -858,7 +976,11 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jButton7))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_insertarProducto)
+                    .addComponent(btn_modificarProducto))
                 .addContainerGap())
         );
 
@@ -929,8 +1051,9 @@ public class Main extends javax.swing.JFrame {
         );
 
         pnl_Materiales.setBorder(javax.swing.BorderFactory.createTitledBorder("Materiales"));
-        pnl_Materiales.setMinimumSize(new java.awt.Dimension(650, 250));
-        pnl_Materiales.setPreferredSize(new java.awt.Dimension(650, 300));
+        pnl_Materiales.setMinimumSize(new java.awt.Dimension(650, 150));
+        pnl_Materiales.setName(""); // NOI18N
+        pnl_Materiales.setPreferredSize(new java.awt.Dimension(650, 150));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 23)); // NOI18N
         jLabel6.setText("Nombre: ");
@@ -941,6 +1064,12 @@ public class Main extends javax.swing.JFrame {
         jLabel7.setText("Cantidad:");
 
         jTextFieldMaterialCantidad.setFont(new java.awt.Font("Calibri", 1, 23)); // NOI18N
+
+        btn_insertarMaterial.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_insertarMaterial.setText("Insertar");
+
+        btn_modificarMaterial.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        btn_modificarMaterial.setText("Modificar");
 
         javax.swing.GroupLayout pnl_MaterialesLayout = new javax.swing.GroupLayout(pnl_Materiales);
         pnl_Materiales.setLayout(pnl_MaterialesLayout);
@@ -958,7 +1087,12 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldMaterialCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)))
+                        .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_MaterialesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_modificarMaterial)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_insertarMaterial)))
                 .addContainerGap())
         );
         pnl_MaterialesLayout.setVerticalGroup(
@@ -977,7 +1111,11 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jLabel7))
                     .addComponent(jTextFieldMaterialCantidad)
                     .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_insertarMaterial)
+                    .addComponent(btn_modificarMaterial))
+                .addContainerGap())
         );
 
         jdialog_eliminar.setUndecorated(true);
@@ -1368,6 +1506,27 @@ public class Main extends javax.swing.JFrame {
         jMenuItem4.setText("Reconectar base de datos");
         jMenu2.add(jMenuItem4);
 
+        jMenu6.setText("Nuevo . . .");
+        jMenu6.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+
+        mitem_nuevoMaterial.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoMaterial.setText("Materiales");
+        jMenu6.add(mitem_nuevoMaterial);
+
+        mitem_nuevoCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoCliente.setText("Clientes");
+        jMenu6.add(mitem_nuevoCliente);
+
+        mitem_nuevoEmpleado.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoEmpleado.setText("Empleado");
+        jMenu6.add(mitem_nuevoEmpleado);
+
+        mitem_nuevoCarrito.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoCarrito.setText("Carrito");
+        jMenu6.add(mitem_nuevoCarrito);
+
+        jMenu2.add(jMenu6);
+
         manu_bar.add(jMenu2);
 
         jMenu3.setText("Editar");
@@ -1478,6 +1637,15 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_esconderRosa;
     public javax.swing.JButton btn_esconder_pnlPrincipal;
     public javax.swing.JButton btn_home;
+    public javax.swing.JButton btn_insertarCarrito;
+    public javax.swing.JButton btn_insertarCliente;
+    public javax.swing.JButton btn_insertarEmpleado;
+    public javax.swing.JButton btn_insertarMaterial;
+    public javax.swing.JButton btn_insertarProducto;
+    public javax.swing.JButton btn_modificarCliente;
+    public javax.swing.JButton btn_modificarEmpleado;
+    public javax.swing.JButton btn_modificarMaterial;
+    public javax.swing.JButton btn_modificarProducto;
     public javax.swing.JLabel eti_estadoGuardandoBD;
     public javax.swing.JLabel eti_olvidarContraseña;
     private javax.swing.JButton jButton1;
@@ -1541,6 +1709,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem3;
@@ -1554,7 +1723,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanelLogin;
-    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1593,6 +1762,10 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_contacta;
     public javax.swing.JMenuItem mitem_guardarBD;
     public javax.swing.JMenuItem mitem_masInfo;
+    public javax.swing.JMenuItem mitem_nuevoCarrito;
+    public javax.swing.JMenuItem mitem_nuevoCliente;
+    public javax.swing.JMenuItem mitem_nuevoEmpleado;
+    public javax.swing.JMenuItem mitem_nuevoMaterial;
     public javax.swing.JMenu mn_apariencia;
     public javax.swing.JMenuItem mn_historial_ventas;
     public javax.swing.JProgressBar pbar_guardandoBD;
@@ -1606,6 +1779,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_Productos;
     public javax.swing.JPanel pnl_TableMain;
     public javax.swing.JPanel pnl_contenedorListaCategorias;
+    public javax.swing.JPanel pnl_listaCarrito;
     public javax.swing.JPanel pnl_listaCategorias;
     public javax.swing.JPanel pnl_split1_derecha;
     public javax.swing.JPanel pnl_split1_izquierda;

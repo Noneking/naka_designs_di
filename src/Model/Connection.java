@@ -99,9 +99,9 @@ public class Connection {
     /**
      * Cierra la sesión
      */
-    public void closeSession(){
+    public static void closeSession(){
         try {
-            this.s.close();
+            Connection.s.close();
             System.err.println("Session closed.");
         } catch(SessionException e) {
             System.err.println("Error closing session..");
