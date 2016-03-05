@@ -68,6 +68,8 @@ public class MaterialTableModel extends AbstractTableModel {
                 return material.get(rowIndex).getCod();
             case 1:
                 return material.get(rowIndex).getName();
+            case 2:
+                return material.get(rowIndex).getAmount();
             default:
                 return null;
         }

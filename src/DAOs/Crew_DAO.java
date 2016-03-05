@@ -50,6 +50,7 @@ public class Crew_DAO extends Connection implements Crew_IDAO{
         Crew c=new Crew(email, nickname, password, name, surname, phone_number, role);
         getSession().save(c);
         getTransaction().commit();
+        closeSession();
         System.err.println("Crew inserted succesfully.");
     }
 

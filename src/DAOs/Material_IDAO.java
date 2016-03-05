@@ -20,7 +20,7 @@ public interface Material_IDAO {
     public ArrayList<Material> getMaterialsByQuery(String question);
     public ArrayList<Material> getMaterials();
     public void insertMaterial(String name, int amount);
-    public void modifyMaterial(int cod, String name);
+    public void modifyMaterial(int cod, String name, int amount);
     public void deleteMaterial(int cod);
     public void deleteMaterials(ArrayList<Material> materials);
     public void deleteMaterials();

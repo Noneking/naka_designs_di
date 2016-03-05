@@ -643,8 +643,8 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     }
 
     @Override
-    public void modifyMaterial(int cod, String name) {
-        this.material.modifyMaterial(cod, name);
+    public void modifyMaterial(int cod, String name, int amount) {
+        this.material.modifyMaterial(cod, name, amount);
     }
 
     @Override

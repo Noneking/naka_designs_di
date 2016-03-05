@@ -54,9 +54,10 @@ public class Material_DAO extends Connection implements Material_IDAO{
     }
 
     @Override /**Modifica un objeto de tipo Material en la BD*/
-    public void modifyMaterial(int cod, String name) {
+    public void modifyMaterial(int cod, String name, int amount) {
         Material m=getMaterialByCod(cod);
         m.setName(name);
+        m.setAmount(amount);
         getSession().update(m);
         getTransaction().commit();
         System.err.println("Material modified succesfully.");

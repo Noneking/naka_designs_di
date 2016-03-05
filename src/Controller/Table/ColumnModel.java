@@ -61,7 +61,7 @@ public class ColumnModel {
         String product[]={"Código","Nombre","Precio","Categoría"};
         String category[]={"Código","Nombre","Descripción"};
         String record[]={"Código","Fecha"};
-        String material[]={"Código","Nombre"};
+        String material[]={"Código","Nombre","Cantidad"};
         String basket[]={"Código","Cantidad","Cliente","Producto"};
         String bookmark[]={"Código","Descripción","Fecha","Empleado"};
         String turnover[]={"Código","Cantidad","Precio","Registro_producto"};

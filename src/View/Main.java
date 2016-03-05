@@ -63,12 +63,12 @@ public class Main extends javax.swing.JFrame {
         jTextFieldClienteEmail = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextFieldClienteRePassword = new javax.swing.JTextField();
-        jTextFieldClientePassword = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jTextFieldClienteTelefono = new javax.swing.JTextField();
         btn_insertarCliente = new javax.swing.JButton();
         btn_modificarCliente = new javax.swing.JButton();
+        jPasswordFieldClientePassword = new javax.swing.JPasswordField();
+        jPasswordFieldClienteRePassword = new javax.swing.JPasswordField();
         pnl_Empleado = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -83,11 +83,11 @@ public class Main extends javax.swing.JFrame {
         jTextFieldEmpleadoNickname = new javax.swing.JTextField();
         jTextFieldEmpleadoTelefono = new javax.swing.JTextField();
         jTextFieldEmpleadoEmail = new javax.swing.JTextField();
-        jTextFieldEmpleadoPassword = new javax.swing.JTextField();
-        jTextFieldEmpleadoRePassword = new javax.swing.JTextField();
         jComboBoxEmpleadoRol = new javax.swing.JComboBox();
         btn_insertarEmpleado = new javax.swing.JButton();
         btn_modificarEmpleado = new javax.swing.JButton();
+        jPasswordFieldEmpleadoPassword = new javax.swing.JPasswordField();
+        jPasswordFieldEmpleadoRePassword = new javax.swing.JPasswordField();
         pnl_Carrito = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
@@ -518,16 +518,6 @@ public class Main extends javax.swing.JFrame {
         jLabel25.setText("Re-password:");
         jLabel25.setPreferredSize(new java.awt.Dimension(60, 30));
 
-        jTextFieldClienteRePassword.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-        jTextFieldClienteRePassword.setMaximumSize(new java.awt.Dimension(326, 32));
-        jTextFieldClienteRePassword.setMinimumSize(new java.awt.Dimension(326, 32));
-        jTextFieldClienteRePassword.setPreferredSize(new java.awt.Dimension(326, 32));
-
-        jTextFieldClientePassword.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-        jTextFieldClientePassword.setMaximumSize(new java.awt.Dimension(326, 32));
-        jTextFieldClientePassword.setMinimumSize(new java.awt.Dimension(326, 32));
-        jTextFieldClientePassword.setPreferredSize(new java.awt.Dimension(326, 32));
-
         jLabel27.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel27.setText("Tlf - movil:");
         jLabel27.setPreferredSize(new java.awt.Dimension(60, 30));
@@ -548,6 +538,10 @@ public class Main extends javax.swing.JFrame {
         btn_modificarCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         btn_modificarCliente.setText("Modificar");
 
+        jPasswordFieldClientePassword.setText("jPasswordField1");
+
+        jPasswordFieldClienteRePassword.setText("jPasswordField1");
+
         javax.swing.GroupLayout pnl_ClientesLayout = new javax.swing.GroupLayout(pnl_Clientes);
         pnl_Clientes.setLayout(pnl_ClientesLayout);
         pnl_ClientesLayout.setHorizontalGroup(
@@ -563,7 +557,7 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldClienteEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 675, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldClienteEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                                     .addComponent(jTextFieldClienteTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(pnl_ClientesLayout.createSequentialGroup()
                                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -574,11 +568,11 @@ public class Main extends javax.swing.JFrame {
                                     .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldClientePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextFieldClienteApellidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldClienteNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jTextFieldClienteNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPasswordFieldClientePassword)
+                                    .addComponent(jPasswordFieldClienteRePassword)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ClientesLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_modificarCliente)
@@ -602,13 +596,16 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldClienteNickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldClientePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
+                        .addComponent(jPasswordFieldClientePassword)
+                        .addGap(4, 4, 4)))
+                .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldClienteRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_ClientesLayout.createSequentialGroup()
+                        .addComponent(jPasswordFieldClienteRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -617,7 +614,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldClienteTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(pnl_ClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertarCliente)
                     .addComponent(btn_modificarCliente))
@@ -662,18 +659,18 @@ public class Main extends javax.swing.JFrame {
 
         jTextFieldEmpleadoEmail.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
 
-        jTextFieldEmpleadoPassword.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-
-        jTextFieldEmpleadoRePassword.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-
         jComboBoxEmpleadoRol.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-        jComboBoxEmpleadoRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Empleado", "Administrador" }));
+        jComboBoxEmpleadoRol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "em", "ad" }));
 
         btn_insertarEmpleado.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         btn_insertarEmpleado.setText("Insertar");
 
         btn_modificarEmpleado.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         btn_modificarEmpleado.setText("Modificar");
+
+        jPasswordFieldEmpleadoPassword.setText("jPasswordField1");
+
+        jPasswordFieldEmpleadoRePassword.setText("jPasswordField1");
 
         javax.swing.GroupLayout pnl_EmpleadoLayout = new javax.swing.GroupLayout(pnl_Empleado);
         pnl_Empleado.setLayout(pnl_EmpleadoLayout);
@@ -698,8 +695,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jTextFieldEmpleadoNickname)
                     .addComponent(jTextFieldEmpleadoTelefono)
                     .addComponent(jTextFieldEmpleadoEmail)
-                    .addComponent(jTextFieldEmpleadoPassword)
-                    .addComponent(jTextFieldEmpleadoRePassword))
+                    .addComponent(jPasswordFieldEmpleadoPassword)
+                    .addComponent(jPasswordFieldEmpleadoRePassword))
                 .addGap(92, 92, 92))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_EmpleadoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -732,18 +729,21 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel32)
                     .addComponent(jTextFieldEmpleadoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel33)
-                    .addComponent(jTextFieldEmpleadoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
+                        .addComponent(jPasswordFieldEmpleadoPassword)
+                        .addGap(2, 2, 2)))
+                .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel34)
-                    .addComponent(jTextFieldEmpleadoRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_EmpleadoLayout.createSequentialGroup()
+                        .addComponent(jPasswordFieldEmpleadoRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
                     .addComponent(jComboBoxEmpleadoRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(pnl_EmpleadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertarEmpleado)
                     .addComponent(btn_modificarEmpleado))
@@ -1722,6 +1722,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     public javax.swing.JPanel jPanelLogin;
+    public javax.swing.JPasswordField jPasswordFieldClientePassword;
+    public javax.swing.JPasswordField jPasswordFieldClienteRePassword;
+    public javax.swing.JPasswordField jPasswordFieldEmpleadoPassword;
+    public javax.swing.JPasswordField jPasswordFieldEmpleadoRePassword;
     public javax.swing.JPopupMenu jPopupMenu;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
@@ -1736,15 +1740,11 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldClienteEmail;
     public javax.swing.JTextField jTextFieldClienteNickname;
     public javax.swing.JTextField jTextFieldClienteNombre;
-    public javax.swing.JTextField jTextFieldClientePassword;
-    public javax.swing.JTextField jTextFieldClienteRePassword;
     public javax.swing.JTextField jTextFieldClienteTelefono;
     public javax.swing.JTextField jTextFieldEmpleadoApellidos;
     public javax.swing.JTextField jTextFieldEmpleadoEmail;
     public javax.swing.JTextField jTextFieldEmpleadoNickname;
     public javax.swing.JTextField jTextFieldEmpleadoNombre;
-    public javax.swing.JTextField jTextFieldEmpleadoPassword;
-    public javax.swing.JTextField jTextFieldEmpleadoRePassword;
     public javax.swing.JTextField jTextFieldEmpleadoTelefono;
     public javax.swing.JTextField jTextFieldMaterialCantidad;
     public javax.swing.JTextField jTextFieldMaterialNombre;

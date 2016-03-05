@@ -194,11 +194,46 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.v.btn_añadirCategoria.setActionCommand("btn_añadirCategorias");
         this.v.btn_añadirCategoria.addActionListener(this);
         
+        //CATEGORIES
         this.v.btn_categorias_insertar.setActionCommand("btn_categoria_insertar");
         this.v.btn_categorias_insertar.addActionListener(this);
         
         this.v.btn_categorias_modificar.setActionCommand("btn_categoria_modificar");
         this.v.btn_categorias_modificar.addActionListener(this);
+
+        //MATERIAL
+        this.v.btn_insertarMaterial.setActionCommand("btn_material_insertar");
+        this.v.btn_insertarMaterial.addActionListener(this);
+        
+        this.v.btn_modificarMaterial.setActionCommand("btn_material_modificar");
+        this.v.btn_modificarMaterial.addActionListener(this);
+        
+        //PRODUCT
+        this.v.btn_insertarProducto.setActionCommand("btn_producto_insertar");
+        this.v.btn_insertarProducto.addActionListener(this);
+        
+        this.v.btn_modificarProducto.setActionCommand("btn_producto_modificar");
+        this.v.btn_modificarProducto.addActionListener(this);
+        
+        //USER
+        this.v.btn_insertarCliente.setActionCommand("btn_cliente_insertar");
+        this.v.btn_insertarCliente.addActionListener(this);
+        
+        this.v.btn_modificarCliente.setActionCommand("btn_cliente_modificar");
+        this.v.btn_modificarCliente.addActionListener(this);
+        
+        //CREW
+        this.v.btn_insertarEmpleado.setActionCommand("btn_empleado_insertar");
+        this.v.btn_insertarEmpleado.addActionListener(this);
+        
+        this.v.btn_modificarEmpleado.setActionCommand("btn_empleado_modificar");
+        this.v.btn_modificarEmpleado.addActionListener(this);
+        
+        //BASKET
+        this.v.btn_insertarCarrito.setActionCommand("btn_carrito_insertar");
+        this.v.btn_insertarCarrito.addActionListener(this);
+        
+        ////////////////////////////////////////////////////////////////
 
         this.v.btn_esconderRosa.setActionCommand("esconderRosa");
         this.v.btn_esconderRosa.addActionListener(this);
@@ -305,6 +340,58 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
+            case btn_material_insertar:
+                facade.insertMaterial(this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
+                position = POSITION.MATERIAL.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_material_modificar:
+                facade.modifyMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
+                position = POSITION.MATERIAL.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_producto_insertar:
+                facade.insertProduct(this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
+                position = POSITION.PRODUCTO.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_producto_modificar:
+                facade.modifyProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
+                position = POSITION.PRODUCTO.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_cliente_insertar:
+                facade.insertUser(this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jPasswordFieldClientePassword.getPassword().toString());
+                position = POSITION.CLIENTE.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_cliente_modificar:
+                facade.modifyUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jPasswordFieldClientePassword.getPassword().toString());
+                position = POSITION.CLIENTE.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_empleado_insertar:
+                System.out.println(this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
+                facade.insertCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jPasswordFieldEmpleadoPassword.getPassword().toString(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
+                position = POSITION.EMPLEADO.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_empleado_modificar:
+                facade.modifyCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jPasswordFieldEmpleadoPassword.getPassword().toString(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
+                position = POSITION.EMPLEADO.toString();
+                refreshTable(position);
+                ponerEsaTablaToGuapaYReshulona();
+                break;
+            case btn_carrito_insertar:
+                
+                break;
             case btn_eliminar:
                 switch (position) {
                     case "CATEGORIA":
@@ -357,7 +444,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
         }
     }
-
+    
     @Override
     public void mouseClicked(MouseEvent e) {
         switch (position) {
@@ -382,6 +469,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
         }
     }
+    
     public void mousePressed(MouseEvent e) {}
     public void mouseReleased(MouseEvent e) {}
     public void mouseEntered(MouseEvent e) {}

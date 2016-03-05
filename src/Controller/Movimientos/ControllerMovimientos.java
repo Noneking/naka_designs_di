@@ -61,7 +61,6 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 break;
                  
              case btn_ventasMovi:
-                 System.out.println(""+mm.getConexionesCount().get(0));
                  DefaultCategoryDataset b = new DefaultCategoryDataset();
                  b.setValue(mm.getRecordEnero(), "Ventas", "Ene");
                  b.setValue(mm.getRecordFebrero(), "Ventas", "Feb");
