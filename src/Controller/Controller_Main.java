@@ -110,6 +110,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         esconderAzul,
         btn_insertar,
         btn_modificar,
+        btn_clicModificar,
         btn_eliminar,
         btn_categoria_insertar,
         btn_categoria_modificar,
@@ -242,8 +243,12 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         
        
         //DELETE
+        this.v.jMenuItemModificar.setActionCommand("btn_clicModificar");
+        this.v.jMenuItemModificar.addActionListener(this);
+        
         this.v.jMenuItemEliminar.setActionCommand("btn_eliminar");
         this.v.jMenuItemEliminar.addActionListener(this);
+        
         
 //        this.v.btn_tool_insertar.addActionListener(this);
 //        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
@@ -281,6 +286,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
                 this.v.SplitPane2.setDividerLocation(320);
                 this.v.SplitPane2.setDividerSize(5);
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(10000);
+                this.v.SplitPane3.setDividerSize(0);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
                 break;
 
             case btn_materiales:
@@ -288,7 +298,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(10000);
+                this.v.SplitPane3.setDividerSize(0);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
                 break;
 
             case btn_clientes:
@@ -296,7 +310,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(10000);
+                this.v.SplitPane3.setDividerSize(0);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
                 break;
 
             case btn_empleados:
@@ -305,7 +323,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshComboBox();
 
                 ponerEsaTablaToGuapaYReshulona();
-                
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(10000);
+                this.v.SplitPane3.setDividerSize(0);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
                 break;
 
             case btn_carritos:
@@ -313,7 +335,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                
+                this.v.pnl_split3_inserts.removeAll();
+                this.v.SplitPane3.setDividerLocation(10000);
+                this.v.SplitPane3.setDividerSize(0);
+                this.v.pnl_split3_inserts.setVisible(false);
+                this.v.pnl_split3_inserts.setVisible(true);
                 break;
                         
             case btn_añadirCategorias:
@@ -325,7 +351,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
-                this.v.SplitPane2.setDividerLocation(0);
+                this.v.SplitPane2.setDividerLocation(-1000);
                 this.v.SplitPane2.setDividerSize(0);
                 break;
             case btn_categoria_insertar:
@@ -391,6 +417,102 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
             case btn_carrito_insertar:
                 
+                break;
+            case btn_clicModificar:
+                switch (position) {
+                    case "CATEGORIA":
+                        position = Controller_Main.POSITION.CATEGORIA.toString();
+                        refreshTable(position);
+
+                        ponerEsaTablaToGuapaYReshulona();
+                        this.v.pnl_split3_inserts.removeAll();
+                        this.v.SplitPane3.setDividerLocation(300);
+                        this.v.SplitPane3.setDividerSize(5);
+
+                        this.v.pnl_split3_inserts.add(this.v.pnl_Categorias, BorderLayout.CENTER);
+                        this.v.pnl_split3_inserts.setVisible(false);
+                        this.v.pnl_split3_inserts.setVisible(true);
+                        this.v.SplitPane2.setDividerLocation(0);
+                        this.v.SplitPane2.setDividerSize(0);
+                        break;
+                    case "MATERIAL":
+                        position = Controller_Main.POSITION.MATERIAL.toString();
+                        refreshTable(position);
+
+                        ponerEsaTablaToGuapaYReshulona();
+
+                        this.v.pnl_split3_inserts.removeAll();
+                        this.v.pnl_split3_inserts.add(this.v.pnl_Materiales, BorderLayout.CENTER);
+                        this.v.pnl_split3_inserts.setVisible(false);
+                        this.v.pnl_split3_inserts.setVisible(true);
+
+                        this.v.SplitPane3.setDividerLocation(350);
+                        this.v.SplitPane3.setDividerSize(5);
+
+                        this.v.SplitPane2.setDividerLocation(0);
+                        this.v.SplitPane2.setDividerSize(0);
+                        break;
+                    case "PRODUCTO":
+                        position = Controller_Main.POSITION.PRODUCTO.toString();
+                        refreshTable(position);
+
+                        ponerEsaTablaToGuapaYReshulona();
+                        this.v.pnl_split3_inserts.removeAll();
+                        this.v.SplitPane3.setDividerLocation(300);
+                        this.v.SplitPane3.setDividerSize(5);
+
+                        this.v.pnl_split3_inserts.add(this.v.pnl_Productos, BorderLayout.CENTER);
+                        this.v.pnl_split3_inserts.setVisible(false);
+                        this.v.pnl_split3_inserts.setVisible(true);
+                        this.v.SplitPane2.setDividerLocation(0);
+                        this.v.SplitPane2.setDividerSize(0);
+                        break;
+                    case "CLIENTE":
+                        position = Controller_Main.POSITION.CLIENTE.toString();
+                        refreshTable(position);
+
+                        ponerEsaTablaToGuapaYReshulona();
+                        this.v.pnl_split3_inserts.removeAll();
+                        this.v.SplitPane3.setDividerLocation(200);
+                        this.v.SplitPane3.setDividerSize(5);
+
+                        this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
+                        this.v.pnl_split3_inserts.setVisible(false);
+                        this.v.pnl_split3_inserts.setVisible(true);
+                        this.v.SplitPane2.setDividerLocation(0);
+                        this.v.SplitPane2.setDividerSize(0);
+                        break;
+                    case "EMPLEADO":
+                        position = Controller_Main.POSITION.EMPLEADO.toString();
+                        refreshTable(position);
+
+                        ponerEsaTablaToGuapaYReshulona();
+                        this.v.pnl_split3_inserts.removeAll();
+                        this.v.SplitPane3.setDividerLocation(200);
+                        this.v.SplitPane3.setDividerSize(5);
+
+                        this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
+                        this.v.pnl_split3_inserts.setVisible(false);
+                        this.v.pnl_split3_inserts.setVisible(true);
+                        this.v.SplitPane2.setDividerLocation(0);
+                        this.v.SplitPane2.setDividerSize(0);
+                        break;
+                    case "CARRITO":
+                        position = Controller_Main.POSITION.CARRITO.toString();
+                        refreshTable(position);
+
+                        ponerEsaTablaToGuapaYReshulona();
+                        this.v.pnl_split3_inserts.removeAll();
+                        this.v.SplitPane3.setDividerLocation(300);
+                        this.v.SplitPane3.setDividerSize(5);
+
+                        this.v.pnl_split3_inserts.add(this.v.pnl_Carrito, BorderLayout.CENTER);
+                        this.v.pnl_split3_inserts.setVisible(false);
+                        this.v.pnl_split3_inserts.setVisible(true);
+                        this.v.SplitPane2.setDividerLocation(0);
+                        this.v.SplitPane2.setDividerSize(0);
+                        break;
+                }
                 break;
             case btn_eliminar:
                 switch (position) {
