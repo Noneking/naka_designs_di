@@ -177,7 +177,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
 
-                this.v.SplitPane3.setDividerLocation(200);
+                this.v.SplitPane3.setDividerLocation(350);
                 this.v.SplitPane3.setDividerSize(5);
                 
                 this.v.SplitPane2.setDividerLocation(0);
@@ -190,7 +190,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
 
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
-                this.v.SplitPane3.setDividerLocation(400);
+                this.v.SplitPane3.setDividerLocation(200);
                 this.v.SplitPane3.setDividerSize(5);
 
                 this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
@@ -206,7 +206,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
 
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
-                this.v.SplitPane3.setDividerLocation(300);
+                this.v.SplitPane3.setDividerLocation(200);
                 this.v.SplitPane3.setDividerSize(5);
 
                 this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
