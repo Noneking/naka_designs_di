@@ -2,6 +2,20 @@ package Controller;
 
 import Controller.Menu.ControllerMenu;
 import Controller.Movimientos.ControllerMovimientos;
+import Controller.Table.BasketTableModel;
+import Controller.Table.BasketTableRenderer;
+import Controller.Table.CategoryTableModel;
+import Controller.Table.CategoryTableRenderer;
+import Controller.Table.ClientTableModel;
+import Controller.Table.ClientTableRenderer;
+import Controller.Table.CrewTableModel;
+import Controller.Table.CrewTableRenderer;
+import Controller.Table.MaterialTableModel;
+import Controller.Table.MaterialTableRenderer;
+import Controller.Table.ProductTableModel;
+import Controller.Table.ProductTableRenderer;
+import DAOs.User_DAO;
+import Facade.Facade;
 import Model.HiloProgreso;
 import Model.Model;
 import View.Main;
@@ -18,6 +32,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JSplitPane;
+import javax.swing.table.AbstractTableModel;
 
 /**
  *
@@ -27,8 +42,27 @@ public class Controller_Main implements ActionListener, MouseListener {
 
     Main v;
     Model model;
+    Facade facade;
     ControllerMovimientos cm = new ControllerMovimientos();
     ControllerMenu cmenu = new ControllerMenu();
+    
+    private ClientTableModel clientTableModel;
+    private ClientTableRenderer clientTableRenderer;
+    
+    private CategoryTableModel categoryTableModel;
+    private CategoryTableRenderer categoryTableRenderer;
+    
+    private MaterialTableModel materialTableModel;
+    private MaterialTableRenderer materialTableRenderer;
+    
+    private ProductTableModel productTableModel;
+    private ProductTableRenderer productTableRenderer;
+    
+    private CrewTableModel crewTableModel;
+    private CrewTableRenderer crewTableRenderer;
+    
+    private BasketTableModel basketTableModel;
+    private BasketTableRenderer basketTableRenderer;
 
     private String position = "";
 
@@ -36,7 +70,26 @@ public class Controller_Main implements ActionListener, MouseListener {
     public Controller_Main(Main v) {
         this.v = v;
         model = new Model();
-        System.out.println("");
+        facade = new Facade();
+        
+        clientTableModel = new ClientTableModel(facade);
+        clientTableRenderer = new ClientTableRenderer();
+        
+        categoryTableModel=new CategoryTableModel(facade);
+        categoryTableRenderer= new CategoryTableRenderer();
+        
+        materialTableModel=new MaterialTableModel(facade);
+        materialTableRenderer=new MaterialTableRenderer();
+        
+        productTableModel=new ProductTableModel(facade);
+        productTableRenderer=new ProductTableRenderer();
+        
+        crewTableModel=new CrewTableModel(facade);
+        crewTableRenderer=new CrewTableRenderer();
+        
+        basketTableModel=new BasketTableModel(facade);
+        basketTableRenderer=new BasketTableRenderer();
+        
     }
 
     public enum Actions {
@@ -104,9 +157,11 @@ public class Controller_Main implements ActionListener, MouseListener {
         initListeners();
         this.v.setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/IMG/naka_designs_sevilla_logo.png")));
         //JTableMain
-        position = "CATEGORIA";
-        refreshTable();
+        position = "CLIENTE";
+//        position = "CATEGORIA";
+        
         ponerEsaTablaToGuapaYReshulona();
+        refreshTable();
         
         //Controllers
         cm.initMovimientosListeners(this.v);
@@ -277,22 +332,34 @@ public class Controller_Main implements ActionListener, MouseListener {
     public void refreshTable() {
         switch (position) {
             case "CATEGORIA":
-                this.v.jTableMain.setModel(model.getTableModel("CATEGORY"));
+                this.v.jTableMain.setModel(categoryTableModel);
+                this.v.jTableMain.setDefaultRenderer(String.class, categoryTableRenderer);
+                this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "MATERIAL":
-                this.v.jTableMain.setModel(model.getTableModel("MATERIAL"));
+                this.v.jTableMain.setModel(materialTableModel);
+                this.v.jTableMain.setDefaultRenderer(String.class, materialTableRenderer);
+                this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "PRODUCTO":
-                this.v.jTableMain.setModel(model.getTableModel("PRODUCT"));
+                this.v.jTableMain.setModel(productTableModel);
+                this.v.jTableMain.setDefaultRenderer(String.class, productTableRenderer);
+                this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "CLIENTE":
-                this.v.jTableMain.setModel(model.getTableModel("USER"));
+                this.v.jTableMain.setModel(clientTableModel);
+                this.v.jTableMain.setDefaultRenderer(String.class, clientTableRenderer);
+                this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "EMPLEADO":
-                this.v.jTableMain.setModel(model.getTableModel("CREW"));
+                this.v.jTableMain.setModel(crewTableModel);
+                this.v.jTableMain.setDefaultRenderer(String.class, crewTableRenderer);
+                this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
             case "CARRITO":
-                this.v.jTableMain.setModel(model.getTableModel("BASKET"));
+                this.v.jTableMain.setModel(basketTableModel);
+                this.v.jTableMain.setDefaultRenderer(String.class, basketTableRenderer);
+                this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                 break;
         }
     }

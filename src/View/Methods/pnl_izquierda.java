@@ -32,7 +32,6 @@ public class pnl_izquierda extends JPanel{
 		}
  
 		super.paintComponent(g);
-                System.out.println("Lo pinta");
 	}
  
 	// Metodo donde le pasaremos la dirección de la imagen a cargar.
@@ -41,6 +40,5 @@ public class pnl_izquierda extends JPanel{
 		// Construimos la imagen y se la asignamos al atributo background.
 		this.setOpaque(false);
 		this.background = new ImageIcon(getClass().getResource("/IMG/negro1.png")).getImage();
-                System.out.println("Se mete imagen --*--*--");
 	}
 }

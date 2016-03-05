@@ -22,8 +22,8 @@ import org.hibernate.Transaction;
 
 public class Connection {
     
-    Session s;
-    Transaction tx;
+    static Session s;
+    static Transaction tx;
     
     
     /**
@@ -47,9 +47,9 @@ public class Connection {
      * Si hay una abierta devuelve esa misma, sino crea una nueva y la devuelve.
      */
 //    int contSessionError=0;
-    public Session getSession() {
-        if(!this.s.isOpen()){
-            this.s=NewHibernateUtil.getSessionFactory().openSession();
+    public static Session getSession() {
+        if(!Connection.s.isOpen()){
+            Connection.s=NewHibernateUtil.getSessionFactory().openSession();
         }
 //        try {
 //            this.s=NewHibernateUtil.getSessionFactory().openSession();
@@ -63,7 +63,7 @@ public class Connection {
 //                getSession();
 //            }
 //        }
-        return this.s;
+        return Connection.s;
     }
     
     /**
@@ -111,7 +111,7 @@ public class Connection {
     /**
      * Inicializa el objeto Transaction y lo devuelve
      */
-    public Transaction getTransaction(){
+    public static Transaction getTransaction(){
 //        if(!this.tx.isActive()){this.tx=getSession().beginTransaction();}
 //        return this.tx;
 //        return this.tx=getSession().beginTransaction();
@@ -121,8 +121,8 @@ public class Connection {
 //        if(this.tx==null){
 //            this.tx=this.s.beginTransaction();
 //        }
-        this.tx=getSession().beginTransaction();
-        return this.tx;
+        Connection.tx=getSession().beginTransaction();
+        return Connection.tx;
     }
     
 }

@@ -25,7 +25,6 @@ public class pnl_Split_Derecha extends JPanel {
 		}
  
 		super.paintComponent(g);
-                System.out.println("Lo pinta");
 	}
  
 	// Metodo donde le pasaremos la dirección de la imagen a cargar.
@@ -34,6 +33,5 @@ public class pnl_Split_Derecha extends JPanel {
 		// Construimos la imagen y se la asignamos al atributo background.
 		this.setOpaque(false);
 		this.background = new ImageIcon(getClass().getResource("/IMG/1.jpg")).getImage();
-                System.out.println("Se mete imagen --*--*--");
 	}
 }
