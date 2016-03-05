@@ -184,6 +184,9 @@ public class Controller_Main implements ActionListener, MouseListener {
         
         this.v.btn_añadirCategoria.setActionCommand("btn_añadirCategorias");
         this.v.btn_añadirCategoria.addActionListener(this);
+        
+        this.v.btn_categorias_insertar.setActionCommand("btn_categoria_insertar");
+        this.v.btn_categorias_insertar.addActionListener(this);
 
         this.v.btn_esconderRosa.setActionCommand("esconderRosa");
         this.v.btn_esconderRosa.addActionListener(this);
@@ -300,6 +303,12 @@ public class Controller_Main implements ActionListener, MouseListener {
                 this.v.SplitPane2.setDividerLocation(0);
                 this.v.SplitPane2.setDividerSize(0);
                 break;
+            case btn_categoria_insertar:
+                facade.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                position = POSITION.CATEGORIA.toString();
+                refreshTable();
+                ponerEsaTablaToGuapaYReshulona();
+                break;
                 
             case esconderRosa:
                 this.v.SplitPane1.setDividerLocation(0);
@@ -332,6 +341,7 @@ public class Controller_Main implements ActionListener, MouseListener {
     public void refreshTable() {
         switch (position) {
             case "CATEGORIA":
+                categoryTableModel.updateTableDatas();
                 this.v.jTableMain.setModel(categoryTableModel);
                 this.v.jTableMain.setDefaultRenderer(String.class, categoryTableRenderer);
                 this.v.jTableMain.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);

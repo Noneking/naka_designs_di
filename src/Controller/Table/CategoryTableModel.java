@@ -17,10 +17,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class CategoryTableModel extends AbstractTableModel {
 
+    Facade facade;
+    
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.CATEGORY.toString());
     private List<Category> categories;
     
     public CategoryTableModel(Facade facade){
+        this.facade=facade;
+        categories=facade.getCategories();
+    }
+    
+    public void updateTableDatas(){
         categories=facade.getCategories();
     }
     
