@@ -117,7 +117,7 @@ public class Main extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jComboBoxProductoCategoria = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        jButtonProductoAñadirMaterial = new javax.swing.JButton();
         jTextFieldProductoCantidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -173,6 +173,9 @@ public class Main extends javax.swing.JFrame {
         txt_nickConfiCrew = new javax.swing.JTextField();
         btn_cancelarConfiCrew = new javax.swing.JButton();
         btn_modificarConfiCrew = new javax.swing.JButton();
+        jFrame_materialesProducto = new javax.swing.JFrame();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTable_materialesProducto = new javax.swing.JTable();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -993,8 +996,8 @@ public class Main extends javax.swing.JFrame {
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Materiales");
 
-        jButton7.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-        jButton7.setText("Más");
+        jButtonProductoAñadirMaterial.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jButtonProductoAñadirMaterial.setText("Más");
 
         jTextFieldProductoCantidad.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
 
@@ -1019,7 +1022,7 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(pnl_ProductosLayout.createSequentialGroup()
                         .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7))
+                        .addComponent(jButtonProductoAñadirMaterial))
                     .addGroup(pnl_ProductosLayout.createSequentialGroup()
                         .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
@@ -1062,7 +1065,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jButton7))
+                    .addComponent(jButtonProductoAñadirMaterial))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1454,6 +1457,33 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btn_cancelarConfiCrew)
                     .addComponent(btn_modificarConfiCrew))
                 .addContainerGap())
+        );
+
+        jFrame_materialesProducto.setTitle("Selección de Cliente");
+        jFrame_materialesProducto.setResizable(false);
+
+        jTable_materialesProducto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(jTable_materialesProducto);
+
+        javax.swing.GroupLayout jFrame_materialesProductoLayout = new javax.swing.GroupLayout(jFrame_materialesProducto.getContentPane());
+        jFrame_materialesProducto.getContentPane().setLayout(jFrame_materialesProductoLayout);
+        jFrame_materialesProductoLayout.setHorizontalGroup(
+            jFrame_materialesProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+        );
+        jFrame_materialesProductoLayout.setVerticalGroup(
+            jFrame_materialesProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1906,10 +1936,10 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel eti_productoCarrito;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
-    public javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     public javax.swing.JButton jButtonBuscarCliente;
     public javax.swing.JButton jButtonBuscarProducto;
+    public javax.swing.JButton jButtonProductoAñadirMaterial;
     public javax.swing.JButton jButtonQueryClean;
     public javax.swing.JButton jButtonQuerySearch;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
@@ -1918,6 +1948,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JFrame jFrameLoggin;
     public javax.swing.JFrame jFrame_clienteCarrito;
     public javax.swing.JFrame jFrame_confiCrew;
+    public javax.swing.JFrame jFrame_materialesProducto;
     public javax.swing.JFrame jFrame_productoCarrito;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
@@ -1997,11 +2028,13 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSlider jSlider1;
     public javax.swing.JSpinner jSpinner_productoCarrito;
     public javax.swing.JTable jTableMain;
     public javax.swing.JTable jTable_clienteCarrito;
+    public javax.swing.JTable jTable_materialesProducto;
     private javax.swing.JTable jTable_productoCarrito;
     public javax.swing.JTextArea jTextAreaCategoriaDescripcion;
     public javax.swing.JTextField jTextFieldBasket;

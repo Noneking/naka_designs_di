@@ -138,7 +138,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         btn_esconder_pnlPrincipal,
         btn_añadirCategorias,
         jButtonBuscarCliente,
-        jButtonBuscarProducto;
+        jButtonBuscarProducto,
+        jButtonProductoAñadirMaterial;
     }
 
     public void initViews() {
@@ -213,6 +214,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
         this.v.btn_modificarProducto.setActionCommand("btn_producto_modificar");
         this.v.btn_modificarProducto.addActionListener(this);
+        
+        this.v.jButtonProductoAñadirMaterial.setActionCommand("jButtonProductoAñadirMaterial");
+        this.v.jButtonProductoAñadirMaterial.addActionListener(this);
 
         //USER
         this.v.btn_insertarCliente.setActionCommand("btn_cliente_insertar");
@@ -646,6 +650,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.jFrame_productoCarrito.setVisible(true);
                 this.v.jFrame_productoCarrito.setSize(567, 335);
                 this.v.jFrame_productoCarrito.setLocationRelativeTo(null);
+                break;
+            case jButtonProductoAñadirMaterial:
+                this.v.jFrame_materialesProducto.setVisible(true);
+                this.v.jFrame_materialesProducto.setSize(567, 320);
+                this.v.jFrame_materialesProducto.setLocationRelativeTo(null);
                 break;
         }
     }
