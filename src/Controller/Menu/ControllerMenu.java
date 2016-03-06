@@ -86,6 +86,12 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_nuevoCarrito.addActionListener(this);
         this.v.mitem_logout.setActionCommand("mitem_logout");
         this.v.mitem_logout.addActionListener(this);
+        this.v.mitem_configCrew.setActionCommand("mitem_configCrew");
+        this.v.mitem_configCrew.addActionListener(this);
+            this.v.btn_cancelarConfiCrew.setActionCommand("btn_cancelarConfiCrew");
+            this.v.btn_cancelarConfiCrew.addActionListener(this);
+            this.v.btn_modificarConfiCrew.setActionCommand("btn_modificarConfiCrew");
+            this.v.btn_modificarConfiCrew.addActionListener(this);
             cm = new Controller_Main(this.v, crew_logged, facade);
             
             this.v.pnl_contenedorDerechoMovimientos.setLayout(new BorderLayout());
@@ -113,9 +119,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 }
             }
             break;
-            // guardado en SQLite de las tablas de SQL
-            
-            //boton de guardado
           
 
             //Comienzo de las apariencias "LookAndFeel" de Synthetical-------------------------------------------------------
@@ -262,6 +265,17 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                     this.v.setVisible(false);
                 break;
             //FIN de Logout-----------------------------------------------------------------------------------------------
+            case mitem_configCrew:
+                this.v.jFrame_confiCrew.setVisible(true);
+                this.v.jFrame_confiCrew.setSize(528, 390);
+                this.v.jFrame_confiCrew.setLocationRelativeTo(null);
+                break;
+            case btn_cancelarConfiCrew:
+                this.v.jFrame_confiCrew.setVisible(false);
+                break;
+            case btn_modificarConfiCrew:
+                
+                break;
         }
     }
   public void enlace (String enlaceAAceder) throws URISyntaxException{

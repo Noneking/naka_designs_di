@@ -214,7 +214,7 @@ public class Main extends javax.swing.JFrame {
         mitem_blackeye = new javax.swing.JMenuItem();
         mitem_blackstart = new javax.swing.JMenuItem();
         mitem_classy = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        mitem_configCrew = new javax.swing.JMenuItem();
         menu_movimientos = new javax.swing.JMenu();
         mn_historial_ventas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -1315,6 +1315,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         jFrame_confiCrew.setTitle("Configuracion de Empleado");
+        jFrame_confiCrew.setResizable(false);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos personales"));
 
@@ -1647,7 +1648,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split3_derecha.setLayout(pnl_split3_derechaLayout);
         pnl_split3_derechaLayout.setHorizontalGroup(
             pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1242, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         pnl_split3_derechaLayout.setVerticalGroup(
             pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1660,7 +1661,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split3_inserts.setLayout(pnl_split3_insertsLayout);
         pnl_split3_insertsLayout.setHorizontalGroup(
             pnl_split3_insertsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1242, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         pnl_split3_insertsLayout.setVerticalGroup(
             pnl_split3_insertsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1686,7 +1687,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Main.setLayout(pnl_MainLayout);
         pnl_MainLayout.setHorizontalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
         );
         pnl_MainLayout.setVerticalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1793,10 +1794,10 @@ public class Main extends javax.swing.JFrame {
 
         jMenu3.add(mn_apariencia);
 
-        jMenuItem6.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/settings_mini.png"))); // NOI18N
-        jMenuItem6.setText("Cofiguración Usuario");
-        jMenu3.add(jMenuItem6);
+        mitem_configCrew.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_configCrew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/settings_mini.png"))); // NOI18N
+        mitem_configCrew.setText("Cofiguración Usuario");
+        jMenu3.add(mitem_configCrew);
 
         manu_bar.add(jMenu3);
 
@@ -1971,7 +1972,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
     public javax.swing.JMenuItem jMenuItemEliminar;
     public javax.swing.JMenuItem jMenuItemModificar;
@@ -2028,6 +2028,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_blackeye;
     public javax.swing.JMenuItem mitem_blackstart;
     public javax.swing.JMenuItem mitem_classy;
+    public javax.swing.JMenuItem mitem_configCrew;
     public javax.swing.JMenuItem mitem_contacta;
     public javax.swing.JMenuItem mitem_logout;
     public javax.swing.JMenuItem mitem_masInfo;

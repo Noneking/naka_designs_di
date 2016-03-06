@@ -15,20 +15,21 @@ public class EnumMenu {
 
         mn_historial_ventas,
         mitem_masInfo,
-        mitem_guardarBD,
         mn_apariencia,
             mitem_aluoxide,
             mitem_blackeye,
             mitem_blackstart,
             mitem_classy,
-        btn_comenzarGuardadarBD,
         mn_nuevo,
             mitem_nuevoProducto,
             mitem_nuevoMaterial,
             mitem_nuevoCliente,
             mitem_nuevoEmpleado,
             mitem_nuevoCarrito,
-        mitem_logout;
+        mitem_logout,
+        mitem_configCrew,
+            btn_cancelarConfiCrew,
+            btn_modificarConfiCrew;
     }
     
     public enum POSITION {

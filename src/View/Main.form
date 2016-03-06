@@ -2414,6 +2414,7 @@
     <Container class="javax.swing.JFrame" name="jFrame_confiCrew">
       <Properties>
         <Property name="title" type="java.lang.String" value="Configuracion de Empleado"/>
+        <Property name="resizable" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -2960,7 +2961,7 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="mitem_configCrew">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Calibri" size="13" style="1"/>
@@ -2970,6 +2971,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cofiguraci&#xf3;n Usuario"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -3101,7 +3105,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="SplitPane1" alignment="0" max="32767" attributes="0"/>
+              <Component id="SplitPane1" alignment="0" pref="927" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -3534,7 +3538,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="1242" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="720" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -3557,7 +3561,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="1242" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="720" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
