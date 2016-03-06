@@ -85,6 +85,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     int rosa = 1;
 
     public Controller_Main(Main v, Crew crew_logged, Facade facade,String rol) {
+        
+        facade.insertBookmark("Conexion", ActualDate.getDateActual(), crew_logged.getEmail());
+        
         this.v = v;
         this.v.setExtendedState(MAXIMIZED_BOTH);
         model = new Model();
@@ -151,7 +154,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         btn_añadirCategorias,
         jButtonBuscarCliente,
         jButtonBuscarProducto,
-        jButtonProductoAñadirMaterial;
+        jButtonProductoAñadirMaterial,
+        btn_query_clean;
     }
 
     public void initViews() {
@@ -205,6 +209,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.v.jTextFieldTableQuery.addActionListener(this);
         this.v.jButtonQuerySearch.setActionCommand("action_query");
         this.v.jButtonQuerySearch.addActionListener(this);
+        
+        this.v.jButtonQueryClean.setActionCommand("btn_query_clean");
+        this.v.jButtonQueryClean.addActionListener(this);
 
         //CATEGORIES
         this.v.btn_categorias_insertar.setActionCommand("btn_categoria_insertar");
@@ -454,6 +461,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.CATEGORIA.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Category inserted", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_categoria_modificar:
                 facade.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
@@ -461,6 +469,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.CATEGORIA.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Category modified", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_material_insertar:
                 facade.insertMaterial(this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
@@ -468,6 +477,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.MATERIAL.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Material inserted", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_material_modificar:
                 facade.modifyMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldMaterialNombre.getText(), Integer.parseInt(this.v.jTextFieldMaterialCantidad.getText()));
@@ -475,6 +485,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.MATERIAL.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Material modified", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_producto_insertar:
                 facade.insertProduct(this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
@@ -504,6 +515,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                     ponerEsaTablaToGuapaYReshulona();
                 }
                 
+                facade.insertBookmark("Product inserted", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_producto_modificar:
                 facade.modifyProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
@@ -511,6 +523,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.PRODUCTO.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Product modified", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_cliente_insertar:
                 facade.insertUser(this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jPasswordFieldClientePassword.getPassword().toString());
@@ -518,6 +531,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.CLIENTE.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Client inserted", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_cliente_modificar:
                 facade.modifyUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldClienteNickname.getText(), this.v.jTextFieldClienteNombre.getText(), this.v.jTextFieldClienteApellidos.getText(), this.v.jTextFieldClienteEmail.getText(), this.v.jPasswordFieldClientePassword.getPassword().toString());
@@ -525,6 +539,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.CLIENTE.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Client modified", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_empleado_insertar:
                 passString = new String(this.v.jPasswordFieldEmpleadoPassword.getPassword());
@@ -533,6 +548,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.EMPLEADO.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Employee inserted", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_empleado_modificar:
                 passString = new String(this.v.jPasswordFieldEmpleadoPassword.getPassword());
@@ -541,6 +557,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.EMPLEADO.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                facade.insertBookmark("Employee modified", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_carrito_insertar:
 //                String nombreBasket;
@@ -584,7 +601,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 //                    refreshTable(Position.getPosition());
 //                    ponerEsaTablaToGuapaYReshulona();
 //                }
-                
+                facade.insertBookmark("Basket inserted", ActualDate.getDateActual(), crew_logged.getEmail());
                 break;
             case btn_clicModificar:
                 switch (Position.getPosition()) {
@@ -678,31 +695,37 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         facade.deleteCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
                         Position.setPosition(Position.POSITION.CATEGORIA.toString());
                         refreshTable(Position.getPosition());
+                        facade.insertBookmark("Category deleted", ActualDate.getDateActual(), crew_logged.getEmail());
                         break;
                     case "MATERIAL":
                         facade.deleteMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
                         Position.setPosition(Position.POSITION.MATERIAL.toString());
                         refreshTable(Position.getPosition());
+                        facade.insertBookmark("Material deleted", ActualDate.getDateActual(), crew_logged.getEmail());
                         break;
                     case "PRODUCTO":
                         facade.deleteProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
                         Position.setPosition(Position.POSITION.PRODUCTO.toString());
                         refreshTable(Position.getPosition());
+                        facade.insertBookmark("Product deleted", ActualDate.getDateActual(), crew_logged.getEmail());
                         break;
                     case "CLIENTE":
                         facade.deleteUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
                         Position.setPosition(Position.POSITION.CLIENTE.toString());
                         refreshTable(Position.getPosition());
+                        facade.insertBookmark("Client deleted", ActualDate.getDateActual(), crew_logged.getEmail());
                         break;
                     case "EMPLEADO":
                         facade.deleteCrew(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
                         Position.setPosition(Position.POSITION.EMPLEADO.toString());
                         refreshTable(Position.getPosition());
+                        facade.insertBookmark("Employee deleted", ActualDate.getDateActual(), crew_logged.getEmail());
                         break;
                     case "CARRITO":
                         facade.deleteBasket(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
                         Position.setPosition(Position.POSITION.CARRITO.toString());
                         refreshTable(Position.getPosition());
+                        facade.insertBookmark("Basket deleted", ActualDate.getDateActual(), crew_logged.getEmail());
                         break;
                 }
                 break;
@@ -735,6 +758,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 
 //                this.v.jTable_materialesProducto.setModel(facade.getTableModelMaterial());
 //                Position.setPosition(Position.POSITION.PRODUCT_MATERIAL.toString());
+                break;
+            case btn_query_clean:
+                this.v.jTextFieldTableQuery.setText("");
                 break;
         }
     }

@@ -16,6 +16,9 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+CREATE DATABASE naka_database;
+USE naka_database;
+
 --
 -- Base de datos: `naka_database`
 --
@@ -387,3 +390,5 @@ ADD CONSTRAINT `turnover_product_record_fk` FOREIGN KEY (`product_record`) REFER
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO `naka_database`.`crew` (`email`, `nickname`, `password`, `name`, `surname`, `phone_number`, `role`) VALUES ('root@gmail.com', 'root', 'root', 'root', 'root', '000000000000', 'ad');
