@@ -769,7 +769,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
             case "CARRITO":
                 if(e.getComponent()==this.v.jTable_clienteCarrito){
-                    d
+                    
                 }
                 if(e.getComponent()==this.v.jTable_productoCarrito){
                     
