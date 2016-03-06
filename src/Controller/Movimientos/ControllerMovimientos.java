@@ -33,6 +33,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
     Main v;
     Model_Movimientos mm;
     File arch;
+    generatePDF pdf;
     //JWebBrowser fileBrowser = new JWebBrowser();
     public void initMovimientosListeners(Main v){
         this.v = v;
@@ -54,8 +55,11 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         this.v.btn_abrirFilechooser.setActionCommand("btn_abrirFilechooser");
         this.v.btn_abrirFilechooser.addActionListener(this);
         
-        mm = new Model_Movimientos();
+        this.v.btn_informe.setActionCommand("btn_informe");
+        this.v.btn_informe.addActionListener(this);
         
+        mm = new Model_Movimientos();
+        pdf = new generatePDF();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imágenes", "png", "jpg", "gif");//filtramos solo los formatos que queramos de imagen
         FileNameExtensionFilter filtro1 = new FileNameExtensionFilter("Texto", "pdf", "txt");
         this.v.jFileChooser1.setFileFilter(filtro);//le enviamos el filtro
@@ -76,9 +80,9 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 break;
                  
              case btn_ventasMovi:
-                 this.v.pnl_contenedorDerechoMovimientos.removeAll();
-                 this.v.pnl_contenedorDerechoMovimientos.add(this.v.pnl_contenedorDerecho,BorderLayout.CENTER);
-                 this.v.pnl_contenedorDerechoMovimientos.setVisible(false);
+                this.v.pnl_contenedorDerechoMovimientos.removeAll();
+                this.v.pnl_contenedorDerechoMovimientos.add(this.v.pnl_contenedorDerecho,BorderLayout.CENTER);
+                this.v.pnl_contenedorDerechoMovimientos.setVisible(false);
                 this.v.pnl_contenedorDerechoMovimientos.setVisible(true);
                 DefaultCategoryDataset b = new DefaultCategoryDataset();
                 b.setValue(mm.getRecordEnero(), "Ventas", "Ene");
@@ -158,6 +162,9 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
          
             case btn_abrirFilechooser:
                 
+                break;
+            case btn_informe:
+                this.pdf.generateInforme();
                 break;
         }
     }

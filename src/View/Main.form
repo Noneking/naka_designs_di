@@ -569,7 +569,7 @@
                           <Component id="btn_ventasMovi" max="32767" attributes="0"/>
                           <Component id="btn_empleMovi" alignment="0" pref="180" max="32767" attributes="0"/>
                           <Component id="btn_productoMovi" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButton10" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btn_informe" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -585,7 +585,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btn_productoMovi" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="263" max="32767" attributes="0"/>
-                      <Component id="jButton10" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="btn_informe" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -600,10 +600,13 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton10">
+            <Component class="javax.swing.JButton" name="btn_informe">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Informes"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btn_empleMovi">
               <Properties>

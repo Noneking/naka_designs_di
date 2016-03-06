@@ -144,4 +144,8 @@ public class Model_Movimientos extends Connection {
         openSession();
         return (ArrayList<User>) getSession().createQuery("from User").list();
     }
+    public ArrayList<Bookmark> getBookmark() {
+        openSession();
+        return (ArrayList<Bookmark>) getSession().createQuery("from Bookmark").list();
+    }
 }

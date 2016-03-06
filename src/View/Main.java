@@ -52,7 +52,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Movimientos = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         btn_ventasMovi = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        btn_informe = new javax.swing.JButton();
         btn_empleMovi = new javax.swing.JButton();
         btn_productoMovi = new javax.swing.JButton();
         btn_home = new javax.swing.JButton();
@@ -460,7 +460,7 @@ public class Main extends javax.swing.JFrame {
 
         btn_ventasMovi.setText("Ventas");
 
-        jButton10.setText("Informes");
+        btn_informe.setText("Informes");
 
         btn_empleMovi.setText("Empleados");
 
@@ -476,7 +476,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(btn_ventasMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_empleMovi, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                     .addComponent(btn_productoMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_informe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -489,7 +489,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_productoMovi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_informe, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1929,6 +1929,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_esconderRosa;
     public javax.swing.JButton btn_esconder_pnlPrincipal;
     public javax.swing.JButton btn_home;
+    public javax.swing.JButton btn_informe;
     public javax.swing.JButton btn_insertarCarrito;
     public javax.swing.JButton btn_insertarCliente;
     public javax.swing.JButton btn_insertarEmpleado;
@@ -1945,7 +1946,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel eti_nickCrew;
     public javax.swing.JLabel eti_olvidarContraseña;
     public javax.swing.JLabel eti_productoCarrito;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
     public javax.swing.JButton jButtonBuscarCliente;
     public javax.swing.JButton jButtonBuscarProducto;
