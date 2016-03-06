@@ -52,7 +52,6 @@ public class Main extends javax.swing.JFrame {
         pnl_Movimientos = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         btn_ventasMovi = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         btn_empleMovi = new javax.swing.JButton();
         btn_productoMovi = new javax.swing.JButton();
@@ -224,7 +223,6 @@ public class Main extends javax.swing.JFrame {
         mn_historial_ventas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        mitem_contacta = new javax.swing.JMenuItem();
         mitem_masInfo = new javax.swing.JMenuItem();
 
         jFrameLoggin.setTitle("Loggin");
@@ -462,8 +460,6 @@ public class Main extends javax.swing.JFrame {
 
         btn_ventasMovi.setText("Ventas");
 
-        jButton9.setText("Enviar Correo");
-
         jButton10.setText("Informes");
 
         btn_empleMovi.setText("Empleados");
@@ -478,12 +474,9 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_ventasMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton10))
-                    .addComponent(btn_empleMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_productoMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_empleMovi, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                    .addComponent(btn_productoMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -496,9 +489,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_productoMovi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1871,11 +1862,6 @@ public class Main extends javax.swing.JFrame {
         jMenuItem1.setText("Paso a paso");
         jMenu1.add(jMenuItem1);
 
-        mitem_contacta.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        mitem_contacta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/mail.png"))); // NOI18N
-        mitem_contacta.setText("Contacta");
-        jMenu1.add(mitem_contacta);
-
         mitem_masInfo.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         mitem_masInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/web.png"))); // NOI18N
         mitem_masInfo.setText("Mas información");
@@ -1961,7 +1947,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel eti_productoCarrito;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton9;
     public javax.swing.JButton jButtonBuscarCliente;
     public javax.swing.JButton jButtonBuscarProducto;
     public javax.swing.JButton jButtonProductoAñadirMaterial;
@@ -2089,7 +2074,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_blackstart;
     public javax.swing.JMenuItem mitem_classy;
     public javax.swing.JMenuItem mitem_configCrew;
-    public javax.swing.JMenuItem mitem_contacta;
     public javax.swing.JMenuItem mitem_informe;
     public javax.swing.JMenuItem mitem_logout;
     public javax.swing.JMenuItem mitem_masInfo;
