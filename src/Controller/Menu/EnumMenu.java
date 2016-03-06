@@ -29,7 +29,10 @@ public class EnumMenu {
         mitem_logout,
         mitem_configCrew,
             btn_cancelarConfiCrew,
-            btn_modificarConfiCrew;
+            btn_modificarConfiCrew,
+        mitem_informe,
+        mitem_agendaCliente,
+        mitem_agendaEmple;
     }
     
     public enum POSITION {

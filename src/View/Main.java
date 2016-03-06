@@ -199,10 +199,10 @@ public class Main extends javax.swing.JFrame {
         manu_bar = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mitem_informe = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        mitem_agendaCliente = new javax.swing.JMenuItem();
+        mitem_agendaEmple = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         mitem_nuevoProducto = new javax.swing.JMenuItem();
         mitem_nuevoMaterial = new javax.swing.JMenuItem();
@@ -1731,24 +1731,24 @@ public class Main extends javax.swing.JFrame {
         jMenu4.setText("Guardar");
         jMenu4.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
-        jMenuItem3.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/pdf.png"))); // NOI18N
-        jMenuItem3.setText("Informe");
-        jMenu4.add(jMenuItem3);
+        mitem_informe.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_informe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/pdf.png"))); // NOI18N
+        mitem_informe.setText("Informe");
+        jMenu4.add(mitem_informe);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda.png"))); // NOI18N
         jMenu5.setText("Agenda de ...");
         jMenu5.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
-        jMenuItem9.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda_usuario.png"))); // NOI18N
-        jMenuItem9.setText("Clientes");
-        jMenu5.add(jMenuItem9);
+        mitem_agendaCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_agendaCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda_usuario.png"))); // NOI18N
+        mitem_agendaCliente.setText("Clientes");
+        jMenu5.add(mitem_agendaCliente);
 
-        jMenuItem10.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda_crew.png"))); // NOI18N
-        jMenuItem10.setText("Empleados");
-        jMenu5.add(jMenuItem10);
+        mitem_agendaEmple.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_agendaEmple.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda_crew.png"))); // NOI18N
+        mitem_agendaEmple.setText("Empleados");
+        jMenu5.add(mitem_agendaEmple);
 
         jMenu4.add(jMenu5);
 
@@ -2001,9 +2001,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem9;
     public javax.swing.JMenuItem jMenuItemEliminar;
     public javax.swing.JMenuItem jMenuItemModificar;
     private javax.swing.JPanel jPanel1;
@@ -2057,12 +2054,15 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldTableQuery;
     public javax.swing.JMenuBar manu_bar;
     public javax.swing.JMenu menu_movimientos;
+    public javax.swing.JMenuItem mitem_agendaCliente;
+    public javax.swing.JMenuItem mitem_agendaEmple;
     public javax.swing.JMenuItem mitem_aluoxide;
     public javax.swing.JMenuItem mitem_blackeye;
     public javax.swing.JMenuItem mitem_blackstart;
     public javax.swing.JMenuItem mitem_classy;
     public javax.swing.JMenuItem mitem_configCrew;
     public javax.swing.JMenuItem mitem_contacta;
+    public javax.swing.JMenuItem mitem_informe;
     public javax.swing.JMenuItem mitem_logout;
     public javax.swing.JMenuItem mitem_masInfo;
     public javax.swing.JMenuItem mitem_nuevoCarrito;

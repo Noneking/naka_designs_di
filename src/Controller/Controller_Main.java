@@ -22,6 +22,7 @@ import Model.Model;
 import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Point;
 import java.awt.Toolkit;
 
@@ -77,6 +78,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     public Controller_Main(Main v, Crew crew_logged, Facade facade) {
         this.v = v;
+        this.v.setExtendedState(MAXIMIZED_BOTH);
         model = new Model();
         this.facade = facade;
         this.crew_logged=crew_logged;

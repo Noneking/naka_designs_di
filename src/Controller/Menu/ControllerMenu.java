@@ -7,6 +7,7 @@ package Controller.Menu;
 
 import Controller.Controller_Login;
 import Controller.Controller_Main;
+import Controller.Movimientos.generatePDF;
 import Controller.Position;
 import Controller.RUN;
 import Facade.Facade;
@@ -39,6 +40,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
     Model model = new Model();
     Controller_Main cm;
     Facade facade;
+    generatePDF gPdf;
     //cadenas estaticas de las rutas de los lookandfeels
     static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
     static String BLACKEYE ="de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel";
@@ -92,8 +94,14 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.btn_cancelarConfiCrew.addActionListener(this);
             this.v.btn_modificarConfiCrew.setActionCommand("btn_modificarConfiCrew");
             this.v.btn_modificarConfiCrew.addActionListener(this);
-            cm = new Controller_Main(this.v, crew_logged, facade);
             
+            this.v.mitem_agendaEmple.setActionCommand("mitem_agendaEmple");
+            this.v.mitem_agendaEmple.addActionListener(this);
+            this.v.mitem_agendaCliente.setActionCommand("mitem_agendaCliente");
+            this.v.mitem_agendaCliente.addActionListener(this);
+            
+            cm = new Controller_Main(this.v, crew_logged, facade);
+            gPdf = new generatePDF();
             this.v.pnl_contenedorDerechoMovimientos.setLayout(new BorderLayout());
     }
 
@@ -193,6 +201,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 
                 this.v.jComboBoxProductoCategoria.setModel(this.facade.getComboBoxModelCategory());
                 
+                this.v.jTable_materialesProducto.setModel(facade.getTableModelMaterial());
+                
                 break;
             case mitem_nuevoMaterial:
                 
@@ -244,7 +254,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             case mitem_nuevoCarrito:
                 Position.setPosition(Position.POSITION.CARRITO.toString());
                 cm.refreshTable(Position.getPosition());
-                
+
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(300);
@@ -261,10 +271,11 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             //FIN de Nuevo ...-----------------------------------------------------------------------------------------------
             //Inicio de Logout-----------------------------------------------------------------------------------------------
             case mitem_logout:
-                    new Controller_Login(new Main()).initViews();
-                    this.v.setVisible(false);
+                new Controller_Login(new Main()).initViews();
+                this.v.setVisible(false);
                 break;
             //FIN de Logout-----------------------------------------------------------------------------------------------
+            //Inicio de Config Crew-----------------------------------------------------------------------------------------------
             case mitem_configCrew:
                 this.v.jFrame_confiCrew.setVisible(true);
                 this.v.jFrame_confiCrew.setSize(528, 390);
@@ -274,11 +285,21 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.jFrame_confiCrew.setVisible(false);
                 break;
             case btn_modificarConfiCrew:
+
+                break;
+            //FIN de Config Crew-----------------------------------------------------------------------------------------------
+            //Inicio de Informes-----------------------------------------------------------------------------------------------
+            case mitem_agendaEmple:
+                gPdf.generateAgendaEmpleados();
+                break;
+            case mitem_agendaCliente:
                 
                 break;
+            //FIN de INformes-----------------------------------------------------------------------------------------------
         }
     }
-  public void enlace (String enlaceAAceder) throws URISyntaxException{
+
+    public void enlace (String enlaceAAceder) throws URISyntaxException{
         Desktop enlace=Desktop.getDesktop();
         try {
                 enlace.browse(new URI(enlaceAAceder));

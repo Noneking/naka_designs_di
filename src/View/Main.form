@@ -2794,7 +2794,7 @@
                 </Property>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                <MenuItem class="javax.swing.JMenuItem" name="mitem_informe">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Calibri" size="13" style="1"/>
@@ -2804,6 +2804,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Informe"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </MenuItem>
                 <Menu class="javax.swing.JMenu" name="jMenu5">
                   <Properties>
@@ -2816,7 +2819,7 @@
                     </Property>
                   </Properties>
                   <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem9">
+                    <MenuItem class="javax.swing.JMenuItem" name="mitem_agendaCliente">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Calibri" size="13" style="1"/>
@@ -2826,8 +2829,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Clientes"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+                    <MenuItem class="javax.swing.JMenuItem" name="mitem_agendaEmple">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Calibri" size="13" style="1"/>
@@ -2837,6 +2843,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Empleados"/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </MenuItem>
                   </SubComponents>
                 </Menu>

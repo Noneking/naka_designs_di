@@ -32,6 +32,7 @@ public class LabelAccessor extends JLabel implements PropertyChangeListener {
         setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT));//enviar ancho y algo por defecto 250x250
     }
 
+    @Override
     public void propertyChange(PropertyChangeEvent changeEvent) {//metodos implementorios de la clase LabelAccessory
 
         String changeName = changeEvent.getPropertyName();//coje el nombre del archivo seleccionado
@@ -41,6 +42,7 @@ public class LabelAccessor extends JLabel implements PropertyChangeListener {
             //creo q lo q hace es crear un archivo con el archivo seleccinado y lo almacena en "file"
             if (file != null) {//si se ha seleccionado un archivo
                 this.arch = file;
+                System.out.println(""+this.arch.toString());
                 ImageIcon icon = new ImageIcon(file.getPath());//crea un objeto image icon al que se le pasa el archivo seleccioando
 
                 if (icon.getIconWidth() > PREFERRED_WIDTH) {//si el ancho del archivo seleccionado es mas grande que el por defecto 250

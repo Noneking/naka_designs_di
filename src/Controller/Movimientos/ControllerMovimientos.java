@@ -102,6 +102,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 this.v.pnl_mostrarGrafica.add(barPanel, BorderLayout.CENTER);
                 this.v.pnl_mostrarGrafica.setVisible(false);
                 this.v.pnl_mostrarGrafica.setVisible(true);
+                
                 mostrarFilechooser();
                 break;
 
