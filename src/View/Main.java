@@ -1720,7 +1720,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Main.setLayout(pnl_MainLayout);
         pnl_MainLayout.setHorizontalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
+            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_MainLayout.setVerticalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2045,7 +2045,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JTable jTableMain;
     public javax.swing.JTable jTable_clienteCarrito;
     public javax.swing.JTable jTable_materialesProducto;
-    private javax.swing.JTable jTable_productoCarrito;
+    public javax.swing.JTable jTable_productoCarrito;
     public javax.swing.JTextArea jTextAreaCategoriaDescripcion;
     public javax.swing.JTextField jTextFieldBasket;
     public javax.swing.JTextField jTextFieldCategoriaNombre;

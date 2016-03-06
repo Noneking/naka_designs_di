@@ -268,6 +268,11 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.pnl_listaCategorias.setVisible(false);
 
+                this.v.jTable_clienteCarrito.setModel(facade.getTableModelUser());
+                this.v.jTable_productoCarrito.setModel(facade.getTableModelProduct());
+                
+                this.v.pnl_listaCarrito.removeAll();
+                
                 break;
 
             //FIN de Nuevo ...-----------------------------------------------------------------------------------------------

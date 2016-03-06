@@ -244,6 +244,14 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         //BASKET
         this.v.btn_insertarCarrito.setActionCommand("btn_carrito_insertar");
         this.v.btn_insertarCarrito.addActionListener(this);
+        
+        this.v.jButtonBuscarCliente.setActionCommand("jButtonBuscarCliente");
+        this.v.jButtonBuscarCliente.addActionListener(this);
+        this.v.jButtonBuscarProducto.setActionCommand("jButtonBuscarProducto");
+        this.v.jButtonBuscarProducto.addActionListener(this);
+        
+        this.v.jTable_clienteCarrito.addMouseListener(this);
+        this.v.jTable_productoCarrito.addMouseListener(this);
 
         ////////////////////////////////////////////////////////////////
         this.v.btn_esconderRosa.setActionCommand("esconderRosa");
@@ -261,11 +269,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.v.jTableMain.addMouseListener(this);
         this.v.jPopupMenu.addPopupMenuListener(this);
         
-        //Botones de carrito
-        this.v.jButtonBuscarCliente.setActionCommand("jButtonBuscarCliente");
-        this.v.jButtonBuscarCliente.addActionListener(this);
-        this.v.jButtonBuscarProducto.setActionCommand("jButtonBuscarProducto");
-        this.v.jButtonBuscarProducto.addActionListener(this);
 
         initOperations();
     }
@@ -765,7 +768,12 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
                 break;
             case "CARRITO":
-
+                if(e.getComponent()==this.v.jTable_clienteCarrito){
+                    d
+                }
+                if(e.getComponent()==this.v.jTable_productoCarrito){
+                    
+                }
                 break;
             case "PRODUCT_MATERIAL":
                 
