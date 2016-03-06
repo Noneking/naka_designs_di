@@ -51,51 +51,52 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     Facade facade;
     ControllerMovimientos cm = new ControllerMovimientos();
     ControllerMenu cmenu = new ControllerMenu();
-    
+
     private ClientTableModel clientTableModel;
     private ClientTableRenderer clientTableRenderer;
-    
+
     private CategoryTableModel categoryTableModel;
     private CategoryTableRenderer categoryTableRenderer;
-    
+
     private MaterialTableModel materialTableModel;
     private MaterialTableRenderer materialTableRenderer;
-    
+
     private ProductTableModel productTableModel;
     private ProductTableRenderer productTableRenderer;
-    
+
     private CrewTableModel crewTableModel;
     private CrewTableRenderer crewTableRenderer;
-    
+
     private BasketTableModel basketTableModel;
     private BasketTableRenderer basketTableRenderer;
 
     private String position = "";
 
     int rosa = 1;
+
     public Controller_Main(Main v) {
         this.v = v;
         model = new Model();
         facade = new Facade();
-        
+
         clientTableModel = new ClientTableModel(facade);
         clientTableRenderer = new ClientTableRenderer();
-        
-        categoryTableModel=new CategoryTableModel(facade);
-        categoryTableRenderer= new CategoryTableRenderer();
-        
-        materialTableModel=new MaterialTableModel(facade);
-        materialTableRenderer=new MaterialTableRenderer();
-        
-        productTableModel=new ProductTableModel(facade);
-        productTableRenderer=new ProductTableRenderer();
-        
-        crewTableModel=new CrewTableModel(facade);
-        crewTableRenderer=new CrewTableRenderer();
-        
-        basketTableModel=new BasketTableModel(facade);
-        basketTableRenderer=new BasketTableRenderer();
-        
+
+        categoryTableModel = new CategoryTableModel(facade);
+        categoryTableRenderer = new CategoryTableRenderer();
+
+        materialTableModel = new MaterialTableModel(facade);
+        materialTableRenderer = new MaterialTableRenderer();
+
+        productTableModel = new ProductTableModel(facade);
+        productTableRenderer = new ProductTableRenderer();
+
+        crewTableModel = new CrewTableModel(facade);
+        crewTableRenderer = new CrewTableRenderer();
+
+        basketTableModel = new BasketTableModel(facade);
+        basketTableRenderer = new BasketTableRenderer();
+
     }
 
     public enum Actions {
@@ -146,20 +147,18 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     }
 
     public void initViews() {
-        this.v.SplitPane2.setDividerLocation(0);
-        this.v.SplitPane2.setDividerSize(0);
-        this.v.pnl_split2_izquierda.setLayout(new BorderLayout());
         this.v.pnl_split3_derecha.setLayout(new BorderLayout());
         this.v.pnl_split3_inserts.setLayout(new BorderLayout());
-        
+
         this.v.btn_esconder_pnlPrincipal.setVisible(false);
 
-        this.v.SplitPane2.setOneTouchExpandable(false);
         this.v.SplitPane1.setOneTouchExpandable(false);
-        
+        this.v.SplitPane1.setDividerLocation(200);
+        this.v.pnl_listaCategorias.setVisible(false);
+
         this.v.SplitPane3.setDividerLocation(this.v.getWidth());
         //this.v.SplitPane3.setDividerSize(0);
-        
+
         this.v.setVisible(true);
         this.v.setLocationRelativeTo(null);
         initListeners();
@@ -167,18 +166,16 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         //JTableMain
         position = POSITION.CATEGORIA.toString();
 //        position = "CATEGORIA";
-        
+
         ponerEsaTablaToGuapaYReshulona();
         refreshTable(position);
-        
+
         //Controllers
         cm.initMovimientosListeners(this.v);
-        
+
         cmenu.initControllerMenuListeners(this.v);
 
-        
     }
-    
 
     public void initListeners() {
         this.v.btn_Categorias.setActionCommand("btn_categorias");
@@ -192,85 +189,75 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.v.btn_Empleados.addActionListener(this);
         this.v.btn_Carritos.setActionCommand("btn_carritos");
         this.v.btn_Carritos.addActionListener(this);
-        
+
         this.v.btn_añadirCategoria.setActionCommand("btn_añadirCategorias");
         this.v.btn_añadirCategoria.addActionListener(this);
-        
+
         //QUERY
         this.v.jTextFieldTableQuery.setActionCommand("action_query");
         this.v.jTextFieldTableQuery.addActionListener(this);
         this.v.jButtonQuerySearch.setActionCommand("action_query");
         this.v.jButtonQuerySearch.addActionListener(this);
-        
+
         //CATEGORIES
         this.v.btn_categorias_insertar.setActionCommand("btn_categoria_insertar");
         this.v.btn_categorias_insertar.addActionListener(this);
-        
+
         this.v.btn_categorias_modificar.setActionCommand("btn_categoria_modificar");
         this.v.btn_categorias_modificar.addActionListener(this);
 
         //MATERIAL
         this.v.btn_insertarMaterial.setActionCommand("btn_material_insertar");
         this.v.btn_insertarMaterial.addActionListener(this);
-        
+
         this.v.btn_modificarMaterial.setActionCommand("btn_material_modificar");
         this.v.btn_modificarMaterial.addActionListener(this);
-        
+
         //PRODUCT
         this.v.btn_insertarProducto.setActionCommand("btn_producto_insertar");
         this.v.btn_insertarProducto.addActionListener(this);
-        
+
         this.v.btn_modificarProducto.setActionCommand("btn_producto_modificar");
         this.v.btn_modificarProducto.addActionListener(this);
-        
+
         //USER
         this.v.btn_insertarCliente.setActionCommand("btn_cliente_insertar");
         this.v.btn_insertarCliente.addActionListener(this);
-        
+
         this.v.btn_modificarCliente.setActionCommand("btn_cliente_modificar");
         this.v.btn_modificarCliente.addActionListener(this);
-        
+
         //CREW
         this.v.btn_insertarEmpleado.setActionCommand("btn_empleado_insertar");
         this.v.btn_insertarEmpleado.addActionListener(this);
-        
+
         this.v.btn_modificarEmpleado.setActionCommand("btn_empleado_modificar");
         this.v.btn_modificarEmpleado.addActionListener(this);
-        
+
         //BASKET
         this.v.btn_insertarCarrito.setActionCommand("btn_carrito_insertar");
         this.v.btn_insertarCarrito.addActionListener(this);
-        
-        ////////////////////////////////////////////////////////////////
 
+        ////////////////////////////////////////////////////////////////
         this.v.btn_esconderRosa.setActionCommand("esconderRosa");
         this.v.btn_esconderRosa.addActionListener(this);
         this.v.btn_esconder_pnlPrincipal.setActionCommand("btn_esconder_pnlPrincipal");
         this.v.btn_esconder_pnlPrincipal.addActionListener(this);
-        
-       
+
         //DELETE
         this.v.jMenuItemModificar.setActionCommand("btn_clicModificar");
         this.v.jMenuItemModificar.addActionListener(this);
-        
+
         this.v.jMenuItemEliminar.setActionCommand("btn_eliminar");
         this.v.jMenuItemEliminar.addActionListener(this);
-        
-        
-//        this.v.btn_tool_insertar.addActionListener(this);
-//        this.v.btn_tool_insertar.setActionCommand("btn_insertar");
-//        this.v.btn_tool_modificar.addActionListener(this);
-//        this.v.btn_tool_modificar.setActionCommand("btn_modificar");
-//        this.v.tgb_tool_eliminar.addActionListener(this);
-//        this.v.tgb_tool_eliminar.setActionCommand("btn_eliminar");
 
         this.v.jTableMain.addMouseListener(this);
         this.v.jPopupMenu.addPopupMenuListener(this);
-        
+
         initOperations();
     }
-    
-    public void initOperations(){
+
+    public void initOperations() {
         this.v.jTableMain.setComponentPopupMenu(this.v.jPopupMenu);
     }
 
@@ -281,9 +268,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
             case action_query:
                 switch (position) {
                     case "CATEGORIA":
-                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                        if (this.v.jTextFieldTableQuery.getText().toString().equals("")) {
                             categoryTableModel.updateTableDatas();
-                        }else{
+                        } else {
                             categoryTableModel.updateTableDatas(facade.getCategoriesByQuery(this.v.jTextFieldTableQuery.getText()));
                         }
                         position = POSITION.CATEGORIA.toString();
@@ -291,9 +278,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "MATERIAL":
-                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                        if (this.v.jTextFieldTableQuery.getText().toString().equals("")) {
                             materialTableModel.updateTableDatas();
-                        }else{
+                        } else {
                             materialTableModel.updateTableDatas(facade.getMaterialsByQuery(this.v.jTextFieldTableQuery.getText()));
                         }
                         position = POSITION.MATERIAL.toString();
@@ -301,9 +288,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "PRODUCTO":
-                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                        if (this.v.jTextFieldTableQuery.getText().toString().equals("")) {
                             productTableModel.updateTableDatas();
-                        }else{
+                        } else {
                             productTableModel.updateTableDatas(facade.getProductsByQuery(this.v.jTextFieldTableQuery.getText()));
                         }
                         position = POSITION.PRODUCTO.toString();
@@ -311,9 +298,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "CLIENTE":
-                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                        if (this.v.jTextFieldTableQuery.getText().toString().equals("")) {
                             clientTableModel.updateTableDatas();
-                        }else{
+                        } else {
                             clientTableModel.updateTableDatas(facade.getUsersByQuery(this.v.jTextFieldTableQuery.getText()));
                         }
                         position = POSITION.CLIENTE.toString();
@@ -321,9 +308,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "EMPLEADO":
-                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                        if (this.v.jTextFieldTableQuery.getText().toString().equals("")) {
                             crewTableModel.updateTableDatas();
-                        }else{
+                        } else {
                             crewTableModel.updateTableDatas(facade.getCrewsByQuery(this.v.jTextFieldTableQuery.getText()));
                         }
                         position = POSITION.EMPLEADO.toString();
@@ -331,10 +318,14 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         ponerEsaTablaToGuapaYReshulona();
                         break;
                     case "CARRITO":
-                        if(this.v.jTextFieldTableQuery.getText().toString().equals("")){
+                        if (this.v.jTextFieldTableQuery.getText().toString().equals("")) {
                             basketTableModel.updateTableDatas();
-                        }else{
-                            try{basketTableModel.updateTableDatas(facade.getBasketByQuery(Integer.parseInt(this.v.jTextFieldTableQuery.getText())));}catch(Exception ex){System.err.println(ex);}
+                        } else {
+                            try {
+                                basketTableModel.updateTableDatas(facade.getBasketByQuery(Integer.parseInt(this.v.jTextFieldTableQuery.getText())));
+                            } catch (Exception ex) {
+                                System.err.println(ex);
+                            }
                         }
                         position = POSITION.CARRITO.toString();
                         refreshTable(position);
@@ -349,20 +340,15 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(position);
 
                 ponerEsaTablaToGuapaYReshulona();
-                this.v.pnl_split2_izquierda.removeAll();
                 this.v.pnl_listaCategorias.setVisible(true);
-                this.v.pnl_split2_izquierda.add(this.v.pnl_listaCategorias, BorderLayout.CENTER);
-                
-                this.v.pnl_split2_izquierda.setVisible(false);
-                this.v.pnl_split2_izquierda.setVisible(true);
 
-                this.v.SplitPane2.setDividerLocation(320);
-                this.v.SplitPane2.setDividerSize(5);
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(10000);
                 this.v.SplitPane3.setDividerSize(0);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(500);
+                this.v.pnl_listaCategorias.setVisible(true);
                 break;
 
             case btn_materiales:
@@ -375,6 +361,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane3.setDividerSize(0);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
 
             case btn_clientes:
@@ -387,6 +375,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane3.setDividerSize(0);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
 
             case btn_empleados:
@@ -400,6 +390,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane3.setDividerSize(0);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
+
                 break;
 
             case btn_carritos:
@@ -412,19 +405,21 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane3.setDividerSize(0);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
-                        
+
             case btn_añadirCategorias:
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.pnl_split3_inserts.add(this.v.pnl_Categorias, BorderLayout.CENTER);
-                
+
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
 
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case btn_categoria_insertar:
                 facade.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
@@ -434,7 +429,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_categoria_modificar:
-                facade.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()),this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
+                facade.modifyCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
                 categoryTableModel.updateTableDatas();
                 position = POSITION.CATEGORIA.toString();
                 refreshTable(position);
@@ -498,9 +493,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
             case btn_carrito_insertar:
                 basketTableModel.updateTableDatas();
-                String user_cod=this.v.jTextFieldBasket.getText().split("-")[0];
-                String product_name=this.v.eti_productoCarrito.getText().split("-")[0];
-                String product_amount=this.v.eti_productoCarrito.getText().split("-")[1];
+                String user_cod = this.v.jTextFieldBasket.getText().split("-")[0];
+                String product_name = this.v.eti_productoCarrito.getText().split("-")[0];
+                String product_amount = this.v.eti_productoCarrito.getText().split("-")[1];
                 facade.insertBasket(Integer.parseInt(user_cod), facade.getProductByName(product_name).getCod(), Integer.parseInt(product_amount));
                 break;
             case btn_clicModificar:
@@ -517,8 +512,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         this.v.pnl_split3_inserts.add(this.v.pnl_Categorias, BorderLayout.CENTER);
                         this.v.pnl_split3_inserts.setVisible(false);
                         this.v.pnl_split3_inserts.setVisible(true);
-                        this.v.SplitPane2.setDividerLocation(0);
-                        this.v.SplitPane2.setDividerSize(0);
                         break;
                     case "MATERIAL":
                         position = Controller_Main.POSITION.MATERIAL.toString();
@@ -534,8 +527,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         this.v.SplitPane3.setDividerLocation(350);
                         this.v.SplitPane3.setDividerSize(5);
 
-                        this.v.SplitPane2.setDividerLocation(0);
-                        this.v.SplitPane2.setDividerSize(0);
                         break;
                     case "PRODUCTO":
                         position = Controller_Main.POSITION.PRODUCTO.toString();
@@ -549,8 +540,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         this.v.pnl_split3_inserts.add(this.v.pnl_Productos, BorderLayout.CENTER);
                         this.v.pnl_split3_inserts.setVisible(false);
                         this.v.pnl_split3_inserts.setVisible(true);
-                        this.v.SplitPane2.setDividerLocation(0);
-                        this.v.SplitPane2.setDividerSize(0);
                         break;
                     case "CLIENTE":
                         position = Controller_Main.POSITION.CLIENTE.toString();
@@ -564,8 +553,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
                         this.v.pnl_split3_inserts.setVisible(false);
                         this.v.pnl_split3_inserts.setVisible(true);
-                        this.v.SplitPane2.setDividerLocation(0);
-                        this.v.SplitPane2.setDividerSize(0);
                         break;
                     case "EMPLEADO":
                         position = Controller_Main.POSITION.EMPLEADO.toString();
@@ -579,8 +566,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
                         this.v.pnl_split3_inserts.setVisible(false);
                         this.v.pnl_split3_inserts.setVisible(true);
-                        this.v.SplitPane2.setDividerLocation(0);
-                        this.v.SplitPane2.setDividerSize(0);
                         break;
                     case "CARRITO":
                         position = Controller_Main.POSITION.CARRITO.toString();
@@ -594,8 +579,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         this.v.pnl_split3_inserts.add(this.v.pnl_Carrito, BorderLayout.CENTER);
                         this.v.pnl_split3_inserts.setVisible(false);
                         this.v.pnl_split3_inserts.setVisible(true);
-                        this.v.SplitPane2.setDividerLocation(0);
-                        this.v.SplitPane2.setDividerSize(0);
                         break;
                 }
                 break;
@@ -603,32 +586,32 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 switch (position) {
                     case "CATEGORIA":
                         facade.deleteCategory(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                        position=POSITION.CATEGORIA.toString();
+                        position = POSITION.CATEGORIA.toString();
                         refreshTable(position);
                         break;
                     case "MATERIAL":
                         facade.deleteMaterial(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                        position=POSITION.MATERIAL.toString();
+                        position = POSITION.MATERIAL.toString();
                         refreshTable(position);
                         break;
                     case "PRODUCTO":
                         facade.deleteProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                        position=POSITION.PRODUCTO.toString();
+                        position = POSITION.PRODUCTO.toString();
                         refreshTable(position);
                         break;
                     case "CLIENTE":
                         facade.deleteUser(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                        position=POSITION.CLIENTE.toString();
+                        position = POSITION.CLIENTE.toString();
                         refreshTable(position);
                         break;
                     case "EMPLEADO":
                         facade.deleteCrew(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
-                        position=POSITION.EMPLEADO.toString();
+                        position = POSITION.EMPLEADO.toString();
                         refreshTable(position);
                         break;
                     case "CARRITO":
                         facade.deleteBasket(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()));
-                        position=POSITION.CARRITO.toString();
+                        position = POSITION.CARRITO.toString();
                         refreshTable(position);
                         break;
                 }
@@ -637,20 +620,17 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane1.setDividerLocation(0);
                 this.v.SplitPane1.setDividerSize(0);
                 this.v.btn_esconder_pnlPrincipal.setVisible(true);
-                
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case btn_esconder_pnlPrincipal:
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.btn_esconder_pnlPrincipal.setVisible(false);
-                
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
         switch (position) {
@@ -659,28 +639,35 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
                 break;
             case "MATERIAL":
-                
+
                 break;
             case "PRODUCTO":
-                
+
                 break;
             case "CLIENTE":
-                
+
                 break;
             case "EMPLEADO":
-                
+
                 break;
             case "CARRITO":
-                
+
                 break;
         }
     }
-    
-    public void mousePressed(MouseEvent e) {}
-    public void mouseReleased(MouseEvent e) {}
-    public void mouseEntered(MouseEvent e) {}
-    public void mouseExited(MouseEvent e) {}
-    
+
+    public void mousePressed(MouseEvent e) {
+    }
+
+    public void mouseReleased(MouseEvent e) {
+    }
+
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    public void mouseExited(MouseEvent e) {
+    }
+
     @Override
     public void popupMenuWillBecomeVisible(PopupMenuEvent e) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -696,14 +683,14 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     @Override
     public void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
-        
+
     }
 
     @Override
     public void popupMenuCanceled(PopupMenuEvent e) {
-        
+
     }
-    
+
     public void refreshTable(String position) {
         this.position = position;
         switch (this.position) {

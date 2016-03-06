@@ -185,9 +185,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
 
                 this.v.SplitPane3.setDividerLocation(350);
                 this.v.SplitPane3.setDividerSize(5);
-                
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 
                 break;
             case mitem_nuevoMaterial:
@@ -204,10 +203,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
 
                 this.v.SplitPane3.setDividerLocation(350);
                 this.v.SplitPane3.setDividerSize(5);
-                
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
-                
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoCliente:
                 position = Controller_Main.POSITION.CLIENTE.toString();
@@ -221,9 +218,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.add(this.v.pnl_Clientes, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
-                
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoEmpleado:
                 position = Controller_Main.POSITION.EMPLEADO.toString();
@@ -237,9 +233,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.add(this.v.pnl_Empleado, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
-                
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoCarrito:
                 position = Controller_Main.POSITION.CARRITO.toString();
@@ -253,8 +248,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.add(this.v.pnl_Carrito, BorderLayout.CENTER);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane2.setDividerLocation(0);
-                this.v.SplitPane2.setDividerSize(0);
+                this.v.SplitPane1.setDividerLocation(200);
+                this.v.pnl_listaCategorias.setVisible(false);
                 
                 break;
                 

@@ -35,9 +35,9 @@ public class BasketTableRenderer extends JLabel implements TableCellRenderer {
         etiqueta.setText(value.toString());
         
         JTableHeader jth=table.getTableHeader();
-        jth.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        jth.setFont(new Font("Calibri", Font.BOLD, 20));
         jth.setOpaque(false);
-        jth.setForeground(new Color(87, 87, 87));//AZUL
+        jth.setForeground(new Color(0, 0, 0));//AZUL
         jth.setBackground(new Color(194, 194, 194));//AZUL
         jth.setBorder(BorderFactory.createEtchedBorder());
         jth.setReorderingAllowed(false);
@@ -58,7 +58,7 @@ public class BasketTableRenderer extends JLabel implements TableCellRenderer {
         table.setTableHeader(jth);
         
         if(row!=-1){
-            etiqueta.setFont(new Font("SansSerif", Font.PLAIN, 15));
+            etiqueta.setFont(new Font("Calibri", Font.BOLD, 20));
             table.getColumnModel().setColumnMargin(10);
             if(value instanceof Integer || value instanceof Double) {
                 if (column == 1) {
