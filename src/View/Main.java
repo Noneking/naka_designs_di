@@ -1681,7 +1681,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split3_derecha.setLayout(pnl_split3_derechaLayout);
         pnl_split3_derechaLayout.setHorizontalGroup(
             pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 478, Short.MAX_VALUE)
         );
         pnl_split3_derechaLayout.setVerticalGroup(
             pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1694,7 +1694,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split3_inserts.setLayout(pnl_split3_insertsLayout);
         pnl_split3_insertsLayout.setHorizontalGroup(
             pnl_split3_insertsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGap(0, 478, Short.MAX_VALUE)
         );
         pnl_split3_insertsLayout.setVerticalGroup(
             pnl_split3_insertsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1707,7 +1707,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha.setLayout(pnl_split1_derechaLayout);
         pnl_split1_derechaLayout.setHorizontalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane3)
+            .addComponent(SplitPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
         pnl_split1_derechaLayout.setVerticalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1720,7 +1720,7 @@ public class Main extends javax.swing.JFrame {
         pnl_Main.setLayout(pnl_MainLayout);
         pnl_MainLayout.setHorizontalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
+            .addComponent(SplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
         );
         pnl_MainLayout.setVerticalGroup(
             pnl_MainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

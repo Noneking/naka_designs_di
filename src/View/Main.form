@@ -3174,7 +3174,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="SplitPane1" alignment="0" pref="927" max="32767" attributes="0"/>
+              <Component id="SplitPane1" alignment="0" pref="988" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -3572,7 +3572,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="SplitPane3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="SplitPane3" alignment="0" pref="480" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -3607,7 +3607,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="720" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="478" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -3630,7 +3630,7 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <EmptySpace min="0" pref="720" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="478" max="32767" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
