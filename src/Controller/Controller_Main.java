@@ -16,6 +16,7 @@ import Controller.Table.ProductTableModel;
 import Controller.Table.ProductTableRenderer;
 import DAOs.User_DAO;
 import Facade.Facade;
+import Hibernate.POJOs.Basket;
 import Hibernate.POJOs.Crew;
 import Model.HiloProgreso;
 import Model.Model;
@@ -537,11 +538,48 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_carrito_insertar:
-                String user_cod = this.v.jTextFieldBasket.getText().split("-")[0];
-                String product_name = this.v.eti_productoCarrito.getText().split("-")[0];
-                String product_amount = this.v.eti_productoCarrito.getText().split("-")[1];
-                facade.insertBasket(Integer.parseInt(user_cod), facade.getProductByName(product_name).getCod(), Integer.parseInt(product_amount));
-                basketTableModel.updateTableDatas();
+//                String nombreBasket;
+//                try{
+                
+//                    Basket basketSeguridad=facade.getBasketByUser(facade.getUserByNickname(this.v.jTextFieldBasket.getText().split("-")[0]).getCod());
+//                    facade.deleteBasket(facade.getBasketByUser(facade.getUserByNickname(this.v.jTextFieldBasket.getText().split("-")[0]).getCod()).getCod());
+//                    basketTableModel.updateTableDatas();
+//                    Position.setPosition(Position.POSITION.CARRITO.toString());
+//                    refreshTable(Position.getPosition());
+//                    ponerEsaTablaToGuapaYReshulona();
+//                    
+//                    Basket nuevaBasket;
+                    
+//                try{    
+                    Component[] components=this.v.pnl_listaCarrito.getComponents();
+                    if(components.length>0){
+                        int i=0;
+                        while(i<components.length){
+                            Label nombre=(Label) components[i];
+                            Label cantidad=(Label) components[i+1];
+                            Label precio=(Label) components[i+2];
+                            Label categoria=(Label) components[i+3];
+                            i=i+4;
+                            
+                            String user_nickname=this.v.jTextFieldBasket.getText().split("-")[0];
+                            facade.insertProductRecord(facade.getUserByNickname(user_nickname).getCod(), facade.getProductByName(nombre.getText()).getCod(), Integer.parseInt(cantidad.getText()));
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar los materiales del producto");
+                    }
+                    
+                    basketTableModel.updateTableDatas();
+                    Position.setPosition(Position.POSITION.CARRITO.toString());
+                    refreshTable(Position.getPosition());
+                    ponerEsaTablaToGuapaYReshulona();
+//                }catch(Exception ex){
+////                    facade.deleteBasket(facade.getBasketByCod(nombreBasket).getCod());
+//                    productTableModel.updateTableDatas();
+//                    Position.setPosition(Position.POSITION.PRODUCTO.toString());
+//                    refreshTable(Position.getPosition());
+//                    ponerEsaTablaToGuapaYReshulona();
+//                }
+                
                 break;
             case btn_clicModificar:
                 switch (Position.getPosition()) {
@@ -744,9 +782,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         } catch (Exception ex) {
                             System.err.println(ex);
                         }
-
-
-
+                        
                         for(int i=0;i<this.v.jTable_materialesProducto.getRowCount();i++){
                             if(this.v.jTable_materialesProducto.getValueAt(i, 1).toString().equals(nombre.getText())){
                                 DefaultTableModel dtm=(DefaultTableModel) this.v.jTable_materialesProducto.getModel();
@@ -769,9 +805,81 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 break;
             case "CARRITO":
                 if(e.getComponent()==this.v.jTable_clienteCarrito){
-                    
+                    this.v.jTextFieldBasket.setText(this.v.jTable_clienteCarrito.getValueAt(this.v.jTable_clienteCarrito.getSelectedRow(), 1).toString()+"-"+this.v.jTable_clienteCarrito.getValueAt(this.v.jTable_clienteCarrito.getSelectedRow(), 2).toString()+" "+this.v.jTable_clienteCarrito.getValueAt(this.v.jTable_clienteCarrito.getSelectedRow(), 3).toString());
+                    this.v.jFrame_clienteCarrito.setVisible(false);
                 }
                 if(e.getComponent()==this.v.jTable_productoCarrito){
+                    if(Integer.parseInt(this.v.jSpinner_productoCarrito.getValue().toString())>0){
+                        //este boton se encarga de ejecutar un grid layout 
+                        GridLayout g = new GridLayout(0, 4);// por defecto creamos el objeto GridLayout y le damos los parametros de 0 filas y 4 columnas
+                        this.v.pnl_listaCarrito.setLayout(g);//le pasamos al panel en el que vamos a meter los elementos de pruebas un layout con el objeto GridLayout
+                        this.v.jTable_clienteCarrito.setFocusable(false);
+                        this.v.jTable_clienteCarrito.setRowSelectionAllowed(true);
+                        this.v.jTable_productoCarrito.setFocusable(false);
+                        this.v.jTable_productoCarrito.setRowSelectionAllowed(true);
+                        
+                        Label nombre=new Label();
+                        nombre.setText(this.v.jTable_productoCarrito.getValueAt(this.v.jTable_productoCarrito.getSelectedRow(), 1).toString());
+                        nombre.setFont(new java.awt.Font("Calibri", Font.BOLD, 30));
+                        this.v.pnl_listaCarrito.add(nombre);
+                        
+                        Label cantidad=new Label();
+                        cantidad.setText(this.v.jSpinner_productoCarrito.getValue().toString());
+                        cantidad.setFont(new java.awt.Font("Calibri", Font.BOLD, 30));
+                        this.v.pnl_listaCarrito.add(cantidad);
+                        this.v.jSpinner_productoCarrito.setValue(0);
+                        
+                        Label precio=new Label();
+                        precio.setText(this.v.jTable_productoCarrito.getValueAt(this.v.jTable_productoCarrito.getSelectedRow(), 2).toString());
+                        precio.setFont(new java.awt.Font("Calibri", Font.BOLD, 30));
+                        this.v.pnl_listaCarrito.add(precio);
+                        
+                        Label categoria=new Label();
+                        categoria.setText(this.v.jTable_productoCarrito.getValueAt(this.v.jTable_productoCarrito.getSelectedRow(), 3).toString());
+                        categoria.setFont(new java.awt.Font("Calibri", Font.BOLD, 30));
+                        this.v.pnl_listaCarrito.add(categoria);
+
+                        String horGap = "10";
+                        String verGap = "10";
+
+                        try{//creamos un try para controlar que se metan los campos requeridos, sino saltara un error
+                            g.setHgap(Integer.parseInt(horGap));
+                            g.setVgap(Integer.parseInt(verGap));
+                            g.layoutContainer(this.v.pnl_listaCarrito);
+                        } catch (Exception ex) {
+                            System.err.println(ex);
+                        }
+                        
+                        for(int i=0;i<this.v.jTable_productoCarrito.getRowCount();i++){
+                            if(this.v.jTable_productoCarrito.getValueAt(i, 1).toString().equals(nombre.getText())){
+                                DefaultTableModel dtm=(DefaultTableModel) this.v.jTable_productoCarrito.getModel();
+                                dtm.removeRow(i);
+                                this.v.jTable_productoCarrito.setModel(dtm);
+                            }
+                        }
+                        
+                        System.out.println("Nombre: "+nombre.getText()+", Cantidad: "+cantidad.getText()+", Precio: "+precio.getText()+", Categoria: "+categoria.getText());
+                        
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar una cantidad superior a cero");
+                    }
+                    
+                    Component[] components=this.v.pnl_listaCarrito.getComponents();
+                    if(components.length>0){
+                        Double precioTotal=0.0;
+                        int i=0;
+                        while(i<components.length){
+                            Label nombre=(Label) components[i];
+                            Label cantidad=(Label) components[i+1];
+                            Label precio=(Label) components[i+2];
+                            Label categoria=(Label) components[i+3];
+                            i=i+4;
+                            precioTotal=precioTotal+((Double.parseDouble(precio.getText()))*(Integer.parseInt(cantidad.getText())));
+                        }
+                        this.v.jLabel_insertarCarritoPrecioTotal.setText(precioTotal.toString());
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar productos");
+                    }
                     
                 }
                 break;
