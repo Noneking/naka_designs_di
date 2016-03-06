@@ -121,6 +121,7 @@ public class Main extends javax.swing.JFrame {
         jTextFieldProductoCantidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
+        jPanelMaterialesAñadidos = new javax.swing.JPanel();
         btn_insertarProducto = new javax.swing.JButton();
         btn_modificarProducto = new javax.swing.JButton();
         pnl_Categorias = new javax.swing.JPanel();
@@ -176,6 +177,7 @@ public class Main extends javax.swing.JFrame {
         jFrame_materialesProducto = new javax.swing.JFrame();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTable_materialesProducto = new javax.swing.JTable();
+        jSpinner_materialesProducto = new javax.swing.JSpinner();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -1005,6 +1007,19 @@ public class Main extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         jLabel11.setText("Cantidad:");
 
+        javax.swing.GroupLayout jPanelMaterialesAñadidosLayout = new javax.swing.GroupLayout(jPanelMaterialesAñadidos);
+        jPanelMaterialesAñadidos.setLayout(jPanelMaterialesAñadidosLayout);
+        jPanelMaterialesAñadidosLayout.setHorizontalGroup(
+            jPanelMaterialesAñadidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 486, Short.MAX_VALUE)
+        );
+        jPanelMaterialesAñadidosLayout.setVerticalGroup(
+            jPanelMaterialesAñadidosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 107, Short.MAX_VALUE)
+        );
+
+        jScrollPane3.setViewportView(jPanelMaterialesAñadidos);
+
         btn_insertarProducto.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         btn_insertarProducto.setText("Insertar");
 
@@ -1479,11 +1494,15 @@ public class Main extends javax.swing.JFrame {
         jFrame_materialesProducto.getContentPane().setLayout(jFrame_materialesProductoLayout);
         jFrame_materialesProductoLayout.setHorizontalGroup(
             jFrame_materialesProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+            .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+            .addComponent(jSpinner_materialesProducto)
         );
         jFrame_materialesProductoLayout.setVerticalGroup(
             jFrame_materialesProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame_materialesProductoLayout.createSequentialGroup()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSpinner_materialesProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -2011,6 +2030,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanelLogin;
+    public javax.swing.JPanel jPanelMaterialesAñadidos;
     public javax.swing.JPasswordField jPasswordFieldClientePassword;
     public javax.swing.JPasswordField jPasswordFieldClienteRePassword;
     public javax.swing.JPasswordField jPasswordFieldEmpleadoPassword;
@@ -2028,6 +2048,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSlider jSlider1;
+    public javax.swing.JSpinner jSpinner_materialesProducto;
     public javax.swing.JSpinner jSpinner_productoCarrito;
     public javax.swing.JTable jTableMain;
     public javax.swing.JTable jTable_clienteCarrito;

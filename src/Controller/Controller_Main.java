@@ -22,7 +22,10 @@ import Model.Model;
 import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import java.awt.GridLayout;
+import java.awt.Label;
 import java.awt.Point;
 import java.awt.Toolkit;
 
@@ -41,6 +44,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -468,6 +472,17 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 Position.setPosition(Position.POSITION.PRODUCTO.toString());
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
+                
+                Component[] components=this.v.jPanelMaterialesAñadidos.getComponents();
+                if(components.length>0){
+                    for(int i=0;i<components.length;i++){
+                        Label label=(Label) components[i];
+                        facade.insertProductMaterial(rosa, rosa, i);
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debe seleccionar los materiales del producto");
+                }
+                
                 break;
             case btn_producto_modificar:
                 facade.modifyProduct(Integer.parseInt(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString()), this.v.jTextFieldProductoNombre.getText(), Double.parseDouble(this.v.jTextFieldProductoPrecio.getText()), this.v.jComboBoxProductoCategoria.getSelectedItem().toString());
@@ -660,8 +675,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.jFrame_materialesProducto.setSize(567, 320);
                 this.v.jFrame_materialesProducto.setLocationRelativeTo(null);
                 
-                this.v.jTable_materialesProducto.setModel(facade.getTableModelMaterial());
-                Position.setPosition(Position.POSITION.PRODUCT_MATERIAL.toString());
+//                this.v.jTable_materialesProducto.setModel(facade.getTableModelMaterial());
+//                Position.setPosition(Position.POSITION.PRODUCT_MATERIAL.toString());
                 break;
         }
     }
@@ -677,13 +692,43 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 
                 break;
             case "PRODUCTO":
-                this.v.jTextFieldProductoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
-                this.v.jTextFieldProductoPrecio.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
-                this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
-                this.v.jComboBoxProductoCategoria.setModel(facade.getComboBoxModelCategory());
-                for(int i=0;i<this.v.jComboBoxProductoCategoria.getItemCount();i++){
-                    if(this.v.jComboBoxProductoCategoria.getItemAt(i).toString().equals(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString())){
-                        this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
+                if(e.getComponent()!=this.v.jTable_materialesProducto){
+                    this.v.jTextFieldProductoNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 0).toString());
+                    this.v.jTextFieldProductoPrecio.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
+                    this.v.jTextFieldProductoCantidad.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+                    this.v.jComboBoxProductoCategoria.setModel(facade.getComboBoxModelCategory());
+                    for(int i=0;i<this.v.jComboBoxProductoCategoria.getItemCount();i++){
+                        if(this.v.jComboBoxProductoCategoria.getItemAt(i).toString().equals(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 3).toString())){
+                            this.v.jComboBoxProductoCategoria.setSelectedIndex(i);
+                        }
+                    }
+                }else{
+                    //este boton se encarga de ejecutar un grid layout 
+                    GridLayout g = new GridLayout(0, 1);// por defecto creamos el objeto GridLayout y le damos los parametros de 0 filas y 2 columnas
+                    this.v.jPanelMaterialesAñadidos.setLayout(g);//le pasamos al panel en el que vamos a meter los elementos de pruebas un layout con el objeto GridLayout
+                    this.v.jTable_materialesProducto.setFocusable(false);
+                    this.v.jTable_materialesProducto.setRowSelectionAllowed(true);
+                    Label label=new Label();
+                    label.setText(this.v.jTable_materialesProducto.getValueAt(this.v.jTable_materialesProducto.getSelectedRow(), 1).toString());
+                    this.v.jPanelMaterialesAñadidos.add(label);
+
+                    String horGap = "10";
+                    String verGap = "10";
+
+                    try{//creamos un try para controlar que se metan los campos requeridos, sino saltara un error
+                        g.setHgap(Integer.parseInt(horGap));
+                        g.setVgap(Integer.parseInt(verGap));
+                        g.layoutContainer(this.v.jPanelMaterialesAñadidos);
+                    } catch (Exception ex) {
+                        System.err.println(ex);
+                    }
+                    
+                    for(int i=0;i<this.v.jTable_materialesProducto.getRowCount();i++){
+                        if(this.v.jTable_materialesProducto.getValueAt(i, 1).toString().equals(label.getText())){
+                            DefaultTableModel dtm=(DefaultTableModel) this.v.jTable_materialesProducto.getModel();
+                            dtm.removeRow(i);
+                            this.v.jTable_materialesProducto.setModel(dtm);
+                        }
                     }
                 }
                 
