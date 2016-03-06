@@ -138,7 +138,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         btn_carrito_modificar,
         btn_carrito_eliminar,
         btn_esconder_pnlPrincipal,
-        btn_añadirCategorias;
+        btn_añadirCategorias,
+        jButtonBuscarCliente,
+        jButtonBuscarProducto;
     }
 
     public enum POSITION {
@@ -258,6 +260,12 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
         this.v.jTableMain.addMouseListener(this);
         this.v.jPopupMenu.addPopupMenuListener(this);
+        
+        //Botones de carrito
+         this.v.jButtonBuscarCliente.setActionCommand("jButtonBuscarCliente");
+        this.v.jButtonBuscarCliente.addActionListener(this);
+        this.v.jButtonBuscarProducto.setActionCommand("jButtonBuscarProducto");
+        this.v.jButtonBuscarProducto.addActionListener(this);
 
         initOperations();
     }
@@ -639,6 +647,16 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.btn_esconder_pnlPrincipal.setVisible(false);
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.pnl_listaCategorias.setVisible(false);
+                break;
+            case jButtonBuscarCliente:
+                this.v.jFrame_clienteCarrito.setVisible(true);
+                this.v.jFrame_clienteCarrito.setSize(567, 320);
+                this.v.jFrame_clienteCarrito.setLocationRelativeTo(null);
+                break;
+            case jButtonBuscarProducto:
+                this.v.jFrame_productoCarrito.setVisible(true);
+                this.v.jFrame_productoCarrito.setSize(567, 335);
+                this.v.jFrame_productoCarrito.setLocationRelativeTo(null);
                 break;
         }
     }

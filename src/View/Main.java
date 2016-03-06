@@ -100,7 +100,7 @@ public class Main extends javax.swing.JFrame {
         jTextFieldBasket = new javax.swing.JTextField();
         jButtonBuscarCliente = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
-        jButton14 = new javax.swing.JButton();
+        jButtonBuscarProducto = new javax.swing.JButton();
         asd = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
@@ -850,8 +850,8 @@ public class Main extends javax.swing.JFrame {
         jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel38.setText("Producto:");
 
-        jButton14.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
-        jButton14.setText("Buscar");
+        jButtonBuscarProducto.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        jButtonBuscarProducto.setText("Buscar");
 
         jLabel39.setBackground(java.awt.Color.white);
         jLabel39.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
@@ -928,7 +928,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(eti_productoCarrito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton14)
+                    .addComponent(jButtonBuscarProducto)
                     .addComponent(jButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pnl_CarritoLayout.createSequentialGroup()
@@ -952,7 +952,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(pnl_CarritoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel38)
-                    .addComponent(jButton14)
+                    .addComponent(jButtonBuscarProducto)
                     .addComponent(eti_productoCarrito))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(asd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1905,20 +1905,20 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel eti_olvidarContraseña;
     public javax.swing.JLabel eti_productoCarrito;
     private javax.swing.JButton jButton10;
-    public javax.swing.JButton jButton14;
     private javax.swing.JButton jButton3;
     public javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     public javax.swing.JButton jButtonBuscarCliente;
+    public javax.swing.JButton jButtonBuscarProducto;
     public javax.swing.JButton jButtonQueryClean;
     public javax.swing.JButton jButtonQuerySearch;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
     public javax.swing.JComboBox jComboBoxProductoCategoria;
     public javax.swing.JFileChooser jFileChooser1;
     public javax.swing.JFrame jFrameLoggin;
-    private javax.swing.JFrame jFrame_clienteCarrito;
+    public javax.swing.JFrame jFrame_clienteCarrito;
     public javax.swing.JFrame jFrame_confiCrew;
-    private javax.swing.JFrame jFrame_productoCarrito;
+    public javax.swing.JFrame jFrame_productoCarrito;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
