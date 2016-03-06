@@ -16,6 +16,7 @@ import Controller.Table.ProductTableModel;
 import Controller.Table.ProductTableRenderer;
 import DAOs.User_DAO;
 import Facade.Facade;
+import Hibernate.POJOs.Crew;
 import Model.HiloProgreso;
 import Model.Model;
 import View.Main;
@@ -51,6 +52,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     Facade facade;
     ControllerMovimientos cm = new ControllerMovimientos();
     ControllerMenu cmenu = new ControllerMenu();
+    
+    Crew crew_logged;
 
     private ClientTableModel clientTableModel;
     private ClientTableRenderer clientTableRenderer;
@@ -74,27 +77,28 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     int rosa = 1;
 
-    public Controller_Main(Main v) {
+    public Controller_Main(Main v, Crew crew_logged, Facade facade) {
         this.v = v;
         model = new Model();
-        facade = new Facade();
+        this.facade = facade;
+        this.crew_logged=crew_logged;
 
-        clientTableModel = new ClientTableModel(facade);
+        clientTableModel = new ClientTableModel(this.facade);
         clientTableRenderer = new ClientTableRenderer();
 
-        categoryTableModel = new CategoryTableModel(facade);
+        categoryTableModel = new CategoryTableModel(this.facade);
         categoryTableRenderer = new CategoryTableRenderer();
 
-        materialTableModel = new MaterialTableModel(facade);
+        materialTableModel = new MaterialTableModel(this.facade);
         materialTableRenderer = new MaterialTableRenderer();
 
-        productTableModel = new ProductTableModel(facade);
+        productTableModel = new ProductTableModel(this.facade);
         productTableRenderer = new ProductTableRenderer();
 
-        crewTableModel = new CrewTableModel(facade);
+        crewTableModel = new CrewTableModel(this.facade);
         crewTableRenderer = new CrewTableRenderer();
 
-        basketTableModel = new BasketTableModel(facade);
+        basketTableModel = new BasketTableModel(this.facade);
         basketTableRenderer = new BasketTableRenderer();
 
     }
@@ -173,7 +177,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         //Controllers
         cm.initMovimientosListeners(this.v);
 
-        cmenu.initControllerMenuListeners(this.v);
+        cmenu.initControllerMenuListeners(this.v, this.crew_logged, this.facade);
 
     }
 
@@ -263,7 +267,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        
+        String passString;
+        
         switch (Actions.valueOf(e.getActionCommand())) {
             case action_query:
                 switch (position) {
@@ -322,7 +328,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                             basketTableModel.updateTableDatas();
                         } else {
                             try {
-                                basketTableModel.updateTableDatas(facade.getBasketByQuery(Integer.parseInt(this.v.jTextFieldTableQuery.getText())));
+                                basketTableModel.updateTableDatas(facade.getBasketByQuery(this.v.jTextFieldTableQuery.getText()));
                             } catch (Exception ex) {
                                 System.err.println(ex);
                             }
@@ -478,25 +484,27 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_empleado_insertar:
+                passString = new String(this.v.jPasswordFieldEmpleadoPassword.getPassword());
+                facade.insertCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), passString, this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
                 crewTableModel.updateTableDatas();
-                facade.insertCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jPasswordFieldEmpleadoPassword.getPassword().toString(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
                 position = POSITION.EMPLEADO.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_empleado_modificar:
+                passString = new String(this.v.jPasswordFieldEmpleadoPassword.getPassword());
+                facade.modifyCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), passString, this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
                 crewTableModel.updateTableDatas();
-                facade.modifyCrew(this.v.jTextFieldEmpleadoEmail.getText(), this.v.jTextFieldEmpleadoNickname.getText(), this.v.jPasswordFieldEmpleadoPassword.getPassword().toString(), this.v.jTextFieldEmpleadoNombre.getText(), this.v.jTextFieldEmpleadoApellidos.getText(), this.v.jTextFieldEmpleadoTelefono.getText(), this.v.jComboBoxEmpleadoRol.getSelectedItem().toString());
                 position = POSITION.EMPLEADO.toString();
                 refreshTable(position);
                 ponerEsaTablaToGuapaYReshulona();
                 break;
             case btn_carrito_insertar:
-                basketTableModel.updateTableDatas();
                 String user_cod = this.v.jTextFieldBasket.getText().split("-")[0];
                 String product_name = this.v.eti_productoCarrito.getText().split("-")[0];
                 String product_amount = this.v.eti_productoCarrito.getText().split("-")[1];
                 facade.insertBasket(Integer.parseInt(user_cod), facade.getProductByName(product_name).getCod(), Integer.parseInt(product_amount));
+                basketTableModel.updateTableDatas();
                 break;
             case btn_clicModificar:
                 switch (position) {

@@ -31,6 +31,7 @@ public class Main extends javax.swing.JFrame {
         Ptxt_login_password = new javax.swing.JPasswordField();
         eti_olvidarContraseña = new javax.swing.JLabel();
         btn_Login = new javax.swing.JButton();
+        jLabelLogginErrorMessage = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         pnl_mensageMovimientos = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -260,12 +261,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
         jPanelLogin.add(eti_olvidarContraseña);
-        eti_olvidarContraseña.setBounds(200, 290, 150, 20);
+        eti_olvidarContraseña.setBounds(200, 300, 150, 20);
 
         btn_Login.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
         btn_Login.setText("Login");
         jPanelLogin.add(btn_Login);
         btn_Login.setBounds(80, 240, 210, 35);
+
+        jLabelLogginErrorMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanelLogin.add(jLabelLogginErrorMessage);
+        jLabelLogginErrorMessage.setBounds(10, 280, 340, 20);
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/naka_designs_sevilla_logo.png"))); // NOI18N
         jPanelLogin.add(jLabel18);
@@ -1914,6 +1919,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     public javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabelLogginErrorMessage;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

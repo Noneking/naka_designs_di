@@ -6,6 +6,8 @@
 package Controller.Menu;
 
 import Controller.Controller_Main;
+import Facade.Facade;
+import Hibernate.POJOs.Crew;
 import Model.HiloProgreso;
 import Model.LectorTema;
 import Model.Model;
@@ -37,7 +39,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
   static String CLASSY="de.javasoft.plaf.synthetica.SyntheticaClassyLookAndFeel";
   private String position = "";
 
-    public void initControllerMenuListeners(Main v) {
+    public void initControllerMenuListeners(Main v, Crew crew_logged, Facade facade) {
         this.v = v;
         this.v.mn_historial_ventas.setActionCommand("mn_historial_ventas");
         this.v.mn_historial_ventas.addActionListener(this);
@@ -76,7 +78,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_nuevoEmpleado.addActionListener(this);
             this.v.mitem_nuevoCarrito.setActionCommand("mitem_nuevoCarrito");
             this.v.mitem_nuevoCarrito.addActionListener(this);
-            cm = new Controller_Main(this.v);
+            cm = new Controller_Main(this.v, crew_logged, facade);
             
             this.v.pnl_contenedorDerechoMovimientos.setLayout(new BorderLayout());
     }

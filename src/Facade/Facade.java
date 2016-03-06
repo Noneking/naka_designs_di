@@ -412,7 +412,7 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     }
 
     @Override
-    public ArrayList<Basket> getBasketByQuery(int question) {
+    public ArrayList<Basket> getBasketByQuery(String question) {
         return this.basket.getBasketByQuery(question);
     }
 
