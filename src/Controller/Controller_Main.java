@@ -60,6 +60,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     ControllerMovimientos cm = new ControllerMovimientos();
     ControllerMenu cmenu;
     
+    String rol;
+    
     Crew crew_logged;
 
     private ClientTableModel clientTableModel;
@@ -82,7 +84,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     int rosa = 1;
 
-    public Controller_Main(Main v, Crew crew_logged, Facade facade) {
+    public Controller_Main(Main v, Crew crew_logged, Facade facade,String rol) {
         this.v = v;
         this.v.setExtendedState(MAXIMIZED_BOTH);
         model = new Model();
@@ -90,6 +92,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.crew_logged=crew_logged;
         cmenu=new ControllerMenu(facade);
 
+        this.rol = rol;
+        
         clientTableModel = new ClientTableModel(this.facade);
         clientTableRenderer = new ClientTableRenderer();
 
@@ -176,7 +180,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         //Controllers
         cm.initMovimientosListeners(this.v);
 
-        cmenu.initControllerMenuListeners(this.v, this.crew_logged, this.facade);
+        cmenu.initControllerMenuListeners(this.v, this.crew_logged, this.facade,this.crew_logged);
 
     }
 
@@ -275,6 +279,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     }
 
     public void initOperations() {
+        privilegios(this.rol);
         this.v.jTableMain.setComponentPopupMenu(this.v.jPopupMenu);
         
         this.v.eti_nickCrew.setText(crew_logged.getNickname());
@@ -991,6 +996,36 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     public void ponerEsaTablaToGuapaYReshulona() {
         this.v.pnl_split3_derecha.add(this.v.pnl_TableMain, BorderLayout.CENTER);
+    }
+    
+    public void setCrew(Crew crew){
+        this.crew_logged = crew;
+        this.v.eti_emailCrew.setText(this.crew_logged.getEmail());
+        this.v.eti_nickCrew.setText(this.crew_logged.getNickname());
+    }
+    
+    public void privilegios(String rol){
+        if(rol.equals("ad")){
+            this.v.mn_historial_ventas.setEnabled(true);
+            this.v.mitem_agendaEmple.setEnabled(true);
+            this.v.mitem_nuevoEmpleado.setEnabled(true);
+            this.v.mitem_nuevoMaterial.setEnabled(true);
+            this.v.mitem_nuevoProducto.setEnabled(true);
+            
+            this.v.btn_Empleados.setVisible(true);
+            this.v.btn_Materiales.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Eres Admin");
+        }else if(rol.equals("em")){
+            this.v.mn_historial_ventas.setEnabled(false);
+            this.v.mitem_agendaEmple.setEnabled(false);
+            this.v.mitem_nuevoEmpleado.setEnabled(false);
+            this.v.mitem_nuevoMaterial.setEnabled(false);
+            this.v.mitem_nuevoProducto.setEnabled(false);
+            
+            this.v.btn_Empleados.setVisible(false);
+            this.v.btn_Materiales.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Eres Empleado");
+        }
     }
 
 }

@@ -32,6 +32,8 @@ public class Controller_Login implements ActionListener, MouseListener {
 
     String position;
     String text;
+    
+    String rol;
 
     public Controller_Login(Main v) {
         this.v = v;
@@ -145,19 +147,8 @@ public class Controller_Login implements ActionListener, MouseListener {
                     this.v.jLabelLogginErrorMessage.setForeground(Color.GREEN);
                     this.v.jLabelLogginErrorMessage.setText(text);
 
-                    new Thread() {
-                        public void run() {
-                            try {
-                                for (int i = 0; i < 3; i++) {
-                                    text = text + ".";
-                                    simulate(text);
-                                    Thread.sleep(1000);
-                                }
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }.start();
+                    System.out.println(""+crewByNickname.getRole().toString());
+                    rol = ""+crewByNickname.getRole().toString();
 
                     logginOperations(crewByNickname);
                 } else {
@@ -195,7 +186,7 @@ public class Controller_Login implements ActionListener, MouseListener {
             }
         });
 
-        new Controller_Main(new Main(), crew_logged, this.facade).initViews();
+        new Controller_Main(new Main(), crew_logged, this.facade,rol).initViews();
     }
 
     public void simulate(String text) {

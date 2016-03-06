@@ -40,6 +40,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
     Model model = new Model();
     Controller_Main cm;
     Facade facade;
+    Crew c;
     generatePDF gPdf;
     //cadenas estaticas de las rutas de los lookandfeels
     static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
@@ -51,7 +52,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
         this.facade=facade;
     }
   
-    public void initControllerMenuListeners(Main v, Crew crew_logged, Facade facade) {
+    public void initControllerMenuListeners(Main v, Crew crew_logged, Facade facade,Crew crew) {
+        this.c = crew;
         this.v = v;
         this.facade=facade;
         this.v.mn_historial_ventas.setActionCommand("mn_historial_ventas");
@@ -100,7 +102,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_agendaCliente.setActionCommand("mitem_agendaCliente");
             this.v.mitem_agendaCliente.addActionListener(this);
             
-            cm = new Controller_Main(this.v, crew_logged, facade);
+            cm = new Controller_Main(this.v, crew_logged, facade, null);
             gPdf = new generatePDF();
             this.v.pnl_contenedorDerechoMovimientos.setLayout(new BorderLayout());
     }
@@ -287,12 +289,29 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.jFrame_confiCrew.setVisible(true);
                 this.v.jFrame_confiCrew.setSize(528, 390);
                 this.v.jFrame_confiCrew.setLocationRelativeTo(null);
+                
+                this.v.txt_nombreConfiCrew.setText(""+c.getName().toString());
+                this.v.txt_apellidosConfiCrew.setText(""+c.getSurname().toString());
+                this.v.txt_telefonoConfiCrew.setText(""+c.getPhoneNumber().toString());
+                this.v.txt_nickConfiCrew.setText(""+c.getNickname().toString());
+                
                 break;
             case btn_cancelarConfiCrew:
                 this.v.jFrame_confiCrew.setVisible(false);
                 break;
             case btn_modificarConfiCrew:
-
+                String  passString = new String(this.v.jPasswordField_contraseñaConfi.getPassword());
+                String  repassString = new String(this.v.jPasswordField_reContraseñaConfi.getPassword());
+                
+                if(passString.equals(repassString.toString())&& !passString.equals("") && !repassString.equals("")){
+                    facade.modifyCrew(c.getEmail(), this.v.txt_nickConfiCrew.getText(), passString, this.v.txt_nombreConfiCrew.getText(), this.v.txt_apellidosConfiCrew.getText(), this.v.txt_telefonoConfiCrew.getText(), c.getRole());
+                    JOptionPane.showMessageDialog(null, "Se han insertado satisfactoriamente");
+                    this.v.jFrame_confiCrew.setVisible(false);
+                    cm.setCrew(facade.getCrewByEmail(c.getEmail()));
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Las contraeñas no coinciden o estan vacías, por favor compruebe que las ha insertado correctamente.");
+                }
                 break;
             //FIN de Config Crew-----------------------------------------------------------------------------------------------
             //Inicio de Informes-----------------------------------------------------------------------------------------------
