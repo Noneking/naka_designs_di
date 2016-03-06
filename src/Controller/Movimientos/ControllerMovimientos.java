@@ -42,7 +42,6 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         //boton ventas
         this.v.pnl_mostrarGrafica.setLayout(new BorderLayout());
         this.v.pnl_contenedorInferiorMovimientos.setLayout(new BorderLayout());
-        this.v.pnl_verFile.setLayout(new BorderLayout());
         
         this.v.btn_ventasMovi.setActionCommand("btn_ventasMovi");
         this.v.btn_ventasMovi.addActionListener(this);
@@ -156,16 +155,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 mostrarFilechooser();
                 break;
 
-            case btn_verFilechooser:
-      
-//                fileBrowser.setBarsVisible(false);
-//                fileBrowser.setStatusBarVisible(false);
-//                this.v.pnl_verFile.add(fileBrowser, BorderLayout.CENTER);
-//                
-//                fileBrowser.navigate(this.arch.toString());
-//                
-                this.v.jFrame_verFile.setVisible(true);
-                break;
+         
             case btn_abrirFilechooser:
                 
                 break;

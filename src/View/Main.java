@@ -143,21 +143,6 @@ public class Main extends javax.swing.JFrame {
         jFileChooser1 = new javax.swing.JFileChooser();
         btn_abrirFilechooser = new javax.swing.JButton();
         btn_verFilechooser = new javax.swing.JButton();
-        jdialog_eliminar = new javax.swing.JDialog();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jLabel12 = new javax.swing.JLabel();
-        Frame_guardandoBD = new javax.swing.JFrame();
-        pbar_guardandoBD = new javax.swing.JProgressBar();
-        jLabel4 = new javax.swing.JLabel();
-        eti_estadoGuardandoBD = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        ta_logGuardandoBD = new javax.swing.JTextArea();
-        btn_comenzarGuardarBD = new javax.swing.JButton();
         jPopupMenu = new javax.swing.JPopupMenu();
         jMenuItemModificar = new javax.swing.JMenuItem();
         jMenuItemEliminar = new javax.swing.JMenuItem();
@@ -169,8 +154,11 @@ public class Main extends javax.swing.JFrame {
         jFrame_clienteCarrito = new javax.swing.JFrame();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable_clienteCarrito = new javax.swing.JTable();
-        jFrame_verFile = new javax.swing.JFrame();
-        pnl_verFile = new javax.swing.JPanel();
+        jFrame_confiCrew = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -1236,139 +1224,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btn_verFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jdialog_eliminar.setUndecorated(true);
-
-        jInternalFrame1.setClosable(true);
-        jInternalFrame1.setIconifiable(true);
-        jInternalFrame1.setTitle("JOption personalizado");
-        jInternalFrame1.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
-        jInternalFrame1.setVisible(true);
-
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel5.setText("¿Estas seguro de que quieres eliminar este \"----------------------\"?");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jButton11.setText("Cacelar");
-
-        jButton12.setText("Aceptar");
-
-        jCheckBox1.setText("No volver a mostrar este mensage.");
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/clean.png"))); // NOI18N
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11)))
-                .addContainerGap())
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 53, Short.MAX_VALUE)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)
-                    .addComponent(jCheckBox1))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jdialog_eliminarLayout = new javax.swing.GroupLayout(jdialog_eliminar.getContentPane());
-        jdialog_eliminar.getContentPane().setLayout(jdialog_eliminarLayout);
-        jdialog_eliminarLayout.setHorizontalGroup(
-            jdialog_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1)
-        );
-        jdialog_eliminarLayout.setVerticalGroup(
-            jdialog_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jInternalFrame1)
-        );
-
-        pbar_guardandoBD.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-
-        jLabel4.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jLabel4.setText("Guardando:");
-
-        eti_estadoGuardandoBD.setBackground(new java.awt.Color(255, 255, 255));
-        eti_estadoGuardandoBD.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        eti_estadoGuardandoBD.setText(".");
-        eti_estadoGuardandoBD.setOpaque(true);
-
-        ta_logGuardandoBD.setEditable(false);
-        ta_logGuardandoBD.setColumns(20);
-        ta_logGuardandoBD.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        ta_logGuardandoBD.setRows(5);
-        ta_logGuardandoBD.setEnabled(false);
-        jScrollPane4.setViewportView(ta_logGuardandoBD);
-
-        btn_comenzarGuardarBD.setText("Comenzar");
-
-        javax.swing.GroupLayout Frame_guardandoBDLayout = new javax.swing.GroupLayout(Frame_guardandoBD.getContentPane());
-        Frame_guardandoBD.getContentPane().setLayout(Frame_guardandoBDLayout);
-        Frame_guardandoBDLayout.setHorizontalGroup(
-            Frame_guardandoBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Frame_guardandoBDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Frame_guardandoBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eti_estadoGuardandoBD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(Frame_guardandoBDLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_comenzarGuardarBD))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
-                    .addComponent(pbar_guardandoBD, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        Frame_guardandoBDLayout.setVerticalGroup(
-            Frame_guardandoBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Frame_guardandoBDLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Frame_guardandoBDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(btn_comenzarGuardarBD))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(eti_estadoGuardandoBD)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pbar_guardandoBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         jMenuItemModificar.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         jMenuItemModificar.setText("Modificar");
         jPopupMenu.add(jMenuItemModificar);
@@ -1377,6 +1232,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItemEliminar.setText("Eliminar");
         jPopupMenu.add(jMenuItemEliminar);
 
+        jFrame_productoCarrito.setTitle("Selección de Producto");
         jFrame_productoCarrito.setResizable(false);
 
         jTable_productoCarrito.setModel(new javax.swing.table.DefaultTableModel(
@@ -1417,6 +1273,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jSpinner_productoCarrito)))
         );
 
+        jFrame_clienteCarrito.setTitle("Selección de Cliente");
         jFrame_clienteCarrito.setResizable(false);
 
         jTable_clienteCarrito.setModel(new javax.swing.table.DefaultTableModel(
@@ -1443,26 +1300,66 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout pnl_verFileLayout = new javax.swing.GroupLayout(pnl_verFile);
-        pnl_verFile.setLayout(pnl_verFileLayout);
-        pnl_verFileLayout.setHorizontalGroup(
-            pnl_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 723, Short.MAX_VALUE)
+        jFrame_confiCrew.setTitle("Configuracion de Empleado");
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos personales"));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        pnl_verFileLayout.setVerticalGroup(
-            pnl_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 425, Short.MAX_VALUE)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jFrame_verFileLayout = new javax.swing.GroupLayout(jFrame_verFile.getContentPane());
-        jFrame_verFile.getContentPane().setLayout(jFrame_verFileLayout);
-        jFrame_verFileLayout.setHorizontalGroup(
-            jFrame_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_verFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jFrame_verFileLayout.setVerticalGroup(
-            jFrame_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl_verFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jButton1.setText("Cancelar");
+
+        jButton2.setText("Modificar");
+
+        javax.swing.GroupLayout jFrame_confiCrewLayout = new javax.swing.GroupLayout(jFrame_confiCrew.getContentPane());
+        jFrame_confiCrew.getContentPane().setLayout(jFrame_confiCrewLayout);
+        jFrame_confiCrewLayout.setHorizontalGroup(
+            jFrame_confiCrewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame_confiCrewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jFrame_confiCrewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame_confiCrewLayout.createSequentialGroup()
+                        .addGap(0, 352, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap())
+        );
+        jFrame_confiCrewLayout.setVerticalGroup(
+            jFrame_confiCrewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrame_confiCrewLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jFrame_confiCrewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1877,7 +1774,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mitem_nuevoEmpleadoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JFrame Frame_guardandoBD;
     public javax.swing.JPasswordField Ptxt_login_password;
     public javax.swing.JSplitPane SplitPane1;
     public javax.swing.JSplitPane SplitPane3;
@@ -1892,7 +1788,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_añadirCategoria;
     public javax.swing.JButton btn_categorias_insertar;
     public javax.swing.JButton btn_categorias_modificar;
-    public javax.swing.JButton btn_comenzarGuardarBD;
     public javax.swing.JButton btn_empleMovi;
     public javax.swing.JButton btn_esconderRosa;
     public javax.swing.JButton btn_esconder_pnlPrincipal;
@@ -1910,33 +1805,29 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_ventasMovi;
     public javax.swing.JButton btn_verFilechooser;
     public javax.swing.JLabel eti_emailCrew;
-    public javax.swing.JLabel eti_estadoGuardandoBD;
     public javax.swing.JLabel eti_nickCrew;
     public javax.swing.JLabel eti_olvidarContraseña;
     public javax.swing.JLabel eti_productoCarrito;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     public javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     public javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     public javax.swing.JButton jButtonBuscarCliente;
     public javax.swing.JButton jButtonQueryClean;
     public javax.swing.JButton jButtonQuerySearch;
-    private javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
     public javax.swing.JComboBox jComboBoxProductoCategoria;
     public javax.swing.JFileChooser jFileChooser1;
     public javax.swing.JFrame jFrameLoggin;
     private javax.swing.JFrame jFrame_clienteCarrito;
+    private javax.swing.JFrame jFrame_confiCrew;
     private javax.swing.JFrame jFrame_productoCarrito;
-    public javax.swing.JFrame jFrame_verFile;
-    private javax.swing.JInternalFrame jInternalFrame1;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     public javax.swing.JLabel jLabel14;
     public javax.swing.JLabel jLabel15;
@@ -1964,10 +1855,8 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel37;
     public javax.swing.JLabel jLabel38;
     public javax.swing.JLabel jLabel39;
-    public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel40;
     public javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1992,6 +1881,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JPasswordField jPasswordFieldClientePassword;
@@ -2002,7 +1892,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -2032,7 +1921,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JTextField jTextFieldProductoNombre;
     public javax.swing.JTextField jTextFieldProductoPrecio;
     public javax.swing.JTextField jTextFieldTableQuery;
-    public javax.swing.JDialog jdialog_eliminar;
     public javax.swing.JMenuBar manu_bar;
     public javax.swing.JMenu menu_movimientos;
     public javax.swing.JMenuItem mitem_aluoxide;
@@ -2048,7 +1936,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_nuevoProducto;
     public javax.swing.JMenu mn_apariencia;
     public javax.swing.JMenuItem mn_historial_ventas;
-    public javax.swing.JProgressBar pbar_guardandoBD;
     public javax.swing.JPanel pnl_Carrito;
     public javax.swing.JPanel pnl_Categorias;
     public javax.swing.JPanel pnl_Clientes;
@@ -2070,8 +1957,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_split1_izquierda;
     public javax.swing.JPanel pnl_split3_derecha;
     public javax.swing.JPanel pnl_split3_inserts;
-    public javax.swing.JPanel pnl_verFile;
-    public javax.swing.JTextArea ta_logGuardandoBD;
     public javax.swing.JTextField txt_login_user;
     // End of variables declaration//GEN-END:variables
 }

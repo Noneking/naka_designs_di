@@ -36,7 +36,7 @@ public class Controller_Login implements ActionListener, MouseListener {
     public Controller_Login(Main v) {
         this.v = v;
         this.facade = new Facade();
-        conectarXampp();
+        //conectarXampp();
         
     }
 

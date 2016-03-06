@@ -13,8 +13,11 @@ import Model.LectorTema;
 import Model.Model;
 import View.Main;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,8 +64,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_blackstart.addActionListener(this);
             this.v.mitem_classy.setActionCommand("mitem_classy");
             this.v.mitem_classy.addActionListener(this);
-            this.v.btn_comenzarGuardarBD.setActionCommand("btn_comenzarGuardadarBD");
-            this.v.btn_comenzarGuardarBD.addActionListener(this);
             
         //Crear Nuevo...
             this.v.mitem_nuevoProducto.setActionCommand("mitem_nuevoProducto");
@@ -96,26 +97,16 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             //mas infromacion sobre la empresa, la pagina web, por ahora en mantenimiento
             case mitem_masInfo: {
                 try {
-                    model.enlace("http://www.nakadesignsevilla.com/");
+                    enlace("http://www.nakadesignsevilla.com/");
                 } catch (URISyntaxException ex) {
                     Logger.getLogger(Controller_Main.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             break;
             // guardado en SQLite de las tablas de SQL
-            case mitem_guardarBD:
-                if (JOptionPane.showConfirmDialog(null, "Desea volcar la base de datos en un archivo '.sql'??") == 0) {
-                    this.v.Frame_guardandoBD.setVisible(true);
-                    this.v.Frame_guardandoBD.setLocationRelativeTo(null);
-                    this.v.Frame_guardandoBD.setSize(300, 300);
-
-                }
-                break;
+            
             //boton de guardado
-            case btn_comenzarGuardadarBD:
-                HiloProgreso hilo = new HiloProgreso(this.v.pbar_guardandoBD);
-                hilo.run();
-                break;
+          
 
             //Comienzo de las apariencias "LookAndFeel" de Synthetical-------------------------------------------------------
             case mitem_aluoxide:
@@ -255,5 +246,12 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             //FIN de Nuevo ...-----------------------------------------------------------------------------------------------
         }
     }
- 
+  public void enlace (String enlaceAAceder) throws URISyntaxException{
+        Desktop enlace=Desktop.getDesktop();
+        try {
+                enlace.browse(new URI(enlaceAAceder));
+        } catch (IOException | URISyntaxException e) {
+            e.getMessage();
+        }
+    }
 }

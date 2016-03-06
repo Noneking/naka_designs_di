@@ -26,6 +26,14 @@ public class RUN {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Runtime aplicacion = Runtime.getRuntime();
+        try {
+            aplicacion.exec("C:\\xampp\\xampp_start.exe");
+            System.out.println("Iniciado Xampp");
+        } catch (Exception ex) {
+            
+            
+        }
         
          new Controller_Login(new Main()).initViews();
     }
