@@ -27,7 +27,8 @@ public class EnumMenu {
             mitem_nuevoMaterial,
             mitem_nuevoCliente,
             mitem_nuevoEmpleado,
-            mitem_nuevoCarrito;
+            mitem_nuevoCarrito,
+        mitem_logout;
     }
     
     public enum POSITION {

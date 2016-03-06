@@ -5,7 +5,9 @@
  */
 package Controller.Menu;
 
+import Controller.Controller_Login;
 import Controller.Controller_Main;
+import Controller.RUN;
 import Facade.Facade;
 import Hibernate.POJOs.Crew;
 import Model.HiloProgreso;
@@ -82,6 +84,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_nuevoEmpleado.addActionListener(this);
             this.v.mitem_nuevoCarrito.setActionCommand("mitem_nuevoCarrito");
             this.v.mitem_nuevoCarrito.addActionListener(this);
+        this.v.mitem_logout.setActionCommand("mitem_logout");
+        this.v.mitem_logout.addActionListener(this);
             cm = new Controller_Main(this.v, crew_logged, facade);
             
             this.v.pnl_contenedorDerechoMovimientos.setLayout(new BorderLayout());
@@ -248,10 +252,16 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.pnl_listaCategorias.setVisible(false);
-                
+
                 break;
-                
+
             //FIN de Nuevo ...-----------------------------------------------------------------------------------------------
+            //Inicio de Logout-----------------------------------------------------------------------------------------------
+            case mitem_logout:
+                    new Controller_Login(new Main()).initViews();
+                    this.v.setVisible(false);
+                break;
+            //FIN de Logout-----------------------------------------------------------------------------------------------
         }
     }
   public void enlace (String enlaceAAceder) throws URISyntaxException{

@@ -156,9 +156,23 @@ public class Main extends javax.swing.JFrame {
         jTable_clienteCarrito = new javax.swing.JTable();
         jFrame_confiCrew = new javax.swing.JFrame();
         jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txt_nombreConfiCrew = new javax.swing.JTextField();
+        txt_apellidosConfiCrew = new javax.swing.JTextField();
+        txt_telefonoConfiCrew = new javax.swing.JTextField();
+        txt_emailConfiCrew = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jPasswordField_contraseñaConfi = new javax.swing.JPasswordField();
+        jPasswordField_reContraseñaConfi = new javax.swing.JPasswordField();
+        txt_nickConfiCrew = new javax.swing.JTextField();
+        btn_cancelarConfiCrew = new javax.swing.JButton();
+        btn_modificarConfiCrew = new javax.swing.JButton();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -193,7 +207,7 @@ public class Main extends javax.swing.JFrame {
         mitem_nuevoEmpleado = new javax.swing.JMenuItem();
         mitem_nuevoCarrito = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        mitem_logout = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mn_apariencia = new javax.swing.JMenu();
         mitem_aluoxide = new javax.swing.JMenuItem();
@@ -1304,33 +1318,112 @@ public class Main extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos personales"));
 
+        jLabel4.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel4.setText("Email: ");
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel5.setText("Nombre: ");
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel12.setText("Apellidos: ");
+
+        jLabel26.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel26.setText("Teléfono: ");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_nombreConfiCrew)
+                    .addComponent(txt_apellidosConfiCrew)
+                    .addComponent(txt_telefonoConfiCrew)
+                    .addComponent(txt_emailConfiCrew))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_nombreConfiCrew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txt_apellidosConfiCrew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(txt_telefonoConfiCrew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_emailConfiCrew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Contraseña"));
+
+        jLabel36.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel36.setText("Nickname: ");
+
+        jLabel42.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel42.setText("Contraseña: ");
+
+        jLabel43.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jLabel43.setText("Re-Contraseña: ");
+
+        jPasswordField_contraseñaConfi.setText("asd");
+
+        jPasswordField_reContraseñaConfi.setText("asd");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPasswordField_contraseñaConfi)
+                    .addComponent(jPasswordField_reContraseñaConfi, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                    .addComponent(txt_nickConfiCrew))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(txt_nickConfiCrew, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(jPasswordField_contraseñaConfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(jPasswordField_reContraseñaConfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Cancelar");
+        btn_cancelarConfiCrew.setText("Cancelar");
 
-        jButton2.setText("Modificar");
+        btn_modificarConfiCrew.setText("Modificar");
 
         javax.swing.GroupLayout jFrame_confiCrewLayout = new javax.swing.GroupLayout(jFrame_confiCrew.getContentPane());
         jFrame_confiCrew.getContentPane().setLayout(jFrame_confiCrewLayout);
@@ -1342,10 +1435,10 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrame_confiCrewLayout.createSequentialGroup()
-                        .addGap(0, 352, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btn_modificarConfiCrew)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(btn_cancelarConfiCrew)))
                 .addContainerGap())
         );
         jFrame_confiCrewLayout.setVerticalGroup(
@@ -1353,12 +1446,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jFrame_confiCrewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jFrame_confiCrewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btn_cancelarConfiCrew)
+                    .addComponent(btn_modificarConfiCrew))
                 .addContainerGap())
         );
 
@@ -1667,10 +1760,10 @@ public class Main extends javax.swing.JFrame {
         jMenu2.add(jMenu6);
         jMenu2.add(jSeparator2);
 
-        jMenuItem2.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
-        jMenuItem2.setText("Cerrar sesión");
-        jMenu2.add(jMenuItem2);
+        mitem_logout.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
+        mitem_logout.setText("Cerrar sesión");
+        jMenu2.add(mitem_logout);
 
         manu_bar.add(jMenu2);
 
@@ -1786,6 +1879,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_Materiales;
     public javax.swing.JButton btn_abrirFilechooser;
     public javax.swing.JButton btn_añadirCategoria;
+    public javax.swing.JButton btn_cancelarConfiCrew;
     public javax.swing.JButton btn_categorias_insertar;
     public javax.swing.JButton btn_categorias_modificar;
     public javax.swing.JButton btn_empleMovi;
@@ -1798,6 +1892,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_insertarMaterial;
     public javax.swing.JButton btn_insertarProducto;
     public javax.swing.JButton btn_modificarCliente;
+    public javax.swing.JButton btn_modificarConfiCrew;
     public javax.swing.JButton btn_modificarEmpleado;
     public javax.swing.JButton btn_modificarMaterial;
     public javax.swing.JButton btn_modificarProducto;
@@ -1808,10 +1903,8 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel eti_nickCrew;
     public javax.swing.JLabel eti_olvidarContraseña;
     public javax.swing.JLabel eti_productoCarrito;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     public javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     public javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
@@ -1823,11 +1916,12 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JFileChooser jFileChooser1;
     public javax.swing.JFrame jFrameLoggin;
     private javax.swing.JFrame jFrame_clienteCarrito;
-    private javax.swing.JFrame jFrame_confiCrew;
+    public javax.swing.JFrame jFrame_confiCrew;
     private javax.swing.JFrame jFrame_productoCarrito;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     public javax.swing.JLabel jLabel14;
     public javax.swing.JLabel jLabel15;
@@ -1842,6 +1936,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel23;
     public javax.swing.JLabel jLabel24;
     public javax.swing.JLabel jLabel25;
+    public javax.swing.JLabel jLabel26;
     public javax.swing.JLabel jLabel27;
     public javax.swing.JLabel jLabel28;
     public javax.swing.JLabel jLabel29;
@@ -1852,11 +1947,16 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel33;
     public javax.swing.JLabel jLabel34;
     public javax.swing.JLabel jLabel35;
+    public javax.swing.JLabel jLabel36;
     public javax.swing.JLabel jLabel37;
     public javax.swing.JLabel jLabel38;
     public javax.swing.JLabel jLabel39;
+    public javax.swing.JLabel jLabel4;
     public javax.swing.JLabel jLabel40;
     public javax.swing.JLabel jLabel41;
+    public javax.swing.JLabel jLabel42;
+    public javax.swing.JLabel jLabel43;
+    public javax.swing.JLabel jLabel5;
     public javax.swing.JLabel jLabel6;
     public javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1870,24 +1970,25 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
     public javax.swing.JMenuItem jMenuItemEliminar;
     public javax.swing.JMenuItem jMenuItemModificar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    public javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JPasswordField jPasswordFieldClientePassword;
     public javax.swing.JPasswordField jPasswordFieldClienteRePassword;
     public javax.swing.JPasswordField jPasswordFieldEmpleadoPassword;
     public javax.swing.JPasswordField jPasswordFieldEmpleadoRePassword;
+    public javax.swing.JPasswordField jPasswordField_contraseñaConfi;
+    public javax.swing.JPasswordField jPasswordField_reContraseñaConfi;
     public javax.swing.JPopupMenu jPopupMenu;
     public javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JScrollPane jScrollPane2;
@@ -1928,6 +2029,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_blackstart;
     public javax.swing.JMenuItem mitem_classy;
     public javax.swing.JMenuItem mitem_contacta;
+    public javax.swing.JMenuItem mitem_logout;
     public javax.swing.JMenuItem mitem_masInfo;
     public javax.swing.JMenuItem mitem_nuevoCarrito;
     public javax.swing.JMenuItem mitem_nuevoCliente;
@@ -1957,6 +2059,11 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_split1_izquierda;
     public javax.swing.JPanel pnl_split3_derecha;
     public javax.swing.JPanel pnl_split3_inserts;
+    public javax.swing.JTextField txt_apellidosConfiCrew;
+    public javax.swing.JTextField txt_emailConfiCrew;
     public javax.swing.JTextField txt_login_user;
+    public javax.swing.JTextField txt_nickConfiCrew;
+    public javax.swing.JTextField txt_nombreConfiCrew;
+    public javax.swing.JTextField txt_telefonoConfiCrew;
     // End of variables declaration//GEN-END:variables
 }
