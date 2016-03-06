@@ -61,9 +61,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_blackstart.addActionListener(this);
             this.v.mitem_classy.setActionCommand("mitem_classy");
             this.v.mitem_classy.addActionListener(this);
-        //guardado en SQlite
-        this.v.mitem_guardarBD.setActionCommand("mitem_guardarBD");
-        this.v.mitem_guardarBD.addActionListener(this);
             this.v.btn_comenzarGuardarBD.setActionCommand("btn_comenzarGuardadarBD");
             this.v.btn_comenzarGuardarBD.addActionListener(this);
             

@@ -56,7 +56,6 @@ public class Main extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         btn_empleMovi = new javax.swing.JButton();
         btn_productoMovi = new javax.swing.JButton();
-        btn_filechooser = new javax.swing.JButton();
         btn_home = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         pnl_contenedorDerechoMovimientos = new javax.swing.JPanel();
@@ -185,6 +184,9 @@ public class Main extends javax.swing.JFrame {
         btn_añadirCategoria = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         jPanel7 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        eti_nickCrew = new javax.swing.JLabel();
+        eti_emailCrew = new javax.swing.JLabel();
         pnl_split1_derecha = new javax.swing.JPanel();
         SplitPane3 = new javax.swing.JSplitPane();
         pnl_split3_derecha = new javax.swing.JPanel();
@@ -193,17 +195,17 @@ public class Main extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        mitem_guardarBD = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         mitem_nuevoProducto = new javax.swing.JMenuItem();
         mitem_nuevoMaterial = new javax.swing.JMenuItem();
         mitem_nuevoCliente = new javax.swing.JMenuItem();
         mitem_nuevoEmpleado = new javax.swing.JMenuItem();
         mitem_nuevoCarrito = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         mn_apariencia = new javax.swing.JMenu();
         mitem_aluoxide = new javax.swing.JMenuItem();
@@ -461,25 +463,20 @@ public class Main extends javax.swing.JFrame {
 
         btn_productoMovi.setText("Productos");
 
-        btn_filechooser.setText("FileChooser");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_ventasMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_ventasMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButton9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton10))
-                            .addComponent(btn_empleMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_productoMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(btn_filechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton10))
+                    .addComponent(btn_empleMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_productoMovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -491,9 +488,7 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(btn_empleMovi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_productoMovi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
-                .addComponent(btn_filechooser)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 263, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                     .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1554,7 +1549,7 @@ public class Main extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 439, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
         jScrollPane8.setViewportView(jPanel7);
@@ -1578,19 +1573,51 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel3.setOpaque(false);
+
+        eti_nickCrew.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
+        eti_nickCrew.setForeground(new java.awt.Color(204, 204, 204));
+        eti_nickCrew.setText("null");
+
+        eti_emailCrew.setFont(new java.awt.Font("Calibri", 1, 15)); // NOI18N
+        eti_emailCrew.setForeground(new java.awt.Color(204, 204, 204));
+        eti_emailCrew.setText("null");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(eti_emailCrew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(eti_nickCrew, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                .addGap(8, 8, 8))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addComponent(eti_nickCrew)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eti_emailCrew)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout pnl_split1_izquierdaLayout = new javax.swing.GroupLayout(pnl_split1_izquierda);
         pnl_split1_izquierda.setLayout(pnl_split1_izquierdaLayout);
         pnl_split1_izquierdaLayout.setHorizontalGroup(
             pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
                 .addGroup(pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Carritos)
-                    .addGroup(pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btn_Empleados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Categorias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Clientes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_Materiales, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
+                    .addGroup(pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btn_Carritos)
+                        .addComponent(btn_Empleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Categorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_Materiales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnl_listaCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_split1_izquierdaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1613,7 +1640,8 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnl_listaCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -1629,7 +1657,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split3_derecha.setLayout(pnl_split3_derechaLayout);
         pnl_split3_derechaLayout.setHorizontalGroup(
             pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGap(0, 1242, Short.MAX_VALUE)
         );
         pnl_split3_derechaLayout.setVerticalGroup(
             pnl_split3_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1642,7 +1670,7 @@ public class Main extends javax.swing.JFrame {
         pnl_split3_inserts.setLayout(pnl_split3_insertsLayout);
         pnl_split3_insertsLayout.setHorizontalGroup(
             pnl_split3_insertsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGap(0, 1242, Short.MAX_VALUE)
         );
         pnl_split3_insertsLayout.setVerticalGroup(
             pnl_split3_insertsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1655,11 +1683,11 @@ public class Main extends javax.swing.JFrame {
         pnl_split1_derecha.setLayout(pnl_split1_derechaLayout);
         pnl_split1_derechaLayout.setHorizontalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+            .addComponent(SplitPane3)
         );
         pnl_split1_derechaLayout.setVerticalGroup(
             pnl_split1_derechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SplitPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)
+            .addComponent(SplitPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 562, Short.MAX_VALUE)
         );
 
         SplitPane1.setRightComponent(pnl_split1_derecha);
@@ -1678,25 +1706,26 @@ public class Main extends javax.swing.JFrame {
         jMenu2.setText("Archivo");
         jMenu2.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/save.png"))); // NOI18N
         jMenu4.setText("Guardar");
         jMenu4.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
         jMenuItem3.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/pdf.png"))); // NOI18N
         jMenuItem3.setText("Informe");
         jMenu4.add(jMenuItem3);
 
-        mitem_guardarBD.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        mitem_guardarBD.setText("Base de datos SQL");
-        jMenu4.add(mitem_guardarBD);
-
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda.png"))); // NOI18N
         jMenu5.setText("Agenda de ...");
         jMenu5.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
         jMenuItem9.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda_usuario.png"))); // NOI18N
         jMenuItem9.setText("Clientes");
         jMenu5.add(jMenuItem9);
 
         jMenuItem10.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/agenda_crew.png"))); // NOI18N
         jMenuItem10.setText("Empleados");
         jMenu5.add(jMenuItem10);
 
@@ -1704,40 +1733,54 @@ public class Main extends javax.swing.JFrame {
 
         jMenu2.add(jMenu4);
 
-        jMenuItem4.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem4.setText("Reconectar base de datos");
-        jMenu2.add(jMenuItem4);
-
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/add.png"))); // NOI18N
         jMenu6.setText("Nuevo . . .");
         jMenu6.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
         mitem_nuevoProducto.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/product.png"))); // NOI18N
         mitem_nuevoProducto.setText("Producto");
         jMenu6.add(mitem_nuevoProducto);
 
         mitem_nuevoMaterial.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/material.png"))); // NOI18N
         mitem_nuevoMaterial.setText("Material");
         jMenu6.add(mitem_nuevoMaterial);
 
         mitem_nuevoCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/user.png"))); // NOI18N
         mitem_nuevoCliente.setText("Cliente");
         jMenu6.add(mitem_nuevoCliente);
 
         mitem_nuevoEmpleado.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoEmpleado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/crew.png"))); // NOI18N
         mitem_nuevoEmpleado.setText("Empleado");
+        mitem_nuevoEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mitem_nuevoEmpleadoActionPerformed(evt);
+            }
+        });
         jMenu6.add(mitem_nuevoEmpleado);
 
         mitem_nuevoCarrito.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/basket.png"))); // NOI18N
         mitem_nuevoCarrito.setText("Carrito");
         jMenu6.add(mitem_nuevoCarrito);
 
         jMenu2.add(jMenu6);
+        jMenu2.add(jSeparator2);
+
+        jMenuItem2.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/logout.png"))); // NOI18N
+        jMenuItem2.setText("Cerrar sesión");
+        jMenu2.add(jMenuItem2);
 
         manu_bar.add(jMenu2);
 
         jMenu3.setText("Editar");
         jMenu3.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
+        mn_apariencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/apariencia.png"))); // NOI18N
         mn_apariencia.setText("Apariencia");
         mn_apariencia.setFocusable(false);
         mn_apariencia.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
@@ -1761,7 +1804,8 @@ public class Main extends javax.swing.JFrame {
         jMenu3.add(mn_apariencia);
 
         jMenuItem6.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        jMenuItem6.setText("Datos base");
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/settings_mini.png"))); // NOI18N
+        jMenuItem6.setText("Cofiguración Usuario");
         jMenu3.add(jMenuItem6);
 
         manu_bar.add(jMenu3);
@@ -1770,6 +1814,7 @@ public class Main extends javax.swing.JFrame {
         menu_movimientos.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
         mn_historial_ventas.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
+        mn_historial_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/movi.png"))); // NOI18N
         mn_historial_ventas.setText("Historial ventas");
         menu_movimientos.add(mn_historial_ventas);
 
@@ -1779,14 +1824,17 @@ public class Main extends javax.swing.JFrame {
         jMenu1.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
         jMenuItem1.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/manual.png"))); // NOI18N
         jMenuItem1.setText("Paso a paso");
         jMenu1.add(jMenuItem1);
 
         mitem_contacta.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_contacta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/mail.png"))); // NOI18N
         mitem_contacta.setText("Contacta");
         jMenu1.add(mitem_contacta);
 
         mitem_masInfo.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_masInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/web.png"))); // NOI18N
         mitem_masInfo.setText("Mas información");
         jMenu1.add(mitem_masInfo);
 
@@ -1824,6 +1872,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldClienteTelefonoActionPerformed
 
+    private void mitem_nuevoEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mitem_nuevoEmpleadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mitem_nuevoEmpleadoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JFrame Frame_guardandoBD;
     public javax.swing.JPasswordField Ptxt_login_password;
@@ -1844,7 +1896,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_empleMovi;
     public javax.swing.JButton btn_esconderRosa;
     public javax.swing.JButton btn_esconder_pnlPrincipal;
-    public javax.swing.JButton btn_filechooser;
     public javax.swing.JButton btn_home;
     public javax.swing.JButton btn_insertarCarrito;
     public javax.swing.JButton btn_insertarCliente;
@@ -1858,7 +1909,9 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_productoMovi;
     public javax.swing.JButton btn_ventasMovi;
     public javax.swing.JButton btn_verFilechooser;
+    public javax.swing.JLabel eti_emailCrew;
     public javax.swing.JLabel eti_estadoGuardandoBD;
+    public javax.swing.JLabel eti_nickCrew;
     public javax.swing.JLabel eti_olvidarContraseña;
     public javax.swing.JLabel eti_productoCarrito;
     private javax.swing.JButton jButton10;
@@ -1928,14 +1981,15 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem9;
     public javax.swing.JMenuItem jMenuItemEliminar;
     public javax.swing.JMenuItem jMenuItemModificar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel7;
@@ -1953,6 +2007,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSlider jSlider1;
     public javax.swing.JSpinner jSpinner_productoCarrito;
     public javax.swing.JTable jTableMain;
@@ -1985,7 +2040,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_blackstart;
     public javax.swing.JMenuItem mitem_classy;
     public javax.swing.JMenuItem mitem_contacta;
-    public javax.swing.JMenuItem mitem_guardarBD;
     public javax.swing.JMenuItem mitem_masInfo;
     public javax.swing.JMenuItem mitem_nuevoCarrito;
     public javax.swing.JMenuItem mitem_nuevoCliente;
