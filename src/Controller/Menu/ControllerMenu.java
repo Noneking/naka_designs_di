@@ -7,6 +7,7 @@ package Controller.Menu;
 
 import Controller.Controller_Login;
 import Controller.Controller_Main;
+import Controller.Position;
 import Controller.RUN;
 import Facade.Facade;
 import Hibernate.POJOs.Crew;
@@ -39,11 +40,10 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
     Controller_Main cm;
     Facade facade;
     //cadenas estaticas de las rutas de los lookandfeels
-  static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
-  static String BLACKEYE ="de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel";
-  static String BLACKSTART="de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel";
-  static String CLASSY="de.javasoft.plaf.synthetica.SyntheticaClassyLookAndFeel";
-  private String position = "";
+    static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
+    static String BLACKEYE ="de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel";
+    static String BLACKSTART="de.javasoft.plaf.synthetica.SyntheticaBlackStarLookAndFeel";
+    static String CLASSY="de.javasoft.plaf.synthetica.SyntheticaClassyLookAndFeel";
 
     public ControllerMenu(Facade facade){
         this.facade=facade;
@@ -176,8 +176,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             //Comienzo de Nuevo ...------------------------------------------------------------------------------------------ 
             case mitem_nuevoProducto:
                 
-                position = Controller_Main.POSITION.PRODUCTO.toString();
-                cm.refreshTable(position);
+                Position.setPosition(Position.POSITION.PRODUCTO.toString());
+                cm.refreshTable(Position.getPosition());
 
                 cm.ponerEsaTablaToGuapaYReshulona();
                 
@@ -196,9 +196,9 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 break;
             case mitem_nuevoMaterial:
                 
-                position = Controller_Main.POSITION.MATERIAL.toString();
-                cm.refreshTable(position);
-
+                Position.setPosition(Position.POSITION.MATERIAL.toString());
+                cm.refreshTable(Position.getPosition());
+                
                 cm.ponerEsaTablaToGuapaYReshulona();
                 
                 this.v.pnl_split3_inserts.removeAll();
@@ -212,9 +212,9 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoCliente:
-                position = Controller_Main.POSITION.CLIENTE.toString();
-                cm.refreshTable(position);
-
+                Position.setPosition(Position.POSITION.CLIENTE.toString());
+                cm.refreshTable(Position.getPosition());
+                
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(200);
@@ -227,9 +227,9 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoEmpleado:
-                position = Controller_Main.POSITION.EMPLEADO.toString();
-                cm.refreshTable(position);
-
+                Position.setPosition(Position.POSITION.EMPLEADO.toString());
+                cm.refreshTable(Position.getPosition());
+                
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(200);
@@ -242,9 +242,9 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoCarrito:
-                position = Controller_Main.POSITION.CARRITO.toString();
-                cm.refreshTable(position);
-
+                Position.setPosition(Position.POSITION.CARRITO.toString());
+                cm.refreshTable(Position.getPosition());
+                
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(300);
