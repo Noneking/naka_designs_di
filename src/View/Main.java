@@ -47,7 +47,7 @@ public class Main extends javax.swing.JFrame {
         pnl_contenedorDerecho = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         pnl_mostrarGrafica = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
+        pnl_contenedorInferiorMovimientos = new javax.swing.JPanel();
         pnl_Movimientos = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         btn_ventasMovi = new javax.swing.JButton();
@@ -139,6 +139,10 @@ public class Main extends javax.swing.JFrame {
         jSlider1 = new javax.swing.JSlider();
         btn_insertarMaterial = new javax.swing.JButton();
         btn_modificarMaterial = new javax.swing.JButton();
+        pnl_filechooser = new javax.swing.JPanel();
+        jFileChooser1 = new javax.swing.JFileChooser();
+        btn_abrirFilechooser = new javax.swing.JButton();
+        btn_verFilechooser = new javax.swing.JButton();
         jdialog_eliminar = new javax.swing.JDialog();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel2 = new javax.swing.JPanel();
@@ -165,9 +169,8 @@ public class Main extends javax.swing.JFrame {
         jFrame_clienteCarrito = new javax.swing.JFrame();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable_clienteCarrito = new javax.swing.JTable();
-        pnl_filechooser = new javax.swing.JPanel();
-        jFileChooser1 = new javax.swing.JFileChooser();
-        jLabel36 = new javax.swing.JLabel();
+        jFrame_verFile = new javax.swing.JFrame();
+        pnl_verFile = new javax.swing.JPanel();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -413,16 +416,16 @@ public class Main extends javax.swing.JFrame {
             .addComponent(pnl_mostrarGrafica, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Funcionalidades sobre aletas o avisos"));
+        pnl_contenedorInferiorMovimientos.setBorder(javax.swing.BorderFactory.createTitledBorder("Funcionalidades sobre aletas o avisos"));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnl_contenedorInferiorMovimientosLayout = new javax.swing.GroupLayout(pnl_contenedorInferiorMovimientos);
+        pnl_contenedorInferiorMovimientos.setLayout(pnl_contenedorInferiorMovimientosLayout);
+        pnl_contenedorInferiorMovimientosLayout.setHorizontalGroup(
+            pnl_contenedorInferiorMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 728, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pnl_contenedorInferiorMovimientosLayout.setVerticalGroup(
+            pnl_contenedorInferiorMovimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 199, Short.MAX_VALUE)
         );
 
@@ -430,7 +433,7 @@ public class Main extends javax.swing.JFrame {
         pnl_contenedorDerecho.setLayout(pnl_contenedorDerechoLayout);
         pnl_contenedorDerechoLayout.setHorizontalGroup(
             pnl_contenedorDerechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl_contenedorInferiorMovimientos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnl_contenedorDerechoLayout.setVerticalGroup(
@@ -438,7 +441,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_contenedorDerechoLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnl_contenedorInferiorMovimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Tablas de la BD"));
@@ -1201,6 +1204,38 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jFileChooser1.setControlButtonsAreShown(false);
+        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\MrDrulix\\Desktop"));
+        jFileChooser1.setFileHidingEnabled(true);
+        jFileChooser1.setFileSelectionMode(javax.swing.JFileChooser.FILES_AND_DIRECTORIES);
+        jFileChooser1.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jFileChooser1.setForeground(new java.awt.Color(204, 204, 204));
+        jFileChooser1.setBorder(null);
+
+        btn_abrirFilechooser.setText("Abrir");
+
+        btn_verFilechooser.setText("Ver");
+
+        javax.swing.GroupLayout pnl_filechooserLayout = new javax.swing.GroupLayout(pnl_filechooser);
+        pnl_filechooser.setLayout(pnl_filechooserLayout);
+        pnl_filechooserLayout.setHorizontalGroup(
+            pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_filechooserLayout.createSequentialGroup()
+                .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btn_abrirFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                    .addComponent(btn_verFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        pnl_filechooserLayout.setVerticalGroup(
+            pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+            .addGroup(pnl_filechooserLayout.createSequentialGroup()
+                .addComponent(btn_abrirFilechooser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_verFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         jdialog_eliminar.setUndecorated(true);
 
         jInternalFrame1.setClosable(true);
@@ -1408,26 +1443,26 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
         );
 
-        jFileChooser1.setCurrentDirectory(new java.io.File("C:\\Users\\MrDrulix\\Desktop"));
-        jFileChooser1.setFileSelectionMode(javax.swing.JFileChooser.FILES_AND_DIRECTORIES);
-        jFileChooser1.setForeground(new java.awt.Color(204, 204, 204));
-
-        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel36.setText("jLabel36");
-
-        javax.swing.GroupLayout pnl_filechooserLayout = new javax.swing.GroupLayout(pnl_filechooser);
-        pnl_filechooser.setLayout(pnl_filechooserLayout);
-        pnl_filechooserLayout.setHorizontalGroup(
-            pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_filechooserLayout.createSequentialGroup()
-                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE))
+        javax.swing.GroupLayout pnl_verFileLayout = new javax.swing.GroupLayout(pnl_verFile);
+        pnl_verFile.setLayout(pnl_verFileLayout);
+        pnl_verFileLayout.setHorizontalGroup(
+            pnl_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 723, Short.MAX_VALUE)
         );
-        pnl_filechooserLayout.setVerticalGroup(
-            pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
-            .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pnl_verFileLayout.setVerticalGroup(
+            pnl_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame_verFileLayout = new javax.swing.GroupLayout(jFrame_verFile.getContentPane());
+        jFrame_verFile.getContentPane().setLayout(jFrame_verFileLayout);
+        jFrame_verFileLayout.setHorizontalGroup(
+            jFrame_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnl_verFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jFrame_verFileLayout.setVerticalGroup(
+            jFrame_verFileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnl_verFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1676,7 +1711,7 @@ public class Main extends javax.swing.JFrame {
         jMenu6.add(mitem_nuevoProducto);
 
         mitem_nuevoMaterial.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
-        mitem_nuevoMaterial.setText("Materiale");
+        mitem_nuevoMaterial.setText("Material");
         jMenu6.add(mitem_nuevoMaterial);
 
         mitem_nuevoCliente.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
@@ -1796,6 +1831,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_Empleados;
     public javax.swing.JButton btn_Login;
     public javax.swing.JButton btn_Materiales;
+    public javax.swing.JButton btn_abrirFilechooser;
     public javax.swing.JButton btn_añadirCategoria;
     public javax.swing.JButton btn_categorias_insertar;
     public javax.swing.JButton btn_categorias_modificar;
@@ -1816,6 +1852,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_modificarProducto;
     public javax.swing.JButton btn_productoMovi;
     public javax.swing.JButton btn_ventasMovi;
+    public javax.swing.JButton btn_verFilechooser;
     public javax.swing.JLabel eti_estadoGuardandoBD;
     public javax.swing.JLabel eti_olvidarContraseña;
     public javax.swing.JLabel eti_productoCarrito;
@@ -1832,10 +1869,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox1;
     public javax.swing.JComboBox jComboBoxEmpleadoRol;
     public javax.swing.JComboBox jComboBoxProductoCategoria;
-    private javax.swing.JFileChooser jFileChooser1;
+    public javax.swing.JFileChooser jFileChooser1;
     public javax.swing.JFrame jFrameLoggin;
     private javax.swing.JFrame jFrame_clienteCarrito;
     private javax.swing.JFrame jFrame_productoCarrito;
+    public javax.swing.JFrame jFrame_verFile;
     private javax.swing.JInternalFrame jInternalFrame1;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
@@ -1865,7 +1903,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel33;
     public javax.swing.JLabel jLabel34;
     public javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     public javax.swing.JLabel jLabel37;
     public javax.swing.JLabel jLabel38;
     public javax.swing.JLabel jLabel39;
@@ -1895,7 +1932,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JPasswordField jPasswordFieldClientePassword;
@@ -1964,6 +2000,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_TableMain;
     public javax.swing.JPanel pnl_contenedorDerecho;
     public javax.swing.JPanel pnl_contenedorDerechoMovimientos;
+    public javax.swing.JPanel pnl_contenedorInferiorMovimientos;
     public javax.swing.JPanel pnl_filechooser;
     public javax.swing.JPanel pnl_listaCarrito;
     public javax.swing.JPanel pnl_listaCategorias;
@@ -1973,6 +2010,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_split1_izquierda;
     public javax.swing.JPanel pnl_split3_derecha;
     public javax.swing.JPanel pnl_split3_inserts;
+    public javax.swing.JPanel pnl_verFile;
     public javax.swing.JTextArea ta_logGuardandoBD;
     public javax.swing.JTextField txt_login_user;
     // End of variables declaration//GEN-END:variables

@@ -5,9 +5,6 @@
  */
 package Controller.Movimientos;
 
-import Controller.Controller_Main;
-import Facade.Facade;
-import Hibernate.POJOs.Bookmark;
 import Hibernate.POJOs.Crew;
 import Hibernate.POJOs.Product;
 import Model.Model_Movimientos;
@@ -16,15 +13,16 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Iterator;
-import java.util.Vector;
-import javax.swing.text.View;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+
 
 /**
  *
@@ -34,7 +32,8 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
     
     Main v;
     Model_Movimientos mm;
-    
+    File arch;
+    //JWebBrowser fileBrowser = new JWebBrowser();
     public void initMovimientosListeners(Main v){
         this.v = v;
         //boton home
@@ -42,7 +41,8 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         this.v.btn_home.addActionListener(this);
         //boton ventas
         this.v.pnl_mostrarGrafica.setLayout(new BorderLayout());
-        
+        this.v.pnl_contenedorInferiorMovimientos.setLayout(new BorderLayout());
+        this.v.pnl_verFile.setLayout(new BorderLayout());
         
         this.v.btn_ventasMovi.setActionCommand("btn_ventasMovi");
         this.v.btn_ventasMovi.addActionListener(this);
@@ -50,10 +50,21 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         this.v.btn_empleMovi.addActionListener(this);
         this.v.btn_productoMovi.setActionCommand("btn_productoMovi");
         this.v.btn_productoMovi.addActionListener(this);
+        this.v.btn_filechooser.setActionCommand("btn_filechooser");
+        this.v.btn_filechooser.addActionListener(this);
+        
+        this.v.btn_verFilechooser.setActionCommand("btn_verFilechooser");
+        this.v.btn_verFilechooser.addActionListener(this);
+        this.v.btn_abrirFilechooser.setActionCommand("btn_abrirFilechooser");
+        this.v.btn_abrirFilechooser.addActionListener(this);
         
         mm = new Model_Movimientos();
         
-        
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imágenes", "png", "jpg", "gif");//filtramos solo los formatos que queramos de imagen
+        FileNameExtensionFilter filtro1 = new FileNameExtensionFilter("Texto", "pdf", "txt");
+        this.v.jFileChooser1.setFileFilter(filtro);//le enviamos el filtro
+        this.v.jFileChooser1.setFileFilter(filtro1);
+        this.v.jFileChooser1.setAccessory(new LabelAccessor(this.v.jFileChooser1));
         
     }
 
@@ -94,12 +105,13 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 this.v.pnl_mostrarGrafica.add(barPanel, BorderLayout.CENTER);
                 this.v.pnl_mostrarGrafica.setVisible(false);
                 this.v.pnl_mostrarGrafica.setVisible(true);
+                mostrarFilechooser();
                 break;
 
             case btn_empleMovi:
                 this.v.pnl_contenedorDerechoMovimientos.removeAll();
-                 this.v.pnl_contenedorDerechoMovimientos.add(this.v.pnl_contenedorDerecho,BorderLayout.CENTER);
-                 this.v.pnl_contenedorDerechoMovimientos.setVisible(false);
+                this.v.pnl_contenedorDerechoMovimientos.add(this.v.pnl_contenedorDerecho, BorderLayout.CENTER);
+                this.v.pnl_contenedorDerechoMovimientos.setVisible(false);
                 this.v.pnl_contenedorDerechoMovimientos.setVisible(true);
                 DefaultCategoryDataset bE = new DefaultCategoryDataset();
 
@@ -118,7 +130,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 this.v.pnl_mostrarGrafica.add(barPanelEmpleado, BorderLayout.CENTER);
                 this.v.pnl_mostrarGrafica.setVisible(false);
                 this.v.pnl_mostrarGrafica.setVisible(true);
-
+                mostrarFilechooser();
                 break;
 
             case btn_productoMovi:
@@ -143,10 +155,31 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 this.v.pnl_mostrarGrafica.add(barPanelProducto, BorderLayout.CENTER);
                 this.v.pnl_mostrarGrafica.setVisible(false);
                 this.v.pnl_mostrarGrafica.setVisible(true);
-
+                mostrarFilechooser();
                 break;
 
+            case btn_verFilechooser:
+      
+//                fileBrowser.setBarsVisible(false);
+//                fileBrowser.setStatusBarVisible(false);
+//                this.v.pnl_verFile.add(fileBrowser, BorderLayout.CENTER);
+//                
+//                fileBrowser.navigate(this.arch.toString());
+//                
+                this.v.jFrame_verFile.setVisible(true);
+                break;
+            case btn_abrirFilechooser:
+                
+                break;
         }
     }
 
+    public void mostrarFilechooser() {
+        this.v.pnl_contenedorInferiorMovimientos.add(this.v.pnl_filechooser, BorderLayout.CENTER);
+        this.v.pnl_contenedorInferiorMovimientos.setVisible(false);
+        this.v.pnl_contenedorInferiorMovimientos.setVisible(true);
+        
+    }
+
 }
+

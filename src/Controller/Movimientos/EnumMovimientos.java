@@ -16,7 +16,10 @@ public class EnumMovimientos {
           btn_home,
           btn_ventasMovi,
           btn_empleMovi,
-          btn_productoMovi;
+          btn_productoMovi,
+          btn_filechooser,
+            btn_verFilechooser,
+            btn_abrirFilechooser;
     }
     
 }
