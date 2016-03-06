@@ -20,6 +20,7 @@ import Hibernate.POJOs.Crew;
 import Model.HiloProgreso;
 import Model.Model;
 import View.Main;
+import com.itextpdf.text.Font;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -473,14 +474,25 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(Position.getPosition());
                 ponerEsaTablaToGuapaYReshulona();
                 
-                Component[] components=this.v.jPanelMaterialesAñadidos.getComponents();
-                if(components.length>0){
-                    for(int i=0;i<components.length;i++){
-                        Label label=(Label) components[i];
-                        facade.insertProductMaterial(rosa, rosa, i);
+                try{
+                    Component[] components=this.v.jPanelMaterialesAñadidos.getComponents();
+                    if(components.length>0){
+                        int i=0;
+                        while(i<components.length){
+                            Label nombre=(Label) components[i];
+                            Label cantidad=(Label) components[i+1];
+                            i=i+2;
+                            facade.insertProductMaterial(Integer.parseInt(cantidad.getText()), facade.getProductByName(this.v.jTextFieldProductoNombre.getText()).getCod(), facade.getMaterialByName(nombre.getText()).getCod());
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar los materiales del producto");
                     }
-                }else{
-                    JOptionPane.showMessageDialog(null, "Debe seleccionar los materiales del producto");
+                }catch(Exception ex){
+                    facade.deleteProduct(facade.getProductByName(this.v.jTextFieldProductoNombre.getText()).getCod());
+                    productTableModel.updateTableDatas();
+                    Position.setPosition(Position.POSITION.PRODUCTO.toString());
+                    refreshTable(Position.getPosition());
+                    ponerEsaTablaToGuapaYReshulona();
                 }
                 
                 break;
@@ -703,33 +715,46 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                         }
                     }
                 }else{
-                    //este boton se encarga de ejecutar un grid layout 
-                    GridLayout g = new GridLayout(0, 1);// por defecto creamos el objeto GridLayout y le damos los parametros de 0 filas y 2 columnas
-                    this.v.jPanelMaterialesAñadidos.setLayout(g);//le pasamos al panel en el que vamos a meter los elementos de pruebas un layout con el objeto GridLayout
-                    this.v.jTable_materialesProducto.setFocusable(false);
-                    this.v.jTable_materialesProducto.setRowSelectionAllowed(true);
-                    Label label=new Label();
-                    label.setText(this.v.jTable_materialesProducto.getValueAt(this.v.jTable_materialesProducto.getSelectedRow(), 1).toString());
-                    this.v.jPanelMaterialesAñadidos.add(label);
+                    if(Integer.parseInt(this.v.jSpinner_materialesProducto.getValue().toString())>0){
+                        //este boton se encarga de ejecutar un grid layout 
+                        GridLayout g = new GridLayout(0, 2);// por defecto creamos el objeto GridLayout y le damos los parametros de 0 filas y 2 columnas
+                        this.v.jPanelMaterialesAñadidos.setLayout(g);//le pasamos al panel en el que vamos a meter los elementos de pruebas un layout con el objeto GridLayout
+                        this.v.jTable_materialesProducto.setFocusable(false);
+                        this.v.jTable_materialesProducto.setRowSelectionAllowed(true);
+                        Label nombre=new Label();
+                        nombre.setText(this.v.jTable_materialesProducto.getValueAt(this.v.jTable_materialesProducto.getSelectedRow(), 1).toString());
+                        nombre.setFont(new java.awt.Font("Calibri", Font.BOLD, 30));
+                        this.v.jPanelMaterialesAñadidos.add(nombre);
+                        Label cantidad=new Label();
+                        cantidad.setText(this.v.jSpinner_materialesProducto.getValue().toString());
+                        cantidad.setFont(new java.awt.Font("Calibri", Font.BOLD, 30));
+                        this.v.jPanelMaterialesAñadidos.add(cantidad);
+                        this.v.jSpinner_materialesProducto.setValue(0);
 
-                    String horGap = "10";
-                    String verGap = "10";
+                        String horGap = "10";
+                        String verGap = "10";
 
-                    try{//creamos un try para controlar que se metan los campos requeridos, sino saltara un error
-                        g.setHgap(Integer.parseInt(horGap));
-                        g.setVgap(Integer.parseInt(verGap));
-                        g.layoutContainer(this.v.jPanelMaterialesAñadidos);
-                    } catch (Exception ex) {
-                        System.err.println(ex);
+                        try{//creamos un try para controlar que se metan los campos requeridos, sino saltara un error
+                            g.setHgap(Integer.parseInt(horGap));
+                            g.setVgap(Integer.parseInt(verGap));
+                            g.layoutContainer(this.v.jPanelMaterialesAñadidos);
+                        } catch (Exception ex) {
+                            System.err.println(ex);
+                        }
+
+
+
+                        for(int i=0;i<this.v.jTable_materialesProducto.getRowCount();i++){
+                            if(this.v.jTable_materialesProducto.getValueAt(i, 1).toString().equals(nombre.getText())){
+                                DefaultTableModel dtm=(DefaultTableModel) this.v.jTable_materialesProducto.getModel();
+                                dtm.removeRow(i);
+                                this.v.jTable_materialesProducto.setModel(dtm);
+                            }
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar una cantidad superior a cero");
                     }
                     
-                    for(int i=0;i<this.v.jTable_materialesProducto.getRowCount();i++){
-                        if(this.v.jTable_materialesProducto.getValueAt(i, 1).toString().equals(label.getText())){
-                            DefaultTableModel dtm=(DefaultTableModel) this.v.jTable_materialesProducto.getModel();
-                            dtm.removeRow(i);
-                            this.v.jTable_materialesProducto.setModel(dtm);
-                        }
-                    }
                 }
                 
                 break;

@@ -203,6 +203,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 
                 this.v.jTable_materialesProducto.setModel(facade.getTableModelMaterial());
                 
+                this.v.jPanelMaterialesAñadidos.removeAll();
+                
                 break;
             case mitem_nuevoMaterial:
                 
