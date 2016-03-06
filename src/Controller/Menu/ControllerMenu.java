@@ -35,6 +35,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
     Main v;
     Model model = new Model();
     Controller_Main cm;
+    Facade facade;
     //cadenas estaticas de las rutas de los lookandfeels
   static String ALUOXIDE ="de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel";
   static String BLACKEYE ="de.javasoft.plaf.synthetica.SyntheticaBlackEyeLookAndFeel";
@@ -42,8 +43,13 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
   static String CLASSY="de.javasoft.plaf.synthetica.SyntheticaClassyLookAndFeel";
   private String position = "";
 
+    public ControllerMenu(Facade facade){
+        this.facade=facade;
+    }
+  
     public void initControllerMenuListeners(Main v, Crew crew_logged, Facade facade) {
         this.v = v;
+        this.facade=facade;
         this.v.mn_historial_ventas.setActionCommand("mn_historial_ventas");
         this.v.mn_historial_ventas.addActionListener(this);
         
@@ -177,6 +183,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.SplitPane3.setDividerSize(5);
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.pnl_listaCategorias.setVisible(false);
+                
+                this.v.jComboBoxProductoCategoria.setModel(this.facade.getComboBoxModelCategory());
                 
                 break;
             case mitem_nuevoMaterial:

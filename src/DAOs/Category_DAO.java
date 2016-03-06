@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -128,6 +129,17 @@ public class Category_DAO extends Connection implements Category_IDAO {
         }
         
         return dtm;
+    }
+    
+    @Override /**Obtiene el modelo del ComboBox de Category*/
+    public DefaultComboBoxModel getComboBoxModelCategory(){
+        DefaultComboBoxModel dcbm=new DefaultComboBoxModel();
+        Iterator it=getCategories().iterator();
+        while(it.hasNext()){
+            Category c=(Category) it.next();
+            dcbm.addElement(c.getName());
+        }
+        return dcbm;
     }
     
 }

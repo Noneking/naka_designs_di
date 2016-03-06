@@ -51,7 +51,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     Model model;
     Facade facade;
     ControllerMovimientos cm = new ControllerMovimientos();
-    ControllerMenu cmenu = new ControllerMenu();
+    ControllerMenu cmenu;
     
     Crew crew_logged;
 
@@ -82,6 +82,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         model = new Model();
         this.facade = facade;
         this.crew_logged=crew_logged;
+        cmenu=new ControllerMenu(facade);
 
         clientTableModel = new ClientTableModel(this.facade);
         clientTableRenderer = new ClientTableRenderer();
@@ -263,6 +264,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
     public void initOperations() {
         this.v.jTableMain.setComponentPopupMenu(this.v.jPopupMenu);
+        
+        this.v.eti_nickCrew.setText(crew_logged.getNickname());
+        this.v.eti_emailCrew.setText(crew_logged.getEmail());
     }
 
     @Override

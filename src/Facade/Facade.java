@@ -42,6 +42,7 @@ import Hibernate.POJOs.RecordUser;
 import Hibernate.POJOs.Turnover;
 import Hibernate.POJOs.User;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -287,6 +288,11 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     @Override
     public DefaultTableModel getTableModelCategory() {
         return this.category.getTableModelCategory();
+    }
+    
+    @Override /**Obtiene el modelo del ComboBox de Category*/
+    public DefaultComboBoxModel getComboBoxModelCategory(){
+        return this.category.getComboBoxModelCategory();
     }
 
     /*
