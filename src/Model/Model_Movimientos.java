@@ -140,5 +140,8 @@ public class Model_Movimientos extends Connection {
         return ((Number) query.uniqueResult()).intValue();
     }
 //FIN de Products---------------------------------------------------------------------------------------------------------            
-    
+    public ArrayList<User> getUserss() {
+        openSession();
+        return (ArrayList<User>) getSession().createQuery("from User").list();
+    }
 }

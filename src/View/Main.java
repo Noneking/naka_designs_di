@@ -143,7 +143,6 @@ public class Main extends javax.swing.JFrame {
         pnl_filechooser = new javax.swing.JPanel();
         jFileChooser1 = new javax.swing.JFileChooser();
         btn_abrirFilechooser = new javax.swing.JButton();
-        btn_verFilechooser = new javax.swing.JButton();
         jPopupMenu = new javax.swing.JPopupMenu();
         jMenuItemModificar = new javax.swing.JMenuItem();
         jMenuItemEliminar = new javax.swing.JMenuItem();
@@ -220,6 +219,7 @@ public class Main extends javax.swing.JFrame {
         mitem_blackstart = new javax.swing.JMenuItem();
         mitem_classy = new javax.swing.JMenuItem();
         mitem_configCrew = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menu_movimientos = new javax.swing.JMenu();
         mn_historial_ventas = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -1234,8 +1234,6 @@ public class Main extends javax.swing.JFrame {
 
         btn_abrirFilechooser.setText("Abrir");
 
-        btn_verFilechooser.setText("Ver");
-
         javax.swing.GroupLayout pnl_filechooserLayout = new javax.swing.GroupLayout(pnl_filechooser);
         pnl_filechooser.setLayout(pnl_filechooserLayout);
         pnl_filechooserLayout.setHorizontalGroup(
@@ -1243,17 +1241,12 @@ public class Main extends javax.swing.JFrame {
             .addGroup(pnl_filechooserLayout.createSequentialGroup()
                 .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_abrirFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                    .addComponent(btn_verFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(btn_abrirFilechooser, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         pnl_filechooserLayout.setVerticalGroup(
             pnl_filechooserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jFileChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-            .addGroup(pnl_filechooserLayout.createSequentialGroup()
-                .addComponent(btn_abrirFilechooser, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_verFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(btn_abrirFilechooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jMenuItemModificar.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
@@ -1848,6 +1841,16 @@ public class Main extends javax.swing.JFrame {
         mitem_configCrew.setText("Cofiguración Usuario");
         jMenu3.add(mitem_configCrew);
 
+        jMenuItem2.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/expand.png"))); // NOI18N
+        jMenuItem2.setText("Expandir");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
         manu_bar.add(jMenu3);
 
         menu_movimientos.setText("Movimientos");
@@ -1916,6 +1919,10 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mitem_nuevoEmpleadoActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPasswordField Ptxt_login_password;
     public javax.swing.JSplitPane SplitPane1;
@@ -1948,7 +1955,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_modificarProducto;
     public javax.swing.JButton btn_productoMovi;
     public javax.swing.JButton btn_ventasMovi;
-    public javax.swing.JButton btn_verFilechooser;
     public javax.swing.JLabel eti_emailCrew;
     public javax.swing.JLabel eti_nickCrew;
     public javax.swing.JLabel eti_olvidarContraseña;
@@ -2020,6 +2026,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JMenuItem jMenuItemEliminar;
     public javax.swing.JMenuItem jMenuItemModificar;
     private javax.swing.JPanel jPanel1;

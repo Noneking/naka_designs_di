@@ -50,8 +50,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         this.v.btn_productoMovi.setActionCommand("btn_productoMovi");
         this.v.btn_productoMovi.addActionListener(this);
         
-        this.v.btn_verFilechooser.setActionCommand("btn_verFilechooser");
-        this.v.btn_verFilechooser.addActionListener(this);
+
         this.v.btn_abrirFilechooser.setActionCommand("btn_abrirFilechooser");
         this.v.btn_abrirFilechooser.addActionListener(this);
         

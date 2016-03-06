@@ -293,7 +293,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 gPdf.generateAgendaEmpleados();
                 break;
             case mitem_agendaCliente:
-                
+                 gPdf.generateAgendaClientes();
                 break;
             //FIN de INformes-----------------------------------------------------------------------------------------------
         }
