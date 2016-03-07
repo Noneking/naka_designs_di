@@ -5,11 +5,7 @@
  */
 package Hibernate.Configuration;
 
-import Controller.Controller_Login;
-import Model.Model;
-import View.Main;
 import javax.swing.JOptionPane;
-import javax.swing.text.View;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 

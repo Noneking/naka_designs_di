@@ -14,18 +14,13 @@ import Controller.Table.MaterialTableModel;
 import Controller.Table.MaterialTableRenderer;
 import Controller.Table.ProductTableModel;
 import Controller.Table.ProductTableRenderer;
-import DAOs.User_DAO;
 import Facade.Facade;
-import Hibernate.POJOs.Basket;
 import Hibernate.POJOs.Crew;
 import Hibernate.POJOs.Record;
-import static Model.Connection.getSession;
-import Model.HiloProgreso;
-import Model.Model;
+import static Model.Connection.getSession;;
 import View.Main;
 import com.itextpdf.text.Font;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.GridLayout;
@@ -37,17 +32,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JSplitPane;
 import javax.swing.SwingUtilities;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.Query;
 
@@ -58,7 +46,6 @@ import org.hibernate.Query;
 public class Controller_Main implements ActionListener, MouseListener, PopupMenuListener {
 
     Main v;
-    Model model;
     Facade facade;
     ControllerMovimientos cm = new ControllerMovimientos();
     ControllerMenu cmenu;
@@ -91,7 +78,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
         this.v = v;
         this.v.setExtendedState(MAXIMIZED_BOTH);
-        model = new Model();
         this.facade = facade;
         this.crew_logged=crew_logged;
         cmenu=new ControllerMenu(facade);
@@ -1014,13 +1000,13 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
                 break;
             case "PRODUCTO":
-                this.v.jComboBoxProductoCategoria.setModel(model.getComboBoxModel("CATEGORIA"));
+                //this.v.jComboBoxProductoCategoria.setModel(model.getComboBoxModel("CATEGORIA"));
                 break;
             case "CLIENTE":
 
                 break;
             case "EMPLEADO":
-                this.v.jComboBoxEmpleadoRol.setModel(model.getComboBoxModel("EMPLEADO"));
+               // this.v.jComboBoxEmpleadoRol.setModel(model.getComboBoxModel("EMPLEADO"));
                 break;
             case "CARRITO":
 

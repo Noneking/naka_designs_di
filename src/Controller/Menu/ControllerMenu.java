@@ -9,12 +9,9 @@ import Controller.Controller_Login;
 import Controller.Controller_Main;
 import Controller.Movimientos.generatePDF;
 import Controller.Position;
-import Controller.RUN;
 import Facade.Facade;
 import Hibernate.POJOs.Crew;
-import Model.HiloProgreso;
 import Model.LectorTema;
-import Model.Model;
 import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
@@ -28,7 +25,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  *
@@ -37,7 +33,6 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class ControllerMenu extends EnumMenu implements ActionListener{
 
     Main v;
-    Model model = new Model();
     Controller_Main cm;
     Facade facade;
     Crew c;

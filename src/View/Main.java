@@ -1759,7 +1759,7 @@ public class Main extends javax.swing.JFrame {
 
         mn_historial_ventas.setFont(new java.awt.Font("Calibri", 1, 12)); // NOI18N
         mn_historial_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/movi.png"))); // NOI18N
-        mn_historial_ventas.setText("Historial ventas");
+        mn_historial_ventas.setText("Historial movimientos");
         menu_movimientos.add(mn_historial_ventas);
 
         manu_bar.add(menu_movimientos);
