@@ -135,7 +135,7 @@ public class Model_Movimientos extends Connection {
     public int getProductCount(String question) {
         openSession();
 
-        Query query = getSession().createQuery("select count(*) from ProductRecord where cod =(select cod from Product where name ='"+question+"')");
+        Query query = getSession().createQuery("select count(*) from ProductRecord where product =(select cod from Product where name ='"+question+"')");
 
         return ((Number) query.uniqueResult()).intValue();
     }
