@@ -51,9 +51,7 @@ public class Controller_Login implements ActionListener, MouseListener {
     @Override
     public void mouseClicked(java.awt.event.MouseEvent e) {
 
-        if (e.getComponent() == v.eti_olvidarContraseña) {
-            JOptionPane.showMessageDialog(null, "Hola :)");
-        }
+        
         if (e.getComponent() == v.txt_login_user) {
             position = POSITION.USER.toString();
         }
@@ -100,7 +98,6 @@ public class Controller_Login implements ActionListener, MouseListener {
         this.v.Ptxt_login_password.setActionCommand("btn_enter");
         this.v.Ptxt_login_password.addActionListener(this);
 
-        this.v.eti_olvidarContraseña.addMouseListener(this);
         this.v.txt_login_user.addMouseListener(this);
         this.v.Ptxt_login_password.addMouseListener(this);
 

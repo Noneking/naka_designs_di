@@ -40,8 +40,6 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         //boton home
         this.v.btn_home.setActionCommand("btn_home");
         this.v.btn_home.addActionListener(this);
-        this.v.btn_configMovimientos.setActionCommand("btn_configMovimientos");
-        this.v.btn_configMovimientos.addActionListener(this);
         //boton ventas
         this.v.pnl_mostrarGrafica.setLayout(new BorderLayout());
         this.v.pnl_contenedorInferiorMovimientos.setLayout(new BorderLayout());
