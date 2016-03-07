@@ -175,6 +175,7 @@ public class Controller_Login implements ActionListener, MouseListener {
     public void logginOperations(Crew crew_logged) {
 
         this.v.jFrameLoggin.setVisible(false);
+        facade.insertBookmark("Conexion", ActualDate.getDateActual(), crew_logged.getEmail());
         this.v.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

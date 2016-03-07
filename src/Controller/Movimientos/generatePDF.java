@@ -87,7 +87,7 @@ public class generatePDF {
                 }
               
                 documento.close();//Cerramos el flujo con el documento
-                JOptionPane.showMessageDialog(null, "Se ha insertado documento:");
+                JOptionPane.showMessageDialog(null, "Se ha creado agenda de Empleados.");
         
             
         }
@@ -255,7 +255,7 @@ public class generatePDF {
                 
                 
                 documento.close();//Cerramos el flujo con el documento
-                JOptionPane.showMessageDialog(null, "Se ha creado la agenda Clientes.");
+                JOptionPane.showMessageDialog(null, "Se ha creado el Informe General");
             
         }
         catch (DocumentException ex) 

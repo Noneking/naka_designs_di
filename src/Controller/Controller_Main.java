@@ -88,9 +88,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
     int rosa = 1;
 
     public Controller_Main(Main v, Crew crew_logged, Facade facade,String rol) {
-        
-        facade.insertBookmark("Conexion", ActualDate.getDateActual(), crew_logged.getEmail());
-        
+
         this.v = v;
         this.v.setExtendedState(MAXIMIZED_BOTH);
         model = new Model();

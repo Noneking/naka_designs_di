@@ -101,6 +101,8 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             this.v.mitem_agendaEmple.addActionListener(this);
             this.v.mitem_agendaCliente.setActionCommand("mitem_agendaCliente");
             this.v.mitem_agendaCliente.addActionListener(this);
+            this.v.mitem_informe.setActionCommand("mitem_informe");
+            this.v.mitem_informe.addActionListener(this);
             
             cm = new Controller_Main(this.v, crew_logged, facade, null);
             gPdf = new generatePDF();
@@ -314,6 +316,9 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 break;
             case mitem_agendaCliente:
                  gPdf.generateAgendaClientes();
+                break;
+            case mitem_informe:
+                 gPdf.generateInforme();
                 break;
             //FIN de INformes-----------------------------------------------------------------------------------------------
         }
