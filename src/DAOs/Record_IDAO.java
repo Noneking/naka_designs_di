@@ -18,7 +18,7 @@ public interface Record_IDAO {
     public Record getRecordByCod(int cod);
     public ArrayList<Record> getRecordsByQuery(String question);
     public ArrayList<Record> getRecords();
-    public void insertRecord(String date);
+    public Record insertRecord(String date);
     public void modifyRecord(int cod, String date);
     public void deleteRecord(int cod);
     public void deleteRecords(ArrayList<Record> records);

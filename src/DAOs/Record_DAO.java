@@ -38,11 +38,12 @@ public class Record_DAO extends Connection implements Record_IDAO{
     }
 
     @Override /**Inserta un objeto de tipo Record en la BD*/
-    public void insertRecord(String date) {
+    public Record insertRecord(String date) {
         Record r=new Record(date);
         getSession().save(r);
         getTransaction().commit();
         System.err.println("Record inserted succesfully.");
+        return r;
     }
 
     @Override /**Modifica un objeto de tipo Record en la BD*/

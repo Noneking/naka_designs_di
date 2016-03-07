@@ -18,6 +18,8 @@ import DAOs.User_DAO;
 import Facade.Facade;
 import Hibernate.POJOs.Basket;
 import Hibernate.POJOs.Crew;
+import Hibernate.POJOs.Record;
+import static Model.Connection.getSession;
 import Model.HiloProgreso;
 import Model.Model;
 import View.Main;
@@ -47,6 +49,7 @@ import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
+import org.hibernate.Query;
 
 /**
  *
@@ -166,7 +169,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
         this.v.SplitPane1.setOneTouchExpandable(false);
         this.v.SplitPane1.setDividerLocation(200);
-        this.v.pnl_listaCategorias.setVisible(false);
 
         this.v.SplitPane3.setDividerLocation(this.v.getWidth());
         //this.v.SplitPane3.setDividerSize(0);
@@ -200,9 +202,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
         this.v.btn_Empleados.addActionListener(this);
         this.v.btn_Carritos.setActionCommand("btn_carritos");
         this.v.btn_Carritos.addActionListener(this);
-
-        this.v.btn_añadirCategoria.setActionCommand("btn_añadirCategorias");
-        this.v.btn_añadirCategoria.addActionListener(this);
 
         //QUERY
         this.v.jTextFieldTableQuery.setActionCommand("action_query");
@@ -356,7 +355,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                             basketTableModel.updateTableDatas();
                         } else {
                             try {
-                                basketTableModel.updateTableDatas(facade.getBasketByQuery(this.v.jTextFieldTableQuery.getText()));
+                                basketTableModel.updateTableDatas(facade.getRecordsUsersByQuery(Integer.parseInt(this.v.jTextFieldTableQuery.getText())));
                             } catch (Exception ex) {
                                 System.err.println(ex);
                             }
@@ -374,15 +373,13 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 refreshTable(Position.getPosition());
 
                 ponerEsaTablaToGuapaYReshulona();
-                this.v.pnl_listaCategorias.setVisible(true);
 
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(10000);
                 this.v.SplitPane3.setDividerSize(0);
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
-                this.v.SplitPane1.setDividerLocation(500);
-                this.v.pnl_listaCategorias.setVisible(true);
+                this.v.SplitPane1.setDividerLocation(200);
                 break;
 
             case btn_materiales:
@@ -396,7 +393,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
 
             case btn_clientes:
@@ -410,7 +406,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
 
             case btn_empleados:
@@ -425,7 +420,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
 
                 break;
 
@@ -440,7 +434,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
 
             case btn_añadirCategorias:
@@ -453,7 +446,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane3.setDividerLocation(300);
                 this.v.SplitPane3.setDividerSize(5);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case btn_categoria_insertar:
                 facade.insertCategory(this.v.jTextFieldCategoriaNombre.getText(), this.v.jTextAreaCategoriaDescripcion.getText());
@@ -565,11 +557,15 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 
 //                    Basket basketSeguridad=facade.getBasketByUser(facade.getUserByNickname(this.v.jTextFieldBasket.getText().split("-")[0]).getCod());
 //                    facade.deleteBasket(facade.getBasketByUser(facade.getUserByNickname(this.v.jTextFieldBasket.getText().split("-")[0]).getCod()).getCod());
-//                    basketTableModel.updateTableDatas();
-//                    Position.setPosition(Position.POSITION.CARRITO.toString());
-//                    refreshTable(Position.getPosition());
-//                    ponerEsaTablaToGuapaYReshulona();
-//                    
+                
+                    Record recordSecurity=facade.insertRecord(ActualDate.getSimpleDate());
+                    
+                    facade.insertRecordUser(facade.getUserByNickname(this.v.jTextFieldBasket.getText().split("-")[0]).getCod(), recordSecurity.getCod());
+                    basketTableModel.updateTableDatas();
+                    Position.setPosition(Position.POSITION.CARRITO.toString());
+                    refreshTable(Position.getPosition());
+                    ponerEsaTablaToGuapaYReshulona();
+                    
 //                    Basket nuevaBasket;
                     
 //                try{    
@@ -584,7 +580,8 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                             i=i+4;
                             
                             String user_nickname=this.v.jTextFieldBasket.getText().split("-")[0];
-                            facade.insertProductRecord(facade.getUserByNickname(user_nickname).getCod(), facade.getProductByName(nombre.getText()).getCod(), Integer.parseInt(cantidad.getText()));
+                            facade.insertProductRecord(Integer.parseInt(cantidad.getText()), recordSecurity.getCod(), facade.getProductByName(nombre.getText()).getCod());
+//                            facade.insertProductRecord(facade.getUserByNickname(user_nickname).getCod(), facade.getProductByName(nombre.getText()).getCod(), Integer.parseInt(cantidad.getText()));
                         }
                     }else{
                         JOptionPane.showMessageDialog(null, "Debe seleccionar los materiales del producto");
@@ -594,6 +591,9 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                     Position.setPosition(Position.POSITION.CARRITO.toString());
                     refreshTable(Position.getPosition());
                     ponerEsaTablaToGuapaYReshulona();
+                    
+                    this.v.pnl_listaCarrito.removeAll();
+                    
 //                }catch(Exception ex){
 ////                    facade.deleteBasket(facade.getBasketByCod(nombreBasket).getCod());
 //                    productTableModel.updateTableDatas();
@@ -733,13 +733,11 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                 this.v.SplitPane1.setDividerLocation(0);
                 this.v.SplitPane1.setDividerSize(0);
                 this.v.btn_esconder_pnlPrincipal.setVisible(true);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case btn_esconder_pnlPrincipal:
                 this.v.SplitPane1.setDividerLocation(200);
                 this.v.btn_esconder_pnlPrincipal.setVisible(false);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case jButtonBuscarCliente:
                 this.v.jFrame_clienteCarrito.setVisible(true);
@@ -771,6 +769,16 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
             case "CATEGORIA":
                 this.v.jTextFieldCategoriaNombre.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 1).toString());
                 this.v.jTextAreaCategoriaDescripcion.setText(this.v.jTableMain.getValueAt(this.v.jTableMain.getSelectedRow(), 2).toString());
+                
+                Position.setPosition(Position.POSITION.PRODUCT_CATEGORY.toString());
+                
+                System.out.println(this.v.jTextFieldCategoriaNombre.getText());
+                Query query = getSession().createQuery("from Product p where p.category =(select cod from Category c where c.name = '"+this.v.jTextFieldCategoriaNombre.getText()+"')");
+                productTableModel.updateTableDatas(query.list());
+                Position.setPosition(Position.POSITION.PRODUCTO.toString());
+                refreshTable(Position.getPosition());
+                ponerEsaTablaToGuapaYReshulona();
+                
                 break;
             case "MATERIAL":
                 
@@ -835,6 +843,12 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
 
                 break;
             case "CARRITO":
+                if(e.getComponent()==this.v.jTableMain){
+                    this.v.jTable_recordRecords.setModel(facade.getTableModelProductRecord());
+                    this.v.jFrame_recordRecords.setVisible(true);
+                    this.v.jFrame_recordRecords.setSize(567, 320);
+                    this.v.jFrame_recordRecords.setLocationRelativeTo(null);
+                }
                 if(e.getComponent()==this.v.jTable_clienteCarrito){
                     this.v.jTextFieldBasket.setText(this.v.jTable_clienteCarrito.getValueAt(this.v.jTable_clienteCarrito.getSelectedRow(), 1).toString()+"-"+this.v.jTable_clienteCarrito.getValueAt(this.v.jTable_clienteCarrito.getSelectedRow(), 2).toString()+" "+this.v.jTable_clienteCarrito.getValueAt(this.v.jTable_clienteCarrito.getSelectedRow(), 3).toString());
                     this.v.jFrame_clienteCarrito.setVisible(false);
@@ -888,9 +902,6 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                                 this.v.jTable_productoCarrito.setModel(dtm);
                             }
                         }
-                        
-                        System.out.println("Nombre: "+nombre.getText()+", Cantidad: "+cantidad.getText()+", Precio: "+precio.getText()+", Categoria: "+categoria.getText());
-                        
                     }else{
                         JOptionPane.showMessageDialog(null, "Debe seleccionar una cantidad superior a cero");
                     }
@@ -907,11 +918,10 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                             i=i+4;
                             precioTotal=precioTotal+((Double.parseDouble(precio.getText()))*(Integer.parseInt(cantidad.getText())));
                         }
-                        this.v.jLabel_insertarCarritoPrecioTotal.setText(precioTotal.toString());
+                        this.v.jLabel_insertarCarritoPrecioTotal.setText(precioTotal.toString()+" €");
                     }else{
                         JOptionPane.showMessageDialog(null, "Debe seleccionar productos");
                     }
-                    
                 }
                 break;
             case "PRODUCT_MATERIAL":

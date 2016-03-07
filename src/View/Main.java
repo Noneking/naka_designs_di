@@ -132,7 +132,6 @@ public class Main extends javax.swing.JFrame {
         jTextFieldMaterialNombre = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldMaterialCantidad = new javax.swing.JTextField();
-        jSlider1 = new javax.swing.JSlider();
         btn_insertarMaterial = new javax.swing.JButton();
         btn_modificarMaterial = new javax.swing.JButton();
         pnl_filechooser = new javax.swing.JPanel();
@@ -173,6 +172,9 @@ public class Main extends javax.swing.JFrame {
         jTable_materialesProducto = new javax.swing.JTable();
         jSpinner_materialesProducto = new javax.swing.JSpinner();
         jLabel44 = new javax.swing.JLabel();
+        jFrame_recordRecords = new javax.swing.JFrame();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTable_recordRecords = new javax.swing.JTable();
         pnl_Main = new javax.swing.JPanel();
         SplitPane1 = new javax.swing.JSplitPane();
         pnl_split1_izquierda = new View.Methods.pnl_izquierda();
@@ -182,10 +184,6 @@ public class Main extends javax.swing.JFrame {
         btn_Materiales = new javax.swing.JButton();
         btn_Categorias = new javax.swing.JButton();
         btn_esconderRosa = new javax.swing.JButton();
-        pnl_listaCategorias = new javax.swing.JPanel();
-        btn_añadirCategoria = new javax.swing.JButton();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jPanel7 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         eti_nickCrew = new javax.swing.JLabel();
         eti_emailCrew = new javax.swing.JLabel();
@@ -201,6 +199,7 @@ public class Main extends javax.swing.JFrame {
         mitem_agendaCliente = new javax.swing.JMenuItem();
         mitem_agendaEmple = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
+        mitem_nuevoCategoria = new javax.swing.JMenuItem();
         mitem_nuevoProducto = new javax.swing.JMenuItem();
         mitem_nuevoMaterial = new javax.swing.JMenuItem();
         mitem_nuevoCliente = new javax.swing.JMenuItem();
@@ -997,7 +996,7 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jTextFieldProductoNombre)
                             .addComponent(jTextFieldProductoPrecio)
                             .addComponent(jTextFieldProductoCantidad)
-                            .addComponent(jComboBoxProductoCategoria, 0, 398, Short.MAX_VALUE))))
+                            .addComponent(jComboBoxProductoCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(98, 98, 98))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_ProductosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1030,7 +1029,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(jButtonProductoAñadirMaterial))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                .addComponent(jScrollPane3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_ProductosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertarProducto)
@@ -1131,23 +1130,20 @@ public class Main extends javax.swing.JFrame {
             pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_MaterialesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel6)
+                .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnl_MaterialesLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldMaterialNombre))
-                    .addGroup(pnl_MaterialesLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldMaterialCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSlider1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_MaterialesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(365, 365, 365)
                         .addComponent(btn_modificarMaterial)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_insertarMaterial)))
-                .addContainerGap())
+                        .addComponent(btn_insertarMaterial))
+                    .addGroup(pnl_MaterialesLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jTextFieldMaterialNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldMaterialCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))))
         );
         pnl_MaterialesLayout.setVerticalGroup(
             pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1155,17 +1151,13 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_MaterialesLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                        .addGap(6, 6, 6)
                         .addComponent(jLabel6))
-                    .addComponent(jTextFieldMaterialNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnl_MaterialesLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(jLabel7))
-                    .addComponent(jTextFieldMaterialCantidad)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldMaterialCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7)
+                        .addComponent(jTextFieldMaterialNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(pnl_MaterialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_insertarMaterial)
                     .addComponent(btn_modificarMaterial))
@@ -1454,6 +1446,34 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jLabel44, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jFrame_recordRecords.setTitle("Productos de la compra");
+        jFrame_recordRecords.setPreferredSize(new java.awt.Dimension(567, 320));
+        jFrame_recordRecords.setResizable(false);
+
+        jTable_recordRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(jTable_recordRecords);
+
+        javax.swing.GroupLayout jFrame_recordRecordsLayout = new javax.swing.GroupLayout(jFrame_recordRecords.getContentPane());
+        jFrame_recordRecords.getContentPane().setLayout(jFrame_recordRecordsLayout);
+        jFrame_recordRecordsLayout.setHorizontalGroup(
+            jFrame_recordRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
+        );
+        jFrame_recordRecordsLayout.setVerticalGroup(
+            jFrame_recordRecordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Naka Designs Sevilla v0.3");
         setBackground(null);
@@ -1516,52 +1536,6 @@ public class Main extends javax.swing.JFrame {
         btn_esconderRosa.setFocusPainted(false);
         btn_esconderRosa.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/arrows/arrow1_izquierda.png"))); // NOI18N
 
-        pnl_listaCategorias.setOpaque(false);
-
-        btn_añadirCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/normal/masCategorias.png"))); // NOI18N
-        btn_añadirCategoria.setBorderPainted(false);
-        btn_añadirCategoria.setContentAreaFilled(false);
-        btn_añadirCategoria.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/selected/masCategorias_selected.png"))); // NOI18N
-        btn_añadirCategoria.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/buttons/presed/masCategorias_presed.png"))); // NOI18N
-
-        jScrollPane8.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane8.setHorizontalScrollBar(null);
-        jScrollPane8.setOpaque(false);
-
-        jPanel7.setOpaque(false);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 291, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
-        jScrollPane8.setViewportView(jPanel7);
-
-        javax.swing.GroupLayout pnl_listaCategoriasLayout = new javax.swing.GroupLayout(pnl_listaCategorias);
-        pnl_listaCategorias.setLayout(pnl_listaCategoriasLayout);
-        pnl_listaCategoriasLayout.setHorizontalGroup(
-            pnl_listaCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_listaCategoriasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(btn_añadirCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 291, Short.MAX_VALUE)
-        );
-        pnl_listaCategoriasLayout.setVerticalGroup(
-            pnl_listaCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_listaCategoriasLayout.createSequentialGroup()
-                .addComponent(btn_añadirCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane8)
-                .addContainerGap())
-        );
-
         jPanel3.setOpaque(false);
 
         eti_nickCrew.setFont(new java.awt.Font("Calibri", 1, 20)); // NOI18N
@@ -1606,8 +1580,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(btn_Clientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_Materiales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnl_listaCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_split1_izquierdaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1617,23 +1590,18 @@ public class Main extends javax.swing.JFrame {
             pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
                 .addComponent(btn_esconderRosa, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(pnl_split1_izquierdaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(btn_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_Materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnl_split1_izquierdaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pnl_listaCategorias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(36, 36, 36)
+                .addComponent(btn_Categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_Materiales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Clientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_Empleados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Carritos, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         SplitPane1.setLeftComponent(pnl_split1_izquierda);
@@ -1726,6 +1694,11 @@ public class Main extends javax.swing.JFrame {
         jMenu6.setText("Nuevo . . .");
         jMenu6.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
 
+        mitem_nuevoCategoria.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
+        mitem_nuevoCategoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/category.png"))); // NOI18N
+        mitem_nuevoCategoria.setText("Categoria");
+        jMenu6.add(mitem_nuevoCategoria);
+
         mitem_nuevoProducto.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         mitem_nuevoProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/product.png"))); // NOI18N
         mitem_nuevoProducto.setText("Producto");
@@ -1753,7 +1726,7 @@ public class Main extends javax.swing.JFrame {
 
         mitem_nuevoCarrito.setFont(new java.awt.Font("Calibri", 1, 13)); // NOI18N
         mitem_nuevoCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMG/table/basket.png"))); // NOI18N
-        mitem_nuevoCarrito.setText("Carrito");
+        mitem_nuevoCarrito.setText("Compra");
         jMenu6.add(mitem_nuevoCarrito);
 
         jMenu2.add(jMenu6);
@@ -1885,7 +1858,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JButton btn_Login;
     public javax.swing.JButton btn_Materiales;
     public javax.swing.JButton btn_abrirFilechooser;
-    public javax.swing.JButton btn_añadirCategoria;
     public javax.swing.JButton btn_cancelarConfiCrew;
     public javax.swing.JButton btn_categorias_insertar;
     public javax.swing.JButton btn_categorias_modificar;
@@ -1923,6 +1895,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JFrame jFrame_confiCrew;
     public javax.swing.JFrame jFrame_materialesProducto;
     public javax.swing.JFrame jFrame_productoCarrito;
+    public javax.swing.JFrame jFrame_recordRecords;
     public javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -1982,7 +1955,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     public javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     public javax.swing.JPanel jPanelLogin;
     public javax.swing.JPanel jPanelMaterialesAñadidos;
     public javax.swing.JPasswordField jPasswordFieldClientePassword;
@@ -1993,21 +1965,21 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPasswordField jPasswordField_reContraseñaConfi;
     public javax.swing.JPopupMenu jPopupMenu;
     public javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JSlider jSlider1;
     public javax.swing.JSpinner jSpinner_materialesProducto;
     public javax.swing.JSpinner jSpinner_productoCarrito;
     public javax.swing.JTable jTableMain;
     public javax.swing.JTable jTable_clienteCarrito;
     public javax.swing.JTable jTable_materialesProducto;
     public javax.swing.JTable jTable_productoCarrito;
+    public javax.swing.JTable jTable_recordRecords;
     public javax.swing.JTextArea jTextAreaCategoriaDescripcion;
     public javax.swing.JTextField jTextFieldBasket;
     public javax.swing.JTextField jTextFieldCategoriaNombre;
@@ -2040,6 +2012,7 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JMenuItem mitem_logout;
     public javax.swing.JMenuItem mitem_masInfo;
     public javax.swing.JMenuItem mitem_nuevoCarrito;
+    public javax.swing.JMenuItem mitem_nuevoCategoria;
     public javax.swing.JMenuItem mitem_nuevoCliente;
     public javax.swing.JMenuItem mitem_nuevoEmpleado;
     public javax.swing.JMenuItem mitem_nuevoMaterial;
@@ -2060,7 +2033,6 @@ public class Main extends javax.swing.JFrame {
     public javax.swing.JPanel pnl_contenedorInferiorMovimientos;
     public javax.swing.JPanel pnl_filechooser;
     public javax.swing.JPanel pnl_listaCarrito;
-    public javax.swing.JPanel pnl_listaCategorias;
     public javax.swing.JPanel pnl_mensageMovimientos;
     public javax.swing.JPanel pnl_mostrarGrafica;
     public javax.swing.JPanel pnl_split1_derecha;

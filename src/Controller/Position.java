@@ -21,7 +21,8 @@ public class Position {
         CLIENTE,
         EMPLEADO,
         CARRITO,
-        PRODUCT_MATERIAL
+        PRODUCT_MATERIAL,
+        PRODUCT_CATEGORY
     }
     
     public static String getPosition(){

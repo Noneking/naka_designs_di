@@ -25,4 +25,8 @@ public class ActualDate {
         return dayOfMonth+"/"+monthOfYear+"/"+year+" -- "+hour+":"+min+":"+sec;
     }
     
+    public static String getSimpleDate(){
+        return dayOfMonth+"/"+monthOfYear+"/"+year;
+    }
+    
 }

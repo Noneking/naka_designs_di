@@ -315,8 +315,8 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     }
 
     @Override
-    public void insertRecord(String date) {
-        this.record.insertRecord(date);
+    public Record insertRecord(String date) {
+        return this.record.insertRecord(date);
     }
 
     @Override

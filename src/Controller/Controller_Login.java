@@ -147,7 +147,6 @@ public class Controller_Login implements ActionListener, MouseListener {
                     this.v.jLabelLogginErrorMessage.setForeground(Color.GREEN);
                     this.v.jLabelLogginErrorMessage.setText(text);
 
-                    System.out.println(""+crewByNickname.getRole().toString());
                     rol = ""+crewByNickname.getRole().toString();
 
                     logginOperations(crewByNickname);

@@ -199,7 +199,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.SplitPane3.setDividerLocation(350);
                 this.v.SplitPane3.setDividerSize(5);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 
                 this.v.jComboBoxProductoCategoria.setModel(this.facade.getComboBoxModelCategory());
                 
@@ -223,7 +222,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.SplitPane3.setDividerLocation(350);
                 this.v.SplitPane3.setDividerSize(5);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoCliente:
                 Position.setPosition(Position.POSITION.CLIENTE.toString());
@@ -238,7 +236,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoEmpleado:
                 Position.setPosition(Position.POSITION.EMPLEADO.toString());
@@ -253,7 +250,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
                 break;
             case mitem_nuevoCarrito:
                 Position.setPosition(Position.POSITION.CARRITO.toString());
@@ -268,7 +264,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 this.v.pnl_split3_inserts.setVisible(false);
                 this.v.pnl_split3_inserts.setVisible(true);
                 this.v.SplitPane1.setDividerLocation(200);
-                this.v.pnl_listaCategorias.setVisible(false);
 
                 this.v.jTable_clienteCarrito.setModel(facade.getTableModelUser());
                 this.v.jTable_productoCarrito.setModel(facade.getTableModelProduct());

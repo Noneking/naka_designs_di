@@ -8,6 +8,8 @@ package Controller.Table;
 import Facade.Facade;
 import Hibernate.POJOs.Basket;
 import Hibernate.POJOs.Material;
+import Hibernate.POJOs.Record;
+import Hibernate.POJOs.RecordUser;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -20,18 +22,18 @@ public class BasketTableModel extends AbstractTableModel {
     Facade facade;
     
     private String[] columnNames = ColumnModel.getColumnModel(ColumnModel.COLUMN_MODEL_POSITION.BASKET.toString());
-    private List<Basket> basket;
+    private List<RecordUser> basket;
 
     public BasketTableModel(Facade facade){
         this.facade=facade;
-        basket=facade.getBaskets();
+        basket=facade.getRecordsUsers();
     }
     
     public void updateTableDatas(){
-        basket=facade.getBaskets();
+        basket=facade.getRecordsUsers();
     }
     
-    public void updateTableDatas(List<Basket> basket){
+    public void updateTableDatas(List<RecordUser> basket){
         this.basket=basket;
     }
     
@@ -71,11 +73,9 @@ public class BasketTableModel extends AbstractTableModel {
             case 0:
                 return basket.get(rowIndex).getCod();
             case 1:
-                return basket.get(rowIndex).getAmount();
-            case 2:
                 return basket.get(rowIndex).getUser().getNickname();
-            case 3:
-                return basket.get(rowIndex).getProduct().getName();
+            case 2:
+                return basket.get(rowIndex).getRecord().getCod()+"-"+basket.get(rowIndex).getRecord().getDate();
             default:
                 return null;
         }
