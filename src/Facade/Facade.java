@@ -364,7 +364,7 @@ public class Facade implements User_IDAO, Product_IDAO, ProductRecord_IDAO, Cate
     }
 
     @Override
-    public ArrayList<RecordUser> getRecordsUsersByQuery(int question) {
+    public ArrayList<RecordUser> getRecordsUsersByQuery(String question) {
         return this.recordUser.getRecordsUsersByQuery(question);
     }
 

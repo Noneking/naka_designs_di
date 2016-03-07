@@ -208,7 +208,6 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
                 
                 break;
             case mitem_nuevoMaterial:
-                
                 Position.setPosition(Position.POSITION.MATERIAL.toString());
                 cm.refreshTable(Position.getPosition());
                 
@@ -254,7 +253,7 @@ public class ControllerMenu extends EnumMenu implements ActionListener{
             case mitem_nuevoCarrito:
                 Position.setPosition(Position.POSITION.CARRITO.toString());
                 cm.refreshTable(Position.getPosition());
-
+                
                 cm.ponerEsaTablaToGuapaYReshulona();
                 this.v.pnl_split3_inserts.removeAll();
                 this.v.SplitPane3.setDividerLocation(300);

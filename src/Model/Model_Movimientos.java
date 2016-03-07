@@ -28,63 +28,63 @@ public class Model_Movimientos extends Connection {
   //Inicio de Records---------------------------------------------------------------------------------------------------------  
     public int getRecordEnero() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/01/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/01/%'or like '%/1/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordFebrero() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/02/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/02/%'or like '%/2/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordMarzo() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/03/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/03/%'or like '%/3/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordAbril() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/04/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/04/%'or like '%/4/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordMayo() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/05/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/05/%'or like '%/5/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordJunio() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/06/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/06/%'or like '%/6/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordJulio() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/07/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/07/%'or like '%/7/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordAgosto() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/08/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/08/%'or like '%/8/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }
 
     public int getRecordSeptiembre() {
         openSession();
-        Query query = getSession().createQuery("select count(*) from Record where date like '%/09/%'");
+        Query query = getSession().createQuery("select count(*) from Record where date like '%/09/%'or like '%/9/%'");
 
         return ((Number) query.uniqueResult()).intValue();
     }

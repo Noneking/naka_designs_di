@@ -20,7 +20,8 @@ public class EnumMovimientos {
         btn_filechooser,
             btn_verFilechooser,
             btn_abrirFilechooser,
-        btn_informe;
+        btn_informe,
+        btn_configMovimientos;
     }
     
 }

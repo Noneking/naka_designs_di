@@ -355,7 +355,7 @@ public class Controller_Main implements ActionListener, MouseListener, PopupMenu
                             basketTableModel.updateTableDatas();
                         } else {
                             try {
-                                basketTableModel.updateTableDatas(facade.getRecordsUsersByQuery(Integer.parseInt(this.v.jTextFieldTableQuery.getText())));
+                               basketTableModel.updateTableDatas(facade.getRecordsUsersByQuery(this.v.jTextFieldTableQuery.getText()));
                             } catch (Exception ex) {
                                 System.err.println(ex);
                             }

@@ -20,7 +20,7 @@ public interface RecordUser_IDAO {
     public RecordUser getRecordUserByCod(int cod);
     public ArrayList<RecordUser> getRecordUserByUser(int user);
     public ArrayList<RecordUser> getRecordUserByRecord(int record);
-    public ArrayList<RecordUser> getRecordsUsersByQuery(int question);
+    public ArrayList<RecordUser> getRecordsUsersByQuery(String question);
     public ArrayList<RecordUser> getRecordsUsers();
     public void insertRecordUser(int user, int record);
     public void modifyRecordUser(int cod, User user, Record record);

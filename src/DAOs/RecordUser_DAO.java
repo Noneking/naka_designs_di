@@ -42,8 +42,8 @@ public class RecordUser_DAO extends Connection implements RecordUser_IDAO{
     }
 
     @Override /**Obtiene una colección de objetos de tipo RecordUser según una variable que referencia varios campos(int)*/
-    public ArrayList<RecordUser> getRecordsUsersByQuery(int question) {
-        Query query=getSession().createQuery("from RecordUser r where r.cod like :query OR r.user like :query OR r.record like :query");
+    public ArrayList<RecordUser> getRecordsUsersByQuery(String question) {
+        Query query=getSession().createQuery("from RecordUser r where r.user.nickname like :query OR r.record.date like :query");
         ArrayList<RecordUser> list=(ArrayList<RecordUser>) query.setParameter("query", "%"+question+"%").list();
         return list;
     }
