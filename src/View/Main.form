@@ -3240,7 +3240,7 @@
                 <Component class="javax.swing.JButton" name="btn_Carritos">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/IMG/buttons/normal/Carrito.png"/>
+                      <Image iconType="3" name="/IMG/buttons/normal/Compra.png"/>
                     </Property>
                     <Property name="borderPainted" type="boolean" value="false"/>
                     <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -3248,10 +3248,10 @@
                       <Color id="Cursor Por defecto"/>
                     </Property>
                     <Property name="pressedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/IMG/buttons/selected/Carrito_selected.png"/>
+                      <Image iconType="3" name="/IMG/buttons/selected/Compra_selected.png"/>
                     </Property>
                     <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/IMG/buttons/presed/Carrito_presed.png"/>
+                      <Image iconType="3" name="/IMG/buttons/presed/Compra_presed.png"/>
                     </Property>
                   </Properties>
                   <AuxValues>

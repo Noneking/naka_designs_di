@@ -32,6 +32,10 @@ public class LabelAccessor extends JLabel implements PropertyChangeListener {
         setPreferredSize(new Dimension(PREFERRED_WIDTH, PREFERRED_HEIGHT));//enviar ancho y algo por defecto 250x250
     }
 
+    LabelAccessor() {
+
+    }
+
     @Override
     public void propertyChange(PropertyChangeEvent changeEvent) {//metodos implementorios de la clase LabelAccessory
 

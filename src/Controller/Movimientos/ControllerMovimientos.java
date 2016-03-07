@@ -11,10 +11,14 @@ import Model.Model_Movimientos;
 import View.Main;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -34,6 +38,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
     Model_Movimientos mm;
     File arch;
     generatePDF pdf;
+    LabelAccessor la;
     //JWebBrowser fileBrowser = new JWebBrowser();
     public void initMovimientosListeners(Main v){
         this.v = v;
@@ -60,6 +65,8 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
         
         mm = new Model_Movimientos();
         pdf = new generatePDF();
+        la = new LabelAccessor();
+        
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imágenes", "png", "jpg", "gif");//filtramos solo los formatos que queramos de imagen
         FileNameExtensionFilter filtro1 = new FileNameExtensionFilter("Texto", "pdf", "txt");
         this.v.jFileChooser1.setFileFilter(filtro);//le enviamos el filtro
@@ -163,7 +170,7 @@ public class ControllerMovimientos extends EnumMovimientos implements ActionList
                 
                 break;
             case btn_abrirFilechooser:
-                
+        
                 break;
             case btn_informe:
                 this.pdf.generateInforme();
